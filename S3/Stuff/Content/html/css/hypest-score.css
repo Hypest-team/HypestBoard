@@ -44,7 +44,8 @@ body {
 }
 
 .player {
-	min-width: 16ch;
+	min-width: 20ch;
+	max-width: 26ch;
 	background-color: transparent;
 	border: #320905 solid 4px;
 	padding: 0.1ch;
