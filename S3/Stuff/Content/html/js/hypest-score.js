@@ -6,33 +6,33 @@
 			"Player1": {
 				"name": "",
 				"character": {
-					"name": "Fox",
-					"icon": "20xx.png"
+					"name": "",
+					"icon": ""
 				},
 				"sponsor": {
-					"name": "None",
-					"icon": "none"
+					"name": "",
+					"icon": ""
 				},
 				"score": 0,
 				"flag": {
-					"name": "Spain",
-					"icon": "spain.png"
+					"name": "",
+					"icon": ""
 				}
 			},
 			"Player2": {
 				"name": "",
 				"character": {
-					"name": "Fox",
-					"icon": "20xx.png"
+					"name": "",
+					"icon": ""
 				},
 				"sponsor": {
-					"name": "None",
-					"icon": "none"
+					"name": "",
+					"icon": ""
 				},
 				"score": 0,
 				"flag": {
-					"name": "Spain",
-					"icon": "spain.png"
+					"name": "",
+					"icon": ""
 				}
 			},
 			"round": "",

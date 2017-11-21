@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Hypest Team Melee Scoreboard</title>
+	<title>Hypest Team Scoreboard</title>
 	<link href="css/font-awesome.css" rel="stylesheet"></link>
 	<link href="css/hypest-score.css" rel="stylesheet"></link>
 	
@@ -23,17 +23,25 @@
 					<span class="player-name">
 						{{ scoreBoard.Player1.name }}
 					</span>
+					
+					<span class="player-char-wrapper">
+						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player1.character.icon" />
+					</span>
 				</div>
 				<span class="label-decoration label-decoration-right">&nbsp;</span>
 				
 				<span class="label-decoration label-decoration-left">&nbsp;</span>
-				<div class="player player-2 label">
+				<div class="player player-2 label">				
 					<span class="player-score">
 						{{ scoreBoard.Player2.score }}
 					</span>
 					
 					<span class="player-name">
 						{{ scoreBoard.Player2.name }}
+					</span>
+					
+					<span class="player-char-wrapper">
+						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player2.character.icon" />
 					</span>
 				</div>
 				<span class="label-decoration label-decoration-right">&nbsp;</span>
