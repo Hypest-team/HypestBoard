@@ -107,7 +107,7 @@
 			this.FlagsCombo.Location = new System.Drawing.Point(6, 98);
 			this.FlagsCombo.Name = "FlagsCombo";
 			this.FlagsCombo.Size = new System.Drawing.Size(121, 21);
-			this.FlagsCombo.TabIndex = 7;
+			this.FlagsCombo.TabIndex = 4;
 			this.FlagsCombo.Visible = false;
 			// 
 			// label4
@@ -124,7 +124,7 @@
 			this.Player1Score.Location = new System.Drawing.Point(133, 71);
 			this.Player1Score.Name = "Player1Score";
 			this.Player1Score.Size = new System.Drawing.Size(43, 20);
-			this.Player1Score.TabIndex = 2;
+			this.Player1Score.TabIndex = 3;
 			// 
 			// label3
 			// 
@@ -142,7 +142,7 @@
 			this.Player1Character.Location = new System.Drawing.Point(6, 71);
 			this.Player1Character.Name = "Player1Character";
 			this.Player1Character.Size = new System.Drawing.Size(121, 21);
-			this.Player1Character.TabIndex = 4;
+			this.Player1Character.TabIndex = 2;
 			// 
 			// label2
 			// 
@@ -160,7 +160,7 @@
 			this.Player1Sponsor.Location = new System.Drawing.Point(118, 31);
 			this.Player1Sponsor.Name = "Player1Sponsor";
 			this.Player1Sponsor.Size = new System.Drawing.Size(121, 21);
-			this.Player1Sponsor.TabIndex = 2;
+			this.Player1Sponsor.TabIndex = 1;
 			this.Player1Sponsor.Visible = false;
 			// 
 			// label1
@@ -196,7 +196,7 @@
 			this.FlagsComboP2.Location = new System.Drawing.Point(6, 98);
 			this.FlagsComboP2.Name = "FlagsComboP2";
 			this.FlagsComboP2.Size = new System.Drawing.Size(121, 21);
-			this.FlagsComboP2.TabIndex = 8;
+			this.FlagsComboP2.TabIndex = 4;
 			this.FlagsComboP2.Visible = false;
 			// 
 			// label5
@@ -213,7 +213,7 @@
 			this.Player2Score.Location = new System.Drawing.Point(133, 71);
 			this.Player2Score.Name = "Player2Score";
 			this.Player2Score.Size = new System.Drawing.Size(43, 20);
-			this.Player2Score.TabIndex = 2;
+			this.Player2Score.TabIndex = 3;
 			// 
 			// label6
 			// 
@@ -231,7 +231,7 @@
 			this.Player2Character.Location = new System.Drawing.Point(6, 71);
 			this.Player2Character.Name = "Player2Character";
 			this.Player2Character.Size = new System.Drawing.Size(121, 21);
-			this.Player2Character.TabIndex = 4;
+			this.Player2Character.TabIndex = 2;
 			// 
 			// label7
 			// 
@@ -249,7 +249,7 @@
 			this.Player2Sponsor.Location = new System.Drawing.Point(118, 31);
 			this.Player2Sponsor.Name = "Player2Sponsor";
 			this.Player2Sponsor.Size = new System.Drawing.Size(121, 21);
-			this.Player2Sponsor.TabIndex = 2;
+			this.Player2Sponsor.TabIndex = 1;
 			this.Player2Sponsor.Visible = false;
 			// 
 			// label8
@@ -273,7 +273,7 @@
 			this.SendUpdateButton.Location = new System.Drawing.Point(454, 329);
 			this.SendUpdateButton.Name = "SendUpdateButton";
 			this.SendUpdateButton.Size = new System.Drawing.Size(106, 23);
-			this.SendUpdateButton.TabIndex = 8;
+			this.SendUpdateButton.TabIndex = 18;
 			this.SendUpdateButton.Text = "Send Update";
 			this.SendUpdateButton.UseVisualStyleBackColor = true;
 			this.SendUpdateButton.Click += new System.EventHandler(this.SendUpdateButton_Click);
@@ -373,7 +373,7 @@
 			this.SettingsButton.Location = new System.Drawing.Point(373, 329);
 			this.SettingsButton.Name = "SettingsButton";
 			this.SettingsButton.Size = new System.Drawing.Size(75, 23);
-			this.SettingsButton.TabIndex = 14;
+			this.SettingsButton.TabIndex = 17;
 			this.SettingsButton.Text = "Settings";
 			this.SettingsButton.UseVisualStyleBackColor = true;
 			this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
@@ -435,7 +435,7 @@
 			this.SwapPlayers.Location = new System.Drawing.Point(214, 163);
 			this.SwapPlayers.Name = "SwapPlayers";
 			this.SwapPlayers.Size = new System.Drawing.Size(104, 23);
-			this.SwapPlayers.TabIndex = 18;
+			this.SwapPlayers.TabIndex = 8;
 			this.SwapPlayers.Text = "Swap Players";
 			this.SwapPlayers.UseVisualStyleBackColor = true;
 			this.SwapPlayers.Click += new System.EventHandler(this.SwapPlayers_Click);
