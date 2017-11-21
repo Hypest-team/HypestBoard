@@ -1,12 +1,13 @@
 {
 	"characters":
 	[
-		{"name": "Fox", "icon":"20xx.png"},
+		{"name": "-Empty-", "icon":"empty.png"},
 		{"name": "Bowser", "icon":"bowser.png"},
 		{"name": "D.K", "icon":"dong.png"},
 		{"name": "Dr. Mario", "icon":"dr.png"},
 		{"name": "Falco", "icon":"falco.png"},
 		{"name": "Falcon", "icon":"falcon.png"},
+		{"name": "Fox", "icon":"20xx.png"},
 		{"name": "Mr. Game & Watch", "icon":"gandw.png"},
 		{"name": "Ganondorf", "icon":"ganondorf.png"},
 		{"name": "Ice Climbers", "icon":"icies.png"},
