@@ -208,5 +208,28 @@ namespace S3
         {
             Process.Start(UrlLinkLabel.Text);
         }
-    }
+
+		private void SwapPlayerData()
+		{
+			String tmpPlayer1Name = Player1Name.Text;
+			String tmpPlayer1Score = Player1Score.Text;
+			String tmpPlayer1Character = Player1Character.Text;
+			String tmpPlayer1Sponsor = Player1Sponsor.Text;
+
+			Player1Name.Text = Player2Name.Text;
+			Player1Score.Text = Player2Score.Text;
+			Player1Character.Text = Player2Character.Text;
+			Player1Sponsor.Text = Player2Sponsor.Text;
+
+			Player2Name.Text = tmpPlayer1Name;
+			Player2Score.Text = tmpPlayer1Score;
+			Player2Character.Text = tmpPlayer1Character;
+			Player2Sponsor.Text = tmpPlayer1Sponsor;
+		}
+
+		private void SwapPlayers_Click(object sender, EventArgs e)
+		{
+			SwapPlayerData();
+		}
+	}
 }
