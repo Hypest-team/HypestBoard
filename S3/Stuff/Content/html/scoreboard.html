@@ -24,7 +24,7 @@
 						{{ scoreBoard.Player1.name }}
 					</span>
 					
-					<span class="player-char-wrapper">
+					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.Player1.character.icon)">
 						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player1.character.icon" />
 					</span>
 				</div>
@@ -40,7 +40,7 @@
 						{{ scoreBoard.Player2.name }}
 					</span>
 					
-					<span class="player-char-wrapper">
+					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.Player2.character.icon)">
 						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player2.character.icon" />
 					</span>
 				</div>
@@ -49,13 +49,13 @@
 			
 			
 			<div class="stream-footer">
-				<div class="round label">
+				<div class="round label" v-if="isFilledIn(scoreBoard.round)">
 					{{ scoreBoard.round }}
 				</div>
 				
 				<img src="img/streamer-logo.png" class="streamer-logo" />
 				
-				<div class="tournament label">
+				<div class="tournament label" v-if="isFilledIn(scoreBoard.tournamentName)">
 					{{ scoreBoard.tournamentName }}
 				</div>
 			</div>
@@ -65,12 +65,17 @@
 			</div>
 			
 			<div class="credits-frame">
-				<i class="fa fa-fw fa-microphone"></i>
-				{{ scoreBoard.caster }}
+				<span v-if="isFilledIn(scoreBoard.caster)">
+					<i class="fa fa-fw fa-microphone"></i>
+					{{ scoreBoard.caster }}
+				</span>
+
 				<br/>
 				
-				<i class="fa fa-fw fa-twitch"></i>
-				{{ scoreBoard.streamer }}
+				<span v-if="isFilledIn(scoreBoard.streamer)">
+					<i class="fa fa-fw fa-twitch"></i>
+					{{ scoreBoard.streamer }}
+				</span>
 			</div>
 						
 			<div class="sponsor-frame">

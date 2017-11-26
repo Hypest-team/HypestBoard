@@ -1,7 +1,7 @@
 {
 	"characters":
 	[
-		{"name": "-Empty-", "icon":"empty.png"},
+		{"name": "-Empty-", "icon":""},
 		{"name": "Bowser", "icon":"bowser.png"},
 		{"name": "D.K", "icon":"dong.png"},
 		{"name": "Dr. Mario", "icon":"dr.png"},

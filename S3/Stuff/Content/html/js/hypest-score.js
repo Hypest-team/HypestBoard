@@ -45,11 +45,18 @@
 	var vm = new Vue({
 		el: '#scoreboard',
 		data: data,
-		mounted: onMounted
+		mounted: onMounted,
+		methods: {
+			isFilledIn: isFilledIn
+		}
 	});
 	
 	function onMounted() {
 		getScoreboard(this);
+	}
+
+	function isFilledIn(str) {
+		return !!str && str.trim().length > 0;
 	}
 	
 	function getScoreboard(vm) {

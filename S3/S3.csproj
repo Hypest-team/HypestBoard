@@ -119,6 +119,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Stuff\characters.json" />
+    <None Include="Stuff\Content\html\fonts\fontawesome-webfont.eot" />
+    <None Include="Stuff\Content\html\fonts\fontawesome-webfont.ttf" />
+    <None Include="Stuff\Content\html\fonts\fontawesome-webfont.woff" />
+    <None Include="Stuff\Content\html\fonts\fontawesome-webfont.woff2" />
+    <None Include="Stuff\Content\html\fonts\FontAwesome.otf" />
+    <None Include="Stuff\flags.json" />
+    <None Include="Stuff\sponsors.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -134,6 +142,44 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Stuff\Content\html\css\font-awesome.css" />
+    <Content Include="Stuff\Content\html\css\hypest-score.css" />
+    <Content Include="Stuff\Content\html\fonts\fontawesome-webfont.svg" />
+    <Content Include="Stuff\Content\html\img\characters\bowser.png" />
+    <Content Include="Stuff\Content\html\img\characters\dong.png" />
+    <Content Include="Stuff\Content\html\img\characters\dr.png" />
+    <Content Include="Stuff\Content\html\img\characters\empty.png" />
+    <Content Include="Stuff\Content\html\img\characters\falco.png" />
+    <Content Include="Stuff\Content\html\img\characters\falcon.png" />
+    <Content Include="Stuff\Content\html\img\characters\fox.png" />
+    <Content Include="Stuff\Content\html\img\characters\gandw.png" />
+    <Content Include="Stuff\Content\html\img\characters\ganondorf.png" />
+    <Content Include="Stuff\Content\html\img\characters\icies.png" />
+    <Content Include="Stuff\Content\html\img\characters\jiggs.png" />
+    <Content Include="Stuff\Content\html\img\characters\king.png" />
+    <Content Include="Stuff\Content\html\img\characters\kirby.png" />
+    <Content Include="Stuff\Content\html\img\characters\link.png" />
+    <Content Include="Stuff\Content\html\img\characters\luigi.png" />
+    <Content Include="Stuff\Content\html\img\characters\mario.png" />
+    <Content Include="Stuff\Content\html\img\characters\marth.png" />
+    <Content Include="Stuff\Content\html\img\characters\ness.png" />
+    <Content Include="Stuff\Content\html\img\characters\peach.png" />
+    <Content Include="Stuff\Content\html\img\characters\pichu.png" />
+    <Content Include="Stuff\Content\html\img\characters\pikachu.png" />
+    <Content Include="Stuff\Content\html\img\characters\roy.png" />
+    <Content Include="Stuff\Content\html\img\characters\samus.png" />
+    <Content Include="Stuff\Content\html\img\characters\sheik.png" />
+    <Content Include="Stuff\Content\html\img\characters\yoshi.png" />
+    <Content Include="Stuff\Content\html\img\characters\younglink.png" />
+    <Content Include="Stuff\Content\html\img\characters\zelda.png" />
+    <Content Include="Stuff\Content\html\img\label-decorator-left.png" />
+    <Content Include="Stuff\Content\html\img\label-decorator-right.png" />
+    <Content Include="Stuff\Content\html\img\streamer-logo.png" />
+    <Content Include="Stuff\Content\html\js\hypest-score.js" />
+    <Content Include="Stuff\Content\html\js\lib\vue.js" />
+    <Content Include="Stuff\Content\html\scoreboard.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
