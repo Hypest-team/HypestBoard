@@ -28,12 +28,7 @@ namespace S3
             parseComboBoxItems();
             SendUpdate();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void SendUpdateButton_Click(object sender, EventArgs e)
         {
             SendUpdate();
@@ -231,5 +226,26 @@ namespace S3
 		{
 			SwapPlayerData();
 		}
-	}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult window;
+
+            if (isServerUp)
+            {
+                window = MessageBox.Show("Server is still running. Are you sure you want to close the application?", "Server shutdown confirmation", MessageBoxButtons.YesNo);
+                e.Cancel = (window == DialogResult.No);
+            }
+        }
+    }
 }

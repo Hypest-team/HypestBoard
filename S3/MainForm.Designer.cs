@@ -67,6 +67,8 @@
             this.StartServer = new System.Windows.Forms.Button();
             this.UrlLinkLabel = new System.Windows.Forms.LinkLabel();
             this.SwapPlayers = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Player1Score)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -270,7 +272,7 @@
             // 
             // SendUpdateButton
             // 
-            this.SendUpdateButton.Location = new System.Drawing.Point(454, 329);
+            this.SendUpdateButton.Location = new System.Drawing.Point(402, 393);
             this.SendUpdateButton.Name = "SendUpdateButton";
             this.SendUpdateButton.Size = new System.Drawing.Size(106, 23);
             this.SendUpdateButton.TabIndex = 18;
@@ -282,14 +284,14 @@
             // 
             this.RoundNameTextbox.Location = new System.Drawing.Point(6, 35);
             this.RoundNameTextbox.Name = "RoundNameTextbox";
-            this.RoundNameTextbox.Size = new System.Drawing.Size(188, 20);
+            this.RoundNameTextbox.Size = new System.Drawing.Size(233, 20);
             this.RoundNameTextbox.TabIndex = 9;
             // 
             // tournamentNameTextbox
             // 
             this.tournamentNameTextbox.Location = new System.Drawing.Point(6, 74);
             this.tournamentNameTextbox.Name = "tournamentNameTextbox";
-            this.tournamentNameTextbox.Size = new System.Drawing.Size(188, 20);
+            this.tournamentNameTextbox.Size = new System.Drawing.Size(233, 20);
             this.tournamentNameTextbox.TabIndex = 10;
             // 
             // groupBox3
@@ -300,7 +302,7 @@
             this.groupBox3.Controls.Add(this.RoundNameTextbox);
             this.groupBox3.Location = new System.Drawing.Point(12, 194);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.Size = new System.Drawing.Size(245, 100);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tournament";
@@ -331,7 +333,7 @@
             this.groupBox4.Controls.Add(this.StreamerTextbox);
             this.groupBox4.Location = new System.Drawing.Point(263, 194);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 100);
+            this.groupBox4.Size = new System.Drawing.Size(245, 100);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Misc";
@@ -358,19 +360,19 @@
             // 
             this.CasterTextbox.Location = new System.Drawing.Point(6, 74);
             this.CasterTextbox.Name = "CasterTextbox";
-            this.CasterTextbox.Size = new System.Drawing.Size(188, 20);
+            this.CasterTextbox.Size = new System.Drawing.Size(233, 20);
             this.CasterTextbox.TabIndex = 10;
             // 
             // StreamerTextbox
             // 
             this.StreamerTextbox.Location = new System.Drawing.Point(6, 35);
             this.StreamerTextbox.Name = "StreamerTextbox";
-            this.StreamerTextbox.Size = new System.Drawing.Size(188, 20);
+            this.StreamerTextbox.Size = new System.Drawing.Size(233, 20);
             this.StreamerTextbox.TabIndex = 9;
             // 
             // SettingsButton
             // 
-            this.SettingsButton.Location = new System.Drawing.Point(373, 329);
+            this.SettingsButton.Location = new System.Drawing.Point(321, 393);
             this.SettingsButton.Name = "SettingsButton";
             this.SettingsButton.Size = new System.Drawing.Size(75, 23);
             this.SettingsButton.TabIndex = 17;
@@ -384,7 +386,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(572, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(521, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -413,7 +415,7 @@
             // 
             // StartServer
             // 
-            this.StartServer.Location = new System.Drawing.Point(294, 329);
+            this.StartServer.Location = new System.Drawing.Point(242, 393);
             this.StartServer.Name = "StartServer";
             this.StartServer.Size = new System.Drawing.Size(75, 23);
             this.StartServer.TabIndex = 16;
@@ -424,7 +426,7 @@
             // UrlLinkLabel
             // 
             this.UrlLinkLabel.AutoSize = true;
-            this.UrlLinkLabel.Location = new System.Drawing.Point(304, 313);
+            this.UrlLinkLabel.Location = new System.Drawing.Point(18, 347);
             this.UrlLinkLabel.Name = "UrlLinkLabel";
             this.UrlLinkLabel.Size = new System.Drawing.Size(0, 13);
             this.UrlLinkLabel.TabIndex = 17;
@@ -440,12 +442,37 @@
             this.SwapPlayers.UseVisualStyleBackColor = true;
             this.SwapPlayers.Click += new System.EventHandler(this.SwapPlayers_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "melee.json",
+            "smash4.json"});
+            this.comboBox1.Location = new System.Drawing.Point(18, 313);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(230, 21);
+            this.comboBox1.TabIndex = 20;
+            this.comboBox1.Text = "smash4.json";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(269, 313);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Load game configuration";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.SendUpdateButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 360);
+            this.ClientSize = new System.Drawing.Size(521, 442);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.SwapPlayers);
             this.Controls.Add(this.UrlLinkLabel);
             this.Controls.Add(this.StartServer);
@@ -459,7 +486,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Hypest Team Scoreboard";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Player1Score)).EndInit();
@@ -518,6 +545,8 @@
         private System.Windows.Forms.Button StartServer;
         private System.Windows.Forms.LinkLabel UrlLinkLabel;
 		private System.Windows.Forms.Button SwapPlayers;
-	}
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+    }
 }
 
