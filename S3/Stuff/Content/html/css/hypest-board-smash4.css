@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'LithosPro';
+  src: url('../fonts/LithosPro-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+	font-family: 'LithosPro';
+	margin: 0;
+	background: black;
+
+	
+	font-size: 36px;
+	text-align: center;
+	color: white;
+}
+
+#scoreboard {
+	background-image: url('../img/smash4-monthly-bg.png');
+	/* background-color: green; */
+	width: 1280px;
+	height: 720px;
+	position: absolute;
+}
+
+.score {
+	position: absolute;
+	display: block;
+	top: 30px;
+	width: 38px;
+	height: 28px;
+}
+
+#scoreP1 {
+	left: 745px;
+}
+
+#scoreP2 {
+	right: 745px;
+}
+
+.player {
+	position: absolute;
+	display: block;
+	top: 38px;
+	font-size: 16px;
+}
+
+#playerP1 {
+	right: 805px;
+	text-align: right;
+}
+
+#playerP2 {
+	left: 805px;
+	text-align: left;
+}
+
+
+.player-char {
+	position: absolute;
+	display: block;
+	top: 16px;
+}
+
+#charP1 {
+	left: 235px;
+}
+
+#charP2 {
+	right: 235px;
+}

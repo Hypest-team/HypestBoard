@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Stuff\Content\html\css\font-awesome.css" />
+    <Content Include="Stuff\Content\html\css\hypest-board-smash4.css" />
     <Content Include="Stuff\Content\html\css\hypest-score.css" />
     <Content Include="Stuff\Content\html\fonts\fontawesome-webfont.svg" />
     <Content Include="Stuff\Content\html\img\characters\melee\bowser.png" />
@@ -181,7 +182,7 @@
     <Content Include="Stuff\Content\html\img\streamer-logo.png" />
     <Content Include="Stuff\Content\html\js\hypest-score.js" />
     <Content Include="Stuff\Content\html\js\lib\vue.js" />
-    <Content Include="Stuff\Content\html\scoreboard.html" />
+    <Content Include="Stuff\Content\html\melee-scoreboard.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Stuff\Content\html\img\characters\smash4\" />

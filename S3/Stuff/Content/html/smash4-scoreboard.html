@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Hypest Team Scoreboard</title>
+	<link href="css/font-awesome.css" rel="stylesheet"></link>
+	<link href="css/hypest-board-smash4.css" rel="stylesheet"></link>
+	
+</head>
+<body>
+	<div id="scoreboard">
+		<img id="charP1" class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player1.character.icon" />
+
+		<span id="playerP1" class="player">
+			{{ scoreBoard.Player1.name}}
+		</span>
+		
+		<span id="scoreP1" class="score">
+			{{ scoreBoard.Player1.score }}
+		</span>
+
+		<span id="scoreP2" class="score">
+			{{ scoreBoard.Player2.score }}
+		</span>
+
+		<span id="playerP2" class="player">
+			{{ scoreBoard.Player2.name }}
+		</span>
+		
+		<img id="charP2" class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player2.character.icon" />
+	</div>
+	
+	<script src="js/lib/vue.js"></script>
+	<script src="js/hypest-score.js"></script>
+</body>
+</html>
