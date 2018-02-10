@@ -139,7 +139,7 @@
             // 
             // Player1Character
             // 
-            this.Player1Character.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Player1Character.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Player1Character.FormattingEnabled = true;
             this.Player1Character.Location = new System.Drawing.Point(6, 71);
             this.Player1Character.Name = "Player1Character";
@@ -228,7 +228,7 @@
             // 
             // Player2Character
             // 
-            this.Player2Character.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Player2Character.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Player2Character.FormattingEnabled = true;
             this.Player2Character.Location = new System.Drawing.Point(6, 71);
             this.Player2Character.Name = "Player2Character";

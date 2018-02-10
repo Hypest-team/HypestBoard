@@ -17,6 +17,8 @@ namespace S3
     public partial class MainForm : Form
     {
         private NancyHost hostg;
+        private IList<GameConfiguration> gameConfigurations;
+
         public MainForm()
         {
             InitializeComponent();
@@ -54,7 +56,7 @@ namespace S3
         }
 
         private void updateGameConfig() {
-            GameConfiguration gameConfig = (GameConfiguration)((ComboboxItem)selectedGameConfiguration.SelectedItem).Value;
+            GameConfiguration gameConfig = gameConfigurations[selectedGameConfiguration.SelectedIndex];
             
             Player1Character.Items.Clear();
             Player2Character.Items.Clear();
@@ -76,14 +78,19 @@ namespace S3
         {
             string[] gameConfigsFileNames = Directory.GetFiles(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Games"));
 
+            gameConfigurations = new List<GameConfiguration>();
+
             foreach (string fileName in gameConfigsFileNames)
             {
                 string gameConfigContents = File.ReadAllText(fileName);
                 GameConfiguration gameConfiguration = JsonConvert.DeserializeObject<GameConfiguration>(gameConfigContents);
+
+                gameConfigurations.Add(gameConfiguration);
+
                 ComboboxItem item = new ComboboxItem
                 {
                     Text = gameConfiguration.name,
-                    Value = gameConfiguration
+                    Value = gameConfiguration.name
                 };
                 selectedGameConfiguration.Items.Add(item);
             }

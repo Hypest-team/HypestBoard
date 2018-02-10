@@ -10,11 +10,22 @@ namespace S3
     {
         public string name;
         public string icon;
+
+        public override string ToString()
+        {
+            return name;
+        }
+
     }
     public class Flag
     {
         public string name;
         public string icon;
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
     class CharacterList
     {

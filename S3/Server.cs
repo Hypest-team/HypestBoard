@@ -23,7 +23,6 @@ namespace S3
         public string tournamentName;
         public string caster;
         public string streamer;
-        public string game;
     }
 
     public class Player
