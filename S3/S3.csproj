@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="GameConfiguration.cs" />
     <Compile Include="ComboboxItem.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -119,7 +120,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Stuff\characters.json" />
+    <None Include="Stuff\Games\melee.json" />
+    <None Include="Stuff\Games\smash4.json" />
     <None Include="Stuff\Content\html\fonts\fontawesome-webfont.eot" />
     <None Include="Stuff\Content\html\fonts\fontawesome-webfont.ttf" />
     <None Include="Stuff\Content\html\fonts\fontawesome-webfont.woff" />
@@ -147,39 +149,42 @@
     <Content Include="Stuff\Content\html\css\font-awesome.css" />
     <Content Include="Stuff\Content\html\css\hypest-score.css" />
     <Content Include="Stuff\Content\html\fonts\fontawesome-webfont.svg" />
-    <Content Include="Stuff\Content\html\img\characters\bowser.png" />
-    <Content Include="Stuff\Content\html\img\characters\dong.png" />
-    <Content Include="Stuff\Content\html\img\characters\dr.png" />
-    <Content Include="Stuff\Content\html\img\characters\empty.png" />
-    <Content Include="Stuff\Content\html\img\characters\falco.png" />
-    <Content Include="Stuff\Content\html\img\characters\falcon.png" />
-    <Content Include="Stuff\Content\html\img\characters\fox.png" />
-    <Content Include="Stuff\Content\html\img\characters\gandw.png" />
-    <Content Include="Stuff\Content\html\img\characters\ganondorf.png" />
-    <Content Include="Stuff\Content\html\img\characters\icies.png" />
-    <Content Include="Stuff\Content\html\img\characters\jiggs.png" />
-    <Content Include="Stuff\Content\html\img\characters\king.png" />
-    <Content Include="Stuff\Content\html\img\characters\kirby.png" />
-    <Content Include="Stuff\Content\html\img\characters\link.png" />
-    <Content Include="Stuff\Content\html\img\characters\luigi.png" />
-    <Content Include="Stuff\Content\html\img\characters\mario.png" />
-    <Content Include="Stuff\Content\html\img\characters\marth.png" />
-    <Content Include="Stuff\Content\html\img\characters\ness.png" />
-    <Content Include="Stuff\Content\html\img\characters\peach.png" />
-    <Content Include="Stuff\Content\html\img\characters\pichu.png" />
-    <Content Include="Stuff\Content\html\img\characters\pikachu.png" />
-    <Content Include="Stuff\Content\html\img\characters\roy.png" />
-    <Content Include="Stuff\Content\html\img\characters\samus.png" />
-    <Content Include="Stuff\Content\html\img\characters\sheik.png" />
-    <Content Include="Stuff\Content\html\img\characters\yoshi.png" />
-    <Content Include="Stuff\Content\html\img\characters\younglink.png" />
-    <Content Include="Stuff\Content\html\img\characters\zelda.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\bowser.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\dong.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\dr.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\empty.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\falco.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\falcon.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\fox.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\gandw.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\ganondorf.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\icies.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\jiggs.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\king.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\kirby.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\link.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\luigi.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\mario.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\marth.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\ness.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\peach.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\pichu.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\pikachu.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\roy.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\samus.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\sheik.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\yoshi.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\younglink.png" />
+    <Content Include="Stuff\Content\html\img\characters\melee\zelda.png" />
     <Content Include="Stuff\Content\html\img\label-decorator-left.png" />
     <Content Include="Stuff\Content\html\img\label-decorator-right.png" />
     <Content Include="Stuff\Content\html\img\streamer-logo.png" />
     <Content Include="Stuff\Content\html\js\hypest-score.js" />
     <Content Include="Stuff\Content\html\js\lib\vue.js" />
     <Content Include="Stuff\Content\html\scoreboard.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Stuff\Content\html\img\characters\smash4\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

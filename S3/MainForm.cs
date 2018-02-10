@@ -23,8 +23,8 @@ namespace S3
             Globals.CurrentInformationUpdate = new InformationUpdate();
             Globals.CurrentInformationUpdate.Player1 = new Player();
             Globals.CurrentInformationUpdate.Player2 = new Player();
-            Globals.CurrentInformationUpdate.Player1.name = "EIREXE";
-            Globals.CurrentInformationUpdate.Player2.name = "BoastingToast";
+            Globals.CurrentInformationUpdate.Player1.name = "";
+            Globals.CurrentInformationUpdate.Player2.name = "";
             parseComboBoxItems();
             SendUpdate();
         }
@@ -52,24 +52,43 @@ namespace S3
             Globals.CurrentInformationUpdate.Player1.flag = ((Flag) ((ComboboxItem) FlagsCombo.SelectedItem).Value);
             Globals.CurrentInformationUpdate.Player2.flag = ((Flag)((ComboboxItem)FlagsComboP2.SelectedItem).Value);
         }
-        private void parseComboBoxItems()
-        {
-            string file = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "characters.json");
-            string contents = File.ReadAllText(file);
-            CharacterList list = JsonConvert.DeserializeObject<CharacterList>(contents);
+
+        private void updateGameConfig() {
+            GameConfiguration gameConfig = (GameConfiguration)((ComboboxItem)selectedGameConfiguration.SelectedItem).Value;
             
-            foreach(Character c in list.characters)
+            Player1Character.Items.Clear();
+            Player2Character.Items.Clear();
+
+            foreach (Character c in gameConfig.characters)
             {
                 ComboboxItem item = new ComboboxItem();
                 item.Text = c.name;
                 item.Value = c;
                 Player1Character.Items.Add(item);
                 Player2Character.Items.Add(item);
-                
+
             }
             Player1Character.SelectedIndex = 0;
             Player2Character.SelectedIndex = 0;
+        }
 
+        private void parseComboBoxItems()
+        {
+            string[] gameConfigsFileNames = Directory.GetFiles(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Games"));
+
+            foreach (string fileName in gameConfigsFileNames)
+            {
+                string gameConfigContents = File.ReadAllText(fileName);
+                GameConfiguration gameConfiguration = JsonConvert.DeserializeObject<GameConfiguration>(gameConfigContents);
+                ComboboxItem item = new ComboboxItem
+                {
+                    Text = gameConfiguration.name,
+                    Value = gameConfiguration
+                };
+                selectedGameConfiguration.Items.Add(item);
+            }
+            selectedGameConfiguration.SelectedItem = selectedGameConfiguration.Items[0];
+            updateGameConfig();
 
             string sponsors = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "sponsors.json");
             string sponsorsContents = File.ReadAllText(sponsors);
@@ -84,8 +103,7 @@ namespace S3
                 Player2Sponsor.Items.Add(item);
 
             }
-            Player1Character.SelectedIndex = 0;
-            Player2Character.SelectedIndex = 0;
+
             Player1Sponsor.SelectedIndex = 0;
             Player2Sponsor.SelectedIndex = 0;
             string flags = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "flags.json");
@@ -196,6 +214,9 @@ namespace S3
                     Console.WriteLine(ee.Message);
                     throw;
                 }
+
+                LoadGameConfigButton.Enabled = !isServerUp;
+                selectedGameConfiguration.Enabled = !isServerUp;
             }
         }
 
@@ -232,9 +253,8 @@ namespace S3
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void selectedGameConfiguration_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -246,6 +266,11 @@ namespace S3
                 window = MessageBox.Show("Server is still running. Are you sure you want to close the application?", "Server shutdown confirmation", MessageBoxButtons.YesNo);
                 e.Cancel = (window == DialogResult.No);
             }
+        }
+
+        private void LoadGameConfigButton_click(object sender, EventArgs e)
+        {
+            updateGameConfig();
         }
     }
 }

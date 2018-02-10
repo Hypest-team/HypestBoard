@@ -1,0 +1,112 @@
+{
+	"name": "Super Smash Bros Melee",
+	"characters": [{
+			"name": "-Empty-",
+			"icon": ""
+		},
+		{
+			"name": "Bowser",
+			"icon": "melee/bowser.png"
+		},
+		{
+			"name": "D.K",
+			"icon": "melee/dong.png"
+		},
+		{
+			"name": "Dr. Mario",
+			"icon": "melee/dr.png"
+		},
+		{
+			"name": "Falco",
+			"icon": "melee/falco.png"
+		},
+		{
+			"name": "Falcon",
+			"icon": "melee/falcon.png"
+		},
+		{
+			"name": "Fox",
+			"icon": "melee/fox.png"
+		},
+		{
+			"name": "Mr. Game & Watch",
+			"icon": "melee/gandw.png"
+		},
+		{
+			"name": "Ganondorf",
+			"icon": "melee/ganondorf.png"
+		},
+		{
+			"name": "Ice Climbers",
+			"icon": "melee/icies.png"
+		},
+		{
+			"name": "Jigglypuff",
+			"icon": "melee/jiggs.png"
+		},
+		{
+			"name": "Mewtwo",
+			"icon": "melee/king.png"
+		},
+		{
+			"name": "Kirby",
+			"icon": "melee/kirby.png"
+		},
+		{
+			"name": "Link",
+			"icon": "melee/link.png"
+		},
+		{
+			"name": "Luigi",
+			"icon": "melee/luigi.png"
+		},
+		{
+			"name": "Mario",
+			"icon": "melee/mario.png"
+		},
+		{
+			"name": "Marth",
+			"icon": "melee/marth.png"
+		},
+		{
+			"name": "Ness",
+			"icon": "melee/ness.png"
+		},
+		{
+			"name": "Peach",
+			"icon": "melee/peach.png"
+		},
+		{
+			"name": "Pichu",
+			"icon": "melee/pichu.png"
+		},
+		{
+			"name": "Pikachu",
+			"icon": "melee/pikachu.png"
+		},
+		{
+			"name": "Roy",
+			"icon": "melee/roy.png"
+		},
+		{
+			"name": "Samus",
+			"icon": "melee/samus.png"
+		},
+		{
+			"name": "Sheik",
+			"icon": "melee/sheik.png"
+		},
+		{
+			"name": "Yoshi",
+			"icon": "melee/yoshi.png"
+		},
+		{
+			"name": "Young Link",
+			"icon": "melee/younglink.png"
+		},
+		{
+			"name": "Zelda",
+			"icon": "melee/zelda.png"
+		}
+	]
+}

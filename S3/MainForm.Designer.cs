@@ -67,8 +67,8 @@
             this.StartServer = new System.Windows.Forms.Button();
             this.UrlLinkLabel = new System.Windows.Forms.LinkLabel();
             this.SwapPlayers = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.selectedGameConfiguration = new System.Windows.Forms.ComboBox();
+            this.LoadGameConfigButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Player1Score)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -442,28 +442,25 @@
             this.SwapPlayers.UseVisualStyleBackColor = true;
             this.SwapPlayers.Click += new System.EventHandler(this.SwapPlayers_Click);
             // 
-            // comboBox1
+            // selectedGameConfiguration
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "melee.json",
-            "smash4.json"});
-            this.comboBox1.Location = new System.Drawing.Point(18, 313);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(230, 21);
-            this.comboBox1.TabIndex = 20;
-            this.comboBox1.Text = "smash4.json";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.selectedGameConfiguration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selectedGameConfiguration.FormattingEnabled = true;
+            this.selectedGameConfiguration.Location = new System.Drawing.Point(18, 313);
+            this.selectedGameConfiguration.Name = "selectedGameConfiguration";
+            this.selectedGameConfiguration.Size = new System.Drawing.Size(230, 21);
+            this.selectedGameConfiguration.TabIndex = 20;
+            this.selectedGameConfiguration.SelectedIndexChanged += new System.EventHandler(this.selectedGameConfiguration_SelectedIndexChanged);
             // 
-            // button1
+            // LoadGameConfigButton
             // 
-            this.button1.Location = new System.Drawing.Point(269, 313);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Load game configuration";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LoadGameConfigButton.Location = new System.Drawing.Point(269, 310);
+            this.LoadGameConfigButton.Name = "LoadGameConfigButton";
+            this.LoadGameConfigButton.Size = new System.Drawing.Size(170, 23);
+            this.LoadGameConfigButton.TabIndex = 21;
+            this.LoadGameConfigButton.Text = "Load game configuration";
+            this.LoadGameConfigButton.UseVisualStyleBackColor = true;
+            this.LoadGameConfigButton.Click += new System.EventHandler(this.LoadGameConfigButton_click);
             // 
             // MainForm
             // 
@@ -471,8 +468,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 442);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.LoadGameConfigButton);
+            this.Controls.Add(this.selectedGameConfiguration);
             this.Controls.Add(this.SwapPlayers);
             this.Controls.Add(this.UrlLinkLabel);
             this.Controls.Add(this.StartServer);
@@ -545,8 +542,8 @@
         private System.Windows.Forms.Button StartServer;
         private System.Windows.Forms.LinkLabel UrlLinkLabel;
 		private System.Windows.Forms.Button SwapPlayers;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox selectedGameConfiguration;
+        private System.Windows.Forms.Button LoadGameConfigButton;
     }
 }
 

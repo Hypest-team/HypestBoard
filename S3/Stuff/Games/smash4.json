@@ -1,0 +1,112 @@
+{
+	"name": "Super Smash Bros for Wii U",
+	"characters": [{
+			"name": "-Empty-",
+			"icon": "smash4/"
+		},
+		{
+			"name": "Bowser",
+			"icon": "smash4/bowser.png"
+		},
+		{
+			"name": "D.K",
+			"icon": "smash4/dong.png"
+		},
+		{
+			"name": "Dr. Mario",
+			"icon": "smash4/dr.png"
+		},
+		{
+			"name": "Falco",
+			"icon": "smash4/falco.png"
+		},
+		{
+			"name": "Falcon",
+			"icon": "smash4/falcon.png"
+		},
+		{
+			"name": "Fox",
+			"icon": "smash4/fox.png"
+		},
+		{
+			"name": "Mr. Game & Watch",
+			"icon": "smash4/gandw.png"
+		},
+		{
+			"name": "Ganondorf",
+			"icon": "smash4/ganondorf.png"
+		},
+		{
+			"name": "Ice Climbers",
+			"icon": "smash4/icies.png"
+		},
+		{
+			"name": "Jigglypuff",
+			"icon": "smash4/jiggs.png"
+		},
+		{
+			"name": "Mewtwo",
+			"icon": "smash4/king.png"
+		},
+		{
+			"name": "Kirby",
+			"icon": "smash4/kirby.png"
+		},
+		{
+			"name": "Link",
+			"icon": "smash4/link.png"
+		},
+		{
+			"name": "Luigi",
+			"icon": "smash4/luigi.png"
+		},
+		{
+			"name": "Mario",
+			"icon": "smash4/mario.png"
+		},
+		{
+			"name": "Marth",
+			"icon": "smash4/marth.png"
+		},
+		{
+			"name": "Ness",
+			"icon": "smash4/ness.png"
+		},
+		{
+			"name": "Peach",
+			"icon": "smash4/peach.png"
+		},
+		{
+			"name": "Pichu",
+			"icon": "smash4/pichu.png"
+		},
+		{
+			"name": "Pikachu",
+			"icon": "smash4/pikachu.png"
+		},
+		{
+			"name": "Roy",
+			"icon": "smash4/roy.png"
+		},
+		{
+			"name": "Samus",
+			"icon": "smash4/samus.png"
+		},
+		{
+			"name": "Sheik",
+			"icon": "smash4/sheik.png"
+		},
+		{
+			"name": "Yoshi",
+			"icon": "smash4/yoshi.png"
+		},
+		{
+			"name": "Young Link",
+			"icon": "smash4/younglink.png"
+		},
+		{
+			"name": "Zelda",
+			"icon": "smash4/zelda.png"
+		}
+	]
+}
