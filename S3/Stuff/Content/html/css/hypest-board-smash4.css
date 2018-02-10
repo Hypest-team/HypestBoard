@@ -33,11 +33,11 @@ body {
 }
 
 #scoreP1 {
-	left: 745px;
+	right: 745px;
 }
 
 #scoreP2 {
-	right: 745px;
+	left: 745px;
 }
 
 .player {
