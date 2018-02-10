@@ -221,10 +221,10 @@ namespace S3
                     Console.WriteLine(ee.Message);
                     throw;
                 }
-
-                LoadGameConfigButton.Enabled = !isServerUp;
-                selectedGameConfiguration.Enabled = !isServerUp;
             }
+
+            LoadGameConfigButton.Enabled = !isServerUp;
+            selectedGameConfiguration.Enabled = !isServerUp;
         }
 
         private void UrlLinkLabel_Click(object sender, EventArgs e)
