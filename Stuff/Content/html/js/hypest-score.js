@@ -60,7 +60,7 @@
 	}
 	
 	function getScoreboard(vm) {
-		return fetch('/getCurrentValues')
+		return fetch('/scoreboard')
 			.then(function (response) {
 				if (response.ok) {
 					return response.json();

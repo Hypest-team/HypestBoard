@@ -10,3 +10,6 @@ app.use(bodyParser.json());
 routes(app);
 
 app.listen(port);
+
+console.log('Listening on port', port);
+console.log('Navigate to http://localhost:' +  port + '/scoreboard.html for the overlay');
