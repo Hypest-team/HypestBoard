@@ -1,5 +1,5 @@
 {
-  "name": "hypestboard",
+  "name": "hypestscore",
   "version": "0.0.1",
   "description": "A scoreboard for use with OBS/Xsplit",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/N0NamedGuy/HypestBoard.git"
+    "url": "git+https://github.com/N0NamedGuy/HypestScore.git"
   },
   "author": "David Serrano",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/N0NamedGuy/HypestBoard/issues"
+    "url": "https://github.com/N0NamedGuy/HypestScore/issues"
   },
-  "homepage": "https://github.com/N0NamedGuy/HypestBoard#readme",
+  "homepage": "https://github.com/N0NamedGuy/HypestScore#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
