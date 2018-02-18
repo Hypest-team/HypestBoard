@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var routes = require('./api/routes/scoreboardRoutes');
+
+var routes = require('./api/routes/index');
 
 var app = express();
 var port = process.env.PORT || 3000;

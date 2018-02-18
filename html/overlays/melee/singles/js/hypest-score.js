@@ -60,7 +60,7 @@
 	}
 	
 	function getScoreboard(vm) {
-		return fetch('/scoreboard')
+		return fetch('/api/scoreboard')
 			.then(function (response) {
 				if (response.ok) {
 					return response.json();
