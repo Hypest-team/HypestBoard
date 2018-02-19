@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Hypest Team Scoreboard</title>
+	<link href="css/font-awesome.css" rel="stylesheet"></link>
+	<link href="css/hypest-score.css" rel="stylesheet"></link>
+	
+</head>
+<body>
+	<div class="scoreboard" id="scoreboard">
+		<div class="stream-content">
+			<div class="score">
+				<span class="label-decoration label-decoration-left">&nbsp;</span>
+				<div class="player player-1 label">
+					<span class="player-score">
+						{{ scoreBoard.Player1.score }}
+					</span>
+					
+					<span class="player-name">
+						{{ scoreBoard.Player1.name }}
+					</span>
+					
+					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.Player1.character.icon)">
+						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player1.character.icon" />
+					</span>
+				</div>
+				<span class="label-decoration label-decoration-right">&nbsp;</span>
+				
+				<span class="label-decoration label-decoration-left">&nbsp;</span>
+				<div class="player player-2 label">				
+					<span class="player-score">
+						{{ scoreBoard.Player2.score }}
+					</span>
+					
+					<span class="player-name">
+						{{ scoreBoard.Player2.name }}
+					</span>
+					
+					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.Player2.character.icon)">
+						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.Player2.character.icon" />
+					</span>
+				</div>
+				<span class="label-decoration label-decoration-right">&nbsp;</span>
+			</div>
+			
+			
+			<div class="stream-footer">
+				<div class="round label" v-if="isFilledIn(scoreBoard.round)">
+					{{ scoreBoard.round }}
+				</div>
+				
+				<img src="img/streamer-logo.png" class="streamer-logo" />
+				
+				<div class="tournament label" v-if="isFilledIn(scoreBoard.tournamentName)">
+					{{ scoreBoard.tournamentName }}
+				</div>
+			</div>
+		</div>
+		<div class="sidebar">
+			<div class="camframe camframe-player">
+			</div>
+			
+			<div class="credits-frame">
+				<span v-if="isFilledIn(scoreBoard.caster)">
+					<i class="fa fa-fw fa-microphone"></i>
+					{{ scoreBoard.caster }}
+				</span>
+
+				<br/>
+				
+				<span v-if="isFilledIn(scoreBoard.streamer)">
+					<i class="fa fa-fw fa-twitch"></i>
+					{{ scoreBoard.streamer }}
+				</span>
+			</div>
+						
+			<div class="sponsor-frame">
+				<span class="label sponsor-frame-label">
+					Sponsors
+				</span>
+			</div>
+		</div>
+	</div>
+	
+	<script src="/lib/vue/vue.js"></script>
+	<script src="js/hypest-score.js"></script>
+</body>
+</html>
