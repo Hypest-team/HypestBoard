@@ -38,7 +38,9 @@
     };
 
     var data = {
-        scoreBoard: _.cloneDeep(emptyScoreBoard) 
+        scoreBoard: _.cloneDeep(emptyScoreBoard),
+        gameList: [],
+        characterList: []
     };
 
     var vm = new Vue({
@@ -49,6 +51,9 @@
             isFilledIn: isFilledIn,
             updateScoreboard: updateScoreboard,
 
+            onCharacterChange: onCharacterChange, 
+            onGameChange: onGameChange,
+
             swapPlayers: swapPlayers,
             resetForm: resetForm,
             clearChanges: clearChanges
@@ -56,7 +61,8 @@
     });
 
     function onMounted() {
-        getScoreboard(this);
+        getGameList(this)
+            .then(getScoreboard)
     }
 
     function isFilledIn(str) {
@@ -80,6 +86,19 @@
         getScoreboard(this);
     }
 
+    function onGameChange() {
+        getCharacterList(this);
+    }
+    
+    function onCharacterChange(player) {
+        var vm = this;
+        var character = vm.characterList.find(function (char) {
+            return char.name === player.character.name;
+        }) || {};
+        
+        player.character.icon = character.icon;
+    }
+
     function processResponse(response) {
         if (response.ok) {
             return response.json();
@@ -88,11 +107,32 @@
         }
     }
 
+    function getGameList(vm) {
+        return fetch('/config/games.json')
+            .then(processResponse)
+            .then(function (data) {
+                vm.gameList = data;
+                return vm;
+            });
+    }
+
+    function getCharacterList(vm) {
+        var selectedGameId = vm.scoreBoard.game.id;
+
+        return fetch('/characters/' + selectedGameId + '.json')
+            .then(processResponse)
+            .then(function (data) {
+                vm.characterList = data;
+                return vm;
+            });
+    }
+
     function getScoreboard(vm) {
         return fetch('/api/scoreboard')
             .then(processResponse)
             .then(function (data) {
                 vm.scoreBoard = data;
+                return vm;
             });
     }
 

@@ -13,73 +13,64 @@
         <h1>HypestBoard admin page</h1>
 
         <form novalidate @submit.prevent="updateScoreboard">
+            <div class="form-group">
+                <label>Game configuration</label>
+                <select class="form-control" v-model="scoreBoard.game" v-on:change="onGameChange">
+                    <option v-for="game in gameList" v-bind:value="game">
+                        {{ game.name }}
+                    </option>
+                </select>
+            </div>
+
             <div class="row">
-                <div class="col-md-5">
-                    <h2>Player 1</h2>
+                <div class="col-md-6" v-for="(player, playerIndex) in scoreBoard.players">
+                    <h2>Player {{ playerIndex + 1 }}</h2>
                     <div class="row">
                         <div class="col form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[0].name" />
+                            <input type="text" class="form-control" v-model="player.name" />
                         </div>
 
 
                         <div class="col form-group">
                             <label>Character</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[0].character.name" />
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <img v-bind:src="player.character.icon" height="24" v-if="player.character.icon" />
+                                        <span v-if="!player.character.icon">?</span>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" v-model="player.character.name" v-on:change="onCharacterChange(player)" />
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col form-group">
                             <label>Flag</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[0].flag.name" />
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <img v-bind:src="'/lib/famfamfam-flags/png/' + player.flag.icon.toLowerCase() + '.png'" height="24" v-if="player.flag.icon" />
+                                        <span v-if="!player.flag.icon">?</span>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" v-model="player.flag.icon" />
+                            </div>
                         </div>
 
                         <div class="col form-group">
                             <label>Sponsor</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[0].sponsor.name" />
+                            <input type="text" class="form-control" v-model="player.sponsor.name" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Score</label>
-                        <input type="number" class="form-control" v-model="scoreBoard.players[0].score" />
+                        <input type="number" class="form-control" v-model="player.score" />
                     </div>
                 </div>
-
-                <div class="offset-md-2 col-md-5">
-                    <h2>Player 2</h2>
-                    <div class="row">
-                        <div class="col form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[1].name" />
-                        </div>
-
-
-                        <div class="col form-group">
-                            <label>Character</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[1].character.name" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col form-group">
-                            <label>Flag</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[1].flag.name" />
-                        </div>
-
-                        <div class="col form-group">
-                            <label>Sponsor</label>
-                            <input type="text" class="form-control" v-model="scoreBoard.players[1].sponsor.name" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Score</label>
-                        <input type="number" class="form-control" v-model="scoreBoard.players[1].score" />
-                    </div>
-                </div>
-
             </div>
 
             <div>
@@ -90,13 +81,40 @@
 
             <hr />
 
+            <div class="row">
+                <div class="col form-group">
+                    <label>Tournament name</label>
+                    <input type="text" class="form-control" v-model="scoreBoard.tournamentName" />
+                </div>
+
+                <div class="col form-group">
+                    <label>Tournament round</label>
+                    <input type="text" class="form-control" v-model="scoreBoard.round" />
+                </div>
+
+                <div class="col form-group">
+                    <label>Streamer</label>
+                    <input type="text" class="form-control" v-model="scoreBoard.streamer" />
+                </div>
+
+                <div class="col form-group">
+                    <label>Caster</label>
+                    <input type="text" class="form-control" v-model="scoreBoard.caster" />
+                </div>
+            </div>
+
             <p>
                 <button type="submit" class="btn btn-primary">Update</button>
             </p>
         </form>
 
         <a href="/overlays/melee/singles" target="_blank">Melee singles overlay</a>
+        
+        <details>
+            <summary>Overlay preview</summary>
 
+            <iframe src="/overlays/melee/singles" width="800" height="450"></iframe>
+        </details>
     </div>
 
     <script type="text/javascript" src="/lib/vue/vue.js"></script>
