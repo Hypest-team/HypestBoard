@@ -40,7 +40,7 @@
     var ApiService = new HypestBoardApiService(fetch);
 
     var data = {
-        scoreBoard: _.cloneDeep(emptyScoreBoard),
+        scoreBoard: {},
         gameList: [],
         characterList: []
     };
@@ -53,7 +53,6 @@
             isFilledIn: isFilledIn,
             updateScoreboard: updateScoreboard,
 
-            onCharacterChange: onCharacterChange, 
             onGameChange: onGameChange,
 
             swapPlayers: swapPlayers,
@@ -112,18 +111,9 @@
     function onGameChange() {
         getCharacterList(this);
     }
-    
-    function onCharacterChange(player) {
-        var vm = this;
-        var character = vm.characterList.find(function (char) {
-            return char.name === player.character.name;
-        }) || {};
         
-        player.character.icon = character.icon;
-    }
-    
     function getGameList(vm) {
-        return ApiService.getGameList
+        return ApiService.getGameList()
             .then(function (data) {
                 vm.gameList = data;
                 return vm;

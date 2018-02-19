@@ -29,13 +29,13 @@
                     <div class="col-md-6" v-for="(player, playerIndex) in scoreBoard.players">
                         <h2>Player {{ playerIndex + 1 }}</h2>
                         <div class="row">
-                            <div class="col form-group">
+                            <div class="col-6 form-group">
                                 <label>Name</label>
                                 <input type="text" class="form-control" v-model="player.name" />
                             </div>
 
 
-                            <div class="col form-group">
+                            <div class="col-6 form-group">
                                 <label>Character</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -44,7 +44,11 @@
                                             <span v-if="!player.character.icon">?</span>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" v-model="player.character.name" v-on:change="onCharacterChange(player)" />
+                                    <select class="form-control" v-model="player.character">
+                                        <option v-for="character in characterList" v-bind:value="character">
+                                            {{ character.name }}
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
