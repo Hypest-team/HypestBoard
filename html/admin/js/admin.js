@@ -38,6 +38,7 @@
     };
 
     var ApiService = new HypestBoardApiService(fetch);
+    var SmashGgService = new SmashGgApiService(fetch);
 
     var data = {
         scoreBoard: {},
