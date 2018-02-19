@@ -42,6 +42,6 @@ exports.getScoreboard = function (req, res) {
 }
 
 exports.updateScoreboard = function (req, res) {
-	scoreboard = req.body;
+    scoreboard = req.body;
 	res.send(scoreboard);
 }

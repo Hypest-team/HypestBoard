@@ -3,58 +3,105 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>HypestBoard admin page</title>
+    <link href="/lib/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-    <h1>HypestBoard admin page</h1>
+    <div id="scoreBoardAdmin" class="container">
+        <h1>HypestBoard admin page</h1>
 
-    <form>
-        <h2>Player 1</h2>
-        <p>
-            <label>Name</label>
-            <input type="text" />
-
-            <label>Character</label>
-            <input type="text" />
-
-            <br/>
-
-            <label>Flag</label>
-            <input type="text" />
-
-            <label>Sponsor</label>
-            <input type="text" />
-
-            <br />
-            <label>Score</label>
-            <input type="number" />
-        </p>
+        <form novalidate @submit.prevent="updateScoreboard">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>Player 1</h2>
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player1.name" />
+                        </div>
 
 
-        <h2>Player 2</h2>
-        <p>
-            <label>Name</label>
-            <input type="text" />
+                        <div class="col form-group">
+                            <label>Character</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player1.character.name" />
+                        </div>
+                    </div>
 
-            <label>Character</label>
-            <input type="text" />
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Flag</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player1.flag.name" />
+                        </div>
 
-            <br />
+                        <div class="col form-group">
+                            <label>Sponsor</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player1.sponsor.name" />
+                        </div>
+                    </div>
 
-            <label>Flag</label>
-            <input type="text" />
+                    <div class="form-group">
+                        <label>Score</label>
+                        <input type="number" class="form-control" v-model="scoreBoard.Player1.score" />
+                    </div>
+                </div>
 
-            <label>Sponsor</label>
-            <input type="text" />
+                <div class="offset-md-2 col-md-5">
+                    <h2>Player 2</h2>
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player2.name" />
+                        </div>
 
-            <br />
-            <label>Score</label>
-            <input type="number" />
-        </p>
 
-        <p>
-            <button type="submit">Update</button>
-        </p>
-    </form>
+                        <div class="col form-group">
+                            <label>Character</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player2.character.name" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Flag</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player2.flag.name" />
+                        </div>
+
+                        <div class="col form-group">
+                            <label>Sponsor</label>
+                            <input type="text" class="form-control" v-model="scoreBoard.Player2.sponsor.name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Score</label>
+                        <input type="number" class="form-control" v-model="scoreBoard.Player2.score" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <button type="button" @click="swapPlayers" class="btn btn-default">Swap players</button>
+                <button type="button" @click="resetForm" class="btn btn-default">Reset form</button>
+                <button type="button" @click="clearChanges" class="btn btn-default">Clear changes</button>
+            </div>
+
+            <hr />
+
+            <p>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </p>
+        </form>
+
+        <a href="/overlays/melee/singles" target="_blank">Melee singles overlay</a>
+
+    </div>
+
+    <script type="text/javascript" src="/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="/lib/lodash/lodash.js"></script>
+
+    <script type="text/javascript" src="js/admin.js"></script>
 </body>
 </html>

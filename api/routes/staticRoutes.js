@@ -1,11 +1,11 @@
 module.exports = function (app) {
-    var express = require('express');
-	var staticCtrl = require('../controllers/staticController')
+    var serveStatic = require('serve-static');
 
-    app.use('/js/lib/vue', express.static(__dirname + '/node_modules/vue/dist/'));
-    app.use('/js/lib/boostrap', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
-    app.use('/css/lib/boostrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-    
-    app.get('/', staticCtrl.getIndexFile);
-    //app.get(/^(.+)$/, staticCtrl.getStaticFile);
+    app.use('/lib/bootstrap/', serveStatic('node_modules/bootstrap/dist'));
+    app.use('/lib/vue/', serveStatic('node_modules/vue/dist'));
+    app.use('/lib/lodash/', serveStatic('node_modules/lodash'));
+    app.use('/lib/font-awesome/css', serveStatic('node_modules/font-awesome/css'));
+    app.use('/lib/font-awesome/fonts', serveStatic('node_modules/font-awesome/fonts'));
+
+    app.use('/', serveStatic('html'));
 }
