@@ -4,6 +4,7 @@
     var serverPath = '/api/smashgg/';
 
     this.getTournament = getTournament;
+    this.getStationQueue = getStationQueue;
 
     function getPath(call) {
         return serverPath + call;
@@ -21,5 +22,9 @@
         return fetch(getPath('tournament/' + tournamentSlug))
             .then(processResponse);
     }
-    
+
+    function getStationQueue(tournamentId) {
+        return fetch(getPath('station_queue/' + tournamentId))
+            .then(processResponse);
+    }
 }

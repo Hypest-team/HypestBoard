@@ -16,8 +16,37 @@
             <div class="col-md-2 stream-queue">
                 <h2>Stream queue</h2>
 
-                <div class="jumbotron text-center">
-                    <h4>No games in the queue</h4>
+                <details open="true">
+                    <summary>Tournament data</summary>
+                    <form novalidate @submit.prevent="updateTournament">
+                        <div class="form-group">
+                            <label>Tournament slug</label>
+                            <input type="text" class="form-control" v-model="tournament.editSlug" />
+                            <small class="form-text text-muted">
+                                The tournament slug can be extracted from the URL: https://smash.gg/tournament/<strong>tournament-slug</strong>
+                            </small>
+                        </div>
+                        <div class="äctions">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </details>
+
+                <hr />
+
+                <div v-if="tournament.data">
+                    <h3>{{ tournament.data.entities.tournament.name }}</h3>
+                </div>
+
+                <div v-if="tournament.stationQueue">
+                    <div class="jumbotron text-center" v-if="tournament.stationQueue.queues.length === 0">
+                        <h4>No games in the queue</h4>
+                    </div>
+
+                    <div v-for="item in tournament.stationQueue.queues">
+                        <pre>{{ item }}</pre>
+                        <hr/>
+                    </div>
                 </div>
             </div>
 

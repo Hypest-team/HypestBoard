@@ -43,7 +43,12 @@
     var data = {
         scoreBoard: {},
         gameList: [],
-        characterList: []
+        characterList: [],
+        tournament: {
+            data: null,
+            stationQueue: null
+        },
+        flagList: []
     };
 
     var vm = new Vue({
@@ -53,6 +58,7 @@
         methods: {
             isFilledIn: isFilledIn,
             updateScoreboard: updateScoreboard,
+            updateTournament: updateTournament, 
 
             onGameChange: onGameChange,
 
@@ -66,11 +72,9 @@
     });
 
     function onMounted() {
-        var vm = this;
-
-        getGameList(vm)
+        getScoreBoard()
             .then(getFlagList)
-            .then(getScoreBoard)
+            .then(getGameList);
     }
 
     function isFilledIn(str) {
@@ -78,8 +82,6 @@
     }
 
     function swapPlayers(event) {
-        var vm = this;
-
         if (vm.scoreBoard.players.length === 2) {
             var p1 = _.clone(vm.scoreBoard.players[0]);
             var p2 = _.clone(vm.scoreBoard.players[1]);
@@ -90,18 +92,14 @@
 
 
     function resetForm(event) {
-        var vm = this;
         vm.scoreBoard = _.cloneDeep(emptyScoreBoard);
     }
 
     function clearChanges() {
-        var vm = this;
-        getScoreBoard(vm);
+        getScoreBoard();
     }
 
     function addCommentator() {
-        var vm = this;
-
         vm.scoreBoard.commentators.push({
             name: '',
             handler: ''
@@ -109,8 +107,6 @@
     }
 
     function removeCommentator(index) {
-        var vm = this;
-
         vm.scoreBoard.commentators.splice(index, 1);
     }
 
@@ -118,15 +114,20 @@
         getCharacterList(this);
     }
         
-    function getGameList(vm) {
+    function getGameList() {
         return ApiService.getGameList()
             .then(function (data) {
                 vm.gameList = data;
+
+                if (!vm.scoreBoard.game) {
+                    vm.scoreBoard.game = vm.gameList[0];
+                }
+
                 return vm;
             });
     }
 
-    function getFlagList(vm) {
+    function getFlagList() {
         return ApiService.getFlagList()
             .then(function (data) {
                 vm.flagList = data;
@@ -134,7 +135,7 @@
             });
     }
 
-    function getCharacterList(vm) {
+    function getCharacterList() {
         var selectedGameId = vm.scoreBoard.game.id;
 
         return ApiService.getCharacterList(selectedGameId)
@@ -144,7 +145,7 @@
             });
     }
 
-    function getScoreBoard(vm) {
+    function getScoreBoard() {
         return ApiService.getScoreBoard()
             .then(function (data) {
                 vm.scoreBoard = data;
@@ -160,6 +161,21 @@
             })
             .then(function (data) {
                 this.scoreBoard = data;
+            });
+    }
+
+    function updateStationQueue() {
+        return SmashGgService.getStationQueue(vm.tournament.data.entities.tournament.id)
+            .then(function (data) {
+                vm.tournament.stationQueue = data;
+            });
+    }
+
+    function updateTournament(event) {
+        return SmashGgService.getTournament(vm.tournament.editSlug)
+            .then(function (data) {
+                vm.tournament.data = data;
+                return updateStationQueue();
             });
     }
 
