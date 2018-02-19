@@ -92,7 +92,15 @@
 
 
     function resetForm(event) {
-        vm.scoreBoard = _.cloneDeep(emptyScoreBoard);
+        vm.scoreBoard.players = vm.scoreBoard.players.map(function () {
+            return {
+                name: '',
+                score: 0,
+                character: {},
+                flag: {},
+                sponsor: ''
+            };
+        });
     }
 
     function clearChanges() {
@@ -111,7 +119,12 @@
     }
 
     function onGameChange() {
-        getCharacterList(this);
+        vm.scoreBoard.players = vm.scoreBoard.players.map(function (player) {
+            player.character = {};
+            return player;
+        });
+
+        getCharacterList();
     }
         
     function getGameList() {
@@ -123,7 +136,7 @@
                     vm.scoreBoard.game = vm.gameList[0];
                 }
 
-                return vm;
+                return getCharacterList();
             });
     }
 
@@ -168,6 +181,7 @@
         return SmashGgService.getStationQueue(vm.tournament.data.entities.tournament.id)
             .then(function (data) {
                 vm.tournament.stationQueue = data;
+                vm.scoreBoard.streamer = data.data.entities.stream.streamName;
             });
     }
 
@@ -175,6 +189,7 @@
         return SmashGgService.getTournament(vm.tournament.editSlug)
             .then(function (data) {
                 vm.tournament.data = data;
+                vm.scoreBoard.tournamentName = data.entities.tournament.name;
                 return updateStationQueue();
             });
     }
