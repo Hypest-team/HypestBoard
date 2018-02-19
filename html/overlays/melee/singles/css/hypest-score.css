@@ -54,15 +54,26 @@ body {
 
 .player-name,
 .player-score,
-.player-char-wrapper {
-	background-color: #320905;
-	margin: 0.1ch;
-	padding: 0.2ch;
+.player-char-wrapper,
+.player-flag {
+    background-color: #320905;
+    margin: 0.1ch;
+    padding: 0.2ch;
 }
 
 .player-name {
 	flex-grow: 1;
 	
+}
+
+.player-flag {
+    flex-grow: 0;
+    display: flex;
+    align-self: center;
+}
+
+.player-flag-icon {
+    max-height: 1.2em;
 }
 
 .player-score {

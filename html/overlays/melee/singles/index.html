@@ -15,37 +15,43 @@
 		<div class="stream-content">
 			<div class="score" v-if="scoreBoard.players">
 				<span class="label-decoration label-decoration-left">&nbsp;</span>
-				<div class="player player-1 label" v-if="scoreBoard.players[0]">
-					<span class="player-score">
-						{{ scoreBoard.players[0].score }}
-					</span>
-					
-					<span class="player-name">
-                        <img v-bind:src="scoreBoard.players[0].flag.icon" v-if="scoreBoard.players[0].flag.icon" height="70%" />
-						{{ scoreBoard.players[0].name }}
-					</span>
-					
-					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.players[0].character.icon)">
-						<img class="player-char" v-bind:src="scoreBoard.players[0].character.icon" />
-					</span>
-				</div>
+                <div class="player player-1 label" v-if="scoreBoard.players[0]">
+                    <span class="player-score">
+                        {{ scoreBoard.players[0].score }}
+                    </span>
+
+                    <span class="player-flag">
+                        <img v-bind:src="scoreBoard.players[0].flag.icon" v-if="scoreBoard.players[0].flag.icon" class="player-flag-icon" />
+                    </span>
+
+                    <span class="player-name">
+                        {{ scoreBoard.players[0].name }}
+                    </span>
+
+                    <span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.players[0].character.icon)">
+                        <img class="player-char" v-bind:src="scoreBoard.players[0].character.icon" />
+                    </span>
+                </div>
 				<span class="label-decoration label-decoration-right">&nbsp;</span>
 				
 				<span class="label-decoration label-decoration-left">&nbsp;</span>
-				<div class="player player-2 label"  v-if="scoreBoard.players[1]">				
-					<span class="player-score">
-						{{ scoreBoard.players[1].score }}
-					</span>
-					
+                <div class="player player-2 label" v-if="scoreBoard.players[1]">
+                    <span class="player-score">
+                        {{ scoreBoard.players[1].score }}
+                    </span>
+
+                    <span class="player-flag">
+                        <img v-bind:src="scoreBoard.players[1].flag.icon" v-if="scoreBoard.players[1].flag.icon" class="player-flag-icon" />
+                    </span>
+
                     <span class="player-name">
                         {{ scoreBoard.players[1].name }}
-                        <img v-bind:src="scoreBoard.players[1].flag.icon" v-if="scoreBoard.players[1].flag.icon" height="70%" />
                     </span>
-					
-					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.players[1].character.icon)">
-						<img class="player-char" v-bind:src="scoreBoard.players[1].character.icon" />
-					</span>
-				</div>
+
+                    <span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.players[1].character.icon)">
+                        <img class="player-char" v-bind:src="scoreBoard.players[1].character.icon" />
+                    </span>
+                </div>
 				<span class="label-decoration label-decoration-right">&nbsp;</span>
 			</div>
 			

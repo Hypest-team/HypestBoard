@@ -6,7 +6,7 @@ module.exports = function (app) {
     app.use('/lib/lodash/', serveStatic('node_modules/lodash'));
     app.use('/lib/font-awesome/css', serveStatic('node_modules/font-awesome/css'));
     app.use('/lib/font-awesome/fonts', serveStatic('node_modules/font-awesome/fonts'));
-    app.use('/lib/famfamfam-flags/', serveStatic('node_modules/famfamfam-flags/dist'));
+    app.use('/lib/svg-country-flags/', serveStatic('node_modules/svg-country-flags'));
 
     app.use('/', serveStatic('html'));
 }
