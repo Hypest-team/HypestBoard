@@ -72,7 +72,7 @@
 				
 				window.setTimeout(function () {
 					getScoreboard(vm);
-				}, 1000);
+                }, REFRESH_TIMEOUT);
 			});
 	}
 		

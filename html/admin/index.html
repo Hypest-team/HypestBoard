@@ -16,92 +16,128 @@
             <div class="form-group">
                 <label>Game configuration</label>
                 <select class="form-control" v-model="scoreBoard.game" v-on:change="onGameChange">
-                    <option v-for="game in gameList" v-bind:value="game">
+                    <option v-for="game in gameList" :key="game.id" v-bind:value="game">
                         {{ game.name }}
                     </option>
                 </select>
             </div>
 
-            <div class="row">
-                <div class="col-md-6" v-for="(player, playerIndex) in scoreBoard.players">
-                    <h2>Player {{ playerIndex + 1 }}</h2>
-                    <div class="row">
-                        <div class="col form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" v-model="player.name" />
-                        </div>
+            <details open="true">
+                <summary><strong>Players</strong></summary>
 
-
-                        <div class="col form-group">
-                            <label>Character</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <img v-bind:src="player.character.icon" height="24" v-if="player.character.icon" />
-                                        <span v-if="!player.character.icon">?</span>
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" v-model="player.character.name" v-on:change="onCharacterChange(player)" />
+                <div class="row">
+                    <div class="col-md-6" v-for="(player, playerIndex) in scoreBoard.players">
+                        <h2>Player {{ playerIndex + 1 }}</h2>
+                        <div class="row">
+                            <div class="col form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" v-model="player.name" />
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col form-group">
-                            <label>Flag</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <img v-bind:src="'/lib/famfamfam-flags/png/' + player.flag.icon.toLowerCase() + '.png'" height="24" v-if="player.flag.icon" />
-                                        <span v-if="!player.flag.icon">?</span>
+
+                            <div class="col form-group">
+                                <label>Character</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <img v-bind:src="player.character.icon" height="24" v-if="player.character.icon" />
+                                            <span v-if="!player.character.icon">?</span>
+                                        </div>
                                     </div>
+                                    <input type="text" class="form-control" v-model="player.character.name" v-on:change="onCharacterChange(player)" />
                                 </div>
-                                <input type="text" class="form-control" v-model="player.flag.icon" />
                             </div>
                         </div>
 
-                        <div class="col form-group">
-                            <label>Sponsor</label>
-                            <input type="text" class="form-control" v-model="player.sponsor.name" />
-                        </div>
-                    </div>
+                        <div class="row">
+                            <div class="col form-group">
+                                <label>Flag</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <img v-bind:src="'/lib/famfamfam-flags/png/' + player.flag.icon.toLowerCase() + '.png'" height="24" v-if="player.flag.icon" />
+                                            <span v-if="!player.flag.icon">?</span>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" v-model="player.flag.icon" />
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <label>Score</label>
-                        <input type="number" class="form-control" v-model="player.score" />
+                            <div class="col form-group">
+                                <label>Sponsor</label>
+                                <input type="text" class="form-control" v-model="player.sponsor.name" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Score</label>
+                            <input type="number" class="form-control" v-model="player.score" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div>
-                <button type="button" @click="swapPlayers" class="btn btn-default">Swap players</button>
-                <button type="button" @click="resetForm" class="btn btn-default">Reset form</button>
-                <button type="button" @click="clearChanges" class="btn btn-default">Clear changes</button>
-            </div>
+                <div>
+                    <button type="button" @click="swapPlayers" class="btn btn-default">Swap players</button>
+                    <button type="button" @click="resetForm" class="btn btn-default">Reset form</button>
+                    <button type="button" @click="clearChanges" class="btn btn-default">Clear changes</button>
+                </div>
+
+
+            </details>
 
             <hr />
 
-            <div class="row">
-                <div class="col form-group">
-                    <label>Tournament name</label>
-                    <input type="text" class="form-control" v-model="scoreBoard.tournamentName" />
-                </div>
+            <details>
+                <summary><strong>Tournament details</strong></summary>
+                <div class="row">
+                    <div class="col form-group">
+                        <label>Tournament name</label>
+                        <input type="text" class="form-control" v-model="scoreBoard.tournamentName" />
+                    </div>
 
-                <div class="col form-group">
-                    <label>Tournament round</label>
-                    <input type="text" class="form-control" v-model="scoreBoard.round" />
-                </div>
+                    <div class="col form-group">
+                        <label>Tournament round</label>
+                        <input type="text" class="form-control" v-model="scoreBoard.round" />
+                    </div>
 
-                <div class="col form-group">
-                    <label>Streamer</label>
-                    <input type="text" class="form-control" v-model="scoreBoard.streamer" />
-                </div>
+                    <div class="col form-group">
+                        <label>Streamer</label>
+                        <input type="text" class="form-control" v-model="scoreBoard.streamer" />
+                    </div>
 
-                <div class="col form-group">
-                    <label>Caster</label>
-                    <input type="text" class="form-control" v-model="scoreBoard.caster" />
+                    <div class="col form-group">
+                        <label>Caster</label>
+                        <input type="text" class="form-control" v-model="scoreBoard.caster" />
+                    </div>
                 </div>
-            </div>
+            </details>
+
+            <hr/>
+            <details v-if="scoreBoard.commentators && scoreBoard.commentators.length > 0">
+                <summary><strong>Comentators</strong></summary>
+                <div class="row">
+                    <div v-for="(commentator, commentatorIndex) in scoreBoard.commentators" class="col-md-3">
+                        <h3>Commentator {{ commentatorIndex + 1 }}</h3>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" v-model="commentator.name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Handle</label>
+                            <input type="text" v-model="commentator.handle" class="form-control" />
+                        </div>
+                        <div class="actions">
+                            <button type="button" class="btn btn-danger" v-on:click="removeCommentator(commentatorIndex)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="actions">
+                    <button type="button" class="btn btn-primary" v-on:click="addCommentator">Add commentator</button>
+                </div>
+            </details>
+
+            <hr/>
 
             <p>
                 <button type="submit" class="btn btn-primary">Update</button>
@@ -109,7 +145,7 @@
         </form>
 
         <a href="/overlays/melee/singles" target="_blank">Melee singles overlay</a>
-        
+
         <details>
             <summary>Overlay preview</summary>
 
@@ -120,6 +156,7 @@
     <script type="text/javascript" src="/lib/vue/vue.js"></script>
     <script type="text/javascript" src="/lib/lodash/lodash.js"></script>
 
+    <script type="text/javascript" src="/common/js/services/api-service.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
 </body>
 </html>

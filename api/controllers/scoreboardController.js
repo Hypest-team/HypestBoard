@@ -30,6 +30,13 @@ var scoreboard = {
 			icon: ''
 		}
 	}],
+    commentators: [{
+        name: '',
+        handle: ''
+    }, {
+        name: '',
+        handle: ''
+    }],
 	round: '',
 	tournamentName: '',
 	caster: '',

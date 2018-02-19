@@ -37,6 +37,8 @@
         "streamer": ""
     };
 
+    var ApiService = new HypestBoardApiService(fetch);
+
     var data = {
         scoreBoard: _.cloneDeep(emptyScoreBoard),
         gameList: [],
@@ -56,13 +58,16 @@
 
             swapPlayers: swapPlayers,
             resetForm: resetForm,
-            clearChanges: clearChanges
+            clearChanges: clearChanges,
+
+            addCommentator: addCommentator,
+            removeCommentator: removeCommentator
         }
     });
 
     function onMounted() {
         getGameList(this)
-            .then(getScoreboard)
+            .then(getScoreBoard)
     }
 
     function isFilledIn(str) {
@@ -70,11 +75,14 @@
     }
 
     function swapPlayers(event) {
-        var Player1 = _.clone(this.scoreBoard.Player1);
-        var Player2 = _.clone(this.scoreBoard.Player2);
+        var vm = this;
 
-        this.scoreBoard.Player1 = Player2
-        this.scoreBoard.Player2 = Player1;
+        if (vm.scoreBoard.players.length === 2) {
+            var p1 = _.clone(this.scoreBoard.players[0]);
+            var p2 = _.clone(this.scoreBoard.players[1]);
+
+            this.scoreBoard.players = [p2, p1];
+        }
     }
 
 
@@ -83,7 +91,22 @@
     }
 
     function clearChanges() {
-        getScoreboard(this);
+        getScoreBoard(this);
+    }
+
+    function addCommentator() {
+        var vm = this;
+
+        vm.scoreBoard.commentators.push({
+            name: '',
+            handler: ''
+        });
+    }
+
+    function removeCommentator(index) {
+        var vm = this;
+
+        vm.scoreBoard.commentators.splice(index, 1);
     }
 
     function onGameChange() {
@@ -127,9 +150,8 @@
             });
     }
 
-    function getScoreboard(vm) {
-        return fetch('/api/scoreboard')
-            .then(processResponse)
+    function getScoreBoard(vm) {
+        return ApiService.getScoreBoard()
             .then(function (data) {
                 vm.scoreBoard = data;
                 return vm;
@@ -137,17 +159,12 @@
     }
 
     function updateScoreboard(event) {
-        return fetch('/api/scoreboard', {
-            method: 'post',
-            body: JSON.stringify(this.scoreBoard),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(processResponse)
+        return ApiService.updateScoreBoard(this.scoreBoard)
             .then(function (data) {
-                console.log('POSTED scoredboard');
+                vm.scoreBoard = data;
+                return vm;
+            })
+            .then(function (data) {
                 this.scoreBoard = data;
             });
     }
