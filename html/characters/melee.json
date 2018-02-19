@@ -1,0 +1,110 @@
+﻿[
+  {
+    "name": "-Empty-",
+    "icon": ""
+  },
+  {
+    "name": "Bowser",
+    "icon": "/characters/melee/bowser.png"
+  },
+  {
+    "name": "D.K",
+    "icon": "/characters/melee/dong.png"
+  },
+  {
+    "name": "Dr. Mario",
+    "icon": "/characters/melee/dr.png"
+  },
+  {
+    "name": "Falco",
+    "icon": "/characters/melee/falco.png"
+  },
+  {
+    "name": "Falcon",
+    "icon": "/characters/melee/falcon.png"
+  },
+  {
+    "name": "Fox",
+    "icon": "/characters/melee/fox.png"
+  },
+  {
+    "name": "Mr. Game & Watch",
+    "icon": "/characters/melee/gandw.png"
+  },
+  {
+    "name": "Ganondorf",
+    "icon": "/characters/melee/ganondorf.png"
+  },
+  {
+    "name": "Ice Climbers",
+    "icon": "/characters/melee/icies.png"
+  },
+  {
+    "name": "Jigglypuff",
+    "icon": "/characters/melee/jiggs.png"
+  },
+  {
+    "name": "Mewtwo",
+    "icon": "/characters/melee/king.png"
+  },
+  {
+    "name": "Kirby",
+    "icon": "/characters/melee/kirby.png"
+  },
+  {
+    "name": "Link",
+    "icon": "/characters/melee/link.png"
+  },
+  {
+    "name": "Luigi",
+    "icon": "/characters/melee/luigi.png"
+  },
+  {
+    "name": "Mario",
+    "icon": "/characters/melee/mario.png"
+  },
+  {
+    "name": "Marth",
+    "icon": "/characters/melee/marth.png"
+  },
+  {
+    "name": "Ness",
+    "icon": "/characters/melee/ness.png"
+  },
+  {
+    "name": "Peach",
+    "icon": "/characters/melee/peach.png"
+  },
+  {
+    "name": "Pichu",
+    "icon": "/characters/melee/pichu.png"
+  },
+  {
+    "name": "Pikachu",
+    "icon": "/characters/melee/pikachu.png"
+  },
+  {
+    "name": "Roy",
+    "icon": "/characters/melee/roy.png"
+  },
+  {
+    "name": "Samus",
+    "icon": "/characters/melee/samus.png"
+  },
+  {
+    "name": "Sheik",
+    "icon": "/characters/melee/sheik.png"
+  },
+  {
+    "name": "Yoshi",
+    "icon": "/characters/melee/yoshi.png"
+  },
+  {
+    "name": "Young Link",
+    "icon": "/characters/melee/younglink.png"
+  },
+  {
+    "name": "Zelda",
+    "icon": "/characters/melee/zelda.png"
+  }
+]

@@ -3,7 +3,7 @@
 	
 	var data = {
 		scoreBoard: {
-			players: [
+            players: [{
 				"name": "",
 				"character": {
 					"name": "",

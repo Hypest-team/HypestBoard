@@ -25,7 +25,7 @@
 					</span>
 					
 					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.players[0].character.icon)">
-						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.players[0].character.icon" />
+						<img class="player-char" v-bind:src="scoreBoard.players[0].character.icon" />
 					</span>
 				</div>
 				<span class="label-decoration label-decoration-right">&nbsp;</span>
@@ -41,7 +41,7 @@
 					</span>
 					
 					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.players[1].character.icon)">
-						<img class="player-char" v-bind:src="'img/characters/' + scoreBoard.players[1].character.icon" />
+						<img class="player-char" v-bind:src="scoreBoard.players[1].character.icon" />
 					</span>
 				</div>
 				<span class="label-decoration label-decoration-right">&nbsp;</span>
