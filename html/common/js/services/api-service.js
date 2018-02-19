@@ -2,6 +2,7 @@
     'use strict';
 
     this.getGameList = getGameList;
+    this.getFlagList = getFlagList;
     this.getCharacterList = getCharacterList;
 
     this.getScoreBoard = getScoreBoard;
@@ -17,6 +18,11 @@
 
     function getGameList() {
         return fetch('/config/games.json')
+            .then(processResponse);
+    }
+
+    function getFlagList() {
+        return fetch('/config/flags.json')
             .then(processResponse);
     }
 

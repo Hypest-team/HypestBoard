@@ -65,7 +65,10 @@
     });
 
     function onMounted() {
-        getGameList(this)
+        var vm = this;
+
+        getGameList(vm)
+            .then(getFlagList)
             .then(getScoreBoard)
     }
 
@@ -77,20 +80,22 @@
         var vm = this;
 
         if (vm.scoreBoard.players.length === 2) {
-            var p1 = _.clone(this.scoreBoard.players[0]);
-            var p2 = _.clone(this.scoreBoard.players[1]);
+            var p1 = _.clone(vm.scoreBoard.players[0]);
+            var p2 = _.clone(vm.scoreBoard.players[1]);
 
-            this.scoreBoard.players = [p2, p1];
+            vm.scoreBoard.players = [p2, p1];
         }
     }
 
 
     function resetForm(event) {
-        this.scoreBoard = _.cloneDeep(emptyScoreBoard);
+        var vm = this;
+        vm.scoreBoard = _.cloneDeep(emptyScoreBoard);
     }
 
     function clearChanges() {
-        getScoreBoard(this);
+        var vm = this;
+        getScoreBoard(vm);
     }
 
     function addCommentator() {
@@ -116,6 +121,14 @@
         return ApiService.getGameList()
             .then(function (data) {
                 vm.gameList = data;
+                return vm;
+            });
+    }
+
+    function getFlagList(vm) {
+        return ApiService.getFlagList()
+            .then(function (data) {
+                vm.flagList = data;
                 return vm;
             });
     }
