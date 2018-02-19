@@ -3,7 +3,7 @@
 	
 	var data = {
 		scoreBoard: {
-			"Player1": {
+			players: [
 				"name": "",
 				"character": {
 					"name": "",
@@ -18,8 +18,7 @@
 					"name": "",
 					"icon": ""
 				}
-			},
-			"Player2": {
+			}, {
 				"name": "",
 				"character": {
 					"name": "",
@@ -34,7 +33,7 @@
 					"name": "",
 					"icon": ""
 				}
-			},
+			}],
 			"round": "",
 			"tournamentName": "",
 			"caster": "",

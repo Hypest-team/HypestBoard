@@ -1,5 +1,5 @@
 var scoreboard = {
-	Player1: {
+	players: [{
 		name: '',
 		character: {
 			name: '',
@@ -14,8 +14,7 @@ var scoreboard = {
 			name: '',
 			icon: ''
 		}
-	},
-	Player2: {
+	}, {
 		name: '',
 		character: {
 			name: '',
@@ -30,7 +29,7 @@ var scoreboard = {
 			name: '',
 			icon: ''
 		}
-	},
+	}],
 	round: '',
 	tournamentName: '',
 	caster: '',

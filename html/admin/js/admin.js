@@ -1,6 +1,6 @@
 ﻿(function (Vue, fetch, _) {
     var emptyScoreBoard = {
-        "Player1": {
+        players: [{
             "name": "",
             "character": {
                 "name": "",
@@ -15,8 +15,7 @@
                 "name": "",
                 "icon": ""
             }
-        },
-        "Player2": {
+        }, {
             "name": "",
             "character": {
                 "name": "",
@@ -31,7 +30,7 @@
                 "name": "",
                 "icon": ""
             }
-        },
+        }],
         "round": "",
         "tournamentName": "",
         "caster": "",
