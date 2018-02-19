@@ -59,12 +59,12 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <img v-bind:src="'/lib/famfamfam-flags/png/' + player.flag.icon" height="16" v-if="player.flag.icon" />
+                                            <img v-bind:src="player.flag.icon" height="16" v-if="player.flag.icon" />
                                             <span v-if="!player.flag.icon">?</span>
                                         </div>
                                     </div>
                                     <select class="form-control"  v-model="player.flag">
-                                        <option v-for="(flagName, flagAbbr) in flagList" v-bind:value="{name: flagName, icon: flagAbbr.toLowerCase() + '.png'}">
+                                        <option v-for="(flagName, flagAbbr) in flagList" v-bind:value="{name: flagName, icon: '/lib/famfamfam-flags/png/' + flagAbbr.toLowerCase() + '.png'}">
                                             {{ flagName }}
                                         </option>
                                     </select>

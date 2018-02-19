@@ -21,6 +21,7 @@
 					</span>
 					
 					<span class="player-name">
+                        <img v-bind:src="scoreBoard.players[0].flag.icon" v-if="scoreBoard.players[0].flag.icon" height="70%" />
 						{{ scoreBoard.players[0].name }}
 					</span>
 					
@@ -36,9 +37,10 @@
 						{{ scoreBoard.players[1].score }}
 					</span>
 					
-					<span class="player-name">
-						{{ scoreBoard.players[1].name }}
-					</span>
+                    <span class="player-name">
+                        {{ scoreBoard.players[1].name }}
+                        <img v-bind:src="scoreBoard.players[1].flag.icon" v-if="scoreBoard.players[1].flag.icon" height="70%" />
+                    </span>
 					
 					<span class="player-char-wrapper" v-if="isFilledIn(scoreBoard.players[1].character.icon)">
 						<img class="player-char" v-bind:src="scoreBoard.players[1].character.icon" />
@@ -53,7 +55,7 @@
 					{{ scoreBoard.round }}
 				</div>
 				
-				<img src="img/streamer-logo.png" class="streamer-logo" />
+				<!--<img src="img/streamer-logo.png" class="streamer-logo" />-->
 				
 				<div class="tournament label" v-if="isFilledIn(scoreBoard.tournamentName)">
 					{{ scoreBoard.tournamentName }}
