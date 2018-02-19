@@ -1,6 +1,9 @@
 ﻿function HypestBoardApiService(fetch) {
     'use strict';
 
+    this.getGameList = getGameList;
+    this.getCharacterList = getCharacterList;
+
     this.getScoreBoard = getScoreBoard;
     this.updateScoreBoard = updateScoreBoard;
 
@@ -10,6 +13,16 @@
         } else {
             console.error('HypestScore server is down');
         }
+    }
+
+    function getGameList() {
+        return fetch('/config/games.json')
+            .then(processResponse);
+    }
+
+    function getCharacterList(gameId) {
+        return fetch('/characters/' + gameId + '.json')
+            .then(processResponse);
     }
 
     function getScoreBoard() {

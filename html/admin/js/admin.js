@@ -121,18 +121,9 @@
         
         player.character.icon = character.icon;
     }
-
-    function processResponse(response) {
-        if (response.ok) {
-            return response.json();
-        } else {
-            console.error('HypestScore server is down');
-        }
-    }
-
+    
     function getGameList(vm) {
-        return fetch('/config/games.json')
-            .then(processResponse)
+        return ApiService.getGameList
             .then(function (data) {
                 vm.gameList = data;
                 return vm;
@@ -142,8 +133,7 @@
     function getCharacterList(vm) {
         var selectedGameId = vm.scoreBoard.game.id;
 
-        return fetch('/characters/' + selectedGameId + '.json')
-            .then(processResponse)
+        return ApiService.getCharacterList(selectedGameId)
             .then(function (data) {
                 vm.characterList = data;
                 return vm;
