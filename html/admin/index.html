@@ -43,8 +43,12 @@
                         <h4>No games in the queue</h4>
                     </div>
 
-                    <div v-for="item in tournament.stationQueue.queues">
-                        <pre>{{ item }}</pre>
+                    <div v-for="set in tournament.stationQueue.data.entities.sets">
+                        <h5>{{ set.midRoundText }}</h5>
+                        <span v-for="(entrant, index) in set.entrants">
+                            {{ entrant.name }}
+                            <span v-if="index < set.entrants.length - 1">VS</span>
+                        </span>
                         <hr/>
                     </div>
                 </div>
