@@ -26,14 +26,23 @@ function getRequest(path, res) {
         });
 }
 
+// Always returns an array, because SMASHGG API IS STUPID!
+function getAsArray(obj) {
+    if (!obj || Array.isArray(obj)) {
+        return obj;
+    } else {
+        return [obj];
+    }
+}
+
 function enhanceStationQueue(stationQ) {
-    if (!stationQ.queues.length) {
+    if (!(stationQ.queues && stationQ.queues.length > 0)) {
         return stationQ;
     }
 
-    var sets = stationQ.data.entities.sets;
-    var entrants = stationQ.data.entities.entrants;
-    var player = stationQ.data.entities.player;
+    var sets = getAsArray(stationQ.data.entities.sets);
+    var entrants = getAsArray(stationQ.data.entities.entrants);
+    var players = getAsArray(stationQ.data.entities.player);
 
     // Fill in player data
     stationQ.data.entities.sets = sets.map(function (set) {
@@ -47,8 +56,9 @@ function enhanceStationQueue(stationQ) {
 
         entrantIdKeys.forEach(function (entrantIdKey) {
             var entrantKey = entrantIdKey.replace('Id', '');
-            var entrant = entrants.find(function (entrant) {
-                return entrant.id === set[entrantIdKey];
+            var entrant = entrants.find(function (e) {
+
+                return e.id === set[entrantIdKey];
             });
 
             if (entrant) {
