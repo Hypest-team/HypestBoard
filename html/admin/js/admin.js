@@ -94,17 +94,25 @@
         }
     }
 
+    function resetForm() {
+        vm.scoreBoard.entrants = vm.scoreBoard.entrants.map(resetEntrant);
+    }
 
-    function resetForm(event) {
-        vm.scoreBoard.players = vm.scoreBoard.players.map(function () {
-            return {
-                name: '',
-                score: 0,
-                character: {},
-                flag: {},
-                sponsor: ''
-            };
-        });
+    function resetEntrant(entrant) {
+        entrant.players = entrant.players.map(resetPlayer);
+        entrant.name = '';
+        return entrant;
+    }
+
+
+    function resetPlayer(player) {
+        return {
+            name: '',
+            score: 0,
+            character: {},
+            flag: {},
+            sponsor: ''
+        };
     }
 
     function clearChanges() {
