@@ -1,32 +1,6 @@
 
 var scoreboard = {
-	entrants: [{
-        name: 'Team Beer',
-        players: [{
-            name: 'Bla',
-            character: {
-                name: '',
-                icon: ''
-            },
-            flag: {
-                name: '',
-                icon: ''
-            },
-            sponsor: ''
-        }, {
-            name: 'Ble',
-            character: {
-                name: '',
-                icon: ''
-            },
-            flag: {
-                name: '',
-                icon: ''
-            },
-            sponsor: ''
-        }],
-        score: 0
-    }],
+	entrants: [],
     comentators: [],
 	round: '',
 	tournamentName: '',
