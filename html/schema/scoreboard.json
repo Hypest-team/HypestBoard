@@ -1,0 +1,108 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "http://hypestteam.com/scoreboard/schemas/scoreboard.json",
+    "title": "HypestBoard scoreboard object",
+
+    "type": "object",
+
+    "definitions": {
+        "icon": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "icon": { "type": "string" }
+            },
+            "required": ["name", "icon"],
+            "additionalProperties": false
+        },
+
+        "entrant": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "players": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/player"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "player": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "score": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "character": {
+                    "$ref": "#/definitions/icon"
+                },
+                "sponsor": {
+                    "type": "string"
+                },
+                "flag": {
+                    "$ref": "#/definitions/icon"
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "comentator": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "handle": { "type": "string" }
+            },
+            "additionalProperties": false
+        },
+          
+        "game": {
+        	"type": "object",
+            "properties": {
+            	"id": { "type": "string" },
+                "name": { "type": "string" }
+            },
+            "required": ["id", "name"],
+            "additionalProperties": false
+        }
+    },
+
+    "properties": {
+        "entrants": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/entrant"
+            }
+        },
+
+        "comentators": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/comentator"
+            }
+        },
+
+        "game": {
+        	"$ref": "#/definitions/game"
+        },
+
+        "round": { "type": "string" },
+        "tournamentName": { "type": "string" },
+        "caster": { "type": "string" },
+        "streamer": { "type": "string" }
+    },
+
+    "required": [
+        "entrants",
+        "comentators",
+        "game"
+    ],
+
+    "additionalProperties": false
+}

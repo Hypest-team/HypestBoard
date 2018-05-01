@@ -68,8 +68,8 @@
 
             getFlag: getFlag,
 
-            addCommentator: addCommentator,
-            removeCommentator: removeCommentator,
+            addComentator: addComentator,
+            removeComentator: removeComentator,
 
             autoFillGgSet: autoFillGgSet
         }
@@ -85,12 +85,12 @@
         return !!str && str.trim().length > 0;
     }
 
-    function swapPlayers(event) {
-        if (vm.scoreBoard.players.length === 2) {
-            var p1 = _.clone(vm.scoreBoard.players[0]);
-            var p2 = _.clone(vm.scoreBoard.players[1]);
+    function swapPlayers(entrant) {
+        if (entrant.players.length === 2) {
+            var p1 = _.clone(entrant.players[0]);
+            var p2 = _.clone(entrant.players[1]);
 
-            vm.scoreBoard.players = [p2, p1];
+            entrant.players = [p2, p1];
         }
     }
 
@@ -111,15 +111,15 @@
         getScoreBoard();
     }
 
-    function addCommentator() {
-        vm.scoreBoard.commentators.push({
+    function addComentator() {
+        vm.scoreBoard.comentators.push({
             name: '',
             handler: ''
         });
     }
 
-    function removeCommentator(index) {
-        vm.scoreBoard.commentators.splice(index, 1);
+    function removeComentator(index) {
+        vm.scoreBoard.comentators.splice(index, 1);
     }
 
     function onGameChange() {
@@ -221,30 +221,43 @@
     }
 
     function convertGgPlayer(ggPlayer) {
-        return {
-            name: ggPlayer.gamerTag,
-            character: {
-                icon: '',
-                name: ''
-            },
-            flag: convertCountryToFlag(ggPlayer.country),
-            sponsor: ggPlayer.prefix || '',
-            score: 0
-        };
+        if (ggPlayer) {
+            return {
+                name: ggPlayer.gamerTag,
+                character: {
+                    icon: '',
+                    name: ''
+                },
+                flag: convertCountryToFlag(ggPlayer.country),
+                sponsor: ggPlayer.prefix || '',
+                score: 0
+            };
+        } else {
+            return null;
+        }
+    }
+
+    function filterNull(o) {
+        return !!o;
+    }
+
+    function convertGgEntrant(ggEntrant) {
+        if (ggEntrant) {
+            return {
+                name: ggEntrant.name,
+                players: ggEntrant.players.map(convertGgPlayer)
+                    .filter(filterNull)
+            }
+        } else {
+            return null;
+        }
     }
 
     function autoFillGgSet(ggSet) {
-        var players = [];
+        var entrants = ggSet.entrants.map(convertGgEntrant)
+            .filter(filterNull);
 
-        ggSet.entrants.forEach(function (entrant) {
-            if (entrant) {
-                entrant.players.forEach(function (player) {
-                    players.push(convertGgPlayer(player));
-                }); 
-            }
-        });
-
-        vm.scoreBoard.players = players;
+        vm.scoreBoard.entrants = entrants;
         vm.scoreBoard.round = ggSet.fullRoundText;
         vm.scoreBoard.streamer = ggSet.stream.streamName;
     }
