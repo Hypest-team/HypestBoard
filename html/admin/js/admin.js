@@ -62,6 +62,9 @@
 
             onGameChange: onGameChange,
 
+            addPlayer: addPlayer,
+            removePlayer: removePlayer,
+
             swapPlayers: swapPlayers,
             resetForm: resetForm,
             clearChanges: clearChanges,
@@ -95,17 +98,19 @@
     }
 
     function resetForm() {
-        vm.scoreBoard.entrants = vm.scoreBoard.entrants.map(resetEntrant);
+        vm.scoreBoard.entrants = vm.scoreBoard.entrants.map(getEmptyEntrant);
     }
 
-    function resetEntrant(entrant) {
-        entrant.players = entrant.players.map(resetPlayer);
-        entrant.name = '';
-        return entrant;
+    function getEmptyEntrant(entrant) {
+        return {
+            name: '',
+            player: (entrant && entrant.players) ?
+                entrant.players.map(getEmptyPlayer) : []
+        };
     }
 
 
-    function resetPlayer(player) {
+    function getEmptyPlayer() {
         return {
             name: '',
             score: 0,
@@ -131,14 +136,22 @@
     }
 
     function onGameChange() {
-        vm.scoreBoard.players = vm.scoreBoard.players.map(function (player) {
+        /*vm.scoreBoard.players = vm.scoreBoard.players.map(function (player) {
             player.character = {};
             return player;
-        });
+        });*/
 
         getCharacterList();
     }
-        
+
+    function removePlayer(entrant, index) {
+        entrant.players.splice(index, 1);
+    }
+
+    function addPlayer(entrant) {
+        entrant.players.push(getEmptyPlayer());
+    }
+     
     function getGameList() {
         return ApiService.getGameList()
             .then(function (data) {

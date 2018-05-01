@@ -82,15 +82,37 @@
                                 <div class="form-group">
                                     <label>Name</label>
                                     <input type="text" class="form-control" v-model="entrant.name" />
-                                    
                                 </div>
 
                                 <details open="true">
                                     <summary><strong>Players</strong></summary>
 
+                                    <br/>
+
+                                    <div>
+                                        <button type="button" @click="addPlayer(entrant)" class="btn btn-success">
+                                            <i class="fa fa-plus"></i>
+                                            Add player
+                                        </button>
+
+                                        <button type="button" v-if="entrant.players && entrant.players.length === 2" @click="swapPlayers(entrant)" class="btn btn-default">Swap players</button>
+                                    </div>
+
+                                    <br/>
+
                                     <div class="row">
                                         <div class="col-md-6" v-for="(player, playerIndex) in entrant.players">
+                                            <div>
+                                                <button type="button" @click="removePlayer(entrant, playerIndex)" class="btn btn-danger float-right" title="Remove player">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+
+                                            </div>
+
                                             <h2>Player {{ playerIndex + 1 }}</h2>
+                                            
+                                            <br class="clearfix" />
+
                                             <div class="row">
                                                 <div class="col-6 form-group">
                                                     <label>Name</label>
@@ -146,17 +168,16 @@
                                                 <label>Score</label>
                                                 <input type="number" class="form-control form-control-lg" v-model="player.score" />
                                             </div>
+
                                         </div>
                                     </div>
-
-                                    <div>
-                                        <button type="button" v-if="entrant.players.length === 2" @click="swapPlayers(entrant)" class="btn btn-default">Swap players</button>
-                                    </div>
-
 
                                 </details>
                             </div>
                         </div>
+                        
+                        <br/>
+
                         <button type="button" @click="resetForm" class="btn btn-default">Reset form</button>
                         <button type="button" @click="clearChanges" class="btn btn-default">Clear changes</button>
                     </details>
