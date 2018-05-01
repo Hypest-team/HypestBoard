@@ -1,42 +1,4 @@
 ﻿(function (Vue, fetch, _) {
-    var emptyScoreBoard = {
-        players: [{
-            "name": "",
-            "character": {
-                "name": "",
-                "icon": ""
-            },
-            "sponsor": {
-                "name": "",
-                "icon": ""
-            },
-            "score": 0,
-            "flag": {
-                "name": "",
-                "icon": ""
-            }
-        }, {
-            "name": "",
-            "character": {
-                "name": "",
-                "icon": ""
-            },
-            "sponsor": {
-                "name": "",
-                "icon": ""
-            },
-            "score": 0,
-            "flag": {
-                "name": "",
-                "icon": ""
-            }
-        }],
-        "round": "",
-        "tournamentName": "",
-        "caster": "",
-        "streamer": ""
-    };
-
     var ApiService = new HypestBoardApiService(fetch);
     var SmashGgService = new SmashGgApiService(fetch);
 
@@ -107,6 +69,7 @@
     function getEmptyEntrant(entrant) {
         return {
             name: '',
+            score: 0,
             players: (entrant && entrant.players) ?
                 entrant.players.map(getEmptyPlayer) : []
         };
@@ -116,7 +79,6 @@
     function getEmptyPlayer() {
         return {
             name: '',
-            score: 0,
             character: {},
             flag: {},
             sponsor: ''
@@ -261,8 +223,7 @@
                     name: ''
                 },
                 flag: convertCountryToFlag(ggPlayer.country),
-                sponsor: ggPlayer.prefix || '',
-                score: 0
+                sponsor: ggPlayer.prefix || ''
             };
         } else {
             return null;
@@ -278,7 +239,8 @@
             return {
                 name: ggEntrant.name,
                 players: ggEntrant.players.map(convertGgPlayer)
-                    .filter(filterNull)
+                    .filter(filterNull),
+                score: 0
             }
         } else {
             return null;

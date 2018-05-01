@@ -14,7 +14,7 @@
         <h1>HypestBoard admin page</h1>
 
         <div class="row">
-            <div class="col-md-4 stream-queue">
+            <div class="col-md-2 stream-queue">
                 <h2>Smash.gg Tournament</h2>
 
                 <details open="true">
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <form novalidate @submit.prevent="updateScoreboard">
                     <div class="form-group">
                         <label>Game configuration</label>
@@ -88,112 +88,121 @@
                         <div class="row">
                             <div class="col-md-6" v-for="(entrant, entrantIndex) in scoreBoard.entrants">
 
-                            <button class="btn btn-danger float-right" @click="removeEntrant(entrantIndex)" title="Remove team">
-                                <i class="fa fa-times"></i>
-                            </button>
-
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" v-model="entrant.name" />
-                                </div>
-
-                                <details open="true">
-                                    <summary><strong>Players</strong></summary>
-
-                                    <br/>
-
-                                    <div>
-                                        <button type="button" @click="addPlayer(entrant)" class="btn btn-success">
-                                            <i class="fa fa-plus"></i>
-                                            Add player
-                                        </button>
-
-                                        <button type="button" v-if="entrant.players && entrant.players.length === 2" @click="swapPlayers(entrant)" class="btn btn-default">Swap players</button>
+                                <div class="row">
+                                    <div class="form-group col-8">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" v-model="entrant.name" />
                                     </div>
 
-                                    <br/>
+                                    <div class="form-group col-4">
+                                        <label>Score</label>
+                                        <input type="number" class="form-control form-control" v-model="entrant.score" />
+                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6" v-for="(player, playerIndex) in entrant.players">
+                                    <div class="col-12">
+
+                                        <button class="btn btn-danger" @click="removeEntrant(entrantIndex)">
+                                            <i class="fa fa-times"></i>
+                                            Remove team
+                                        </button>
+                                    </div>
+
+                                    <div class="col-12">
+
+                                        <details open="true">
+                                            <summary><strong>Players</strong></summary>
+
+                                            <br/>
+
                                             <div>
-                                                <button type="button" @click="removePlayer(entrant, playerIndex)" class="btn btn-danger float-right" title="Remove player">
-                                                    <i class="fa fa-times"></i>
+                                                <button type="button" @click="addPlayer(entrant)" class="btn btn-success">
+                                                    <i class="fa fa-plus"></i>
+                                                    Add player
                                                 </button>
 
+                                                <button type="button" v-if="entrant.players && entrant.players.length === 2" @click="swapPlayers(entrant)" class="btn btn-default">Swap players</button>
                                             </div>
 
-                                            <h2>Player {{ playerIndex + 1 }}</h2>
-                                            
-                                            <br class="clearfix" />
+                                            <br/>
 
                                             <div class="row">
-                                                <div class="col-6 form-group">
-                                                    <label>Name</label>
-                                                    <input type="text" class="form-control" v-model="player.name" />
-                                                </div>
+                                                <div class="col-md-6" v-for="(player, playerIndex) in entrant.players">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <button type="button" @click="removePlayer(entrant, playerIndex)" class="btn btn-sm btn-danger float-right" title="Remove player">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                            
+                                                            <strong>Player {{ playerIndex + 1 }}</strong>
+                                                        </div>
+
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label>Name</label>
+                                                                <input type="text" class="form-control" v-model="player.name" />
+                                                            </div>
 
 
-                                                <div class="col-6 form-group">
-                                                    <label>Character</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <img v-bind:src="player.character.icon" height="24" v-if="player.character.icon" />
-                                                                <span v-if="!player.character.icon">?</span>
+                                                            <div class="form-group">
+                                                                <label>Character</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <div class="input-group-text">
+                                                                            <img v-bind:src="player.character.icon" height="24" v-if="player.character.icon" />
+                                                                            <span v-if="!player.character.icon">?</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <select class="form-control" v-model="player.character">
+                                                                        <option v-for="character in characterList" v-bind:value="character">
+                                                                            {{ character.name }}
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label>Flag</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <div class="input-group-text">
+                                                                            <img v-bind:src="player.flag.icon" height="16" v-if="player.flag.icon" />
+                                                                            <span v-if="!player.flag.icon">?</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <select class="form-control" v-model="player.flag">
+                                                                        <option
+                                                                            v-for="(countryName, countryCode) in flagList"
+                                                                            v-bind:value="getFlag(countryName, countryCode)">
+                                                                            {{ countryName }}
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label>Sponsor</label>
+                                                                <input type="text" class="form-control" v-model="player.sponsor.name" />
                                                             </div>
                                                         </div>
-                                                        <select class="form-control" v-model="player.character">
-                                                            <option v-for="character in characterList" v-bind:value="character">
-                                                                {{ character.name }}
-                                                            </option>
-                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col form-group">
-                                                    <label>Flag</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <img v-bind:src="player.flag.icon" height="16" v-if="player.flag.icon" />
-                                                                <span v-if="!player.flag.icon">?</span>
-                                                            </div>
-                                                        </div>
-                                                        <select class="form-control" v-model="player.flag">
-                                                            <option
-                                                                v-for="(countryName, countryCode) in flagList"
-                                                                v-bind:value="getFlag(countryName, countryCode)">
-                                                                {{ countryName }}
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col form-group">
-                                                    <label>Sponsor</label>
-                                                    <input type="text" class="form-control" v-model="player.sponsor.name" />
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Score</label>
-                                                <input type="number" class="form-control form-control-lg" v-model="player.score" />
-                                            </div>
-
-                                        </div>
+                                        </details>
                                     </div>
+                                <div>
 
-                                </details>
                             </div>
                         </div>
                         
                         <br/>
 
-                        <button type="button" @click="resetForm" class="btn btn-default">Reset form</button>
-                        <button type="button" @click="clearChanges" class="btn btn-default">Clear changes</button>
                     </details>
+
+                    <br/>
+                    
+                    <button type="button" @click="resetForm" class="btn btn-default">Reset form</button>
+                    <button type="button" @click="clearChanges" class="btn btn-default">Clear changes</button>
 
 
                     <hr />

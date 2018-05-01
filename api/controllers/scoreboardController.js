@@ -24,7 +24,8 @@ var scoreboard = {
                 icon: ''
             },
             sponsor: ''
-        }]
+        }],
+        score: 0
     }],
     comentators: [],
 	round: '',
