@@ -35,17 +35,8 @@ function getAsArray(obj) {
     }
 }
 
-function enhanceStationQueue(stationQ) {
-    if (!(stationQ.queues && stationQ.queues.length > 0)) {
-        return stationQ;
-    }
-
-    var sets = getAsArray(stationQ.data.entities.sets);
-    var entrants = getAsArray(stationQ.data.entities.entrants);
-    var players = getAsArray(stationQ.data.entities.player);
-
-    // Fill in player data
-    stationQ.data.entities.sets = sets.map(function (set) {
+function mapEntrantsForSet(entrants, sets) {
+    return sets.map(function (set) {
         var newSet = _.cloneDeep(set);
 
         var entrantIdKeys = Object.keys(set).filter(function (key) {
@@ -61,13 +52,39 @@ function enhanceStationQueue(stationQ) {
                 return e.id === set[entrantIdKey];
             });
 
-            if (entrant) {
-                newSet.entrants.push(entrant);
-            }
+            newSet.entrants.push(entrant);
         });
 
         return newSet;
     });
+}
+
+function mapPlayersForEntrants(players, entrants) {
+    return entrants.map(function (entrant) {
+        var playerIds = entrant.playerIds;
+        var entrantPlayers = _.map(playerIds, function (playerId) {
+            return players.find(function (player) {
+                return player.id === playerId;
+            });
+        });
+
+        entrant.players = entrantPlayers;
+        return entrant;
+    });
+}
+
+function enhanceStationQueue(stationQ) {
+    if (!(stationQ.data)) {
+        return stationQ;
+    }
+
+    var sets = getAsArray(stationQ.data.entities.sets);
+    var entrants = getAsArray(stationQ.data.entities.entrants);
+    var players = getAsArray(stationQ.data.entities.player);
+
+    // Fill in player data
+    stationQ.data.entities.players = mapPlayersForEntrants(players, entrants);
+    stationQ.data.entities.sets = mapEntrantsForSet(entrants, sets);
 
     return stationQ;
 }
@@ -82,7 +99,8 @@ exports.getTournament = function (req, res) {
 exports.getStationQueue = function (req, res) {
     return getRequest('station_queue/' + req.params.tournamentId, res)
         .then(function (data) {
-            res.json(enhanceStationQueue(data));
+            var enhanced = enhanceStationQueue(data);
+            res.json(enhanced);
         })
         .catch(function (e) {
             console.error(e);
