@@ -228,7 +228,8 @@
                 name: ''
             },
             flag: convertCountryToFlag(ggPlayer.country),
-            sponsor: ggPlayer.prefix || ''
+            sponsor: ggPlayer.prefix || '',
+            score: 0
         };
     }
 
