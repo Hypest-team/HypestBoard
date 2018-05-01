@@ -1,42 +1,7 @@
+
 var scoreboard = {
-	players: [{
-		name: '',
-		character: {
-			name: '',
-			icon: ''
-		},
-		sponsor: {
-			name: '',
-			icon: ''
-		},
-		score: 0,
-		flag: {
-			name: '',
-			icon: ''
-		}
-	}, {
-		name: '',
-		character: {
-			name: '',
-			icon: ''
-		},
-		sponsor: {
-			name: '',
-			icon: ''
-		},
-		score: 0,
-		flag: {
-			name: '',
-			icon: ''
-		}
-	}],
-    commentators: [{
-        name: '',
-        handle: ''
-    }, {
-        name: '',
-        handle: ''
-    }],
+	players: [],
+    comentators: [],
 	round: '',
 	tournamentName: '',
 	caster: '',
