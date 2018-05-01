@@ -1,9 +1,0 @@
-{
-	"Flags":
-	[
-		{"name": "Spain", "icon":"spain.png"},
-		{"name": "USA", "icon":"usa.png"},
-		{"name": "UK", "icon":"uk.png"},
-		{"name": "Spain (Republican)", "icon":"spainrep.png"}
-	]
-}
