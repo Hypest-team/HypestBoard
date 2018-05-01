@@ -67,7 +67,9 @@
             clearChanges: clearChanges,
 
             addCommentator: addCommentator,
-            removeCommentator: removeCommentator
+            removeCommentator: removeCommentator,
+
+            autoFillGgSet: autoFillGgSet
         }
     });
 
@@ -192,6 +194,35 @@
                 vm.scoreBoard.tournamentName = data.entities.tournament.name;
                 return updateStationQueue();
             });
+    }
+
+    function convertGgPlayer(ggPlayer) {
+        return {
+            name: ggPlayer.gamerTag,
+            character: {
+                icon: '',
+                name: ''
+            },
+            flag: {
+                icon: '',
+                name: ''
+            },
+            sponsor: ggPlayer.prefix || ''
+        };
+    }
+
+    function autoFillGgSet(ggSet) {
+        var players = [];
+
+        ggSet.entrants.forEach(function (entrant) {
+            if (entrant) {
+                entrant.players.forEach(function (player) {
+                    players.push(convertGgPlayer(player));
+                }); 
+            }
+        });
+
+        vm.scoreBoard.players = players;
     }
 
 }(Vue, window.fetch, _));

@@ -46,7 +46,7 @@
 
                     <div v-for="set in tournament.stationQueue.data.entities.sets">
                         <h5>{{ set.midRoundText }}</h5>
-                        <a class="btn btn-sm btn-success" href @click.prevent><i class="fa fa-check"></i></a>
+                        <button class="btn btn-sm btn-success" @click="autoFillGgSet(set)"><i class="fa fa-check"></i></button>
                         <span v-for="(entrant, index) in set.entrants">
                             <span v-if="entrant">
                                 {{ entrant.name }}
