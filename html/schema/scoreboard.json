@@ -68,7 +68,7 @@
             	"id": { "type": "string" },
                 "name": { "type": "string" }
             },
-            "required": ["id", "name"],
+            "required": ["id"],
             "additionalProperties": false
         }
     },
