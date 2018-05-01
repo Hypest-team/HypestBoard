@@ -109,7 +109,7 @@
     function addComentator() {
         vm.scoreBoard.comentators.push({
             name: '',
-            handler: ''
+            handle: ''
         });
     }
 
