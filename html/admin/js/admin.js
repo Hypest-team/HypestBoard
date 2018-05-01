@@ -26,11 +26,12 @@
 
             addEntrant: addEntrant,
             removeEntrant: removeEntrant,
+            swapEntrants: swapEntrants,
 
             addPlayer: addPlayer,
             removePlayer: removePlayer,
-
             swapPlayers: swapPlayers,
+
             resetForm: resetForm,
             clearChanges: clearChanges,
 
@@ -59,6 +60,15 @@
             var p2 = _.clone(entrant.players[1]);
 
             entrant.players = [p2, p1];
+        }
+    }
+
+    function swapEntrants() {
+        if (vm.scoreBoard.entrants.length === 2) {
+            var e1 = _.clone(vm.scoreBoard.entrants[0]);
+            var e2 = _.clone(vm.scoreBoard.entrants[1]);
+
+            vm.scoreBoard.entrants = [e2, e1];
         }
     }
 

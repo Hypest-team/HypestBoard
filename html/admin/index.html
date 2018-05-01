@@ -75,12 +75,17 @@
                     <a href="/overlays/melee/singles" target="_blank">Melee singles overlay on new window</a>
 
                     <details open="true">
-                        <summary><strong>Teams</strong></summary>
+                        <summary><strong>Entrants/Teams</strong></summary>
 
                         <div>
                             <button class="btn btn-success" @click="addEntrant">
                                 <i class="fa fa-plus"></i>
-                                Add team
+                                Add entrant
+                            </button>
+
+                            <button class="btn btn-default" @click="swapEntrants" v-if="scoreBoard.entrants && scoreBoard.entrants.length == 2">
+                                <i class="fa fa-swap"></i>
+                                Swap entrants 
                             </button>
                         </div>
 
@@ -88,15 +93,15 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="jumbotron text-center" v-if="scoreBoard.entrants.length === 0">
-                                    <h4>No teams added.<br/>Click <a href @click.prevent="addEntrant">here</a> to add a team.</h4>
+                                <div class="jumbotron text-center" v-if="scoreBoard.entrants && scoreBoard.entrants.length === 0">
+                                    <h4>No entrants added.<br/>Click <a href @click.prevent="addEntrant">here</a> to add an entratn.</h4>
                                 </div>
                             </div>
 
                             <div class="col-md-6" v-for="(entrant, entrantIndex) in scoreBoard.entrants">
                                 <div class="card">
                                     <div class="card-header">
-                                        <button class="btn btn-danger btn-sm float-right" @click="removeEntrant(entrantIndex)" title="Remove team">
+                                        <button class="btn btn-danger btn-sm float-right" @click="removeEntrant(entrantIndex)" title="Remove entrant">
                                             <i class="fa fa-times"></i>
                                         </button>
                                         <strong>Entrant {{ entrantIndex + 1 }}</strong>
