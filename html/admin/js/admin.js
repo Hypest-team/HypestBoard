@@ -62,6 +62,9 @@
 
             onGameChange: onGameChange,
 
+            addEntrant: addEntrant,
+            removeEntrant: removeEntrant,
+
             addPlayer: addPlayer,
             removePlayer: removePlayer,
 
@@ -104,7 +107,7 @@
     function getEmptyEntrant(entrant) {
         return {
             name: '',
-            player: (entrant && entrant.players) ?
+            players: (entrant && entrant.players) ?
                 entrant.players.map(getEmptyPlayer) : []
         };
     }
@@ -142,6 +145,14 @@
         });*/
 
         getCharacterList();
+    }
+
+    function addEntrant() {
+        vm.scoreBoard.entrants.push(getEmptyEntrant());
+    }
+
+    function removeEntrant(index) {
+        vm.scoreBoard.entrants.splice(index, 1);
     }
 
     function removePlayer(entrant, index) {
