@@ -244,6 +244,7 @@
         });
 
         vm.scoreBoard.players = players;
+        vm.scoreBoard.round = ggSet.fullRoundText;
     }
 
 }(Vue, window.fetch, _));
