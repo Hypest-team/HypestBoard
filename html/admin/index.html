@@ -74,16 +74,30 @@
                     
                     <a href="/overlays/melee/singles" target="_blank">Melee singles overlay on new window</a>
 
+                    <div class="form-group" v-if="scoreBoard.game && scoreBoard.game.entrantPresets">
+                        <label>Entrant presets</label>
+
+                        <br/>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" v-for="preset in scoreBoard.game.entrantPresets" @click="setEntrantPreset(preset)">
+                                {{ preset.name }}
+                            </button>
+                        </div>
+
+                    </div>
+
+
                     <details open="true">
                         <summary><strong>Entrants/Teams</strong></summary>
 
                         <div>
-                            <button class="btn btn-success" @click="addEntrant">
+                            <button type="button"class="btn btn-success" @click="addEntrant">
                                 <i class="fa fa-plus"></i>
                                 Add entrant
                             </button>
 
-                            <button class="btn btn-default" @click="swapEntrants" v-if="scoreBoard.entrants && scoreBoard.entrants.length == 2">
+                            <button type="button" class="btn btn-default" @click="swapEntrants" v-if="scoreBoard.entrants && scoreBoard.entrants.length == 2">
                                 <i class="fa fa-swap"></i>
                                 Swap entrants 
                             </button>
@@ -101,7 +115,7 @@
                             <div class="col-md-6" v-for="(entrant, entrantIndex) in scoreBoard.entrants">
                                 <div class="card">
                                     <div class="card-header">
-                                        <button class="btn btn-danger btn-sm float-right" @click="removeEntrant(entrantIndex)" title="Remove entrant">
+                                        <button type="button" class="btn btn-danger btn-sm float-right" @click="removeEntrant(entrantIndex)" title="Remove entrant">
                                             <i class="fa fa-times"></i>
                                         </button>
                                         <strong>Entrant {{ entrantIndex + 1 }}</strong>

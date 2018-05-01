@@ -5,10 +5,7 @@ var scoreboard = {
 	round: '',
 	tournamentName: '',
 	caster: '',
-	streamer: '',
-    game: {
-        id: 'melee'
-    }
+	streamer: ''
 }
 
 exports.getScoreboard = function (req, res) {

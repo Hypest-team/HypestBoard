@@ -23,6 +23,7 @@
             updateTournament: updateTournament, 
 
             onGameChange: onGameChange,
+            setEntrantPreset: setEntrantPreset,
 
             addEntrant: addEntrant,
             removeEntrant: removeEntrant,
@@ -117,6 +118,23 @@
         });*/
 
         getCharacterList();
+    }
+
+    function setEntrantPreset(preset) {
+        var entrant = getEmptyEntrant();
+        var entrants = [];
+
+        entrant.score = preset.score;
+        
+        for (var i = 0; i < preset.players; i++) {
+            entrant.players.push(getEmptyPlayer());
+        }
+
+        for (var i = 0; i < preset.entrants; i++) {
+            entrants.push(entrant);
+        }
+
+        vm.scoreBoard.entrants = entrants;
     }
 
     function addEntrant() {
