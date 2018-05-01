@@ -10,7 +10,10 @@
             data: null,
             stationQueue: null
         },
-        flagList: []
+        flagList: [],
+        options: {
+            autoGenerateEntrantNames: true
+        }
     };
 
     var vm = new Vue({
@@ -32,6 +35,7 @@
             addPlayer: addPlayer,
             removePlayer: removePlayer,
             swapPlayers: swapPlayers,
+            onPlayerNameChange: onPlayerNameChange,
 
             resetForm: resetForm,
             clearChanges: clearChanges,
@@ -61,6 +65,8 @@
             var p2 = _.clone(entrant.players[1]);
 
             entrant.players = [p2, p1];
+
+            onPlayerNameChange(entrant); 
         }
     }
 
@@ -137,6 +143,20 @@
         vm.scoreBoard.entrants = entrants;
     }
 
+    function getGeneratedEntrantName(entrant) {
+        var name = entrant.players.map(function (player) {
+            return player.name;
+        }).join(' - ');
+
+        return name;
+    }
+
+    function onPlayerNameChange(entrant, player) {
+        if (vm.options.autoGenerateEntrantNames) {
+            entrant.name = getGeneratedEntrantName(entrant);
+        }
+    }
+
     function addEntrant() {
         vm.scoreBoard.entrants.push(getEmptyEntrant());
     }
@@ -147,10 +167,12 @@
 
     function removePlayer(entrant, index) {
         entrant.players.splice(index, 1);
+        onPlayerNameChange(entrant);
     }
 
     function addPlayer(entrant) {
         entrant.players.push(getEmptyPlayer());
+        onPlayerNameChange(entrant);
     }
      
     function getGameList() {
