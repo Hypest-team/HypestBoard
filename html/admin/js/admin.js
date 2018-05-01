@@ -131,7 +131,7 @@
         }
 
         for (var i = 0; i < preset.entrants; i++) {
-            entrants.push(entrant);
+            entrants.push(_.cloneDeep(entrant));
         }
 
         vm.scoreBoard.entrants = entrants;
