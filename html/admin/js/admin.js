@@ -245,6 +245,7 @@
 
         vm.scoreBoard.players = players;
         vm.scoreBoard.round = ggSet.fullRoundText;
+        vm.scoreBoard.streamer = ggSet.stream.streamName;
     }
 
 }(Vue, window.fetch, _));

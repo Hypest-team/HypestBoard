@@ -35,15 +35,13 @@ function getAsArray(obj) {
     }
 }
 
-function mapEntrantsForSet(entrants, sets) {
+function mapEntrantsForSets(entrants, sets) {
     return sets.map(function (set) {
-        var newSet = _.cloneDeep(set);
-
         var entrantIdKeys = Object.keys(set).filter(function (key) {
             return /entrant\dId$/.test(key);
         });
        
-        newSet.entrants = [];
+        set.entrants = [];
 
         entrantIdKeys.forEach(function (entrantIdKey) {
             var entrantKey = entrantIdKey.replace('Id', '');
@@ -52,10 +50,10 @@ function mapEntrantsForSet(entrants, sets) {
                 return e.id === set[entrantIdKey];
             });
 
-            newSet.entrants.push(entrant);
+            set.entrants.push(entrant);
         });
 
-        return newSet;
+        return set;
     });
 }
 
@@ -73,6 +71,15 @@ function mapPlayersForEntrants(players, entrants) {
     });
 }
 
+function mapStreamsForSets(streams, sets) {
+    return sets.map(function (set) {
+        set.stream = streams.find(function (stream) {
+            return stream.id === set.streamId;
+        });
+        return set;
+    });
+}
+
 function enhanceStationQueue(stationQ) {
     if (!(stationQ.data)) {
         return stationQ;
@@ -81,10 +88,12 @@ function enhanceStationQueue(stationQ) {
     var sets = getAsArray(stationQ.data.entities.sets);
     var entrants = getAsArray(stationQ.data.entities.entrants);
     var players = getAsArray(stationQ.data.entities.player);
+    var streams = getAsArray(stationQ.data.entities.stream);
 
     // Fill in player data
     stationQ.data.entities.players = mapPlayersForEntrants(players, entrants);
-    stationQ.data.entities.sets = mapEntrantsForSet(entrants, sets);
+    stationQ.data.entities.sets = mapEntrantsForSets(entrants, sets);
+    stationQ.data.entities.sets = mapStreamsForSets(streams, sets);
 
     return stationQ;
 }
