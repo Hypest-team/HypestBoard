@@ -66,6 +66,8 @@
             resetForm: resetForm,
             clearChanges: clearChanges,
 
+            getFlag: getFlag,
+
             addCommentator: addCommentator,
             removeCommentator: removeCommentator,
 
@@ -196,6 +198,28 @@
             });
     }
 
+    function getFlag(countryName, countryCode) {
+        return {
+            name: countryName,
+            icon: '/lib/svg-country-flags/svg/' +
+                countryCode.toLowerCase() + '.svg'
+        };
+    }
+
+    function convertCountryToFlag(countryName) {
+        var flag = {
+            name: '',
+            icon: ''
+        };
+        _.forEach(vm.flagList, function (name, countryCode) {
+            if (countryName === name) {
+                flag = getFlag(name, countryCode);
+                return;
+            }
+        });
+        return flag;
+    }
+
     function convertGgPlayer(ggPlayer) {
         return {
             name: ggPlayer.gamerTag,
@@ -203,10 +227,7 @@
                 icon: '',
                 name: ''
             },
-            flag: {
-                icon: '',
-                name: ''
-            },
+            flag: convertCountryToFlag(ggPlayer.country),
             sponsor: ggPlayer.prefix || ''
         };
     }
