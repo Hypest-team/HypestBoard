@@ -12,7 +12,8 @@
         if (response.ok) {
             return response.json();
         } else {
-            console.error('HypestScore server is down');
+            console.error('There was an error:', response);
+            throw response;
         }
     }
 

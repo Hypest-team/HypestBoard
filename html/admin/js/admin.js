@@ -96,8 +96,14 @@
     function getEmptyPlayer() {
         return {
             name: '',
-            character: {},
-            flag: {},
+            character: {
+                name: '',
+                icon: ''
+            },
+            flag: {
+                name: '',
+                icon: ''
+            },
             sponsor: ''
         };
     }
@@ -220,8 +226,8 @@
                 vm.scoreBoard = data;
                 return vm;
             })
-            .then(function (data) {
-                this.scoreBoard = data;
+            .catch(function () {
+                alert("There was an error while updating the score. Check the console for more details.");
             });
     }
 
