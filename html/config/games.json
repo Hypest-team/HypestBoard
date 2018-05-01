@@ -11,13 +11,13 @@
         },
         "doubles": {
             "name": "Doubles",
-            "entrants": "2",
+            "entrants": 2,
             "players": 2,
             "score": 0
         },
         "crews": {
             "name": "Crews",
-            "entrants": "2",
+            "entrants": 2,
             "players": 5,
             "score": 20
         }
