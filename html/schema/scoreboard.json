@@ -69,7 +69,7 @@
                 "name": { "type": "string" }
             },
             "required": ["id"],
-            "additionalProperties": false
+            "additionalProperties": true
         }
     },
 
