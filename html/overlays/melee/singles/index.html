@@ -14,6 +14,40 @@
 	<div class="scoreboard" id="scoreboard">
 		<div class="stream-content">
 			<div class="score" v-if="scoreBoard.entrants">
+                <div class="entrant" v-for="entrant in scoreBoard.entrants">
+
+                    <span class="label-decoration label-decoration-left">&nbsp;</span>
+                    <div class="player player-1 label" v-if="entrant.players[0]">
+                        <span class="player-score">
+                            {{ entrant.score }}
+                        </span>
+
+                        <span class="player-flag" v-if="isFilledIn(entrant.players[1].flag.icon)">
+                            <img v-bind:src="entrant.players[0].flag.icon" class="player-flag-icon" />
+                        </span>
+
+                        <span class="player-char-wrapper" v-if="isFilledIn(entrant.players[0].character.icon)">
+                            <img class="player-char" v-bind:src="entrant.players[0].character.icon" />
+                        </span>
+
+                        <span class="player-name">
+                            {{ entrant.name }}
+                        </span>
+
+                        <span class="player-char-wrapper" v-if="isFilledIn(entrant.players[1].character.icon)">
+                            <img class="player-char" v-bind:src="entrant.players[1].character.icon" />
+                        </span>
+
+                        <span class="player-flag" v-if="isFilledIn(entrant.players[1].flag.icon)">
+                            <img v-bind:src="entrant.players[1].flag.icon" class="player-flag-icon" />
+                        </span>
+
+                    </div>
+                    <span class="label-decoration label-decoration-right">&nbsp;</span>
+
+                </div>
+
+                <!--
 				<span class="label-decoration label-decoration-left">&nbsp;</span>
                 <div class="player player-1 label" v-if="scoreBoard.entrants[0] && scoreBoard.entrants[0].players[0]">
                     <span class="player-score">
@@ -53,6 +87,7 @@
                     </span>
                 </div>
 				<span class="label-decoration label-decoration-right">&nbsp;</span>
+                !-->
 			</div>
 			
 			

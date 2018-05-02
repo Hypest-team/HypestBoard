@@ -5,7 +5,7 @@ body {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
 }
 
 .scoreboard {
@@ -43,9 +43,13 @@ body {
 	opacity: 0.8;
 }
 
+.entrant {
+    display: inline-flex;
+}
+
 .player {
 	min-width: 20ch;
-	max-width: 30ch;
+	max-width: 36ch;
 	background-color: transparent;
 	border: #320905 solid 4px;
 	padding: 0.1ch;
@@ -78,7 +82,7 @@ body {
 
 .player-score {
 	flex-grow: 0;
-	width: 2ch;
+	min-width: 2ch;
 	text-align: center;
 }
 
