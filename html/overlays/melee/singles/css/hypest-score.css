@@ -5,7 +5,7 @@ body {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-	font-size: 1.8vw;
+    font-size: 1.4vw;
 }
 
 .scoreboard {
@@ -45,7 +45,7 @@ body {
 
 .player {
 	min-width: 20ch;
-	max-width: 26ch;
+	max-width: 30ch;
 	background-color: transparent;
 	border: #320905 solid 4px;
 	padding: 0.1ch;
