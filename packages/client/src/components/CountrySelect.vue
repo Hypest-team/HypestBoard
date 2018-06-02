@@ -15,7 +15,7 @@
                 <option v-for="(flagName, flagCode) in flags"
                     v-bind:key="flagCode"
                     v-bind:value="flagCode.toLowerCase()">
-                    {{ flags[flagCode.toUpperCase()] }}
+                    {{ flags[flagCode] }}
                 </option>
             </select>
         </div>
@@ -43,8 +43,7 @@ export default {
         value: watchValue
     },
     methods: {
-        onSelect,
-        getFlag
+        onSelect
     }
 }
 
@@ -62,14 +61,10 @@ function onMounted() {
 function onSelect($event) {
     var vm = this;
     var countryCode = $event.target.value;
-    vm.$emit('input', getFlag(vm.flags[countryCode.toUpperCase()], countryCode)); 
-}
-
-function getFlag(countryName, countryCode) {
-    return {
-        name: countryName,
-        code: countryCode.toLowerCase()
-    };
+    vm.$emit('input', {
+        name: vm.flags[countryCode.toUpperCase()],
+        code: countryCode
+    }); 
 }
 
 function loadFlags(vm) {
