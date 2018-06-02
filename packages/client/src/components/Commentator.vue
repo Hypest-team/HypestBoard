@@ -23,10 +23,6 @@
 </template>
 
 <script>
-import ApiService from '../services/ApiService';
-
-const apiService = new ApiService();
-
 export default {
     name: 'Commentator',
     props: ['commentator', 'index']

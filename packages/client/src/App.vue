@@ -3,10 +3,10 @@
     <div class="container-fluid">
         <h1>HypestBoard admin page</h1>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <StreamQueue />
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <Scoreboard /> 
             </div>
         </div>
