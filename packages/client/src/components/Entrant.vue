@@ -40,8 +40,8 @@
                 </div>
 
                 <div class="col-12">
-                    <details>
-                        <summary>Players</summary>
+                    <details open="true">
+                        <summary><strong>Players</strong></summary>
 
                         <br/>
 

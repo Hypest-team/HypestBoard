@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div class="alert alert-danger">
-            <b>TODO:</b> Scoreboard
-        </div>
-
         <form novalidate @submit.prevent="updateScoreboard">
 
             <details open="true">
@@ -17,6 +13,18 @@
                     v-on:delete="deleteEntrant($event)"
                     v-on:swap="swapEntrants()"/>
             </details>
+
+            <hr />
+
+            <details>
+                <summary><strong>Tournament details</strong></summary>
+                <br/>
+
+                <TournamentDetails 
+                    v-bind:scoreboard="scoreboard"/>
+            </details>
+
+            <hr />
 
             <details>
                 <summary><strong>Commentators</strong></summary>
@@ -41,6 +49,7 @@
 <script>
 import ApiService from '../services/ApiService';
 import Entrants from './Entrants';
+import TournamentDetails from './TournamentDetails';
 import Commentators from './Commentators';
 import _ from 'lodash';
 
@@ -55,6 +64,7 @@ export default {
     },
     components: {
         Entrants,
+        TournamentDetails,
         Commentators
     },
     mounted: onMounted,
