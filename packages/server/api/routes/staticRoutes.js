@@ -1,5 +1,6 @@
 module.exports = function (app) {
-    var serveStatic = require('serve-static');
+    const path = require('path');
+    const serveStatic = require('serve-static');
 
     app.use('/lib/bootstrap/', serveStatic('node_modules/bootstrap/dist'));
     app.use('/lib/vue/', serveStatic('node_modules/vue/dist'));
@@ -9,4 +10,5 @@ module.exports = function (app) {
     app.use('/lib/svg-country-flags/', serveStatic('node_modules/svg-country-flags'));
 
     app.use('/', serveStatic('html'));
+    app.use('/admin2', serveStatic('node_modules/@hypestboard/client/dist'));
 }
