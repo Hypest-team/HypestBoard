@@ -1,7 +1,7 @@
 
 var scoreboard = {
 	entrants: [],
-    comentators: [],
+    commentators: [],
 	round: '',
 	tournamentName: '',
 	caster: '',

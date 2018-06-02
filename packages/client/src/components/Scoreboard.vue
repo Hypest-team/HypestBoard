@@ -32,7 +32,7 @@
                 <br/>
 
                 <Commentators 
-                    v-bind:commentators="scoreboard.comentators"
+                    v-bind:commentators="scoreboard.commentators"
                     v-on:add="addCommentator()"
                     v-on:delete="deleteCommentator($event)" />
             </details>
@@ -136,11 +136,11 @@ function swapEntrants() {
 
 function addCommentator() {
     var vm = this;
-    vm.scoreboard.comentators.push(getEmptyCommentator());
+    vm.scoreboard.commentators.push(getEmptyCommentator());
 }
 
 function deleteCommentator(index) {
     var vm = this;
-    vm.scoreboard.comentators.splice(index, 1);
+    vm.scoreboard.commentators.splice(index, 1);
 }
 </script>

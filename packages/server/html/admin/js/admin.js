@@ -42,8 +42,8 @@
 
             getFlag: getFlag,
 
-            addComentator: addComentator,
-            removeComentator: removeComentator,
+            addCommentator: addCommentator,
+            removeCommentator: removeCommentator,
 
             autoFillGgSet: autoFillGgSet
         }
@@ -112,15 +112,15 @@
         getScoreBoard();
     }
 
-    function addComentator() {
-        vm.scoreBoard.comentators.push({
+    function addCommentator() {
+        vm.scoreBoard.commentators.push({
             name: '',
             handle: ''
         });
     }
 
-    function removeComentator(index) {
-        vm.scoreBoard.comentators.splice(index, 1);
+    function removeCommentator(index) {
+        vm.scoreBoard.commentators.splice(index, 1);
     }
 
     function onGameChange() {

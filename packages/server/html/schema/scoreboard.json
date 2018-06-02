@@ -16,6 +16,16 @@
             "additionalProperties": false
         },
 
+        "country": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "code": { "type": "string" }
+            },
+            "required": ["name", "icon"],
+            "additionalProperties": false
+        },
+
         "entrant": {
             "type": "object",
             "properties": {
@@ -46,14 +56,14 @@
                 "sponsor": {
                     "type": "string"
                 },
-                "flag": {
-                    "$ref": "#/definitions/icon"
+                "country": {
+                    "$ref": "#/definitions/country"
                 }
             },
             "additionalProperties": false
         },
 
-        "comentator": {
+        "commentator": {
             "type": "object",
             "properties": {
                 "name": { "type": "string" },
@@ -81,10 +91,10 @@
             }
         },
 
-        "comentators": {
+        "commentators": {
             "type": "array",
             "items": {
-                "$ref": "#/definitions/comentator"
+                "$ref": "#/definitions/commentator"
             }
         },
 
@@ -100,7 +110,7 @@
 
     "required": [
         "entrants",
-        "comentators",
+        "commentators",
         "game"
     ],
 

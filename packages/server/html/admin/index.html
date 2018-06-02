@@ -297,39 +297,39 @@
 
                     <hr />
                     <details>
-                        <summary><strong>Comentators</strong></summary>
+                        <summary><strong>Commentators</strong></summary>
 
                         <br/>
 
                         <div class="actions">
-                            <button type="button" class="btn btn-primary" v-on:click="addComentator">
+                            <button type="button" class="btn btn-primary" v-on:click="addCommentator">
                                 <i class="fa fa-plus"></i>
-                                Add comentator</button>
+                                Add commentator</button>
                         </div>
 
                         <br/>
 
                         <div class="row">
                             <div class="col-md-12"> 
-                                <div class="jumbotron text-center" v-if="!scoreBoard.comentators || scoreBoard.comentators.length === 0">
-                                    <h4>No comentators added.<br/>Click <a href @click.prevent="addComentator">here</a> to add a comentator.</h4>
+                                <div class="jumbotron text-center" v-if="!scoreBoard.commentators || scoreBoard.commentators.length === 0">
+                                    <h4>No commentators added.<br/>Click <a href @click.prevent="addCommentator">here</a> to add a commentator.</h4>
                                 </div>
                             </div>
 
-                            <div v-for="(comentator, comentatorIndex) in scoreBoard.comentators" class="col-md-6">
+                            <div v-for="(commentator, commentatorIndex) in scoreBoard.commentators" class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <button type="button" class="btn btn-danger btn-sm pull-right" v-on:click="removeComentator(comentatorIndex)" title="Remove comentator"><i class="fa fa-times"></i></button>
-                                        <strong>Comentator {{ comentatorIndex + 1 }}</strong>
+                                        <button type="button" class="btn btn-danger btn-sm pull-right" v-on:click="removeCommentator(commentatorIndex)" title="Remove commentator"><i class="fa fa-times"></i></button>
+                                        <strong>Commentator {{ commentatorIndex + 1 }}</strong>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" v-model="comentator.name" class="form-control" />
+                                            <input type="text" v-model="commentator.name" class="form-control" />
                                         </div>
                                         <div class="form-group">
                                             <label>Handle</label>
-                                            <input type="text" v-model="comentator.handle" class="form-control" />
+                                            <input type="text" v-model="commentator.handle" class="form-control" />
                                         </div>
                                     </div>
                                 </div>
