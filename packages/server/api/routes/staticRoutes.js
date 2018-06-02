@@ -11,4 +11,5 @@ module.exports = function (app) {
 
     app.use('/', serveStatic('html'));
     app.use('/admin2', serveStatic('node_modules/@hypestboard/client/dist'));
+    app.use('/static', serveStatic('node_modules/@hypestboard/client/dist/static'));
 }
