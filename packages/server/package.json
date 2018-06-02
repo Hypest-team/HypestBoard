@@ -1,0 +1,33 @@
+{
+  "name": "@hypestboard/server",
+  "version": "0.0.1",
+  "description": "Server side for HypestBoard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hypest-team/HypestBoard.git"
+  },
+  "author": "David Serrano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hypest-team/HypestBoard/issues"
+  },
+  "homepage": "https://github.com/Hypest-team/HypestBoard#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
+    "express": "^4.16.2",
+    "express-jsonschema": "^1.1.6",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.10",
+    "node-fetch": "^2.0.0",
+    "serve-static": "^1.13.2",
+    "svg-country-flags": "^1.2.1",
+    "vue": "^2.5.13",
+    "@hypestboard/client": "^0.0.1"
+  }
+}

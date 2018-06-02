@@ -1,0 +1,27 @@
+{
+  "name": "@hypestboard/client",
+  "version": "0.0.1",
+  "description": "Client UI for hypest board",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hypest-team/HypestBoard.git/packages/server"
+  },
+  "author": "David Serrano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hypest-team/HypestBoard/issues"
+  },
+  "homepage": "https://github.com/Hypest-team/HypestBoard#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.10",
+    "svg-country-flags": "^1.2.1",
+    "vue": "^2.5.13"
+  }
+}

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Puyo Puyo Tetris Scoreboard</title>
+	<link href="css/ppt-overlay.css" rel="stylesheet"></link>
+
+</head>
+<body>
+    
+    <div id="scoreboard" class="scoreboard">
+        <div class="entrant" v-for="entrant in scoreboard.entrants">
+            {{ entrant.name }}: {{ entrant.score }}
+
+            <div class="player" v-for="player in entrant.players">
+                {{ player.name }}
+                <span v-if="player.flag && player.flag.name">( {{ player.flag.name }} )</span>
+            </div>
+        </div>
+      
+        <div class="tourney-name">
+            {{ scoreboard.tournamentName }}
+        </div>
+    </div>
+	
+	
+	<script src="/lib/vue/vue.js"></script>
+	<script src="js/hypest-score.js"></script>
+</body>
+</html>

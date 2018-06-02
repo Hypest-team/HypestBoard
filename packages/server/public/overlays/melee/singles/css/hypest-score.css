@@ -1,0 +1,152 @@
+body {
+	box-sizing: border-box;
+	font-family: 'Impact', sans-serif;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+    font-size: 1.2vw;
+}
+
+.scoreboard {
+	display: inline-flex;
+	flex-direction: row;
+	height: 100vh;
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+.stream-content {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	width: 66%;
+	/* border: 1px #00f solid; */
+	padding: 10px;
+}
+
+.label {
+	display: inline-flex;
+	justify-content: center;
+	/*! border: 1px solid black; */
+	padding: 5px;
+	min-width: 20ch;
+	background: #470101;
+	color: #fff;
+	text-align: center;
+	opacity: 0.8;
+}
+
+.entrant {
+    display: inline-flex;
+	min-width: 20ch;
+	max-width: 36ch;
+	background-color: transparent;
+	border: #320905 solid 4px;
+	padding: 0.1ch;
+	box-shadow: 0px 0px 1ch 0.1ch #ef6a6a;
+}
+
+.entrant-score,
+.player-name,
+.player-char-wrapper,
+.player-flag {
+    background-color: #320905;
+    margin: 0.1ch;
+    padding: 0.2ch;
+}
+
+.player-name {
+	flex-grow: 1;
+	
+}
+
+.player-flag {
+    flex-grow: 0;
+    display: flex;
+    align-self: center;
+}
+
+.player-flag-icon {
+    max-height: 1.2em;
+}
+
+.entrant-score {
+	flex-grow: 0;
+	min-width: 2ch;
+	text-align: center;
+}
+
+.player-char {
+	width: 1.8ch;
+}
+
+.player-2 {
+	flex-direction: row-reverse;
+}
+
+.stream-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.stream-footer .label {
+	clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+	padding: 5px 30px;
+	max-height: 2.5ch;
+	font-size: 80%;
+}
+
+.streamer-logo {
+	height: 3em;
+}
+
+.sidebar {
+	height: 100%;
+	flex-grow: 1;
+}
+
+.camframe {
+	display: block;
+	width: 100%;
+	height: 45vh;
+	/* border: 1px solid greenyellow; */
+	text-align: center;
+}
+
+.label-decoration {
+	width: 2.5ch;
+	height 100%;
+	display: inline-block;
+	
+	background:
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 0.4ch,
+    red 0.4ch,
+    red 0.8ch
+  );
+	
+}
+
+.credits-frame {
+	padding: 1ch;
+	color: #fff;
+	background-color: #000;
+}
+
+.sponsor-frame-label {
+	width: 100%;
+}
+
+.label-decoration-left {
+	clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
+}
+
+.label-decoration-right {
+	clip-path: polygon(0 0, 100% 40%, 100% 60%, 0 100%);
+}
