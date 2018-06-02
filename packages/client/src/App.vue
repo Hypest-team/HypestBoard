@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Scoreboard from './components/Scoreboard'
-import StreamQueue from './components/StreamQueue'
+import Scoreboard from './components/Scoreboard';
+import StreamQueue from './components/StreamQueue';
 
 export default {
     name: 'App',
@@ -29,5 +29,6 @@ export default {
 
 <style>
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/font-awesome/css/font-awesome.css';
 
 </style>
