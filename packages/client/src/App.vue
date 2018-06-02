@@ -30,5 +30,6 @@ export default {
 <style>
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 @import '../node_modules/font-awesome/css/font-awesome.css';
+@import '../node_modules/flag-icon-css/css/flag-icon.css';
 
 </style>

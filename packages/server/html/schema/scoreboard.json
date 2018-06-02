@@ -22,7 +22,7 @@
                 "name": { "type": "string" },
                 "code": { "type": "string" }
             },
-            "required": ["name", "icon"],
+            "required": ["name", "code"],
             "additionalProperties": false
         },
 

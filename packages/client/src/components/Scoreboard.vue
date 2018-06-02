@@ -2,12 +2,17 @@
     <div>
         <form novalidate @submit.prevent="updateScoreboard">
 
-            <details open="true">
+            <label>Game configuration</label>
+
+            <GameSelect v-model="scoreboard.game" />
+
+            <details open="true" v-if="scoreboard.game">
                 <summary><strong>Entrants</strong></summary>
 
                 <br/>
 
                 <Entrants 
+                    v-bind:game-id="scoreboard.game.id"
                     v-bind:entrants="scoreboard.entrants"
                     v-on:add="addEntrant()"
                     v-on:delete="deleteEntrant($event)"
@@ -48,6 +53,7 @@
 
 <script>
 import ApiService from '../services/ApiService';
+import GameSelect from './GameSelect';
 import Entrants from './Entrants';
 import TournamentDetails from './TournamentDetails';
 import Commentators from './Commentators';
@@ -63,6 +69,7 @@ export default {
         }
     },
     components: {
+        GameSelect,
         Entrants,
         TournamentDetails,
         Commentators

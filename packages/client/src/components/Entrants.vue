@@ -23,6 +23,7 @@
                 <Entrant 
                     v-bind:entrant="entrant"
                     v-bind:index="index"
+                    v-bind:game-id="gameId"
                     v-on:delete="$emit('delete', $event)"/>
             </div>
         </div>
@@ -34,7 +35,7 @@ import Entrant from './Entrant';
 
 export default {
     name: 'Entrants',
-    props: ['entrants'],
+    props: ['entrants', 'gameId'],
     components: {
         Entrant
     }

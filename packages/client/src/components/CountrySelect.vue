@@ -4,7 +4,9 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <span v-if="!selFlagCode">?</span>
-                    <span v-if="selFlagCode">{{ selFlagCode }}</span>
+                    <span v-if="selFlagCode"
+                        class="flag-icon"
+                        :class="'flag-icon-' + selFlagCode"></span>
                 </div>
             </div>
             <select class="form-control"
@@ -12,8 +14,8 @@
                 v-model="selFlagCode">
                 <option v-for="(flagName, flagCode) in flags"
                     v-bind:key="flagCode"
-                    v-bind:value="flagCode">
-                    {{ flags[flagCode] }}
+                    v-bind:value="flagCode.toLowerCase()">
+                    {{ flags[flagCode.toUpperCase()] }}
                 </option>
             </select>
         </div>
@@ -26,7 +28,7 @@ import ApiService from '../services/ApiService';
 let apiService = ApiService();
 
 export default {
-    name: 'FlagSelect',
+    name: 'CountrySelect',
     data () {
         return {
             flags: null,
@@ -48,19 +50,19 @@ export default {
 
 function watchValue(newValue) {
     var vm = this;
-    vm.selFlag = newValue.code;
+    vm.selFlagCode = newValue.code;
 }
 
 function onMounted() {
     var vm = this;
-    vm.selFlag = vm.value.code;
-    loadFlags(vm.gameId, vm);
+    vm.selFlagCode = vm.value.code;
+    loadFlags(vm);
 }
 
 function onSelect($event) {
     var vm = this;
     var countryCode = $event.target.value;
-    vm.$emit('input', getFlag(vm.flags[countryCode], countryCode)); 
+    vm.$emit('input', getFlag(vm.flags[countryCode.toUpperCase()], countryCode)); 
 }
 
 function getFlag(countryName, countryCode) {
@@ -70,8 +72,8 @@ function getFlag(countryName, countryCode) {
     };
 }
 
-function loadFlags(gameId, vm) {
-    apiService.getFlags(gameId)
+function loadFlags(vm) {
+    apiService.getFlags()
         .then(flags => {
             vm.flags = flags;
             return flags;

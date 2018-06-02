@@ -16,19 +16,18 @@
             </div>
             <div class="form-group">
                 <label>Character</label>
-                <CharacterSelect v-bind:game-id="'melee'"
+                <CharacterSelect v-bind:game-id="gameId"
                     v-model="player.character"/>
             </div>
 
             <div class="form-group">
-                <label>Flag</label>
-                <pre>{{ player.flag }}</pre>
-                <FlagSelect v-model="player.flag"/>
+                <label>Country</label>
+                <CountrySelect v-model="player.country"/>
             </div>
 
             <div class="form-group">
                 <label>Sponsor</label>
-                <input type="text" v-model="player.sponsor.name" class="form-control" />
+                <input type="text" v-model="player.sponsor" class="form-control" />
             </div>
         </div>
     </div>
@@ -36,14 +35,14 @@
 
 <script>
 import CharacterSelect from './CharacterSelect';
-import FlagSelect from './FlagSelect';
+import CountrySelect from './CountrySelect';
 
 export default {
     name: 'Player',
-    props: ['player', 'index'],
+    props: ['player', 'index', 'gameId'],
     components: {
         CharacterSelect,
-        FlagSelect
+        CountrySelect
     }
 }
 </script>

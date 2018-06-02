@@ -15,7 +15,7 @@ export default function ApiService() {
 let caches = {};
 
 function getGames() {
-    return axios.get('/config/games.json')
+    return axios.get('/api/config/games.json')
         .then(processReponse);
 }
 

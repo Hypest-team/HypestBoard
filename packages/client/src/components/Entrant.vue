@@ -47,6 +47,7 @@
 
                         <Players
                             v-bind:players="entrant.players"
+                            v-bind:game-id="gameId"
                             v-on:add="addPlayer()"
                             v-on:delete="deletePlayer($event)"
                             v-on:swap="swapPlayers()"/>
@@ -63,7 +64,7 @@ import Players from './Players';
 
 export default {
     name: 'Entrant',
-    props: ['entrant', 'index'],
+    props: ['entrant', 'index', 'gameId'],
     methods: {
         addPlayer,
         deletePlayer,
@@ -81,9 +82,9 @@ function getEmptyPlayer() {
             name: '',
             icon: ''
         },
-        flag: {
+        country: {
             name: '',
-            icon: ''
+            code: ''
         },
         sponsor: ''
     };
