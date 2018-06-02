@@ -53,7 +53,7 @@ import TournamentDetails from './TournamentDetails';
 import Commentators from './Commentators';
 import _ from 'lodash';
 
-const apiService = new ApiService();
+let apiService = ApiService();
 
 export default {
     name: 'Scoreboard',

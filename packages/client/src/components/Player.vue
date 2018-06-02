@@ -16,12 +16,14 @@
             </div>
             <div class="form-group">
                 <label>Character</label>
-                <pre>{{ player.character }}</pre>
+                <CharacterSelect v-bind:game-id="'melee'"
+                    v-model="player.character"/>
             </div>
 
             <div class="form-group">
                 <label>Flag</label>
                 <pre>{{ player.flag }}</pre>
+                <FlagSelect v-model="player.flag"/>
             </div>
 
             <div class="form-group">
@@ -33,8 +35,15 @@
 </template>
 
 <script>
+import CharacterSelect from './CharacterSelect';
+import FlagSelect from './FlagSelect';
+
 export default {
     name: 'Player',
-    props: ['player', 'index']
+    props: ['player', 'index'],
+    components: {
+        CharacterSelect,
+        FlagSelect
+    }
 }
 </script>
