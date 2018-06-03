@@ -11,6 +11,7 @@ After that you'll need to checkout this repository into your local machine. Use 
 
 ```
 git clone https://github.com/Hypest-team/HypestBoard/
+cd HypestBoard
 ```
 
 This is a monorepo, that is based on lerna. So you need to install and setup [lerna](https://github.com/lerna/lerna) (this can take a bit):
@@ -39,6 +40,7 @@ Assuming you have docker installed and configured on your system, you just need 
 
 ```
 git clone https://github.com/Hypest-team/HypestBoard/
+cd HypestBoard
 docker build . -t hypestteam/hypestscore
 docker run -p 3000:3000 -d hypestteam/hypestscore
 ```
