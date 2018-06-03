@@ -4,7 +4,7 @@
         <h1>HypestBoard admin page</h1>
         <div class="row">
             <div class="col-md-2">
-                <StreamQueue />
+                <StreamQueue v-on:select="autofillEntrants($event)" />
             </div>
             <div class="col-md-10">
                 <div v-if="!scoreboard" class="text-center">
@@ -23,8 +23,10 @@
 import Scoreboard from './components/Scoreboard';
 import StreamQueue from './components/StreamQueue';
 import ApiService from './services/ApiService';
+import SmashGgService from './services/SmashGgService';
 
 let apiService = ApiService();
+let smashGgService = SmashGgService();
 
 export default {
     name: 'App',
@@ -39,7 +41,8 @@ export default {
     },
     mounted: onMounted,
     methods: {
-        updateScoreboard
+        updateScoreboard,
+        autofillEntrants
     }
 }
 
@@ -59,6 +62,24 @@ function updateScoreboard() {
         .then(scoreboard => {
             vm.scoreboard = scoreboard;
             return scoreboard;
+        });
+}
+
+function filterNull(o) {
+    return !!o;
+}
+
+function autofillEntrants(set) {
+    var vm = this;
+
+    vm.scoreboard.round = set.fullRoundText;
+    vm.scoreboard.streamer = set.stream.streamName;
+
+    Promise.all(
+        set.entrants.map(smashGgService.convertGgEntrant))
+        .then(function (entrants) {
+            vm.scoreboard.entrants = entrants;
+            return entrants;
         });
 }
 
