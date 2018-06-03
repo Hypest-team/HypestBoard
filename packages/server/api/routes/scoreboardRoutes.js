@@ -1,6 +1,6 @@
 module.exports = function (app) {
     var scoreboardCtrl = require('../controllers/scoreboardController');
-    var scoreboardSchema = require('../../html/schema/scoreboard.json');
+    var scoreboardSchema = require('../../data/schema/scoreboard.json');
 
     var validate = require('express-jsonschema').validate;
 
