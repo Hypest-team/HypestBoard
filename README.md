@@ -41,8 +41,8 @@ Assuming you have docker installed and configured on your system, you just need 
 ```
 git clone https://github.com/Hypest-team/HypestBoard/
 cd HypestBoard
-docker build . -t hypestteam/hypestscore
-docker run -p 3000:3000 -d hypestteam/hypestscore
+docker build . -t hypestteam/hypestboard
+docker run -p 3000:3000 -d hypestteam/hypestboard
 ```
 
 After running these commands, you should have a docker container running HypestScore. Just nagivate to http://localhost:3000/ and have fun.
