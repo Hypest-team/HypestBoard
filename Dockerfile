@@ -8,8 +8,8 @@ COPY packages/server ./packages/server
 COPY packages/client ./packages/client
 COPY packages/overlays ./packages/overlays
 
+COPY package.json .
 COPY lerna.json .
-RUN lerna init
 RUN lerna bootstrap
 
 EXPOSE 3000
