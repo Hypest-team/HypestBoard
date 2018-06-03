@@ -50,6 +50,15 @@ module.exports = {
             pathRewrite: {
               '^/api': ''
             }
+        },
+
+        '/overlays': {
+            target: 'http://localhost:3000/overlays',
+            changeOrigin: true,
+
+            pathRewrite: {
+              '^/overlays': ''
+            }
         }
     }
   },

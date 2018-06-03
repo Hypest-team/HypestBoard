@@ -8,15 +8,26 @@ export default function ApiService() {
 
         getGames,
         getFlags,
-        getCharacters
+        getCharacters,
+
+        getOverlaysManifest
     }
 }
 
 let caches = {};
 
-function getGames() {
-    return axios.get('/api/config/games.json')
+function getScoreboard() {
+    return axios.get('/api/scoreboard')
         .then(processReponse);
+}
+
+function updateScoreboard(scoreboard) {
+    return axios.post('/api/scoreboard', scoreboard)
+        .then(processReponse);
+}
+
+function getGames() {
+    return cachedResponse('/api/config/games.json');
 }
 
 function getFlags() {
@@ -27,9 +38,8 @@ function getCharacters(gameId) {
     return cachedResponse(`/api/characters/${gameId}.json`, 'characters', gameId);
 }
 
-function getScoreboard() {
-    return axios.get('/api/scoreboard')
-        .then(processReponse);
+function getOverlaysManifest() {
+    return cachedResponse('/overlays/manifest.json');
 }
 
 function updateScoreboard(scoreboard) {

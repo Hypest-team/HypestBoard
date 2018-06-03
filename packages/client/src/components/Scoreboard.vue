@@ -47,6 +47,16 @@
 
             <hr />
 
+            <details>
+                <summary><strong>Overlays</strong></summary>
+
+                <br/>
+
+                <Overlays />
+            </details>
+
+            <hr />
+
             <div class="actions">
                 <button type="submit" class="btn btn-primary">Update scoreboard</button>
             </div>
@@ -60,6 +70,7 @@ import GameSelect from './GameSelect';
 import Entrants from './Entrants';
 import TournamentDetails from './TournamentDetails';
 import Commentators from './Commentators';
+import Overlays from './Overlays';
 import _ from 'lodash';
 
 let apiService = ApiService();
@@ -79,7 +90,8 @@ export default {
         GameSelect,
         Entrants,
         TournamentDetails,
-        Commentators
+        Commentators,
+        Overlays
     },
     methods: {
         addEntrant,
