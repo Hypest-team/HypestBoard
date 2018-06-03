@@ -10,10 +10,14 @@ COPY packages/overlays ./packages/overlays
 
 COPY package.json .
 COPY lerna.json .
+
+WORKDIR /usr/src/app
 RUN lerna bootstrap
-RUN npm --prefix "packages/client" run-script build
+
+WORKDIR /usr/src/app/packages/client
+RUN npm run build
 
 EXPOSE 3000
 
-CMD [ "npm", "--prefix", "packages/server", "start" ]
-
+WORKDIR /usr/src/app/packages/server
+CMD [ "npm", "start" ]
