@@ -65,10 +65,6 @@ function updateScoreboard() {
         });
 }
 
-function filterNull(o) {
-    return !!o;
-}
-
 function autofillEntrants(set) {
     var vm = this;
 
