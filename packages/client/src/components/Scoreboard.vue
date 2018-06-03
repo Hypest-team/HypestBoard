@@ -1,10 +1,12 @@
 <template>
     <div>
-        <form novalidate @submit.prevent="updateScoreboard">
+        <form v-if="scoreboard" novalidate @submit.prevent="$emit('update')">
 
             <label>Game configuration</label>
 
             <GameSelect v-model="scoreboard.game" />
+
+            <hr />
 
             <details open="true" v-if="scoreboard.game">
                 <summary><strong>Entrants</strong></summary>
@@ -63,9 +65,13 @@ let apiService = ApiService();
 
 export default {
     name: 'Scoreboard',
-    data () {
-        return {
-            scoreboard: {}
+    model: {
+        prop: 'scoreboard'
+    },
+    props: {
+        scoreboard: {
+            type: Object,
+            default: null
         }
     },
     components: {
@@ -74,10 +80,7 @@ export default {
         TournamentDetails,
         Commentators
     },
-    mounted: onMounted,
     methods: {
-        updateScoreboard,
-
         addEntrant,
         deleteEntrant,
         swapEntrants,
@@ -85,24 +88,6 @@ export default {
         addCommentator,
         deleteCommentator
     }
-}
-
-function onMounted() {
-    var vm = this;
-    apiService.getScoreboard()
-        .then(scoreboard => {
-            vm.scoreboard = scoreboard;
-            return scoreboard;
-        });
-}
-
-function updateScoreboard() {
-    var vm = this;
-    apiService.updateScoreboard(vm.scoreboard)
-        .then(scoreboard => {
-            vm.scoreboard = scoreboard;
-            return scoreboard;
-        });
 }
 
 function getEmptyEntrant(entrant) {

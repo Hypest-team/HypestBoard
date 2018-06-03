@@ -7,7 +7,12 @@
                 <StreamQueue />
             </div>
             <div class="col-md-10">
-                <Scoreboard /> 
+                <div v-if="!scoreboard" class="text-center">
+                    <i class="fa fa-spin fa-refresh fa-4x"></i><br/>
+                    Loading scoreboard, please wait
+                </div>
+                <Scoreboard v-if="scoreboard" v-model="scoreboard"
+                    v-on:update="updateScoreboard()"/> 
             </div>
         </div>
     </div>
@@ -17,14 +22,46 @@
 <script>
 import Scoreboard from './components/Scoreboard';
 import StreamQueue from './components/StreamQueue';
+import ApiService from './services/ApiService';
+
+let apiService = ApiService();
 
 export default {
     name: 'App',
     components: {
         Scoreboard,
         StreamQueue
+    },
+    data () {
+        return {
+            scoreboard: null 
+        }
+    },
+    mounted: onMounted,
+    methods: {
+        updateScoreboard
     }
 }
+
+function onMounted() {
+    var vm = this;
+    apiService.getScoreboard()
+        .then(scoreboard => {
+            vm.scoreboard = scoreboard;
+            return scoreboard;
+        });
+
+}
+
+function updateScoreboard() {
+    var vm = this;
+    apiService.updateScoreboard(vm.scoreboard)
+        .then(scoreboard => {
+            vm.scoreboard = scoreboard;
+            return scoreboard;
+        });
+}
+
 </script>
 
 <style>
