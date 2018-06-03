@@ -27,6 +27,12 @@
                     v-on:delete="$emit('delete', $event)"/>
             </div>
         </div>
+
+        <br/>
+
+        <div class="actions">
+            <button class="btn btn-default" @click="$emit('reset')">Reset form</button>
+        </div>
     </div>
 </template>
 
@@ -40,4 +46,5 @@ export default {
         Entrant
     }
 }
+
 </script>

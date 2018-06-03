@@ -18,7 +18,8 @@
                     v-bind:entrants="scoreboard.entrants"
                     v-on:add="addEntrant()"
                     v-on:delete="deleteEntrant($event)"
-                    v-on:swap="swapEntrants()"/>
+                    v-on:swap="swapEntrants()"
+                    v-on:reset="resetEntrants()"/>
             </details>
 
             <hr />
@@ -84,10 +85,26 @@ export default {
         addEntrant,
         deleteEntrant,
         swapEntrants,
+        resetEntrants,
 
         addCommentator,
         deleteCommentator
     }
+}
+
+function getEmptyPlayer() {
+    return {
+        name: '',
+        character: {
+            name: '',
+            icon: ''
+        },
+        country: {
+            name: '',
+            code: ''
+        },
+        sponsor: ''
+    };
 }
 
 function getEmptyEntrant(entrant) {
@@ -124,6 +141,11 @@ function swapEntrants() {
 
         vm.scoreboard.entrants = [e2, e1];
     }
+}
+
+function resetEntrants() {
+    var vm = this;
+    vm.scoreboard.entrants = vm.scoreboard.entrants.map(getEmptyEntrant);
 }
 
 function addCommentator() {
