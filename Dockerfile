@@ -11,6 +11,7 @@ COPY packages/overlays ./packages/overlays
 COPY package.json .
 COPY lerna.json .
 RUN lerna bootstrap
+RUN npm --prefix "packages/client" run-script build
 
 EXPOSE 3000
 
