@@ -30,4 +30,4 @@ app.use(function (err, req, res, next) {
 app.listen(port);
 
 console.log('Listening on port', port);
-console.log('Navigate to http://localhost:' +  port + '/scoreboard.html for the overlay');
+console.log('Navigate to http://localhost:' +  port + '/ for the admin UI');
