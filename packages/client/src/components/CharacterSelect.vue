@@ -3,9 +3,9 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text">
-                    <img v-bind:src="'/api/' + selCharacter.icon" height="24"
-                        v-if="selCharacter && selCharacter.icon" />
-                    <span v-if="!selCharacter || !selCharacter.icon">?</span>
+                    <img v-bind:src="getCharacterIcon()" height="24"
+                        v-if="selCharacter && selCharacter.id" />
+                    <span v-if="!selCharacter || !selCharacter.id">?</span>
                 </div>
             </div>
             <select class="form-control"
@@ -44,7 +44,8 @@ export default {
         gameId: watchGameId
     },
     methods: {
-        onSelect
+        onSelect,
+        getCharacterIcon
     }
 }
 
@@ -68,6 +69,11 @@ function onSelect(event) {
     var vm = this;
     vm.selCharacter = vm.characters[event.target.selectedIndex];
     vm.$emit('input', vm.selCharacter);
+}
+
+function getCharacterIcon() {
+    var vm = this;
+    return `/static/characters/${vm.gameId}/${vm.selCharacter.id}.png`;
 }
 
 function loadCharacters(gameId, vm) {

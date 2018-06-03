@@ -1,242 +1,242 @@
 ﻿[
   {
     "name": "- Random -",
-    "icon": "/characters/smash4/stock_90_question_01.png"
+    "id": "stock_90_question_01"
   },
   {
     "name": "- Sandbag -",
-    "icon": "/characters/smash4/stock_90_sandbag_01.png"
+    "id": "stock_90_sandbag_01"
   },
   {
     "name": "Bayonetta",
-    "icon": "/characters/smash4/stock_90_bayonetta_01.png"
+    "id": "stock_90_bayonetta_01"
   },
   {
     "name": "Bowser",
-    "icon": "/characters/smash4/stock_90_koopa_01.png"
+    "id": "stock_90_koopa_01"
   },
   {
     "name": "Bowser Jr.",
-    "icon": "/characters/smash4/stock_90_koopajr_01.png"
+    "id": "stock_90_koopajr_01"
   },
   {
     "name": "Captain Falcon",
-    "icon": "/characters/smash4/stock_90_captain_01.png"
+    "id": "stock_90_captain_01"
   },
   {
     "name": "Charizard",
-    "icon": "/characters/smash4/stock_90_lizardon_01.png"
+    "id": "stock_90_lizardon_01"
   },
   {
     "name": "Cloud",
-    "icon": "/characters/smash4/stock_90_cloud_01.png"
+    "id": "stock_90_cloud_01"
   },
   {
     "name": "Corin",
-    "icon": "/characters/smash4/stock_90_kamui_01.png"
+    "id": "stock_90_kamui_01"
   },
   {
     "name": "Dark Pit",
-    "icon": "/characters/smash4/stock_90_pitb_01.png"
+    "id": "stock_90_pitb_01"
   },
   {
     "name": "Diddy Kong",
-    "icon": "/characters/smash4/stock_90_diddy_01.png"
+    "id": "stock_90_diddy_01"
   },
   {
     "name": "Donkey Kong",
-    "icon": "/characters/smash4/stock_90_donkey_01.png"
+    "id": "stock_90_donkey_01"
   },
   {
     "name": "Dr Mario",
-    "icon": "/characters/smash4/stock_90_drmario_01.png"
+    "id": "stock_90_drmario_01"
   },
   {
     "name": "Duck Hunt Duo",
-    "icon": "/characters/smash4/stock_90_duckhunt_01.png"
+    "id": "stock_90_duckhunt_01"
   },
   {
     "name": "Falco",
-    "icon": "/characters/smash4/stock_90_falco_01.png"
+    "id": "stock_90_falco_01"
   },
   {
     "name": "Fox",
-    "icon": "/characters/smash4/stock_90_fox_01.png"
+    "id": "stock_90_fox_01"
   },
   {
     "name": "Ganondorf",
-    "icon": "/characters/smash4/stock_90_ganon_01.png"
+    "id": "stock_90_ganon_01"
   },
   {
     "name": "Greninja",
-    "icon": "/characters/smash4/stock_90_gekkouga_01.png"
+    "id": "stock_90_gekkouga_01"
   },
   {
     "name": "Ike",
-    "icon": "/characters/smash4/stock_90_ike_01.png"
+    "id": "stock_90_ike_01"
   },
   {
     "name": "Jigglypuff",
-    "icon": "/characters/smash4/stock_90_purin_01.png"
+    "id": "stock_90_purin_01"
   },
   {
     "name": "King Dedede",
-    "icon": "/characters/smash4/stock_90_dedede_01.png"
+    "id": "stock_90_dedede_01"
   },
   {
     "name": "Kirby",
-    "icon": "/characters/smash4/stock_90_kirby_01.png"
+    "id": "stock_90_kirby_01"
   },
   {
     "name": "Link",
-    "icon": "/characters/smash4/stock_90_link_01.png"
+    "id": "stock_90_link_01"
   },
   {
     "name": "Little Mac",
-    "icon": "/characters/smash4/stock_90_littlemac_01.png"
+    "id": "stock_90_littlemac_01"
   },
   {
     "name": "Lucario",
-    "icon": "/characters/smash4/stock_90_lucario_01.png"
+    "id": "stock_90_lucario_01"
   },
   {
     "name": "Lucas",
-    "icon": "/characters/smash4/stock_90_lucas_01.png"
+    "id": "stock_90_lucas_01"
   },
   {
     "name": "Lucina",
-    "icon": "/characters/smash4/stock_90_lucina_01.png"
+    "id": "stock_90_lucina_01"
   },
   {
     "name": "Luigi",
-    "icon": "/characters/smash4/stock_90_luigi_01.png"
+    "id": "stock_90_luigi_01"
   },
   {
     "name": "Mario",
-    "icon": "/characters/smash4/stock_90_mario_01.png"
+    "id": "stock_90_mario_01"
   },
   {
     "name": "Marth",
-    "icon": "/characters/smash4/stock_90_marth_01.png"
+    "id": "stock_90_marth_01"
   },
   {
     "name": "Megaman",
-    "icon": "/characters/smash4/stock_90_rockman_01.png"
+    "id": "stock_90_rockman_01"
   },
   {
     "name": "Metaknight",
-    "icon": "/characters/smash4/stock_90_metaknight_01.png"
+    "id": "stock_90_metaknight_01"
   },
   {
     "name": "Mewtwo",
-    "icon": "/characters/smash4/stock_90_mewtwo_01.png"
+    "id": "stock_90_mewtwo_01"
   },
   {
     "name": "Mii Fighter",
-    "icon": "/characters/smash4/stock_90_miifighter_01.png"
+    "id": "stock_90_miifighter_01"
   },
   {
     "name": "Mii Gunner",
-    "icon": "/characters/smash4/stock_90_miigunner_01.png"
+    "id": "stock_90_miigunner_01"
   },
   {
     "name": "Mii Swordsman",
-    "icon": "/characters/smash4/stock_90_miiswordsman_01.png"
+    "id": "stock_90_miiswordsman_01"
   },
   {
     "name": "Mr. Game & Watch",
-    "icon": "/characters/smash4/stock_90_gamewatch_01.png"
+    "id": "stock_90_gamewatch_01"
   },
   {
     "name": "Ness",
-    "icon": "/characters/smash4/stock_90_ness_01.png"
+    "id": "stock_90_ness_01"
   },
   {
     "name": "Olimar",
-    "icon": "/characters/smash4/stock_90_pikmin_01.png"
+    "id": "stock_90_pikmin_01"
   },
   {
     "name": "Pacman",
-    "icon": "/characters/smash4/stock_90_pacman_01.png"
+    "id": "stock_90_pacman_01"
   },
   {
     "name": "Palutena",
-    "icon": "/characters/smash4/stock_90_palutena_01.png"
+    "id": "stock_90_palutena_01"
   },
   {
     "name": "Peach",
-    "icon": "/characters/smash4/stock_90_peach_01.png"
+    "id": "stock_90_peach_01"
   },
   {
     "name": "Pikachu",
-    "icon": "/characters/smash4/stock_90_pikachu_01.png"
+    "id": "stock_90_pikachu_01"
   },
   {
     "name": "Pit",
-    "icon": "/characters/smash4/stock_90_pit_01.png"
+    "id": "stock_90_pit_01"
   },
   {
     "name": "R.O.B.",
-    "icon": "/characters/smash4/stock_90_robot_01.png"
+    "id": "stock_90_robot_01"
   },
   {
     "name": "Robin",
-    "icon": "/characters/smash4/stock_90_reflet_01.png"
+    "id": "stock_90_reflet_01"
   },
   {
     "name": "Rosalina",
-    "icon": "/characters/smash4/stock_90_rosetta_01.png"
+    "id": "stock_90_rosetta_01"
   },
   {
     "name": "Roy",
-    "icon": "/characters/smash4/stock_90_roy_01.png"
+    "id": "stock_90_roy_01"
   },
   {
     "name": "Ryu",
-    "icon": "/characters/smash4/stock_90_ryu_01.png"
+    "id": "stock_90_ryu_01"
   },
   {
     "name": "Samus",
-    "icon": "/characters/smash4/stock_90_samus_01.png"
+    "id": "stock_90_samus_01"
   },
   {
     "name": "Sheik",
-    "icon": "/characters/smash4/stock_90_sheik_01.png"
+    "id": "stock_90_sheik_01"
   },
   {
     "name": "Shulk",
-    "icon": "/characters/smash4/stock_90_shulk_01.png"
+    "id": "stock_90_shulk_01"
   },
   {
     "name": "Sonic",
-    "icon": "/characters/smash4/stock_90_sonic_01.png"
+    "id": "stock_90_sonic_01"
   },
   {
     "name": "Toon Link",
-    "icon": "/characters/smash4/stock_90_toonlink_01.png"
+    "id": "stock_90_toonlink_01"
   },
   {
     "name": "Villager",
-    "icon": "/characters/smash4/stock_90_murabito_01.png"
+    "id": "stock_90_murabito_01"
   },
   {
     "name": "Wario",
-    "icon": "/characters/smash4/stock_90_wario_01.png"
+    "id": "stock_90_wario_01"
   },
   {
     "name": "Wii Fit Trainer",
-    "icon": "/characters/smash4/stock_90_wiifit_01.png"
+    "id": "stock_90_wiifit_01"
   },
   {
     "name": "Yoshi",
-    "icon": "/characters/smash4/stock_90_yoshi_01.png"
+    "id": "stock_90_yoshi_01"
   },
   {
     "name": "Zelda",
-    "icon": "/characters/smash4/stock_90_zelda_01.png"
+    "id": "stock_90_zelda_01"
   },
   {
     "name": "Zero Suit Samus",
-    "icon": "/characters/smash4/stock_90_szerosuit_01.png"
+    "id": "stock_90_szerosuit_01"
   }
 ]

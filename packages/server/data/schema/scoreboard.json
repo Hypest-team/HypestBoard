@@ -6,13 +6,13 @@
     "type": "object",
 
     "definitions": {
-        "icon": {
+        "character": {
             "type": "object",
             "properties": {
                 "name": { "type": "string" },
-                "icon": { "type": "string" }
+                "id": { "type": "string" }
             },
-            "required": ["name", "icon"],
+            "required": ["name", "id"],
             "additionalProperties": false
         },
 
@@ -51,7 +51,7 @@
             "properties": {
                 "name": { "type": "string" },
                 "character": {
-                    "$ref": "#/definitions/icon"
+                    "$ref": "#/definitions/character"
                 },
                 "sponsor": {
                     "type": "string"

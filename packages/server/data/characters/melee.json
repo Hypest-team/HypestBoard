@@ -1,110 +1,110 @@
 ﻿[
   {
-    "name": "-Empty-",
-    "icon": ""
+    "id": "",
+    "name": "-Empty-"
   },
   {
     "name": "Bowser",
-    "icon": "/characters/melee/bowser.png"
+    "id": "bowser"
   },
   {
     "name": "D.K",
-    "icon": "/characters/melee/dong.png"
+    "id": "dong"
   },
   {
     "name": "Dr. Mario",
-    "icon": "/characters/melee/dr.png"
+    "id": "dr"
   },
   {
     "name": "Falco",
-    "icon": "/characters/melee/falco.png"
+    "id": "falco"
   },
   {
     "name": "Falcon",
-    "icon": "/characters/melee/falcon.png"
+    "id": "falcon"
   },
   {
     "name": "Fox",
-    "icon": "/characters/melee/fox.png"
+    "id": "fox"
   },
   {
     "name": "Mr. Game & Watch",
-    "icon": "/characters/melee/gandw.png"
+    "id": "gandw"
   },
   {
     "name": "Ganondorf",
-    "icon": "/characters/melee/ganondorf.png"
+    "id": "ganondorf"
   },
   {
     "name": "Ice Climbers",
-    "icon": "/characters/melee/icies.png"
+    "id": "icies"
   },
   {
     "name": "Jigglypuff",
-    "icon": "/characters/melee/jiggs.png"
+    "id": "jiggs"
   },
   {
     "name": "Mewtwo",
-    "icon": "/characters/melee/king.png"
+    "id": "king"
   },
   {
     "name": "Kirby",
-    "icon": "/characters/melee/kirby.png"
+    "id": "kirby"
   },
   {
     "name": "Link",
-    "icon": "/characters/melee/link.png"
+    "id": "link"
   },
   {
     "name": "Luigi",
-    "icon": "/characters/melee/luigi.png"
+    "id": "luigi"
   },
   {
     "name": "Mario",
-    "icon": "/characters/melee/mario.png"
+    "id": "mario"
   },
   {
     "name": "Marth",
-    "icon": "/characters/melee/marth.png"
+    "id": "marth"
   },
   {
     "name": "Ness",
-    "icon": "/characters/melee/ness.png"
+    "id": "ness"
   },
   {
     "name": "Peach",
-    "icon": "/characters/melee/peach.png"
+    "id": "peach"
   },
   {
     "name": "Pichu",
-    "icon": "/characters/melee/pichu.png"
+    "id": "pichu"
   },
   {
     "name": "Pikachu",
-    "icon": "/characters/melee/pikachu.png"
+    "id": "pikachu"
   },
   {
     "name": "Roy",
-    "icon": "/characters/melee/roy.png"
+    "id": "roy"
   },
   {
     "name": "Samus",
-    "icon": "/characters/melee/samus.png"
+    "id": "samus"
   },
   {
     "name": "Sheik",
-    "icon": "/characters/melee/sheik.png"
+    "id": "sheik"
   },
   {
     "name": "Yoshi",
-    "icon": "/characters/melee/yoshi.png"
+    "id": "yoshi"
   },
   {
     "name": "Young Link",
-    "icon": "/characters/melee/younglink.png"
+    "id": "younglink"
   },
   {
     "name": "Zelda",
-    "icon": "/characters/melee/zelda.png"
+    "id": "zelda"
   }
 ]
