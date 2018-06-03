@@ -10,7 +10,7 @@ First, make sure you have the latest version of NodeJs installed on your machine
 After that you'll need to checkout this repository into your local machine. Use your favorite GUI git client or just do:
 
 ```
-git checkout https://github.com/Hypest-team/HypestBoard/
+git clone https://github.com/Hypest-team/HypestBoard/
 ```
 
 This is a monorepo, that is based on lerna. So you need to install and setup [lerna](https://github.com/lerna/lerna) (this can take a bit):
@@ -38,7 +38,7 @@ You may have noticed that this project comes with a Dockerfile. If you have dock
 Assuming you have docker installed and configured on your system, you just need to run these commands:
 
 ```
-git checkout https://github.com/Hypest-team/HypestBoard/
+git clone https://github.com/Hypest-team/HypestBoard/
 docker build . -t hypestteam/hypestscore
 docker run -p 3000:3000 -d hypestteam/hypestscore
 ```
