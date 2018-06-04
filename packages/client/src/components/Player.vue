@@ -14,6 +14,7 @@
                 <label>Name</label>
                 <input type="text" v-model="player.name" class="form-control" />
             </div>
+
             <div class="form-group">
                 <label>Character</label>
                 <CharacterSelect v-bind:game-id="gameId"

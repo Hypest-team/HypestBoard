@@ -108,8 +108,9 @@ function getEmptyPlayer() {
     return {
         name: '',
         character: {
+            id: '',
             name: '',
-            icon: ''
+            color: null
         },
         country: {
             name: '',

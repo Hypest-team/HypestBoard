@@ -6,14 +6,28 @@
     "type": "object",
 
     "definitions": {
+        "color": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "id": { "type": "string" },
+                "hex": { "type": "string" }
+            },
+            "required": ["name", "id", "hex"],
+            "additionalProperties": false
+        },
+
         "character": {
             "type": "object",
             "properties": {
                 "name": { "type": "string" },
-                "id": { "type": "string" }
+                "id": { "type": "string" },
+                "color": {
+                    "$ref": "#/definitions/color"
+                }
             },
             "required": ["name", "id"],
-            "additionalProperties": false
+            "additionalProperties": ["color"]
         },
 
         "country": {

@@ -5,11 +5,48 @@
   },
   {
     "name": "Bowser",
-    "id": "bowser"
-  },
-  {
+    "id": "bowser",
+    "colors": [{
+        "id": "green",
+        "name": "Green",
+        "hex": "#7cdc7c"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fc7c7c"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "black",
+        "name": "Black",
+        "hex": "#656565"
+    }]
+  }, {
     "name": "D.K",
-    "id": "dong"
+    "id": "dong",
+    "colors": [{
+        "id": "brown",
+        "name": "Brown",
+        "hex": "#845a29"
+    },{
+        "id": "black",
+        "name": "Black",
+        "hex": "#656565"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fc7c7c"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#7cdc7c"
+    }]
   },
   {
     "name": "Dr. Mario",

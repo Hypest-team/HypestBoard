@@ -64,7 +64,8 @@ function convertGgPlayer(ggPlayer) {
                     name: ggPlayer.gamerTag,
                     character: {
                         id: '',
-                        name: ''
+                        name: '',
+                        color: null
                     },
                     country: flag,
                     sponsor: ggPlayer.prefix || ''
