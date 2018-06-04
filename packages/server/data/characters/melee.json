@@ -7,13 +7,13 @@
     "name": "Bowser",
     "id": "bowser",
     "colors": [{
-        "id": "green",
-        "name": "Green",
-        "hex": "#7cdc7c"
+        "id": "default",
+        "name": "Green (default)",
+        "hex": "#fff"
     }, {
         "id": "red",
         "name": "Red",
-        "hex": "#fc7c7c"
+        "hex": "#fe6565"
     }, {
         "id": "blue",
         "name": "Blue",
@@ -27,9 +27,9 @@
     "name": "D.K",
     "id": "dong",
     "colors": [{
-        "id": "brown",
-        "name": "Brown",
-        "hex": "#845a29"
+        "id": "default",
+        "name": "Brown (default)",
+        "hex": "#fff"
     },{
         "id": "black",
         "name": "Black",
@@ -37,7 +37,7 @@
     }, {
         "id": "red",
         "name": "Red",
-        "hex": "#fc7c7c"
+        "hex": "#fe6565"
     }, {
         "id": "blue",
         "name": "Blue",
@@ -45,64 +45,337 @@
     }, {
         "id": "green",
         "name": "Green",
-        "hex": "#7cdc7c"
+        "hex": "#32b165"
+    }]
+  }, {
+    "name": "Dr. Mario",
+    "id": "dr",
+    "colors": [{
+        "id": "default",
+        "name": "White (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    },{
+        "id": "black",
+        "name": "Black",
+        "hex": "#656565"
     }]
   },
   {
-    "name": "Dr. Mario",
-    "id": "dr"
-  },
-  {
     "name": "Falco",
-    "id": "falco"
+    "id": "falco",
+    "colors": [{
+        "id": "default",
+        "name": "Tan (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Falcon",
-    "id": "falcon"
+    "id": "falcon",
+    "colors": [{
+        "id": "default",
+        "name": "Indigo (default)",
+        "hex": "#fff"
+    }, {
+        "id": "black",
+        "name": "Black",
+        "hex": "#7f7f7f"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#e4e4e4"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }]
   },
   {
     "name": "Fox",
-    "id": "fox"
+    "id": "fox",
+    "colors": [{
+        "id": "default",
+        "name": "White (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Mr. Game & Watch",
-    "id": "gandw"
+    "id": "gandw",
+    "colors": [{
+        "id": "default",
+        "name": "Black (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Ganondorf",
-    "id": "ganondorf"
+    "id": "ganondorf",
+    "colors": [{
+        "id": "default",
+        "name": "Brown (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "purple",
+        "name": "Purple",
+        "hex": "#7f4cb1"
+    }]
   },
   {
     "name": "Ice Climbers",
-    "id": "icies"
+    "id": "icies",
+    "colors": [{
+        "id": "default",
+        "name": "Blue (default)",
+        "hex": "#fff"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "orange",
+        "name": "Orange",
+        "hex": "#fe984c"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }]
   },
   {
     "name": "Jigglypuff",
-    "id": "jiggs"
+    "id": "jiggs",
+    "colors": [{
+        "id": "default",
+        "name": "Pink (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "yellow",
+        "name": "Yellow",
+        "hex": "#feca32"
+    }]
   },
   {
     "name": "Mewtwo",
-    "id": "king"
+    "id": "king",
+    "colors": [{
+        "id": "default",
+        "name": "Purple (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Kirby",
-    "id": "kirby"
+    "id": "kirby",
+    "colors": [{
+        "id": "default",
+        "name": "Yellow (default)",
+        "hex": "#fff"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#cacaca"
+    }]
   },
   {
     "name": "Link",
-    "id": "link"
+    "id": "link",
+    "colors": [{
+        "id": "default",
+        "name": "Green (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#cacaca"
+    }, {
+        "id": "black",
+        "name": "Black",
+        "hex": "#656565"
+    }]
   },
   {
     "name": "Luigi",
-    "id": "luigi"
+    "id": "luigi",
+    "colors": [{
+        "id": "default",
+        "name": "Green (default)",
+        "hex": "#fff"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#b1b1b1"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "pink",
+        "name": "Pink",
+        "hex": "#fe6565"
+    }]
   },
   {
     "name": "Mario",
-    "id": "mario"
+    "id": "mario",
+    "colors": [{
+        "id": "default",
+        "name": "Red (default)",
+        "hex": "#fff"
+    }, {
+        "id": "yellow",
+        "name": "Yellow",
+        "hex": "#feca00"
+    }, {
+        "id": "black",
+        "name": "Black",
+        "hex": "#4c4c4c"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#7f7fe4"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Marth",
-    "id": "marth"
+    "id": "marth",
+    "colors": [{
+        "id": "default",
+        "name": "Blue (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "black",
+        "name": "Black",
+        "hex": "#4c4c4c"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#b1b1b1"
+    }]
   },
   {
     "name": "Ness",
