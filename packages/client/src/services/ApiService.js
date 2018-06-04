@@ -27,11 +27,11 @@ function updateScoreboard(scoreboard) {
 }
 
 function getGames() {
-    return cachedResponse('/api/config/games.json');
+    return cachedResponse('/api/config/games.json', 'games', 'general');
 }
 
 function getFlags() {
-    return cachedResponse('/api/config/flags.json');
+    return cachedResponse('/api/config/flags.json', 'flags', 'general');
 }
 
 function getCharacters(gameId) {
@@ -39,7 +39,7 @@ function getCharacters(gameId) {
 }
 
 function getOverlaysManifest() {
-    return cachedResponse('/overlays/manifest.json');
+    return cachedResponse('/overlays/manifest.json', 'overlays', 'general');
 }
 
 function updateScoreboard(scoreboard) {
