@@ -63,7 +63,7 @@ function convertGgPlayer(ggPlayer) {
                 return {
                     name: ggPlayer.gamerTag,
                     character: {
-                        icon: '',
+                        id: '',
                         name: ''
                     },
                     country: flag,
