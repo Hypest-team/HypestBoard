@@ -72,7 +72,7 @@
                                 </em>
                                 {{ player.name }}
                             </div>
-                            <div class="player-character">
+                            <div class="player-character" v-if="isFilled(player.character.id)">
                                 <img :src="getCharacterUrl(player.character)" />
                             </div>
                         </div>
