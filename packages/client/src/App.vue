@@ -4,7 +4,9 @@
         <h1>HypestBoard admin page</h1>
         <div class="row">
             <div class="col-md-2">
-                <StreamQueue v-on:select="autofillEntrants($event)" />
+                <StreamQueue
+                    v-on:select="autofillEntrants($event)"
+                    v-on:load="updateTournamentData($event)"/>
             </div>
             <div class="col-md-10">
                 <div v-if="!scoreboard" class="text-center">
@@ -42,6 +44,7 @@ export default {
     mounted: onMounted,
     methods: {
         updateScoreboard,
+        updateTournamentData,
         autofillEntrants
     }
 }
@@ -63,6 +66,12 @@ function updateScoreboard() {
             vm.scoreboard = scoreboard;
             return scoreboard;
         });
+}
+
+function updateTournamentData(data) {
+    var vm = this;
+
+    vm.scoreboard.tournamentName = data.entities.tournament.name;
 }
 
 function autofillEntrants(set) {
