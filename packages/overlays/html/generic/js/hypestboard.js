@@ -10,7 +10,8 @@
         },
         methods: {
             isFilled: isFilled,
-            getCharacterUrl: getCharacterUrl
+            getCharacterUrl: getCharacterUrl,
+            getCharacterColorStyle: getCharacterColorStyle
         },
         mounted: onMounted
     })
@@ -27,6 +28,15 @@
     function getCharacterUrl(character) {
         var vm = this;
         return `/static/characters/${vm.scoreboard.game.id}/${character.id}.png`;
+    }
+
+    function getCharacterColorStyle(character) {
+        if (!(character && character.color)) {
+            return ''
+        } else {
+            return `background-color: ${character.color.hex}`;
+        }
+    
     }
 
 	function getScoreboard(vm) {

@@ -78,6 +78,13 @@ body {
     height: 1em;
 }
 
+.player-character-color {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
 .entrant-score,
 .players {
     padding: 1vh;

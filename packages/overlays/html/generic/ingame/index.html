@@ -72,7 +72,11 @@
                                 </em>
                                 {{ player.name }}
                             </div>
-                            <div class="player-character" v-if="isFilled(player.character.id)">
+                            <div class="player-character"
+                                v-if="player.character && isFilled(player.character.id)">
+                                <span class="player-character-color"
+                                    :style="getCharacterColorStyle(player.character)">
+                                </span>
                                 <img :src="getCharacterUrl(player.character)" />
                             </div>
                         </div>
