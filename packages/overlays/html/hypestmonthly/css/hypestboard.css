@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Din";
+    src: url("../fonts/din-medium.ttf") format("truetype");
+}
+
+body {
+    font-family: "Din", "Impact", "Arial", sans-serif;
+    font-size: 1.5vw;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: magenta;
+}
+
+.scoreboard {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    position: relative;
+    grid-column-start: 1;
+    width: 25vw;
+    color: #fff;
+    background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
+    padding: 1.5vw 5vh;
+}
+
+.sidebar:before,
+.sidebar:after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
+    height: 100%;
+    width: 1vw;
+    top: 0;
+}
+
+.sidebar:before {
+    left: 0;
+}
+
+.sidebar:after {
+    right: 0;
+}
+
+.sidebar-box + .sidebar-box {
+    margin-top: 1vh;
+}
+
+.sidebar-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 3vh;
+    background: #000;
+    height: 20vh;
+    font-variant: small-caps;
+}
+
+.sidebar-box.event-logo {
+    background-color: transparent;
+    background-image: url("../img/sidebar-hypestteam-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat no-repeat;
+    background-position: 50%;
+    align-items: flex-end;
+    padding-bottom: 2.5vh;
+    font-size: 2vh;
+}
+
+.logos .logos-sidebar {
+    width: 100%;    
+    height: auto;
+}
+
+.streaming {
+    margin-top: 3vh;
+}
+
+.game {
+    grid-column-start: 2;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.entrants,
+.entrant,
+.players,
+.player {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.entrants {
+    width: 100%;
+}
+
+.entrant + .entrant,
+.player + .player {
+    margin-left: 5vw;
+}
+
+
+.entrant {
+    border: 5px solid black;   
+}
+
+.player-country {
+    margin-right: 0.25vh;
+}
+
+.player-character {
+    margin-left: 0.25vh;
+}
+
+.player-character img {
+    height: 1em;
+}
+
+.player-character-color {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+
+.entrant-score,
+.players {
+    padding: 1vh;
+}
+
+.tournament {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.tournament-name,
+.tournament-round {
+    border: 3px solid black;
+    padding: 1vh;
+    text-align: center;
+}
+

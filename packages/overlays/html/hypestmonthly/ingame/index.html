@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Hypest monthly melee ingame overlay - HypestBoard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css"></link>
+
+	<link href="../css/hypestboard.css" rel="stylesheet"></link>
+	
+</head>
+<body>
+	<div class="scoreboard" id="scoreboard">
+        <aside class="sidebar">
+            <div class="sidebar-box cam">
+                CAM 1
+            </div>
+
+            <div class="sidebar-box cam">
+                CAM 2
+            </div>
+
+            <div class="sidebar-box event-logo">
+                <span v-if="isFilled(scoreboard.tournamentName)">
+                    {{ scoreboard.tournamentName }}
+                </span>
+            </div>
+
+            <div class="sidebar-box logos">
+                Sponsor
+            </div>
+            
+            <div v-if="scoreboard" class="streaming">
+                <div v-if="isFilled(scoreboard.streamer)" class="streamer">
+                    <i class="fa fa-fw fa-twitch"></i>
+                    {{ scoreboard.streamer }}
+                </div>
+
+                <div v-if="scoreboard.commentators">
+                    <div v-for="commentator in scoreboard.commentators">
+                        <span v-if="isFilled(commentator.handle)">
+                            <i class="fa fa-fw fa-microphone"></i>
+                            {{ commentator.handle }}
+                        </span>
+
+                        <span v-if="!isFilled(commentator.handle)">
+                            <i class="fa fa-fw fa-microphone"></i>
+                            {{ commentator.name }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+        </aside>
+
+        <main v-if="scoreboard" class="game">
+            <div class="entrants" v-if="scoreboard.entrants">
+                <div v-for="entrant in scoreboard.entrants" class="entrant">
+                    <div class="entrant-score">
+                        {{ entrant.score }}
+                    </div>
+
+                    <div class="players" v-if="entrant.players">
+                        <div class="player" v-for="player in entrant.players">
+                            <div class="player-country" v-if="player.country">
+                                <span class="flag-icon flag-icon-squared"
+                                    :class="'flag-icon-' + player.country.code">
+                                </span>
+                            </div>
+                            <div class="player-name">
+                                <em v-if="player.sponsor">
+                                    {{ player.sponsor }}
+                                </em>
+                                {{ player.name }}
+                            </div>
+                            <div class="player-character"
+                                v-if="player.character && isFilled(player.character.id)">
+                                <span class="player-character-color"
+                                    :style="getCharacterColorStyle(player.character)">
+                                </span>
+                                <img :src="getCharacterUrl(player.character)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tournament">
+                <div class="tournament-round" v-if="isFilled(scoreboard.round)">
+                    {{ scoreboard.round }}
+                </div>
+            </div>
+        </main>
+	</div>
+	
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="../js/hypestboard.js"></script>
+</body>
+</html>
