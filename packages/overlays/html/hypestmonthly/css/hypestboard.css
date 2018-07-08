@@ -13,12 +13,64 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: magenta;
+/*    background-color: magenta; */
 }
 
 .scoreboard {
     display: flex;
     height: 100vh;
+}
+
+
+.scoreboard-logo-wrapper {
+    width: 8vw;
+    height: 4vw;
+    padding: 0.25vh;
+    position: relative;
+}
+
+.scoreboard-logo-wrapper .scoreboard-logo-pre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4vw;
+    width: 2vw;
+    background-image: url("../img/scoreboard-logo-pre.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.scoreboard-logo-wrapper .scoreboard-logo-post {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 4vw;
+    width: 2vw;
+    background-image: url("../img/scoreboard-logo-post.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.scoreboard-logo-wrapper .scoreboard-logo-bg {
+    position: absolute;
+    top: 0;
+    left: 2vw;
+    height: 4vw;
+    width: 4vw;
+    background-image: url("../img/scoreboard-logo-bg.png");
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: 50% 50%;
+}
+
+.scoreboard-logo-wrapper .scoreboard-logo-img {
+    position: absolute;
+    top: 2vh;
+    left: 3.5vh;
+    width: 2vw;
+    height: auto;
 }
 
 .sidebar {

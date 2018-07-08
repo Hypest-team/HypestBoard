@@ -59,13 +59,50 @@
 
         <main v-if="scoreboard" class="game">
             <div class="entrants" v-if="scoreboard.entrants">
-                <div v-for="entrant in scoreboard.entrants" class="entrant">
+                <div v-if="scoreboard.entrants[0]" class="entrant">
                     <div class="entrant-score">
-                        {{ entrant.score }}
+                        {{ scoreboard.entrants[0].score }}
                     </div>
 
-                    <div class="players" v-if="entrant.players">
-                        <div class="player" v-for="player in entrant.players">
+                    <div class="players" v-if="scoreboard.entrants[0].players">
+                        <div class="player" v-for="player in scoreboard.entrants[0].players">
+                            <div class="player-country" v-if="player.country">
+                                <span class="flag-icon flag-icon-squared"
+                                    :class="'flag-icon-' + player.country.code">
+                                </span>
+                            </div>
+                            <div class="player-name">
+                                <em v-if="player.sponsor">
+                                    {{ player.sponsor }}
+                                </em>
+                                {{ player.name }}
+                            </div>
+                            <div class="player-character"
+                                v-if="player.character && isFilled(player.character.id)">
+                                <span class="player-character-color"
+                                    :style="getCharacterColorStyle(player.character)">
+                                </span>
+                                <img :src="getCharacterUrl(player.character)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scoreboard-logo-wrapper">
+                    <div class="scoreboard-logo-pre"></div>
+                    <div class="scoreboard-logo-bg">
+                        <img class="scoreboard-logo-img" src="../img/scoreboard-logo.png" />
+                    </div>
+                    <div class="scoreboard-logo-post"></div>
+                </div>
+
+                <div v-if="scoreboard.entrants[1]" class="entrant">
+                    <div class="entrant-score">
+                        {{ scoreboard.entrants[1].score }}
+                    </div>
+
+                    <div class="players" v-if="scoreboard.entrants[1].players">
+                        <div class="player" v-for="player in scoreboard.entrants[1].players">
                             <div class="player-country" v-if="player.country">
                                 <span class="flag-icon flag-icon-squared"
                                     :class="'flag-icon-' + player.country.code">
