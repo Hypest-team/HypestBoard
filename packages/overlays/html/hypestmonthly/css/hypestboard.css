@@ -87,6 +87,7 @@ body {
 .game {
     display: inline-block;
     width: 75vw;
+    padding: 3vh 0;
 }
 
 .entrants {
