@@ -13,7 +13,7 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: #0f0;
+    background-color: transparent;
 }
 
 .scoreboard {
@@ -59,7 +59,7 @@ body {
     align-content: center;
     text-align: center;
     font-size: 3vh;
-    background: #0f0;
+    background: #000;
     height: 20vh;
     font-variant: small-caps;
 }
