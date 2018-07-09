@@ -1,13 +1,17 @@
 {
     "id": "generic",
-    "name": "Generic overlays",
+    "name": "Hypest and Generic overlays",
     "overlays": [{
-        "id": "ingame",
-        "name": "In-game overlay",
-        "url": "generic/ingame/index.html"
+        "id": "hypest-melee-ingame",
+        "name": "In-game overlay melee (Hypest Monthly)",
+        "url": "hypestmonthly/ingame/index.html"
     }, {
-        "id": "commentary",
-        "name": "Commentary",
-        "url": "generic/commentary/index.html"
+        "id": "hypest-melee-commentary",
+        "name": "Commentary (Hypest Monthly)",
+        "url": "hypestmonthly/commentary/index.html"
+    }, {
+        "id": "ingame",
+        "name": "Generic in-game overlay",
+        "url": "generic/ingame/index.html"
     }]
 }
