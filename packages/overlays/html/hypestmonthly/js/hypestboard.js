@@ -34,7 +34,7 @@
         if (!(character && character.color)) {
             return ''
         } else {
-            return `background-color: ${character.color.hex}`;
+            return `border-color: ${character.color.hex}`;
         }
     
     }
