@@ -175,7 +175,7 @@ body {
 
 .trapezoid-wrapper,
 .trapezoid-inner {
-    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 1vw) 100%, 1vw 100%);
 }
 
 .trapezoid-wrapper {
