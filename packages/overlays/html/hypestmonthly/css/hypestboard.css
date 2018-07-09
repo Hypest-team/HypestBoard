@@ -161,15 +161,18 @@ body {
     border-radius: 1vh 2vh 1vh 2vh;
 }
 
+.bordered-r,
 .entrant-1 .entrant-score {
     margin-right: 1ch;
     border-radius: 2vh 1vh 2vh 1vh;
 }
 
+.bordered-l,
 .entrant-0 .entrant-player {
     border-radius: 1vh 3vh 1vh 3vh;
 }
 
+.bordered-r,
 .entrant-1 .entrant-player {
     border-radius: 3vh 1vh 3vh 1vh;
 }
@@ -206,7 +209,7 @@ body {
 }
 
 .gradient-player {
-    background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
+    background: linear-gradient(to bottom, #231f20 0%, #414042 50%, #231f20 100%);
 }
 
 .gradient-score {
@@ -230,3 +233,116 @@ body {
     max-height: 2em;
 }
 
+/* Commentary overlay */
+.commentary-footer {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    text-align: center;
+    width: 100vw;
+    padding: 2vh;
+}
+
+.commentators {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 2vh
+}
+
+.commentator {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentator-item {
+    background: linear-gradient(to bottom, #6B2024 0%, #EC2024 65%, #FFCDFF 100%);
+    border: 0.5vh solid #bcbec0;
+}
+
+.commentator-mid-logo {
+    border: 0.5vh solid #bcbec0;
+}
+
+.commentator-0 {
+    align-items: flex-end;
+}
+
+.commentator-0 .commentator-item {
+    text-align: right;
+}
+
+.commentator-1 .commentator-item {
+    text-align: left;
+}
+
+.commentator-0 .commentator-name {
+    border-radius: 1vh 3vh 1vh 3vh;
+}
+
+.commentator-0 .commentator-handle {
+    border-radius: 1vh 2vh 1vh 2vh;
+}
+
+.commentator-1 .commentator-name {
+    border-radius: 3vh 1vh 3vh 1vh;
+}
+
+.commentator-1 .commentator-handle {
+    border-radius: 2vh 1vh 2vh 1vh;
+}
+
+.commentator-name {
+    width: 20vw;
+}
+
+.commentator-handle {
+    width: 14vw;
+}
+
+.commentator-1 {
+    order: 2
+}
+
+.commentator-item {
+    padding: 1vh
+}
+
+.commentator-item + .commentator-item  {
+    margin-top: 1vh;
+}
+
+.commentator-mid-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 1vh 1vh 4vh 4vh;
+    background: linear-gradient(to bottom, #231f20 0%, #414042 50%, #231f20 100%);
+    
+    
+    margin-left: 2ch;
+    margin-right: 2ch;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    
+}
+
+.commentator-mid-logo img {
+    max-width: 10vw;
+}
+
+.commentators-1 .commentator {
+    flex-direction: row;
+}
+
+.commentators-1 .commentator-handle {
+    border-radius: 3vh 1vh 3vh 1vh;
+    width: 20vw;
+    text-align: left;
+}
+
+.commentators-1 .commentator-mid-logo {
+    height: 100%;
+}
