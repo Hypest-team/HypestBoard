@@ -379,42 +379,244 @@
   },
   {
     "name": "Ness",
-    "id": "ness"
+    "id": "ness",
+    "colors": [{
+        "id": "default",
+        "name": "Red (default)",
+        "hex": "#fff"
+    }, {
+        "id": "yellow",
+        "name": "Yellow",
+        "hex": "#feca00"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Peach",
-    "id": "peach"
+    "id": "peach",
+    "colors": [{
+        "id": "default",
+        "name": "Pink (default)",
+        "hex": "#fff"
+    }, {
+        "id": "yellow",
+        "name": "Yellow (Daisy)",
+        "hex": "#feb04c"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#989898"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#6564b0"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Pichu",
-    "id": "pichu"
+    "id": "pichu",
+    "colors": [{
+        "id": "default",
+        "name": "Yellow (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Pikachu",
-    "id": "pikachu"
+    "id": "pikachu",
+    "colors": [{
+        "id": "default",
+        "name": "Yellow (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }]
   },
   {
     "name": "Roy",
-    "id": "roy"
+    "id": "roy",
+    "colors": [{
+        "id": "default",
+        "name": "Purple (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "yellow",
+        "name": "Yellow (Golden)",
+        "hex": "#feca19"
+    }]
   },
   {
     "name": "Samus",
-    "id": "samus"
+    "id": "samus",
+    "colors": [{
+        "id": "default",
+        "name": "Orange (default)",
+        "hex": "#fff"
+    }, {
+        "id": "pink",
+        "name": "Pink",
+        "hex": "#fe9898"
+    }, {
+        "id": "black",
+        "name": "Black",
+        "hex": "#656565"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }]
   },
   {
     "name": "Sheik",
-    "id": "sheik"
+    "id": "sheik",
+    "colors": [{
+        "id": "default",
+        "name": "Navy (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#cacaca"
+    }]
   },
   {
     "name": "Yoshi",
-    "id": "yoshi"
+    "id": "yoshi",
+    "colors": [{
+        "id": "default",
+        "name": "Green (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "yellow",
+        "name": "Yellow",
+        "hex": "#feca00"
+    }, {
+        "id": "pink",
+        "name": "Pink",
+        "hex": "#ca6598"
+    }, {
+        "id": "cyan",
+        "name": "Cyan (Light Blue)",
+        "hex": "#6598fe"
+    }]
   },
   {
     "name": "Young Link",
-    "id": "younglink"
+    "id": "younglink",
+    "colors": [{
+        "id": "default",
+        "name": "Green (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#cacaca"
+    }, {
+        "id": "black",
+        "name": "Black",
+        "hex": "#656565"
+    }]
   },
   {
     "name": "Zelda",
-    "id": "zelda"
+    "id": "zelda",
+    "colors": [{
+        "id": "default",
+        "name": "Pink (default)",
+        "hex": "#fff"
+    }, {
+        "id": "red",
+        "name": "Red",
+        "hex": "#fe6565"
+    }, {
+        "id": "blue",
+        "name": "Blue",
+        "hex": "#1998ca"
+    }, {
+        "id": "green",
+        "name": "Green",
+        "hex": "#32b165"
+    }, {
+        "id": "white",
+        "name": "White",
+        "hex": "#cacaca"
+    }]
   }
 ]
