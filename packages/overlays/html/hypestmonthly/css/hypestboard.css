@@ -93,14 +93,16 @@ body {
 .entrants {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    align-items: flex-start;
     color: #fff;
+    width: 75vw;
+    justify-content: center;
 }
 
 .entrant {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .entrant-score {
@@ -125,6 +127,7 @@ body {
     flex-direction: row;
     
     padding: 0.75vh;
+    min-width: 16vw;
 }
 
 .entrant-player-character {
@@ -141,6 +144,10 @@ body {
     order: 1;
 }
 
+.entrant-0 .entrant-player {
+    justify-content: flex-end;
+}
+
 .entrant-player + .entrant-player {
     margin-top: 0.5vh;
 }
@@ -150,12 +157,12 @@ body {
 }
 
 .entrant-0 .entrant-score {
-    margin-left: 1vh;
+    margin-left: 1ch;
     border-radius: 1vh 2vh 1vh 2vh;
 }
 
 .entrant-1 .entrant-score {
-    margin-right: 1vh;
+    margin-right: 1ch;
     border-radius: 2vh 1vh 2vh 1vh;
 }
 
@@ -167,17 +174,29 @@ body {
     border-radius: 3vh 1vh 3vh 1vh;
 }
 
+.entrant-0 {
+    margin-left: auto;
+}
+
 .entrant-1 {
     order: 2;
+    margin-right: auto;
 }
 
 .tournament-round-wrapper {
     order: 1;
+    margin-left: 1ch;
+    margin-right: 1ch;
+    min-width: 12vw;
+    text-align: center;
 }
 
 .tournament-round {
     padding: 1vh;
     border-radius: 1vh 1vh 3vh 3vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .gradient-player,
