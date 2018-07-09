@@ -9,7 +9,7 @@
 
 body {
     font-family: "Din", "Impact", "Arial", sans-serif;
-    font-size: 1.5vw;
+    font-size: 2.5vh;
     margin: 0;
     height: 100%;
     width: 100%;
@@ -23,54 +23,17 @@ body {
 
 
 .scoreboard-logo-wrapper {
+    display: inline-block;
     width: 8vw;
-    height: 4vw;
-    padding: 0.25vh;
-    position: relative;
-}
-
-.scoreboard-logo-wrapper .scoreboard-logo-pre {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4vw;
-    width: 2vw;
-    background-image: url("../img/scoreboard-logo-pre.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-
-.scoreboard-logo-wrapper .scoreboard-logo-post {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 4vw;
-    width: 2vw;
-    background-image: url("../img/scoreboard-logo-post.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    text-align: center;
 }
 
 .scoreboard-logo-wrapper .scoreboard-logo-bg {
-    position: absolute;
-    top: 0;
-    left: 2vw;
-    height: 4vw;
-    width: 4vw;
-    background-image: url("../img/scoreboard-logo-bg.png");
-    background-size: contain;
-    background-repeat: repeat-x;
-    background-position: 50% 50%;
+    background-image: linear-gradient(to bottom, #6B2024 0%, #EC2024 65%, #FFCDFF 100%);
 }
 
 .scoreboard-logo-wrapper .scoreboard-logo-img {
-    position: absolute;
-    top: 2vh;
-    left: 3.5vh;
-    width: 2vw;
-    height: auto;
+    height: 5vh;
 }
 
 .sidebar {
@@ -163,9 +126,11 @@ body {
     margin-left: 5vw;
 }
 
-
-.entrant {
-    border: 5px solid black;   
+.player {
+    height: 100%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    color: #fff;
 }
 
 .player-country {
@@ -187,10 +152,13 @@ body {
     border-radius: 50%;
 }
 
-.entrant-score,
-.players {
-    padding: 1vh;
+.entrant-score {
+    background-image: linear-gradient(to bottom, #231F20 0%, #939598 41%, #414042 81%, #231F20 100%);
+    padding-left: 1vw;
+    padding-right: 1vw;
+    color: white;
 }
+
 
 .tournament {
     display: flex;
@@ -205,3 +173,51 @@ body {
     text-align: center;
 }
 
+.trapezoid-wrapper,
+.trapezoid-inner {
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+}
+
+.trapezoid-wrapper {
+    background-color: #bcbec0;
+    padding: 0;
+}
+
+.trapezoid-inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.85);
+}
+
+.parallelogram-r-wrapper,
+.parallelogram-r-inner {
+    clip-path: polygon(20% 0, 100% 0%, 80% 100%, 0% 100%);
+}
+
+.parallelogram-r-wrapper {
+    background-color: #bcbec0;
+    padding: 0;
+}
+
+.parallelogram-r-inner {
+    width: 100%;
+    height: 100%;
+    transform: scale(0.85);
+}
+
+.parallelogram-l-wrapper,
+.parallelogram-l-inner {
+    clip-path: polygon(0 0, 81% 0, 100% 100%, 20% 100%);
+}
+
+.parallelogram-l-wrapper {
+    background-color: #bcbec0;
+    padding: 0;
+}
+
+.parallelogram-l-inner {
+    width: 100%;
+    height: 100%;
+    transform: scale(0.85);
+}

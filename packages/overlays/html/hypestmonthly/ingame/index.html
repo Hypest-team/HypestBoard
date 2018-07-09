@@ -60,68 +60,77 @@
         <main v-if="scoreboard" class="game">
             <div class="entrants" v-if="scoreboard.entrants">
                 <div v-if="scoreboard.entrants[0]" class="entrant">
-                    <div class="entrant-score">
-                        {{ scoreboard.entrants[0].score }}
-                    </div>
-
                     <div class="players" v-if="scoreboard.entrants[0].players">
-                        <div class="player" v-for="player in scoreboard.entrants[0].players">
-                            <div class="player-country" v-if="player.country">
-                                <span class="flag-icon flag-icon-squared"
-                                    :class="'flag-icon-' + player.country.code">
-                                </span>
+                        <div class="parallelogram-l-wrapper" v-for="player in scoreboard.entrants[0].players">
+                            <div class="player parallelogram-l-inner" >
+                                <div class="player-country" v-if="player.country">
+                                    <span class="flag-icon flag-icon-squared"
+                                        :class="'flag-icon-' + player.country.code">
+                                    </span>
+                                </div>
+                                <div class="player-name">
+                                    <em v-if="player.sponsor">
+                                        {{ player.sponsor }}
+                                    </em>
+                                    {{ player.name }}
+                                </div>
+                                <div class="player-character"
+                                    v-if="player.character && isFilled(player.character.id)">
+                                    <span class="player-character-color"
+                                        :style="getCharacterColorStyle(player.character)">
+                                    </span>
+                                    <img :src="getCharacterUrl(player.character)" />
+                                </div>
                             </div>
-                            <div class="player-name">
-                                <em v-if="player.sponsor">
-                                    {{ player.sponsor }}
-                                </em>
-                                {{ player.name }}
-                            </div>
-                            <div class="player-character"
-                                v-if="player.character && isFilled(player.character.id)">
-                                <span class="player-character-color"
-                                    :style="getCharacterColorStyle(player.character)">
-                                </span>
-                                <img :src="getCharacterUrl(player.character)" />
-                            </div>
+>
                         </div>
                     </div>
+
+                    <div class="parallelogram-l-wrapper">
+                        <div class="entrant-score parallelogram-l-inner">
+                            {{ scoreboard.entrants[0].score }}
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="scoreboard-logo-wrapper">
-                    <div class="scoreboard-logo-pre"></div>
-                    <div class="scoreboard-logo-bg">
+                <div class="scoreboard-logo-wrapper trapezoid-wrapper">
+                    <div class="scoreboard-logo-bg trapezoid-inner">
                         <img class="scoreboard-logo-img" src="../img/scoreboard-logo.png" />
                     </div>
-                    <div class="scoreboard-logo-post"></div>
                 </div>
 
                 <div v-if="scoreboard.entrants[1]" class="entrant">
-                    <div class="entrant-score">
-                        {{ scoreboard.entrants[1].score }}
+                    <div class="parallelogram-r-wrapper">
+                        <div class="parallelogram-r-inner entrant-score">
+                            {{ scoreboard.entrants[1].score }}
+                        </div>
                     </div>
 
                     <div class="players" v-if="scoreboard.entrants[1].players">
-                        <div class="player" v-for="player in scoreboard.entrants[1].players">
-                            <div class="player-country" v-if="player.country">
-                                <span class="flag-icon flag-icon-squared"
-                                    :class="'flag-icon-' + player.country.code">
-                                </span>
-                            </div>
-                            <div class="player-name">
-                                <em v-if="player.sponsor">
-                                    {{ player.sponsor }}
-                                </em>
-                                {{ player.name }}
-                            </div>
-                            <div class="player-character"
-                                v-if="player.character && isFilled(player.character.id)">
-                                <span class="player-character-color"
-                                    :style="getCharacterColorStyle(player.character)">
-                                </span>
-                                <img :src="getCharacterUrl(player.character)" />
+                        <div class="parallelogram-r-wrapper" v-for="player in scoreboard.entrants[1].players">
+                            <div class="player parallelogram-r-inner">
+                                <div class="player-country" v-if="player.country">
+                                    <span class="flag-icon flag-icon-squared"
+                                        :class="'flag-icon-' + player.country.code">
+                                    </span>
+                                </div>
+                                <div class="player-name">
+                                    <em v-if="player.sponsor">
+                                        {{ player.sponsor }}
+                                    </em>
+                                    {{ player.name }}
+                                </div>
+                                <div class="player-character"
+                                    v-if="player.character && isFilled(player.character.id)">
+                                    <span class="player-character-color"
+                                        :style="getCharacterColorStyle(player.character)">
+                                    </span>
+                                    <img :src="getCharacterUrl(player.character)" />
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
