@@ -21,21 +21,41 @@
             <div class="sidebar-box cam">
             </div>
 
-            <div class="sidebar-box event-logo">
-                <span v-if="isFilled(scoreboard.tournamentName)">
+            <div class="sidebar-event">
+                <img class="sidebar-event-logo"
+                    src="../img/sidebar-hypestteam-logo.png" />
+                <div class="sidebar-event-name"
+                    v-if="isFilled(scoreboard.tournamentName)">
                     {{ scoreboard.tournamentName }}
-                </span>
+                </div>
+            </div>
+
+            <div class="sidebar-contact">
+                <span v-if="isFilled(scoreboard.streamer)">
+                    <i class="fa fa-fw fa-twitch"></i>
+                    {{ scoreboard.streamer }}
+                </span><br/>
+
+                <span>
+                    <i class="fa fa-fw fa-twitter"></i>
+                    @hypestteam
+                </span><br/>
+
+                <span>
+                    <i class="fa fa-fw fa-facebook"></i>
+                    /hypestteam
+                </span><br/>
+
+                <span>
+                    <i class="fa fa-fw fa-youtube"></i>
+                    /hypestteam
+                </span><br/>
             </div>
 
             <div class="sidebar-box logos">
             </div>
             
             <div v-if="scoreboard" class="streaming">
-                <div v-if="isFilled(scoreboard.streamer)" class="streamer">
-                    <i class="fa fa-fw fa-twitch"></i>
-                    {{ scoreboard.streamer }}
-                </div>
-
                 <div v-if="scoreboard.commentators">
                     <div v-for="commentator in scoreboard.commentators">
                         <span v-if="isFilled(commentator.handle)">

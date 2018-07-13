@@ -26,7 +26,7 @@ body {
     width: 33vw;
     color: #fff;
     background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
-    padding: 1.5vw 5vh;
+    padding: 1.5vw 10vh;
     height: 100vh;
 }
 
@@ -64,20 +64,26 @@ body {
     font-variant: small-caps;
 }
 
-.sidebar-box.event-logo {
-    background-color: transparent;
-    background-image: url("../img/sidebar-hypestteam-logo.png");
-    background-size: contain;
-    background-repeat: no-repeat no-repeat;
-    background-position: 50%;
-    align-items: flex-end;
-    padding-bottom: 2.5vh;
-    font-size: 2vh;
+.sidebar-event {
+    margin-top: 2vh;
 }
 
-.logos .logos-sidebar {
-    width: 100%;    
+.sidebar-event-logo {
+    width: 100%;
     height: auto;
+}
+
+.sidebar-event-name {
+    text-align: center;
+    font-variant: small-caps;
+}
+
+.sidebar-contact {
+    margin-top: 2vh;
+}
+
+.sidebar-box.logos {
+    background-color: transparent;
 }
 
 .streaming {
