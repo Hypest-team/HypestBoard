@@ -30,44 +30,49 @@
                 </div>
             </div>
 
-            <div class="sidebar-contact">
-                <span v-if="isFilled(scoreboard.streamer)">
+            <div class="sidebar-contacts">
+                <span v-if="isFilled(scoreboard.streamer)"
+                    class="sidebar-contact">
                     <i class="fa fa-fw fa-twitch"></i>
                     {{ scoreboard.streamer }}
-                </span><br/>
+                </span>
 
-                <span>
+                <span class="sidebar-contact">
                     <i class="fa fa-fw fa-twitter"></i>
-                    @hypestteam
-                </span><br/>
+                    @HypestTeam
+                </span>
 
-                <span>
+                <span class="sidebar-contact">
                     <i class="fa fa-fw fa-facebook"></i>
-                    /hypestteam
-                </span><br/>
+                    HypestTeam
+                </span>
 
-                <span>
+                <span class="sidebar-contact">
                     <i class="fa fa-fw fa-youtube"></i>
-                    /hypestteam
-                </span><br/>
+                    HypestTube
+                </span>
+
+                <span class="sidebar-contact">
+                    <i class="fa fa-fw fa-reddit"></i>
+                    /r/smashbros
+                </span>
             </div>
 
-            <div class="sidebar-box logos">
+            <div class="sidebar-box sidebar-logos">
             </div>
             
-            <div v-if="scoreboard" class="streaming">
-                <div v-if="scoreboard.commentators">
-                    <div v-for="commentator in scoreboard.commentators">
-                        <span v-if="isFilled(commentator.handle)">
-                            <i class="fa fa-fw fa-microphone"></i>
-                            {{ commentator.handle }}
-                        </span>
+            <div v-if="scoreboard" class="sidebar-commentators" v-if="scoreboard.commentators">
+                <div v-for="commentator in scoreboard.commentators"
+                    class="sidebar-commentator">
+                    <span v-if="isFilled(commentator.handle)">
+                        <i class="fa fa-fw fa-microphone"></i>
+                        {{ commentator.handle }}
+                    </span>
 
-                        <span v-if="!isFilled(commentator.handle)">
-                            <i class="fa fa-fw fa-microphone"></i>
-                            {{ commentator.name }}
-                        </span>
-                    </div>
+                    <span v-if="!isFilled(commentator.handle)">
+                        <i class="fa fa-fw fa-microphone"></i>
+                        {{ commentator.name }}
+                    </span>
                 </div>
             </div>
 
