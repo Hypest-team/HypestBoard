@@ -23,7 +23,7 @@ body {
 
 .sidebar {
     position: relative;
-    width: 25vw;
+    width: 33vw;
     color: #fff;
     background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
     padding: 1.5vw 5vh;
@@ -85,9 +85,10 @@ body {
 }
 
 .game {
-    display: inline-block;
-    width: 75vw;
+    display: block;
     padding: 3vh 0;
+    width: 67vw;
+    position: relative;
 }
 
 .entrants {
@@ -95,7 +96,6 @@ body {
     flex-direction: row;
     align-items: flex-start;
     color: #fff;
-    width: 75vw;
     justify-content: center;
 }
 
@@ -225,8 +225,8 @@ body {
     bottom: 0;
     display: block;
     text-align: center;
-    width: 75vw;
     padding: 2vh;
+    width: 100%;
 }
 
 .game-footer-logo {
