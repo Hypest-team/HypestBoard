@@ -23,7 +23,7 @@ body {
 
 .sidebar {
     position: relative;
-    width: 28vw;
+    width: 35vw;
     color: #fff;
     background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
     padding: 1.5vw 6vh;
@@ -59,7 +59,7 @@ body {
     align-content: center;
     text-align: center;
     font-size: 3vh;
-    background: #000;
+    background: transparent;
     height: 20vh;
     font-variant: small-caps;
 }
