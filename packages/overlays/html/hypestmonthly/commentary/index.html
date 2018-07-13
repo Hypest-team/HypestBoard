@@ -22,7 +22,8 @@
                     <div class="commentator"
                         v-for="(commentator, commentatorIndex) in scoreboard.commentators"
                         :class="'commentator-' + commentatorIndex">
-                        <div class="commentator-name commentator-item">
+                        <div class="commentator-name commentator-item"
+                            v-if="isFilled(commentator.name)">
                             {{ commentator.name }}
                         </div>
 
@@ -30,7 +31,8 @@
                             <img src="../img/sidebar-hypestteam-logo.png"/>
                         </div>
 
-                        <div class="commentator-handle commentator-item">
+                        <div class="commentator-handle commentator-item"
+                            v-if="isFilled(commentator.handle)">
                             {{ commentator.handle }}
                         </div>
                     </div>
@@ -41,11 +43,12 @@
                     <div class="commentator"
                         v-for="(commentator, commentatorIndex) in scoreboard.commentators"
                         :class="'commentator-' + commentatorIndex">
-                        <div class="commentator-name commentator-item">
+                        <div class="commentator-name commentator-item"
+                            v-if="isFilled(commentator.name)">
                             {{ commentator.name }}
                         </div>
 
-                        <div class="commentator-handle commentator-item">
+                        <div class="commentator-handle commentator-item" v-if="isFilled(commentator.handle)">
                             {{ commentator.handle }}
                         </div>
                     </div>
