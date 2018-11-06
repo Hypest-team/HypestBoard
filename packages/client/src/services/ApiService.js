@@ -42,11 +42,6 @@ function getOverlaysManifest() {
     return cachedResponse('/overlays/manifest.json', 'overlays', 'general');
 }
 
-function updateScoreboard(scoreboard) {
-    return axios.post('/api/scoreboard', scoreboard)
-        .then(processReponse);
-}
-
 function cachedResponse(request, cacheName, cacheKey) {
     let cache = caches[cacheName];
     if (!cache) {
