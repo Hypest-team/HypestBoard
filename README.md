@@ -1,4 +1,4 @@
-# HypestBoard
+# score-stream-overlay
 Stream overlay software for Super Smash Brothers for use with OBS/Xsplit and the respective BrowserSource plugins.
 
 # Setting up
@@ -16,8 +16,7 @@ cd HypestBoard
 
 This is a monorepo, that is based on lerna. So you need to install and setup [lerna](https://github.com/lerna/lerna) (this can take a bit):
 ```
-npm install -g lerna  # if this does not work, run it as root or admin
-lerna bootstrap
+npx lerna bootstrap
 ```
 
 Now that we have all the dependencies, we need to build the Frontend for the Admin UI (this also can take a bit):
