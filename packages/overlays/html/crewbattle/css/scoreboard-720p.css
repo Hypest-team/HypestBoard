@@ -19,10 +19,9 @@ body {
     font-family: 'Coolvetica Rg';
 }
 
-.scores,
 .entrant {
     position: absolute;
-    top: 20px;
+    top: 15px;
 }
 
 .entrant-0 {
@@ -34,10 +33,12 @@ body {
 }
 
 .scores {
+    position: absolute;
+    top: 18px;
     text-align: center;
     width: 100%;
     font-family: 'Beckman Free';
-    font-size: 32px;
+    font-size: 34px;
 }
 
 .player { 
