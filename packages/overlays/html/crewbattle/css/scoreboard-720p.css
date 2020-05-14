@@ -1,0 +1,68 @@
+:root {
+    --theme-bg: #c16ce9;
+    --theme-bg-secondary: #9475ea;
+    --theme-border: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Coolvetica Rg';
+}
+
+.scores,
+.entrant {
+    position: absolute;
+    top: 20px;
+}
+
+.entrant-0 {
+    left: 25%;
+}
+
+.entrant-1 {
+    right: 25%;
+}
+
+.scores {
+    text-align: center;
+    width: 100%;
+    font-family: 'Beckman Free';
+    font-size: 32px;
+}
+
+.player { 
+    display: flex;
+    font-size: 24px;
+}
+
+.player-char {
+    width: 34px;
+    height: 34px;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 50% 50%;
+    text-align: center;
+}
+
+.player-char img {
+    height: 26px;
+}
+
+.entrant-0 .player .player-char {
+    margin-right: 12px;
+}
+
+.entrant-1 .player .player-char {
+    margin-left: 12px;
+    order: 1
+}

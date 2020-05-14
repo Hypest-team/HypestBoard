@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Coolvetica Condensed Rg';
+    src: url('CoolveticaCondensedRg-Regular.eot');
+    src: url('CoolveticaCondensedRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CoolveticaCondensedRg-Regular.woff2') format('woff2'),
+        url('CoolveticaCondensedRg-Regular.woff') format('woff'),
+        url('CoolveticaCondensedRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Coolvetica Crammed Rg';
+    src: url('CoolveticaCrammedRg-Regular.eot');
+    src: url('CoolveticaCrammedRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CoolveticaCrammedRg-Regular.woff2') format('woff2'),
+        url('CoolveticaCrammedRg-Regular.woff') format('woff'),
+        url('CoolveticaCrammedRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Coolvetica Rg';
+    src: url('CoolveticaRg-Regular.eot');
+    src: url('CoolveticaRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CoolveticaRg-Regular.woff2') format('woff2'),
+        url('CoolveticaRg-Regular.woff') format('woff'),
+        url('CoolveticaRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Coolvetica Compressed Rg';
+    src: url('CoolveticaCompressedRg-Regular.eot');
+    src: url('CoolveticaCompressedRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CoolveticaCompressedRg-Regular.woff2') format('woff2'),
+        url('CoolveticaCompressedRg-Regular.woff') format('woff'),
+        url('CoolveticaCompressedRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Beckman Free';
+    src: url('BeckmanFree.eot');
+    src: url('BeckmanFree.eot?#iefix') format('embedded-opentype'),
+        url('BeckmanFree.woff2') format('woff2'),
+        url('BeckmanFree.woff') format('woff'),
+        url('BeckmanFree.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

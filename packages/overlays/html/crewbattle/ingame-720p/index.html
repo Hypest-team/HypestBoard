@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Crew Battle melee ingame overlay - score-stream-overlay</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css"></link>
+
+	<link href="../fonts/fonts.css" rel="stylesheet"></link>
+	<link href="../css/scoreboard-720p.css" rel="stylesheet"></link>
+	
+</head>
+<body>
+	<div class="scoreboard" id="scoreboard">
+        <div class="game">
+            <div class="header">
+                <div class="entrant"
+                    :class="'entrant-' + entrantIndex"
+                    v-for="(entrant, entrantIndex) in scoreboard.entrants">
+
+                    <div class="player" v-for="(player, playerIndex) in entrant.players"
+                        :class="'player-' + playerIndex">
+                        <div class="player-char player-item"
+                            v-if="player.character && isFilled(player.character.id)"
+                            :style="getCharacterColorStyle(player.character)">
+
+                            <img :src="getCharacterUrl(player.character)"/>
+                        </div>
+
+                        <div class="player-tag player-item">
+                            <em v-if="isFilled(player.sponsor)">
+                                {{ player.sponsor }}
+                            </em>
+                            {{ player.name }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scores">
+                    <span class="score" v-for="(entrant, entrantIndex) in scoreboard.entrants">
+                        <span v-if="entrantIndex > 0">&mdash;</span>
+                        {{ entrant.score }}
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+	
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+	<script src="../js/scoreboard.js"></script>
+</body>
+</html>
