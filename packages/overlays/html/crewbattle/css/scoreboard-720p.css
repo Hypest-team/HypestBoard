@@ -47,6 +47,14 @@ body {
     font-size: 24px;
 }
 
+.player-tag {
+    width: 160px;
+    height: 1.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
 .player-char {
     width: 34px;
     height: 34px;
@@ -60,11 +68,15 @@ body {
     height: 26px;
 }
 
-.entrant-0 .player .player-char {
-    margin-right: 12px;
+.entrant-1 .player .player-tag {
+    text-align: right;
 }
 
 .entrant-1 .player .player-char {
+    margin-right: 12px;
+}
+
+.entrant-0 .player .player-char {
     margin-left: 12px;
     order: 1
 }
