@@ -2,6 +2,10 @@
     "id": "generic",
     "name": "Hypest and Generic overlays",
     "overlays": [{
+        "id": "crew-battle-ingame-720p",
+        "name": "In-game overlay melee (Crew Battle) @720p",
+        "url": "crewbattle/ingame-720p/index.html"
+    }, {
         "id": "hypest-melee-ingame",
         "name": "In-game overlay melee (Hypest Monthly)",
         "url": "hypestmonthly/ingame/index.html"
