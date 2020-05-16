@@ -1,0 +1,19 @@
+{
+    "name": "@scoreman/standalone",
+    "version": "0.0.1",
+    "description": "Self-contained app for scoreman",
+    "main": "index.js",
+    "repository": "https://github.com/N0NamedGuy/scoreman",
+    "author": "David Serrano",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "start": "electron ."
+    },
+    "devDependencies": {
+        "electron": "^8.3.0"
+    },
+    "dependencies": {
+        "@scoreman/client": "^0.0.1"
+    }
+}

@@ -13,9 +13,12 @@
     },
     "homepage": "https://github.com/N0NamedGuy/scoreman#README",
     "private": true,
-    "workspaces": [
-        "packages/client",
-        "packages/server",
-        "packages/overlays"
-    ]
+    "workspaces": {
+        "packages": [
+            "packages/client",
+            "packages/server",
+            "packages/overlays",
+            "packages/standalone"
+        ]
+    }
 }
