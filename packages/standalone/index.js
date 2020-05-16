@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 
-const server = require('@scoreman/server');
+require('@scoreman/server');
 
 
 function createWindow() {

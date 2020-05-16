@@ -8,12 +8,25 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "build": "rollup -c",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
+    },
+    "build": {
+        "appId": "org.duckdns.dserrano.scoreman",
+        "productName": "Scoreman",
+        "copyright": "Copyright © 2020 David Serrano and contributors",
+        "win": {
+            "target": "portable"
+        }
     },
     "devDependencies": {
-        "electron": "^8.3.0"
+        "electron": "8.3.0",
+        "electron-builder": "^22.6.0"
     },
     "dependencies": {
-        "@scoreman/client": "^0.0.1"
+        "@scoreman/client": "^0.0.1",
+        "@scoreman/server": "^0.0.1"
     }
 }
