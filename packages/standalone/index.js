@@ -1,36 +1,21 @@
-const path = require('path');
 const { app, BrowserWindow } = require('electron');
 
-const pkg = require.resolve('@scoreman/client');
+const server = require('@scoreman/server');
 
-function findClientFile() {
-
-  //  try {
-    //} catch (e) {
-     //   throw new Error("@score/client package not found!");
-    //}
-
-
-    const clientFile = pkg;
-
-    console.log('html', clientFile);
-
-    return clientFile;
-}
 
 function createWindow() {
     // Create the browser window.
     let win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1280,
+        height: 720,
         webPreferences: {
             nodeIntegration: true
         }
     });
 
-    win.loadFile(findClientFile());
+    win.loadURL('http://localhost:3000');
 
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);

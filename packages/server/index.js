@@ -31,3 +31,7 @@ app.listen(port);
 
 console.log('Listening on port', port);
 console.log('Navigate to http://localhost:' +  port + '/ for the admin UI');
+
+module.exports = {
+    app: app
+};
