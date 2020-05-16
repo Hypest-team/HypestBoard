@@ -9,7 +9,6 @@
     "private": true,
     "scripts": {
         "start": "electron .",
-        "build": "rollup -c",
         "pack": "electron-builder --dir",
         "dist": "electron-builder"
     },
