@@ -1,4 +1,4 @@
-# score-stream-overlay
+# Scoreman
 Stream overlay software for Super Smash Brothers for use with OBS/Xsplit and the respective BrowserSource plugins.
 
 # Setting up
@@ -10,38 +10,28 @@ First, make sure you have the latest version of NodeJs installed on your machine
 After that you'll need to checkout this repository into your local machine. Use your favorite GUI git client or just do:
 
 ```
-git clone https://github.com/Hypest-team/HypestBoard/
-cd HypestBoard
+git clone https://github.com/N0NamedGuy/scoreman/
+cd scoreman
 ```
 
-This is a monorepo, that is based on lerna. So you need to install and setup [lerna](https://github.com/lerna/lerna) (this can take a bit):
+This is a monorepo, that is based on yarn workspaces. So you need to install and setup [yarn](https://yarnpkg.com) (this can take a bit):
 ```
-npx lerna bootstrap
+npm install -g yarn
+```
+
+After having yarn set up, you can install all the dependencies:
+```
+yarn install
 ```
 
 Now that we have all the dependencies, we need to build the Frontend for the Admin UI (this also can take a bit):
 ```
-npm --prefix="packages/client" run build
+yarn workspace @scoreman/client run build
 ```
 
 Finally, we are good to go to launch the server
 ```
-npm --prefix="packages/server" start
+yarn workspace @scoreman/server run start
 ```
 
 Now, the server should be running. It runs on port 3000, so access http://localhost:3000/ and you can start setting scores.
-
-## The docker way
-
-You may have noticed that this project comes with a Dockerfile. If you have docker installed, good. If you want to install it, and have fun with it check https://docs.docker.com/install/.
-
-Assuming you have docker installed and configured on your system, you just need to run these commands:
-
-```
-git clone https://github.com/Hypest-team/HypestBoard/
-cd HypestBoard
-docker build . -t hypestteam/hypestboard
-docker run -p 3000:3000 -d hypestteam/hypestboard
-```
-
-After running these commands, you should have a docker container running HypestScore. Just nagivate to http://localhost:3000/ and have fun.
