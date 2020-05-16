@@ -1,7 +1,7 @@
 {
-  "name": "@hypestboard/server",
+  "name": "@scoreman/server",
   "version": "0.0.1",
-  "description": "Server side for HypestBoard",
+  "description": "Server side for Scoreman",
   "private": true,
   "main": "index.js",
   "scripts": {
@@ -10,17 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hypest-team/HypestBoard.git"
+    "url": "git+https://github.com/N0NamedGuy/scoreman.git"
   },
   "author": "David Serrano",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Hypest-team/HypestBoard/issues"
+    "url": "https://github.com/N0NamedGuy/scoreman/issues"
   },
-  "homepage": "https://github.com/Hypest-team/HypestBoard#readme",
+  "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
   "dependencies": {
-    "@hypestboard/client": "^0.0.1",
-    "@hypestboard/overlays": "^0.0.1",
+    "@scoreman/client": "^0.0.1",
+    "@scoreman/overlays": "^0.0.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-jsonschema": "^1.1.6",

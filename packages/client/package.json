@@ -1,7 +1,7 @@
 {
-  "name": "@hypestboard/client",
+  "name": "@scoreman/client",
   "version": "0.0.1",
-  "description": "Hypestboard admin UI",
+  "description": "Scoreman admin UI",
   "author": "David Serrano <david.ma.serrano@gmail.com>",
   "private": true,
   "scripts": {

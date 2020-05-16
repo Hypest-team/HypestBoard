@@ -1,7 +1,7 @@
 <template>
 <div id="app">
     <div class="container-fluid">
-        <h1>HypestBoard admin page</h1>
+        <h1>Scoreman admin page</h1>
         <div class="row">
             <div class="col-md-2">
                 <StreamQueue
@@ -91,8 +91,8 @@ function autofillEntrants(set) {
 </script>
 
 <style>
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
-@import '../node_modules/font-awesome/css/font-awesome.css';
-@import '../node_modules/flag-icon-css/css/flag-icon.css';
+@import 'bootstrap/dist/css/bootstrap.css';
+@import 'font-awesome/css/font-awesome.css';
+@import 'flag-icon-css/css/flag-icon.css';
 
 </style>

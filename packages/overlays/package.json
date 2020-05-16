@@ -1,7 +1,7 @@
 {
-  "name": "@hypestboard/overlays",
+  "name": "@scoreman/overlays",
   "version": "0.0.1",
-  "description": "Overlays for use with HypestBoard",
+  "description": "Overlays for use with Scoreman",
   "private": true,
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hypest-team/HypestBoard.git"
+    "url": "git+https://github.com/N0NamedGuy/scoreman.git"
   },
   "author": "David Serrano",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Hypest-team/HypestBoard/issues"
+    "url": "https://github.com/N0NamedGuy/scoreman/issues"
   },
-  "homepage": "https://github.com/Hypest-team/HypestBoard#readme",
+  "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
   "dependencies": {
     "bootstrap": "^4.5.0",
     "font-awesome": "^4.7.0",

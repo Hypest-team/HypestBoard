@@ -1,22 +1,21 @@
 {
-  "name": "@hypestboard/hypestboard",
-  "version": "0.0.1",
-  "description": "A scoreboard overlay manager for use with a BrowserSource on OBS or Xsplit",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hypest-team/HypestBoard.git"
-  },
-  "author": "David Serrano <david.ma.serrano@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Hypest-team/HypestBoard/issues"
-  },
-  "homepage": "https://github.com/Hypest-team/HypestBoard#readme",
-  "devDependencies": {
-    "lerna": "^2.11.0"
-  }
+    "name": "@scoreman/scoreman",
+    "version": "0.0.1",
+    "description": "A scoreboard overlay manager for use with a BrowserSource on OBS or Xsplit",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/N0NamedGuy/scoreman.git"
+    },
+    "author": "David Serrano <david.ma.serrano@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/N0NamedGuy/scoreman/issues"
+    },
+    "homepage": "https://github.com/N0NamedGuy/scoreman#README",
+    "private": true,
+    "workspaces": [
+        "packages/client",
+        "packages/server",
+        "packages/overlays"
+    ]
 }
