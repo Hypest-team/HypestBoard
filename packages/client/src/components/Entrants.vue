@@ -18,8 +18,8 @@
             <h4>No entrants added.<br/>Click <a href @click.prevent="$emit('add')">here</a> to add an entrant.</h4>
         </div>
         
-        <div class="row">
-            <div class="col-md-6" v-if="entrants" v-for="(entrant, index) in entrants" :key="index">
+        <div class="row" v-if="entrants">
+            <div class="col-md-6" v-for="(entrant, index) in entrants" :key="index">
                 <Entrant 
                     v-bind:entrant="entrant"
                     v-bind:index="index"

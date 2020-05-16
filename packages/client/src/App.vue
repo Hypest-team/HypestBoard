@@ -91,8 +91,5 @@ function autofillEntrants(set) {
 </script>
 
 <style>
-@import 'bootstrap/dist/css/bootstrap.css';
-@import 'font-awesome/css/font-awesome.css';
-@import 'flag-icon-css/css/flag-icon.css';
 
 </style>

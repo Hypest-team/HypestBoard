@@ -65,15 +65,12 @@
 </template>
 
 <script>
-import ApiService from '../services/ApiService';
 import GameSelect from './GameSelect';
 import Entrants from './Entrants';
 import TournamentDetails from './TournamentDetails';
 import Commentators from './Commentators';
 import Overlays from './Overlays';
 import _ from 'lodash';
-
-let apiService = ApiService();
 
 export default {
     name: 'Scoreboard',

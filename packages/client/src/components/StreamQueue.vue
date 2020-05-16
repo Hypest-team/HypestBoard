@@ -89,9 +89,7 @@ function loadTournament() {
             vm.$emit('load', vm.tournament);
             return tournament;
         })
-        .then(tournament => 
-            smashGgService.getStationQueue(tournament.entities.tournament.id) 
-        )
+        .then(loadStationQueue)
         .then(stationQueue => {
             vm.stationQueue = stationQueue;
             return stationQueue;

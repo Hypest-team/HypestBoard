@@ -19,8 +19,8 @@
             <h4>No players added.<br/>Click <a href @click.prevent="$emit('add')">here</a> to add an player.</h4>
         </div>
         
-        <div class="row">
-            <div class="col-md-6" v-if="players" v-for="(player, index) in players" :key="index">
+        <div class="row" v-if="players">
+            <div class="col-md-6" v-for="(player, index) in players" :key="index">
                 <Player 
                     v-bind:player="player"
                     v-bind:index="index"

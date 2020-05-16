@@ -61,6 +61,7 @@
 
 <script>
 import Players from './Players';
+import _ from 'lodash';
 
 export default {
     name: 'Entrant',

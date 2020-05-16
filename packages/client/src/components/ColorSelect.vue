@@ -54,7 +54,7 @@ function watchValue(newValue) {
     vm.selColor = newValue;
 }
 
-function watchColors(colors) {
+function watchColors() {
     var vm = this;
     vm.selColor = vm.value;
 }
