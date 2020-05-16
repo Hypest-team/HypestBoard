@@ -1,10 +1,13 @@
-module.exports = function (app) {
-    const path = require('path');
-    const serveStatic = require('serve-static');
+const clientPath = require.resolve('@scoreman/client');
+const overlaysPath = require.resolve('@scoreman/overlays');
 
+const path = require('path');
+const serveStatic = require('serve-static');
+
+module.exports = function (app) {
     app.use('/api/config', serveStatic('data/config'));
     app.use('/api/characters', serveStatic('data/characters'));
 
-    app.use('/', serveStatic('node_modules/@hypestboard/client/dist/'));
-    app.use('/overlays', serveStatic('node_modules/@hypestboard/overlays/html'));
+    app.use('/', serveStatic(path.dirname(clientPath)));
+    app.use('/overlays', serveStatic(path.dirname(overlaysPath)));
 }
