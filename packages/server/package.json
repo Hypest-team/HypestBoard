@@ -1,6 +1,6 @@
 {
   "name": "@scoreman/server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Server side for Scoreman",
   "main": "index.js",
   "scripts": {
