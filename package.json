@@ -12,6 +12,9 @@
         "url": "https://github.com/N0NamedGuy/scoreman/issues"
     },
     "homepage": "https://github.com/N0NamedGuy/scoreman#README",
+    "scripts": {
+        "build": "yarn workspace @scoreman/client run build && yarn workspace @scoreman/standalone run dist"
+    },
     "private": true,
     "workspaces": {
         "packages": [
