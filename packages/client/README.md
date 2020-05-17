@@ -1,5 +1,11 @@
 # @scoreman/client
 
+This is the client side for the Scoreman project.
+
+It is a VUE app that allows for the management of scores and other relevant metadata.
+
+See https://github.com/N0NamedGuy/scoreman#readme
+
 ## Project setup
 ```
 yarn install
