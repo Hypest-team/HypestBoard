@@ -37,6 +37,9 @@ jobs:
 
           skip_build: true
           package_root: ./packages/standalone
+        
+      - name: List dist
+        run: ls packages/standalone/dist
 
       - name: Archive Windows build artifact
         uses: actions/upload-artifact@v1
