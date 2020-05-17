@@ -1,6 +1,6 @@
 {
     "name": "@scoreman/scoreman",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A scoreboard overlay manager for use with a BrowserSource on OBS or Xsplit",
     "repository": {
         "type": "git",
