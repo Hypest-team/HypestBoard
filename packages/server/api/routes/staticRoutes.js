@@ -1,5 +1,5 @@
 const clientPath = require.resolve('@scoreman/client');
-const overlaysPath = require.resolve('@scoreman/overlays');
+const overlays = require('@scoreman/overlays');
 
 const path = require('path');
 const serveStatic = require('serve-static');
@@ -9,5 +9,5 @@ module.exports = function (app) {
     app.use('/api/characters', serveStatic(path.resolve(__dirname, '../../data/characters')));
 
     app.use('/', serveStatic(path.dirname(clientPath)));
-    app.use('/overlays', serveStatic(path.dirname(overlaysPath)));
+    app.use('/overlays', serveStatic(overlays.root));
 };
