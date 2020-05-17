@@ -1,6 +1,6 @@
 {
   "name": "@scoreman/overlays",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Overlays for use with Scoreman",
   "main": "index.js",
   "repository": {
