@@ -23,8 +23,11 @@ jobs:
       - name: Build Scoreman UI
         run: yarn workspace @scoreman/client build
 
-      - name: Build Standalone Electron App
-        run: yarn workspace @scoreman/standalone distall
+      - name: Build Standalone Electron App (linux)
+        run: yarn workspace @scoreman/standalone dist -l
+
+      #- name: Build Standalone Electron App (Windows)
+      #  run: yarn workspace @scoreman/standalone dist -l
 
       - name: Check standalone package matrix.node-version
         uses: martinbeentjes/npm-get-version-action@master
