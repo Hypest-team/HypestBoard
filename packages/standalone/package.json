@@ -3,16 +3,22 @@
     "version": "0.0.1",
     "description": "Self-contained app for scoreman",
     "main": "index.js",
-    "repository": "https://github.com/N0NamedGuy/scoreman",
-    "author": "David Serrano <david.ma.serrano@gmail.com>",
-    "license": "MIT",
-    "private": true,
     "scripts": {
         "start": "electron .",
         "pack": "electron-builder --dir",
         "dist": "electron-builder",
         "distall": "electron-builder -lw"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/N0NamedGuy/scoreman.git"
+    },
+    "author": "David Serrano <david.ma.serrano@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/N0NamedGuy/scoreman/issues"
+    },
+    "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
     "build": {
         "appId": "org.duckdns.dserrano.scoreman",
         "productName": "Scoreman",

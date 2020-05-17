@@ -1,13 +1,22 @@
 {
     "name": "@scoreman/client",
     "version": "0.0.1",
-    "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint"
     },
     "main": "dist/index.html",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/N0NamedGuy/scoreman.git"
+    },
+    "author": "David Serrano <david.ma.serrano@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/N0NamedGuy/scoreman/issues"
+    },
+    "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
     "dependencies": {
         "core-js": "^3.6.4",
         "vue": "^2.6.11"
