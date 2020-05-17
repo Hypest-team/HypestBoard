@@ -3,6 +3,28 @@
 # Scoreman
 Stream overlay software for Super Smash Brothers for use with OBS/Xsplit and the respective BrowserSource plugins.
 
+# Using
+
+## Downloading
+Download the latest "stable" release [here](https://github.com/N0NamedGuy/scoreman/releases/latest). You can find older released versions on https://github.com/N0NamedGuy/scoreman/releases/.
+
+If you love living in the bleeding edge, you may check build done at every push done to the repository. Keep in mind these might be broken, so buyer beware:
+
+* Go to the Actions page https://github.com/N0NamedGuy/scoreman/actions
+* Select one of the commits
+* Get the binaries from the artifact list
+
+## Using
+
+To use, just launch the executable, and play around!
+
+Now what is left to be done is to fill in the data, and navigate down to the **Overlays** section.
+Preview and choose your favourite overlay. Then you can click the "Copy" button. This will put an URL in your clipboard.
+
+Finally, on OBS create a Browser Source, and use that link you have copied to your clipboard.
+
+Keep in mind that once you close the app, all the data there will be lost, and OBS won't be able to display the overlay.
+
 # Building
 
 First, make sure you have the latest version of NodeJs installed on your machine. You can get it here https://nodejs.org/en/download/ or install it on your system using a package manager of some kind.
