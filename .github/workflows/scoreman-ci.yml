@@ -1,0 +1,39 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: install dependencies
+        run: yarn install
+
+      - name: Build Scoreman UI
+        run: yarn workspace @scoreman/client build
+
+      - name: Build Standalone Electron App
+        run: yarn workspace @scoreman/standalone distall
+
+      - name: Check standalone package matrix.node-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: Upload nightly AppImage build
+        uses: actions/upload-artifact@v1
+        with:
+          name: scoreman-nightly.AppImage
+          path: packages/standalone/dist/Scoreman-${{ steps.package-version.outputs.current-version}}
+
+    env:
+      CI: true
