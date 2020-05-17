@@ -2,16 +2,33 @@
     <div v-if="manifest">
         <h3>{{ manifest.name }}</h3>
 
-        <ul>
+        <ul class="list-unstyled">
             <li v-for="(overlay, index) in manifest.overlays"
-                v-bind:value="overlay"
+                v-bind:value="overlay.url"
                 v-bind:key="index">
-                <a :href="getOverlayUrl(overlay)" target="_blank">
-                    {{ overlay.name }}
-                </a>
-                
+
+                <span class="btn-group">
+                    <button type="button" class="btn btn-primary" @click="copyUrl(index)"
+                        title="Copy overlay URL">
+                        <i class="fa fa-copy"></i>
+                    </button>
+
+                    &nbsp;
+
+                    <a class="btn btn-secondary" :href="getOverlayUrl(overlay)" target="_blank"
+                        title="Preview overlay">
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                </span>
+
+                <strong>{{overlay.name}}</strong>
+
+                <input type="hidden" readonly v-bind:value="getOverlayUrl(overlay)"
+                    ref="overlayUrl" />
             </li>
         </ul>
+
+        <input type="hidden" />
     </div>
 </template>
 
@@ -29,7 +46,8 @@ export default {
     },
     mounted: onMounted,
     methods: {
-        getOverlayUrl
+        getOverlayUrl,
+        copyUrl
     }
 }
 
@@ -43,7 +61,18 @@ function onMounted() {
 }
 
 function getOverlayUrl(overlay) {
-    return `/overlays/${overlay.url}`;
+    return `${window.location.protocol}//${window.location.host}/overlays/${overlay.url}`;
+}
+
+function copyUrl(index) {
+    const vm = this;
+    const input = vm.$refs.overlayUrl[index];
+
+    input.setAttribute('type', 'text');
+    input.select();
+    window.document.execCommand("copy");
+    input.setAttribute('type', 'hidden');
+    window.getSelection().removeAllRanges();
 }
 
 </script>
