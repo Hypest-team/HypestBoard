@@ -1,3 +1,4 @@
+> :warning: **Active development of this project has moved**: https://github.com/N0NamedGuy/scoreman
 # HypestBoard
 Stream overlay software for Super Smash Brothers for use with OBS/Xsplit and the respective BrowserSource plugins.
 
