@@ -1,6 +1,6 @@
 {
     "id": "generic",
-    "name": "Hypest and Generic overlays",
+    "name": "Default overlays",
     "overlays": [{
         "id": "crew-battle-ingame-720p",
         "name": "In-game overlay melee (Crew Battle) @720p",
