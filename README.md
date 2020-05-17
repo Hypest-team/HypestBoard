@@ -8,7 +8,7 @@ Stream overlay software for Super Smash Brothers for use with OBS/Xsplit and the
 ## Downloading
 Download the latest "stable" release [here](https://github.com/N0NamedGuy/scoreman/releases/latest). You can find older released versions on https://github.com/N0NamedGuy/scoreman/releases/.
 
-If you love living in the bleeding edge, you may check build done at every push done to the repository. Keep in mind these might be broken, so buyer beware:
+If you love living in the bleeding edge, you may check the builds done at every push done to the repository. Keep in mind these might be broken, so buyer beware:
 
 * Go to the Actions page https://github.com/N0NamedGuy/scoreman/actions
 * Select one of the commits
@@ -18,10 +18,19 @@ If you love living in the bleeding edge, you may check build done at every push 
 
 To use, just launch the executable, and play around!
 
-Now what is left to be done is to fill in the data, and navigate down to the **Overlays** section.
-Preview and choose your favourite overlay. Then you can click the "Copy" button. This will put an URL in your clipboard.
+Now what is left to be done is to fill in the data.
 
-Finally, on OBS create a Browser Source, and use that link you have copied to your clipboard.
+## OBS Setup
+
+After opening the application:
+
+* Navigate down to the **Overlays** section.
+* Preview and choose your favourite overlay.
+* Click the "Copy" button. This will put an the overlay's URL in your clipboard.
+* On OBS create a Browser Source, and use that link you have copied to your clipboard.
+  - Be sure to set the **width** and the **height** to the size of your OBS canvas (usually 1280x720 or 1920x1080)
+  - Carefully adjust the FPS as well, as to save CPU. If the overlay you have chosen doesn't have the need for fluid/smooth animations setting FPS to 30 or below should suffice
+* Add the remainig sources, like window or video captures.
 
 Keep in mind that once you close the app, all the data there will be lost, and OBS won't be able to display the overlay.
 
