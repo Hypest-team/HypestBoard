@@ -4,7 +4,7 @@
     "description": "Self-contained app for scoreman",
     "main": "index.js",
     "repository": "https://github.com/N0NamedGuy/scoreman",
-    "author": "David Serrano",
+    "author": "David Serrano <david.ma.serrano@gmail.com>",
     "license": "MIT",
     "private": true,
     "scripts": {
@@ -19,6 +19,11 @@
         "copyright": "Copyright © 2020 David Serrano and contributors",
         "win": {
             "target": "portable"
+        },
+        "linux": {
+            "target": "AppImage",
+            "executableName": "scoreman",
+            "category": "Utility"
         }
     },
     "devDependencies": {
