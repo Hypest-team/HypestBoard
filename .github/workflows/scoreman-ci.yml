@@ -23,20 +23,19 @@ jobs:
       - name: Build Scoreman UI
         run: yarn workspace @scoreman/client build
 
-      - name: Build Standalone Electron App (linux)
-        run: yarn workspace @scoreman/standalone dist -l
-
-      #- name: Build Standalone Electron App (Windows)
-      #  run: yarn workspace @scoreman/standalone dist -l
-
-      - name: Check standalone package matrix.node-version
-        uses: martinbeentjes/npm-get-version-action@master
-
-      - name: Upload nightly AppImage build
-        uses: actions/upload-artifact@v1
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
         with:
-          name: scoreman-nightly.AppImage
-          path: packages/standalone/dist/Scoreman-${{ steps.package-version.outputs.current-version}}
+          # GitHub token, automatically provided to the action
+          # (No need to define this secret in the repo settings)
+          github_token: ${{ secrets.github_token }}
+
+          # If the commit is tagged with a version (e.g. "v1.0.0"),
+          # release the app after building
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+
+          skip_build: true
+          package_root: ./packages/standalone
 
     env:
       CI: true
