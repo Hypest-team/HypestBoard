@@ -38,22 +38,19 @@ jobs:
           skip_build: true
           package_root: ./packages/standalone
 
-      - name: List dist folder for ./packages/standalone
-        run: ls ./packages/standalone/dist
-  
       - name: Archive Windows build artifact
         uses: actions/upload-artifact@v1
         if: ${{ startsWith(matrix.os, 'windows') }}
         with:
           name: Scoreman-SNAPSHOPT.exe
-          path: ./packages/standalone/dist/Scoreman*.exe
+          path: packages/standalone/dist/Scoreman*.exe
 
       - name: Archive Linux build artifact
         uses: actions/upload-artifact@v1
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
         with:
           name: Scoreman-SNAPSHOPT.AppImage
-          path: ./packages/standalone/dist/Scoreman*.AppImage
+          path: packages/standalone/dist/Scoreman*.AppImage
 
     env:
       CI: true
