@@ -1,6 +1,6 @@
 {
     "name": "@scoreman/standalone",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Self-contained app for scoreman",
     "main": "index.js",
     "scripts": {
