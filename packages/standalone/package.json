@@ -10,7 +10,8 @@
     "scripts": {
         "start": "electron .",
         "pack": "electron-builder --dir",
-        "dist": "electron-builder"
+        "dist": "electron-builder",
+        "distall": "electron-builder -lw"
     },
     "build": {
         "appId": "org.duckdns.dserrano.scoreman",
@@ -26,6 +27,7 @@
     },
     "dependencies": {
         "@scoreman/client": "^0.0.1",
-        "@scoreman/server": "^0.0.1"
+        "@scoreman/server": "^0.0.1",
+        "@scoreman/overlays": "^0.0.1"
     }
 }
