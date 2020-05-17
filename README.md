@@ -14,7 +14,7 @@ If you love living in the bleeding edge, you may check the builds done at every 
 * Select one of the commits
 * Get the binaries from the artifact list
 
-## Using
+## Running
 
 To use, just launch the executable, and play around!
 
