@@ -23,7 +23,7 @@
 
             <div class="sidebar-event">
                 <img class="sidebar-event-logo"
-                    src="../img/sidebar-hypestteam-logo.png" />
+                    src="" />
                 <div class="sidebar-event-name"
                     v-if="isFilled(scoreboard.tournamentName)">
                     {{ scoreboard.tournamentName }}
@@ -31,31 +31,36 @@
             </div>
 
             <div class="sidebar-contacts">
-                <span v-if="isFilled(scoreboard.streamer)"
+                <span v-if="isFilled(scoreboard.twitch)"
                     class="sidebar-contact">
                     <i class="fa fa-fw fa-twitch"></i>
-                    {{ scoreboard.streamer }}
+                    {{ scoreboard.twitch }}
                 </span>
 
-                <span class="sidebar-contact">
+                <span v-if="isFilled(scoreboard.twitter)"
+                    class="sidebar-contact">
                     <i class="fa fa-fw fa-twitter"></i>
-                    @HypestTeam
+                    {{ scoreboard.twitter }}
                 </span>
 
-                <span class="sidebar-contact">
+                <span v-if="isFilled(scoreboard.facebook)"
+                    class="sidebar-contact">
                     <i class="fa fa-fw fa-facebook"></i>
-                    HypestTeam
+                    {{ scoreboard.facebook }}
                 </span>
 
-                <span class="sidebar-contact">
+                <span v-if="isFilled(scoreboard.youtube)"
+                    class="sidebar-contact">
                     <i class="fa fa-fw fa-youtube"></i>
-                    HypestTube
+                    {{ scoreboard.youtube }}
                 </span>
 
-                <span class="sidebar-contact">
+                <span v-if="isFilled(scoreboard.reddit)"
+                    class="sidebar-contact">
                     <i class="fa fa-fw fa-reddit"></i>
-                    /r/smashbros
+                    {{ scoreboard.reddit }}
                 </span>
+
             </div>
 
             <div class="sidebar-box sidebar-logos">
@@ -122,7 +127,7 @@
                 </div>
             </div>
             <footer class="game-footer">
-                <img class="game-footer-logo" src="../img/footer-logo.png">
+                <img class="game-footer-logo" src="">
             </footer>
         </main>
 	</div>

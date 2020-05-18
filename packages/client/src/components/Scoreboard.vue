@@ -33,6 +33,16 @@
             </details>
 
             <hr />
+            
+            <details>
+                <summary><strong>Social</strong></summary>
+                <br/>
+
+                <Social
+                    v-bind:scoreboard="scoreboard"/>
+            </details>
+
+            <hr />
 
             <details>
                 <summary><strong>Commentators</strong></summary>
@@ -68,6 +78,7 @@
 import GameSelect from './GameSelect';
 import Entrants from './Entrants';
 import TournamentDetails from './TournamentDetails';
+import Social from './Social';
 import Commentators from './Commentators';
 import Overlays from './Overlays';
 import _ from 'lodash';
@@ -87,6 +98,7 @@ export default {
         GameSelect,
         Entrants,
         TournamentDetails,
+        Social,
         Commentators,
         Overlays
     },

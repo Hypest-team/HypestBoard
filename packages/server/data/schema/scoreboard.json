@@ -119,7 +119,13 @@
         "round": { "type": "string" },
         "tournamentName": { "type": "string" },
         "caster": { "type": "string" },
-        "streamer": { "type": "string" }
+        "streamer": { "type": "string" },
+
+        "twitch": { "type": "string" },
+        "twitter": { "type": "twitter" },
+        "facebook": { "type": "string" },
+        "youtube": { "type": "string" },
+        "reddit": { "type": "string" }
     },
 
     "required": [

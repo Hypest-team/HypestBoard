@@ -47,7 +47,7 @@ cd scoreman
 
 This is a monorepo, that is based on yarn workspaces. You will need to install and setup [yarn](https://yarnpkg.com) (this can take a bit):
 ```
-npm install -g yarn
+npm install -g yarn # run as root if it doesn't work
 ```
 
 After having yarn set up, you can install all the dependencies:

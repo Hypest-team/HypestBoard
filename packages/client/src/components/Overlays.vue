@@ -21,7 +21,7 @@
                     </a>
                 </span>
 
-                <strong>{{overlay.name}}</strong>
+                <strong> {{overlay.name}}</strong>
 
                 <input type="hidden" readonly v-bind:value="getOverlayUrl(overlay)"
                     ref="overlayUrl" />

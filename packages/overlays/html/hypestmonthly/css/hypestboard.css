@@ -25,7 +25,7 @@ body {
     position: relative;
     width: 33vw;
     color: #fff;
-    background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
+    background: #3c3836;
     padding: 1.5vw 6vh;
     height: 100vh;
 }
@@ -35,7 +35,7 @@ body {
     position: absolute;
     display: inline-block;
     content: '';
-    background: linear-gradient(to right, #231f20 0%, #414042 50%, #231f20 100%);
+    background: #3c3836;
     height: 100%;
     width: 1vw;
     top: 0;
@@ -171,7 +171,7 @@ body {
 
 .entrant-0 .entrant-score {
     margin-left: 1ch;
-    border-radius: 1vh 2vh 1vh 2vh;
+    border-radius: 1vh 2vh 1vh 2vh; 
 }
 
 .bordered-r,
@@ -218,19 +218,19 @@ body {
 .gradient-player,
 .gradient-score,
 .gradient-round {
-    border: 0.5vh solid #bcbec0;
+    border: 0.5vh solid #928474;
 }
 
 .gradient-player {
-    background: linear-gradient(to bottom, #231f20 0%, #414042 50%, #231f20 100%);
+    background: #7c6f64;
 }
 
 .gradient-score {
-    background: linear-gradient(to bottom, #231f20 0, #939598 41%, #414042 81%, #231f20 100%);
+    background: #7c6f64;
 }
 
 .gradient-round {
-    background: linear-gradient(to bottom, #6B2024 0%, #EC2024 65%, #FFCDFF 100%)
+    background: #7c6f64;
 }
 
 .game-footer {
