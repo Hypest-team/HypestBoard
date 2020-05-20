@@ -1,18 +1,18 @@
 #!/usr/bin/env node 
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var routes = require('./api/routes/index');
+const routes = require('./api/routes/index');
 
-var app = express();
-var port = process.env.PORT || 3000;
+const app = express();
+let server;
 
 app.use(bodyParser.json());
 
 routes(app);
 
 app.use(function (err, req, res, next) {
-    var responseData;
+    let responseData;
 
     if (err.name === 'JsonSchemaValidation') {
         responseData = {
@@ -27,12 +27,25 @@ app.use(function (err, req, res, next) {
     }
 });
 
+function start(altPort) {
+    const port = altPort || process.env.PORT || 3000;
+    server = app.listen(port);
 
-app.listen(port);
+    console.log('Listening on port', port);
+    console.log(`Navigate to http://localhost:${port}/ for the admin UI`);
+}
 
-console.log('Listening on port', port);
-console.log('Navigate to http://localhost:' +  port + '/ for the admin UI');
+function stop() {
+    server.close(); 
+}
 
 module.exports = {
-    app: app
+    app,
+    start,
+    stop
 };
+
+// Check if being launched as sever
+if (require.main === module) {
+    start();
+}

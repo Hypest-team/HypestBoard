@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 
-require('@scoreman/server');
+const { start: startServer, stop: stopServer } = require('@scoreman/server');
 
 
 function createWindow() {
@@ -13,6 +13,7 @@ function createWindow() {
         }
     });
 
+    startServer();
     win.loadURL('http://localhost:3000');
 
     //win.webContents.openDevTools();
@@ -25,6 +26,7 @@ app.on('window-all-closed', () => {
     // On macOS it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
+        stopServer();
         app.quit();
     }
 });
