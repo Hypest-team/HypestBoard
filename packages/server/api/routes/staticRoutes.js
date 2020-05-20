@@ -11,7 +11,12 @@ const EXT_OVERLAY_PATHNAME = 'overlays';
 const basePath = path.dirname(require.main.filename);
 const staticPath = path.dirname(clientPath);
 
-const npmOverlayPaths = require.resolve.paths('').reduce((acc, npmDir) => {
+const baseOverlayPaths = [
+    ...require.resolve.paths(''),
+    path.resolve(basePath, EXT_OVERLAY_PATHNAME),
+];
+
+const extOverlayPaths = baseOverlayPaths.reduce((acc, npmDir) => {
     try {
         const overlayPkgs = fs.readdirSync(npmDir).filter((npmDirPkgs) => {
             return npmDirPkgs.startsWith('scoreman-overlay');
@@ -32,8 +37,7 @@ const npmOverlayPaths = require.resolve.paths('').reduce((acc, npmDir) => {
 
 const overlayPaths = [
     overlays.root,
-    path.resolve(basePath, EXT_OVERLAY_PATHNAME),
-    ...npmOverlayPaths
+    ...extOverlayPaths
 ]
 
 function overlayManifest(req, res) {
