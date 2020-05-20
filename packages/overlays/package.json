@@ -2,7 +2,7 @@
   "name": "@scoreman/overlays",
   "version": "0.0.3",
   "description": "Overlays for use with Scoreman",
-  "main": "index.js",
+  "main": "manifest.json",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/N0NamedGuy/scoreman.git"

@@ -1,5 +1,5 @@
 const clientPath = require.resolve('@scoreman/client');
-const overlays = require('@scoreman/overlays');
+const defaultOverlaysPath = require.resolve('@scoreman/overlays');
 
 const path = require('path');
 const express = require('express');
@@ -36,7 +36,7 @@ const extOverlayPaths = baseOverlayPaths.reduce((acc, npmDir) => {
 }, []);
 
 const overlayPaths = [
-    overlays.root,
+    path.dirname(defaultOverlaysPath),
     ...extOverlayPaths
 ]
 
