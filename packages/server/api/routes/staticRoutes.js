@@ -40,11 +40,15 @@ function overlayManifest(req, res) {
     const overlayObj = overlayPaths.filter((overlayPath) => {
         return fs.existsSync(path.resolve(overlayPath, 'manifest.json'));
     })
-        .map((overlayPath) => {
-            return fs.readFileSync(path.resolve(overlayPath, 'manifest.json'));
-        })
-        .map((jsonStr) => {
-            return JSON.parse(jsonStr);
+        .map((overlayPath) => ({
+            manifest: fs.readFileSync(path.resolve(overlayPath, 'manifest.json')),
+            overlayPath
+        }))
+        .map(({ manifest, overlayPath }) => {
+            const json = JSON.parse(manifest);
+
+            json.pkgPath = overlayPath;
+            return json;
         });
 
     res.json(overlayObj);
