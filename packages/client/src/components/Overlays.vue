@@ -1,34 +1,35 @@
 <template>
-    <div v-if="manifest">
-        <h3>{{ manifest.name }}</h3>
+    <div v-if="manifests">
+        <div v-for="(manifest, index) in manifests"
+            v-bind:key="index">
+            <h3>{{ manifest.name }}</h3>
 
-        <ul class="list-unstyled">
-            <li v-for="(overlay, index) in manifest.overlays"
-                v-bind:value="overlay.url"
-                v-bind:key="index">
+            <ul class="list-unstyled">
+                <li v-for="(overlay, index) in manifest.overlays"
+                    v-bind:value="overlay.url"
+                    v-bind:key="index">
 
-                <span class="btn-group">
-                    <button type="button" class="btn btn-primary" @click="copyUrl(index)"
-                        title="Copy overlay URL">
-                        <i class="fa fa-copy"></i>
-                    </button>
+                    <span class="btn-group">
+                        <button type="button" class="btn btn-primary" @click="copyUrl(index)"
+                            title="Copy overlay URL">
+                            <i class="fa fa-copy"></i>
+                        </button>
 
-                    &nbsp;
+                        &nbsp;
 
-                    <a class="btn btn-secondary" :href="getOverlayUrl(overlay)" target="_blank"
-                        title="Preview overlay">
-                        <i class="fa fa-external-link"></i>
-                    </a>
-                </span>
+                        <a class="btn btn-secondary" :href="getOverlayUrl(overlay)" target="_blank"
+                            title="Preview overlay">
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                    </span>
 
-                <strong> {{overlay.name}}</strong>
+                    <strong> {{overlay.name}}</strong>
 
-                <input type="hidden" readonly v-bind:value="getOverlayUrl(overlay)"
-                    ref="overlayUrl" />
-            </li>
-        </ul>
-
-        <input type="hidden" />
+                    <input type="hidden" readonly v-bind:value="getOverlayUrl(overlay)"
+                        ref="overlayUrl" />
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -41,7 +42,7 @@ export default {
     name: 'Overlays',
     data () {
         return {
-            manifest: null
+            manifests: null
         }
     },
     mounted: onMounted,
@@ -54,9 +55,9 @@ export default {
 function onMounted() {
     var vm = this;
     apiService.getOverlaysManifest()
-        .then(manifest => {
-            vm.manifest = manifest;
-            return manifest;
+        .then(manifests => {
+            vm.manifests = manifests;
+            return manifests;
         });
 }
 
