@@ -37,7 +37,17 @@ const overlayPaths = [
 ]
 
 function overlayManifest(req, res) {
+    const overlayObj = overlayPaths.filter((overlayPath) => {
+        return fs.existsSync(path.resolve(overlayPath, 'manifest.json'));
+    })
+        .map((overlayPath) => {
+            return fs.readFileSync(path.resolve(overlayPath, 'manifest.json'));
+        })
+        .map((jsonStr) => {
+            return JSON.parse(jsonStr);
+        });
 
+    res.json(overlayObj);
 }
 
 module.exports = function (app) {
