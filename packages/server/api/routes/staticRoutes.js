@@ -8,7 +8,7 @@ const serveIndex = require('serve-index');
 
 const EXT_OVERLAY_PATHNAME = 'overlays';
 
-const basePath = path.dirname(require.main.filename);
+const basePath = path.dirname(require.resolve('../..'));
 const staticPath = path.dirname(clientPath);
 
 const baseOverlayPaths = [
