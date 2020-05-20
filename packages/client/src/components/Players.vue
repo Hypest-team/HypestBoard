@@ -7,7 +7,7 @@
                 Add player
             </button>
 
-            <button type="button" class="btn btn-default" @click="$emit('swap')" v-if="players && players.length == 2">
+            <button type="button" class="btn btn-secondary" @click="$emit('swap')" v-if="players && players.length == 2">
                 <i class="fa fa-swap"></i>
                 Swap players 
             </button>

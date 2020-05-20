@@ -6,7 +6,7 @@
                 Add entrant
             </button>
 
-            <button type="button" class="btn btn-default" @click="$emit('swap')" v-if="entrants && entrants.length == 2">
+            <button type="button" class="btn btn-secondary" @click="$emit('swap')" v-if="entrants && entrants.length == 2">
                 <i class="fa fa-swap"></i>
                 Swap entrants 
             </button>
@@ -31,7 +31,7 @@
         <br/>
 
         <div class="actions">
-            <button class="btn btn-default" @click="$emit('reset')">Reset form</button>
+            <button class="btn btn-secondary" @click="$emit('reset')">Reset form</button>
         </div>
     </div>
 </template>
