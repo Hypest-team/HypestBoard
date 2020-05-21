@@ -5,13 +5,17 @@
         <details>
             <summary>Smash GG</summary>
 
-            <SmashGgQueue />
+            <SmashGgQueue
+                @load="onLoad"
+                @select="onSelect"/>
         </details>
 
         <details>
             <summary>Challonge</summary>
 
-            <ChallongeQueue />
+            <ChallongeQueue
+                @load="onLoad"
+                @select="onSelect"/>
         </details>
     </div>
 </template>
@@ -25,6 +29,17 @@ export default {
     components: {
         SmashGgQueue,
         ChallongeQueue
+    },
+    methods: {
+        onLoad(data) {
+            this.$emit('load', data);
+            console.log('Loaded event', data);
+        },
+
+        onSelect(data) {
+            this.$emit('select', data);
+            console.log('Select event', data);
+        },
     }
 };
 </script>

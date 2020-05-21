@@ -40,7 +40,7 @@
                     :key="index">
                     <h5>{{ set.midRoundText }}</h5>
                     <button class="btn btn-sm btn-success"
-                        @click="$emit('select', set)">
+                        @click="$emit('select', {isSmashGg: true, ...set})">
                         <i class="fa fa-check"></i>
                     </button>
                     <span v-for="(entrant, index) in set.entrants"

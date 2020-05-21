@@ -71,23 +71,41 @@ function updateScoreboard() {
 function updateTournamentData(data) {
     var vm = this;
 
-    console.log('invoked', data);
-
     vm.scoreboard.tournamentName = data.entities.tournament.name;
 }
 
 function autofillEntrants(set) {
     var vm = this;
 
-    vm.scoreboard.round = set.fullRoundText;
-    vm.scoreboard.streamer = set.stream.streamName;
+    if (set.isSmashGg) {
+        vm.scoreboard.round = set.fullRoundText;
+        vm.scoreboard.streamer = set.stream.streamName;
 
-    Promise.all(
-        set.entrants.map(smashGgService.convertGgEntrant))
-        .then(function (entrants) {
-            vm.scoreboard.entrants = entrants;
-            return entrants;
-        });
+        Promise.all(
+            set.entrants.map(smashGgService.convertGgEntrant))
+            .then(function (entrants) {
+                vm.scoreboard.entrants = entrants;
+                return entrants;
+            });
+    } else if (set.isChallonge) {
+        vm.scoreboard.round = set.round_label;
+
+        vm.scoreboard.entrants = [{
+            name: set.player1.name,
+            score: 0,
+            players: [{
+                name: set.player1.name
+            }]
+        }, {
+            name: set.player2.name,
+            score: 0,
+            players: [{
+                name: set.player2.name
+            }]
+        }];
+
+    }
+
 }
 
 </script>

@@ -49,7 +49,8 @@
             <div v-if="filteredMatches">
                 <div v-for="(match, index) in filteredMatches" v-bind:key="index">
                     <h5>{{ match.round_label }}</h5>
-                    <button class="btn btn-sm btn-success">
+                    <button class="btn btn-sm btn-success"
+                        @click="$emit('select', {isChallonge: true, ...match})">
                         <i class="fa fa-check"></i>
                     </button>
                     <span>{{ match.player1.name }}</span>
@@ -100,7 +101,17 @@ function loadTournament() {
         .getTournament(vm.tournamentId, vm.apiKey)
         .then(tournament => {
             vm.tournament = tournament;
-            vm.$emit("load", vm.tournament);
+            // Lazy way of doing it.
+            // Because this was done based on smashgg api
+            // Should be changed later
+            // TODO: change the way this is done at App.vue
+            vm.$emit("load", {
+                entities: {
+                    tournament: {
+                        name: tournament.name
+                    }
+                }
+            });
             return tournament;
         })
         .then(() => {
