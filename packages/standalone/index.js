@@ -2,6 +2,10 @@ const { app, BrowserWindow } = require('electron');
 
 const { start: startServer, stop: stopServer } = require('@scoreman/server');
 
+const process = require('process');
+
+const SERVER_PORT = process.env.PORT || 3000;
+
 
 function createWindow() {
     // Create the browser window.
@@ -13,8 +17,11 @@ function createWindow() {
         }
     });
 
-    startServer();
-    win.loadURL('http://localhost:3000');
+    startServer({
+        altPort: SERVER_PORT,
+        appBasePath: process.env.PORTABLE_EXECUTABLE_DIR || process.cwd()
+    });
+    win.loadURL(`http://localhost:${SERVER_PORT}`);
 
     //win.webContents.openDevTools();
 }

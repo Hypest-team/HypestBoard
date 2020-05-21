@@ -1,51 +1,57 @@
-#!/usr/bin/env node 
+#!/usr/bin/env node
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const routes = require('./api/routes/index');
+const process = require('process');
 
-const app = express();
 let server;
 
-app.use(bodyParser.json());
+function start({ altPort, appBasePath }) {
+    const app = express();
 
-routes(app);
+    console.log('using base path:', appBasePath);
 
-app.use(function (err, req, res, next) {
-    let responseData;
+    app.use(bodyParser.json());
 
-    if (err.name === 'JsonSchemaValidation') {
-        responseData = {
-           statusText: 'Bad Request',
-           jsonSchemaValidation: true,
-           validations: err.validations
-        };
+    routes(app, appBasePath);
 
-        res.status(400).json(responseData);
-    } else {
-        next(err);
-    }
-});
+    app.use(function (err, req, res, next) {
+        let responseData;
 
-function start(altPort) {
+        if (err.name === 'JsonSchemaValidation') {
+            responseData = {
+                statusText: 'Bad Request',
+                jsonSchemaValidation: true,
+                validations: err.validations
+            };
+
+            res.status(400).json(responseData);
+        } else {
+            next(err);
+        }
+    });
+
     const port = altPort || process.env.PORT || 3000;
     server = app.listen(port);
 
     console.log('Listening on port', port);
     console.log(`Navigate to http://localhost:${port}/ for the admin UI`);
+
+    return { app, server };
 }
 
 function stop() {
-    server.close(); 
+    server.close();
 }
 
 module.exports = {
-    app,
     start,
     stop
 };
 
-// Check if being launched as sever
+// Check if being launched as server
 if (require.main === module) {
-    start();
+    start({
+        appBasePath: __dirname
+    });
 }

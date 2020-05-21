@@ -1,6 +1,6 @@
-module.exports = function(app) {
-    require('./scoreboardRoutes')(app);
-    require('./smashGgRoutes')(app);
-    require('./overlaysRoutes')(app); 
-    require('./staticRoutes')(app); 
+module.exports = function(app, appBasePath) {
+    require('./scoreboardRoutes')(app, appBasePath);
+    require('./smashGgRoutes')(app, appBasePath);
+    require('./overlaysRoutes')(app, appBasePath); 
+    require('./staticRoutes')(app, appBasePath); 
 }

@@ -3,8 +3,6 @@ const fs = require('fs');
 
 const defaultOverlaysPath = require.resolve('@scoreman/overlays');
 
-const appPath = path.dirname(require.resolve('../..'));
-
 const EXT_OVERLAY_PATHNAME = 'overlays';
 const NPM_OVERLAY_PREFIX = 'scoreman-overlay';
 
@@ -44,8 +42,8 @@ function getNpmOverlayPaths() {
         }, []);
 }
 
-function getExtOverlayPaths() {
-    const extOverlayPath = path.resolve(appPath, EXT_OVERLAY_PATHNAME);
+function getExtOverlayPaths(basePath) {
+    const extOverlayPath = path.resolve(basePath, EXT_OVERLAY_PATHNAME);
 
     if (fs.existsSync(extOverlayPath)) {
         return fs.readdirSync(extOverlayPath).map((fileName) =>
@@ -68,11 +66,6 @@ function getExtOverlayPaths() {
     }
 }
 
-const overlayPaths = [
-    ...getNpmOverlayPaths(),
-    ...getExtOverlayPaths(),
-    path.dirname(defaultOverlaysPath)
-];
 
 function resolveOverlayPkgBaseName(overlayPath) {
     let name;
@@ -90,7 +83,13 @@ function resolveOverlayPkgBaseName(overlayPath) {
     return name;
 }
 
-function createOverlayManifest() {
+function createOverlayManifest(basePath) {
+    const overlayPaths = [
+        ...getNpmOverlayPaths(),
+        ...getExtOverlayPaths(basePath),
+        path.dirname(defaultOverlaysPath)
+    ];
+
     return overlayPaths.filter((overlayPath) =>
         fs.existsSync(path.resolve(overlayPath, 'manifest.json'))
     )
@@ -115,16 +114,24 @@ function createOverlayManifest() {
         });
 }
 
-const manifest = createOverlayManifest();
+function getManifest(basePath) {
+    const manifest = createOverlayManifest(basePath);
 
-function getManifest(req, res ) {
-    const filteredManifest = manifest.map(({pkgPath, ...rest}) => rest);
-    res.json(filteredManifest);
+    return (req, res) => {
+        const filteredManifest = manifest.map(({ pkgPath, ...rest }) => rest);
+        res.json(filteredManifest);
+    };
+}
+
+function getStaticRoutes(basePath) {
+    const manifest = createOverlayManifest(basePath);
+
+    return manifest.map(({ base, pkgPath }) => {
+        return { path: base, servePath: pkgPath };
+    });
 }
 
 module.exports = {
     getManifest,
-    staticRoutes: manifest.map(({ base, pkgPath }) => {
-        return { path: base, servePath: pkgPath };
-    })
+    getStaticRoutes
 };
