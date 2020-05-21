@@ -104,6 +104,13 @@ function createOverlayManifest() {
             json.base = resolveOverlayPkgBaseName(overlayPath);
             json.pkgPath = overlayPath;
 
+            json.overlays = (json.overlays || []).map((entry) => {
+                return {
+                    ...entry,
+                    url: `/${json.base}/${entry.url}`
+                }
+            });
+
             return json;
         });
 }
@@ -111,7 +118,8 @@ function createOverlayManifest() {
 const manifest = createOverlayManifest();
 
 function getManifest(req, res ) {
-    res.json(manifest);
+    const filteredManifest = manifest.map(({pkgPath, ...rest}) => rest);
+    res.json(filteredManifest);
 }
 
 module.exports = {
