@@ -55,6 +55,7 @@
                     <span>{{ match.player1.name }}</span>
                     VS
                     <span>{{ match.player2.name }}</span>
+                    <hr/>
                 </div>
             </div>
 
