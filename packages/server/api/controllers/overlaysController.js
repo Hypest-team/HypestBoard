@@ -72,8 +72,8 @@ const getOverlays = [
         acc.push(express.static(overlayDir));
         return acc;
     }, [])
-]
+];
 
 module.exports = {
     getOverlays
-}
+};
