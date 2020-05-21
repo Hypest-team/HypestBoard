@@ -46,9 +46,6 @@ function enhanceMatches(matches, tournamentId, apikey) {
         .then((matches) => {
             //console.log('all matches', matches);
             return matches;
-        })
-        .catch((err) => {
-            console.err('enahcne all er', err);
         });
 }
 
