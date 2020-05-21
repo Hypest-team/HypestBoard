@@ -17,7 +17,10 @@ function getApi(call, apikey) {
 function getTournament(req, res) {
     const { apikey } = req.query;
     const { tournamentId } = req.params;
-    get(`tournaments/${tournamentId}.json`, res, apikey);
+    getApi(`tournaments/${tournamentId}.json`, apikey)
+        .then(({ data }) => {
+            return res.json(data.tournament);
+        });
 }
 
 function resolvePlayer(tournamentId, playerId, apikey) {
@@ -37,6 +40,7 @@ function enhanceMatches(matches, tournamentId, apikey) {
                 return {
                     player1,
                     player2,
+                    round_label: match.round > 0 ? `Winners R${match.round}` : `Losers R${-match.round}`,
                     ...match
                 };
             })

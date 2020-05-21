@@ -71,6 +71,8 @@ function updateScoreboard() {
 function updateTournamentData(data) {
     var vm = this;
 
+    console.log('invoked', data);
+
     vm.scoreboard.tournamentName = data.entities.tournament.name;
 }
 
