@@ -1,7 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const express = require('express');
-//const serveIndex = require('serve-index');
 
 const defaultOverlaysPath = require.resolve('@scoreman/overlays');
 
@@ -49,7 +47,7 @@ function getNpmOverlayPaths() {
 function getExtOverlayPaths() {
     const extOverlayPath = path.resolve(appPath, EXT_OVERLAY_PATHNAME);
 
-    try {
+    if (fs.existsSync(extOverlayPath)) {
         return fs.readdirSync(extOverlayPath).map((fileName) =>
             // return full path names for all the external overlay packages
             path.resolve(extOverlayPath, fileName)
@@ -57,17 +55,15 @@ function getExtOverlayPaths() {
             // ensure we get full path dirs
             .filter((dirname) => {
                 // Ensure it is a dir
-                try {
-                    const stat = fs.statSync(path.resolve(dirname));
+                if (fs.existsSync(dirname)) {
+                    const stat = fs.statSync(dirname);
                     return stat.isDirectory();
-                } catch (e) {
-
+                } else {
+                    return false;
                 }
-                return false;
             });
         ;
-    } catch (e) {
-        console.warn('No external overlays to load');
+    } else {
         return [];
     }
 }
@@ -78,10 +74,26 @@ const overlayPaths = [
     path.dirname(defaultOverlaysPath)
 ];
 
-function resolveOverlayManifest() {
-    return overlayPaths.filter((overlayPath) => {
-        return fs.existsSync(path.resolve(overlayPath, 'manifest.json'));
-    })
+function resolveOverlayPkgBaseName(overlayPath) {
+    let name;
+    const pkgJson = path.resolve(overlayPath, 'package.json');
+
+    if (fs.existsSync(pkgJson)) {
+        // try reading package.json
+        const pkg = require(pkgJson);
+        name = pkg.name;
+    } else {
+        // no package.json? dirname it is
+        name = `ext-${path.basename(overlayPath)}`;
+    }
+
+    return name;
+}
+
+function createOverlayManifest() {
+    return overlayPaths.filter((overlayPath) =>
+        fs.existsSync(path.resolve(overlayPath, 'manifest.json'))
+    )
         .map((overlayPath) => ({
             manifest: fs.readFileSync(path.resolve(overlayPath, 'manifest.json')),
             overlayPath
@@ -89,30 +101,22 @@ function resolveOverlayManifest() {
         .map(({ manifest, overlayPath }) => {
             const json = JSON.parse(manifest);
 
+            json.base = resolveOverlayPkgBaseName(overlayPath);
             json.pkgPath = overlayPath;
+
             return json;
         });
 }
 
-function getManifest(req, res, next) {
-    if (path.basename(req.path) === 'manifest.json') {
-        res.json(resolveOverlayManifest());
-    } else {
-        next();
-    }
+const manifest = createOverlayManifest();
+
+function getManifest(req, res ) {
+    res.json(manifest);
 }
 
-const getOverlays = [
-    getManifest,
-
-    // Middlewares for serving static overlay files
-    ...overlayPaths.reduce((acc, overlayDir) => {
-        //acc.push(serveIndex(overlayDir));
-        acc.push(express.static(overlayDir));
-        return acc;
-    }, [])
-];
-
 module.exports = {
-    getOverlays
+    getManifest,
+    staticRoutes: manifest.map(({ base, pkgPath }) => {
+        return { path: base, servePath: pkgPath };
+    })
 };
