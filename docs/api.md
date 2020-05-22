@@ -95,27 +95,7 @@ interesting metadata to be used by overlays.
 	"streamer": "VGBootCamp",
 	"game": {
 		"id": "melee",
-		"name": "Super Smash Bros Melee",
-		"entrantPresets": {
-			"singles": {
-				"name": "Singles",
-				"entrants": 2,
-				"players": 1,
-				"score": 0
-			},
-			"doubles": {
-				"name": "Doubles",
-				"entrants": 2,
-				"players": 2,
-				"score": 0
-			},
-			"crews": {
-				"name": "Crews",
-				"entrants": 2,
-				"players": 5,
-				"score": 20
-			}
-		}
+		"name": "Super Smash Bros Melee"
 	}
 }
 ```
@@ -183,27 +163,7 @@ interesting metadata to be used by overlays.
 	"streamer": "VGBootCamp",
 	"game": {
 		"id": "melee",
-		"name": "Super Smash Bros Melee",
-		"entrantPresets": {
-			"singles": {
-				"name": "Singles",
-				"entrants": 2,
-				"players": 1,
-				"score": 0
-			},
-			"doubles": {
-				"name": "Doubles",
-				"entrants": 2,
-				"players": 2,
-				"score": 0
-			},
-			"crews": {
-				"name": "Crews",
-				"entrants": 2,
-				"players": 5,
-				"score": 20
-			}
-		}
+		"name": "Super Smash Bros Melee"
 	}
 }
 ```
