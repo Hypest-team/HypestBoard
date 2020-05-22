@@ -18,6 +18,8 @@ Download the package, and follow along!
 
 ## Installing overlay
 
+These are the two possible methods to install overlays for **scoreman**.
+
 ### Using the overlays folder
 
 If you are using the Windows version of **scoreman**, you can simply create an ```overlays``` folder on the same folder that your executable is (if the folder didn't come included with your installation of **scoreman**).
@@ -37,6 +39,22 @@ npm i -g scoreman-overlay-<overlayname>
 This works on any operating system, as long as you have NodeJS and npm installed.
 
 Your new overlay pack will be ready to use!
+
+## Technical details for overlays
+
+Overlay packs, as mentioned, are web applications, or sets of web applications.
+
+Each overlay pack will have its own name, usually derived from their manifest.json.
+
+Overlay packs will be served under ``/overlays/<overlay-pack-name>``. 
+Everything inside this path is browsable on a browser, and served a static files.
+
+The ```overlay-pack-name``` is assigned following these rules:
+
+* if the pack has a package.json (for npm downloaded overlays packs), the package
+* name will be its npm package name
+* if not, it will be named ```ext-<overlay-pack-folder>``
+
 
 ## Creating overlays
 
