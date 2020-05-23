@@ -31,7 +31,7 @@ See /docs/overlays.md for more information.
 ## Scoreboard API
 
 All the responses and requests bodies have to follow the json schema specified in
-/packages/server/data/schema/scoreboard.json
+```/packages/server/data/schema/scoreboard.json```
 
 ### GET /api/scoreboard
 
