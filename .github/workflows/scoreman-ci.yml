@@ -46,14 +46,14 @@ jobs:
         if: ${{ startsWith(matrix.os, 'windows') }}
         with:
           name: Scoreman-SNAPSHOPT.exe
-          path: packages/standalone/dist/Scoreman 0.0.3.exe
+          path: packages/standalone/dist/Scoreman 0.0.4.exe
 
       - name: Archive Linux build artifact
         uses: actions/upload-artifact@v1
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
         with:
           name: Scoreman-SNAPSHOPT.AppImage
-          path: packages/standalone/dist/Scoreman-0.0.3.AppImage
+          path: packages/standalone/dist/Scoreman-0.0.4.AppImage
 
     env:
       CI: true
