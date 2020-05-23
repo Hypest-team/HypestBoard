@@ -34,6 +34,9 @@ After opening the application:
 
 Keep in mind that once you close the app, all the data there will be lost, and OBS won't be able to display the overlay.
 
+Whenever you set scores and other metadata on **scoreman**'s admin page, don't forget to press
+the **Update** button. If you don't, any data you set won't appear on stream.
+
 # Documentation
 
 For more information on how to develop and interface with **scoreman** check out the documentation:
@@ -76,14 +79,3 @@ Scoreman is ready to use at
 * OSX: *untested*
 
 Now you can start setting scores!
-
-# OBS configuration
-To start using the overlay inside OBS, expand the **overlays** section,
-and pick the overlay you want to use.
-
-For now (we are in very, *very* early alpha) you can right click the desired overlay, and copy paste it into a Browser source on OBS.
-
-Every time you change the scores (and don't forget to press the Update button!) they will show up on your OBS scene...!
-
-You are all done!
-
