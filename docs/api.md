@@ -111,7 +111,7 @@ interesting metadata to be used by overlays.
 {
 	"entrants": [{
 		"name": "",
-		"score": 0,
+		"score": 2,
 		"players": [{
 			"name": "Armada",
 			"character": {
