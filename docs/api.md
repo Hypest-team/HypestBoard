@@ -41,62 +41,62 @@ interesting metadata to be used by overlays.
 **Sample response**
 ```json
 {
-	"entrants": [{
-		"name": "",
-		"score": 2,
-		"players": [{
-			"name": "Armada",
-			"character": {
-				"name": "Peach",
-				"id": "peach",
-				"color": {
-					"id": "default",
-					"name": "Pink (default)",
-					"hex": "#fff"
-				}
-			},
-			"country": {
-				"name": "Sweden",
-				"code": "se"
-			},
-			"sponsor": "A"
-		}]
-	}, {
-		"name": "",
-		"score": 0,
-		"players": [{
-			"name": "Mang0",
-			"character": {
-				"name": "Fox",
-				"id": "fox",
-				"color": {
-					"id": "red",
-					"name": "Red",
-					"hex": "#fe6565"
-				}
-			},
-			"country": {
-				"name": "United States",
-				"code": "us"
-			},
-			"sponsor": "C9"
-		}]
-	}],
-	"commentators": [{
-		"name": "Scar",
-		"handle": "@bobbyscar"
-	}, {
-		"name": "Toph",
-		"handle": "@toph_bbq"
-	}],
-	"round": "Grand Finals",
-	"tournamentName": "Genesis 4",
-	"caster": "",
-	"streamer": "VGBootCamp",
-	"game": {
-		"id": "melee",
-		"name": "Super Smash Bros Melee"
-	}
+  "entrants": [{
+    "name": "",
+    "score": 2,
+    "players": [{
+      "name": "Armada",
+      "character": {
+        "name": "Peach",
+        "id": "peach",
+        "color": {
+          "id": "default",
+          "name": "Pink (default)",
+          "hex": "#fff"
+        }
+      },
+      "country": {
+        "name": "Sweden",
+        "code": "se"
+      },
+      "sponsor": "A"
+    }]
+  }, {
+    "name": "",
+    "score": 0,
+    "players": [{
+      "name": "Mang0",
+      "character": {
+        "name": "Fox",
+        "id": "fox",
+        "color": {
+          "id": "red",
+          "name": "Red",
+          "hex": "#fe6565"
+        }
+      },
+      "country": {
+        "name": "United States",
+        "code": "us"
+      },
+      "sponsor": "C9"
+    }]
+  }],
+  "commentators": [{
+    "name": "Scar",
+    "handle": "@bobbyscar"
+  }, {
+    "name": "Toph",
+    "handle": "@toph_bbq"
+  }],
+  "round": "Grand Finals",
+  "tournamentName": "Genesis 4",
+  "caster": "",
+  "streamer": "VGBootCamp",
+  "game": {
+    "id": "melee",
+    "name": "Super Smash Bros Melee"
+  }
 }
 ```
 
@@ -109,62 +109,62 @@ interesting metadata to be used by overlays.
 
 ```json
 {
-	"entrants": [{
-		"name": "",
-		"score": 2,
-		"players": [{
-			"name": "Armada",
-			"character": {
-				"name": "Peach",
-				"id": "peach",
-				"color": {
-					"id": "default",
-					"name": "Pink (default)",
-					"hex": "#fff"
-				}
-			},
-			"country": {
-				"name": "Sweden",
-				"code": "se"
-			},
-			"sponsor": "A"
-		}]
-	}, {
-		"name": "",
-		"score": 0,
-		"players": [{
-			"name": "Mang0",
-			"character": {
-				"name": "Fox",
-				"id": "fox",
-				"color": {
-					"id": "red",
-					"name": "Red",
-					"hex": "#fe6565"
-				}
-			},
-			"country": {
-				"name": "United States",
-				"code": "us"
-			},
-			"sponsor": "C9"
-		}]
-	}],
-	"commentators": [{
-		"name": "Scar",
-		"handle": "@bobbyscar"
-	}, {
-		"name": "Toph",
-		"handle": "@toph_bbq"
-	}],
-	"round": "Grand Finals",
-	"tournamentName": "Genesis 4",
-	"caster": "",
-	"streamer": "VGBootCamp",
-	"game": {
-		"id": "melee",
-		"name": "Super Smash Bros Melee"
-	}
+  "entrants": [{
+    "name": "",
+    "score": 2,
+    "players": [{
+      "name": "Armada",
+      "character": {
+        "name": "Peach",
+        "id": "peach",
+        "color": {
+          "id": "default",
+          "name": "Pink (default)",
+          "hex": "#fff"
+        }
+      },
+      "country": {
+        "name": "Sweden",
+        "code": "se"
+      },
+      "sponsor": "A"
+    }]
+  }, {
+    "name": "",
+    "score": 0,
+    "players": [{
+      "name": "Mang0",
+      "character": {
+        "name": "Fox",
+        "id": "fox",
+        "color": {
+          "id": "red",
+          "name": "Red",
+          "hex": "#fe6565"
+        }
+      },
+      "country": {
+        "name": "United States",
+        "code": "us"
+      },
+      "sponsor": "C9"
+    }]
+  }],
+  "commentators": [{
+    "name": "Scar",
+    "handle": "@bobbyscar"
+  }, {
+    "name": "Toph",
+    "handle": "@toph_bbq"
+  }],
+  "round": "Grand Finals",
+  "tournamentName": "Genesis 4",
+  "caster": "",
+  "streamer": "VGBootCamp",
+  "game": {
+    "id": "melee",
+    "name": "Super Smash Bros Melee"
+  }
 }
 ```
 
