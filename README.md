@@ -5,7 +5,9 @@ Stream overlay software for Super Smash Brothers for use with OBS/Xsplit and the
 
 # Using
 
-## Downloading
+## Standalone mode
+
+### Downloading
 Download the latest "stable" release [here](https://github.com/N0NamedGuy/scoreman/releases/latest). You can find older released versions on https://github.com/N0NamedGuy/scoreman/releases/.
 
 If you love living in the bleeding edge, you may check the builds done at every push done to the repository. Keep in mind these might be broken, so buyer beware:
@@ -14,13 +16,20 @@ If you love living in the bleeding edge, you may check the builds done at every 
 * Select one of the commits
 * Get the binaries from the artifact list
 
-## Running
+### Running
 
 To use, just launch the executable, and play around!
 
 Now what is left to be done is to fill in the data.
 
-## OBS Setup
+## Server mode
+If you have NodeJS and npm on your system, just run on command line
+
+```
+npx -p @scoreman/server scoreman
+```
+
+# OBS Setup
 
 After opening the application:
 
@@ -35,7 +44,7 @@ After opening the application:
 Keep in mind that once you close the app, all the data there will be lost, and OBS won't be able to display the overlay.
 
 Whenever you set scores and other metadata on **scoreman**'s admin page, don't forget to press
-the **Update** button. If you don't, any data you set won't appear on stream.
+the **Update** button
 
 # Documentation
 
@@ -71,8 +80,18 @@ yarn run build
 
 Finally, we are good to go to launch the application!
 
-# Running Scoreman
-Scoreman is ready to use at
+## Running Scoreman
+
+### Server mode
+
+To launch **scoreman** just run
+```
+npx scoreman
+```
+
+### Standalone mode
+
+**scoreman** is ready to use at
 
 * Linux: `./packages/standalone/dist/Scoreman-{version}.AppImage`
 * Windows 7/8/10: `./packages/standalone/dist/Scoreman-{version}.exe`
