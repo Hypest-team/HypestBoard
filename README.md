@@ -36,7 +36,7 @@ Keep in mind that once you close the app, all the data there will be lost, and O
 
 # Documentation
 
-For more information on how to develop and interface with **scoreman** check out the documention:
+For more information on how to develop and interface with **scoreman** check out the documentation:
 * [Scoreman API](docs/api.md)
 * [Overlay packs](docs/overlays.md)
 
