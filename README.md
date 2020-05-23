@@ -34,6 +34,12 @@ After opening the application:
 
 Keep in mind that once you close the app, all the data there will be lost, and OBS won't be able to display the overlay.
 
+# Documentation
+
+For more information on how to develop and interface with **scoreman** check out the documention:
+* [Scoreman API](docs/api.md)
+* [Overlay packs](docs/overlays.md)
+
 # Building
 
 First, make sure you have the latest version of NodeJs installed on your machine. You can get it here https://nodejs.org/en/download/ or install it on your system using a package manager of some kind.
