@@ -1,0 +1,99 @@
+name: Release lifecycle
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: Build and bump version
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
+
+      - name: Build admin UI
+        run: yarn workspace @scoreman/client build
+
+      - name: Version bumps and release
+        run: npx lerna version --conventional-commits --create-release github
+        env:
+          GH_TOKEN: ${{ GITHUB_TOKEN }}
+
+      - name: Publish on npm
+        run: npx lerna publish from-package
+
+      - name: Upload build
+        uses: actions/upload-artifact@v1
+        with:
+          name: scoreman-build
+          path: ./**
+
+  release-linux:
+    name: Linux release
+
+    runs-on: ubuntu-latest
+    needs:
+      - build
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: scoreman-build
+
+      - name: Build and release AppImage
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          skip_build: true
+          package_root: ./packages/standalone
+          args: -p onTagOrDraft
+        env:
+          GH_TOKEN: ${{ GITHUB_TOKEN }}
+      
+
+  release-windows:
+    name: Windows release
+
+    runs-on: windows-latest
+    needs:
+      - build
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: scoreman-build
+
+      - name: Build and release executable
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          skip_build: true
+          package_root: ./packages/standalone
+          args: -p onTagOrDraft
+        env:
+          GH_TOKEN: ${{ GITHUB_TOKEN }}

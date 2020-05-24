@@ -9,7 +9,9 @@
         "publish": {
             "ignoreChanges": [
                 ".md"
-            ],
+            ]
+        },
+        "version": {
             "message": "chore(release): publish"
         }
     }
