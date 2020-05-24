@@ -11,6 +11,9 @@ jobs:
 
     name: Build and bump version
 
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
     steps:
       - uses: actions/checkout@v2
 
