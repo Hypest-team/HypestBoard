@@ -22,6 +22,19 @@ jobs:
         with:
           node-version: 12.x
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache yarn modules
+        uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Lerna bootstrap
         run: npx lerna bootstrap
 
@@ -44,11 +57,17 @@ jobs:
       - name: Publish on npm
         run: npx lerna publish from-package --yes
 
-      - name: Upload build
+      - name: Archive build
         uses: actions/upload-artifact@v1
         with:
           name: scoreman-build
-          path: ./**
+          path: packages
+
+      - name: Archive node-modules
+        uses: actions/upload-artifact@v1
+        with:
+          name: scoreman-build
+          path: node_modules
 
   release-linux:
     name: Linux release
