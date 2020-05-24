@@ -1,42 +1,42 @@
 {
-  "name": "@scoreman/client",
-  "version": "0.0.5",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "main": "dist/index.html",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/N0NamedGuy/scoreman.git"
-  },
-  "author": "David Serrano <david.ma.serrano@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/N0NamedGuy/scoreman/issues"
-  },
-  "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
-  "dependencies": {
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
-    "axios": "^0.19.2",
-    "babel-eslint": "^10.1.0",
-    "bootstrap": "^4.5.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "flag-icon-css": "^3.4.6",
-    "fontawesome": "^5.6.3",
-    "jquery": "^3.5.1",
-    "lodash": "^4.17.15",
-    "popper.js": "^1.16.1",
-    "sass": "^1.26.3",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
-  }
+    "name": "@scoreman/client",
+    "version": "0.0.4",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "main": "dist/index.html",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/N0NamedGuy/scoreman.git"
+    },
+    "author": "David Serrano <david.ma.serrano@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/N0NamedGuy/scoreman/issues"
+    },
+    "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
+    "dependencies": {
+        "core-js": "^3.6.4",
+        "vue": "^2.6.11"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.3.0",
+        "@vue/cli-plugin-eslint": "~4.3.0",
+        "@vue/cli-service": "~4.3.0",
+        "axios": "^0.19.2",
+        "babel-eslint": "^10.1.0",
+        "bootstrap": "^4.5.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "flag-icon-css": "^3.4.6",
+        "fontawesome": "^5.6.3",
+        "jquery": "^3.5.1",
+        "lodash": "^4.17.15",
+        "popper.js": "^1.16.1",
+        "sass": "^1.26.3",
+        "sass-loader": "^8.0.2",
+        "vue-template-compiler": "^2.6.11"
+    }
 }
