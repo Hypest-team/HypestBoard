@@ -24,13 +24,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN_ACTION }}
 
       - name: Bump version and push tag
         uses: TriPSs/conventional-changelog-action@v2.3.3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN_ACTION }}
+          github_token: ${{ secrets.github_token }}
           git-message: "chore(release): {version}"
           preset: "angular"
           tag-prefix: ""
