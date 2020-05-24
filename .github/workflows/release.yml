@@ -28,7 +28,7 @@ jobs:
       - name: Version bumps and release
         run: npx lerna version --conventional-commits --create-release github
         env:
-          GH_TOKEN: ${{ GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish on npm
         run: npx lerna publish from-package
@@ -66,7 +66,7 @@ jobs:
           package_root: ./packages/standalone
           args: -p onTagOrDraft
         env:
-          GH_TOKEN: ${{ GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
 
   release-windows:
@@ -96,4 +96,4 @@ jobs:
           package_root: ./packages/standalone
           args: -p onTagOrDraft
         env:
-          GH_TOKEN: ${{ GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
