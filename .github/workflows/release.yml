@@ -25,6 +25,11 @@ jobs:
       - name: Build admin UI
         run: yarn workspace @scoreman/client build
 
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name '@n0namedguy'
+          git config --global user.email 'n0namedguy@users.noreply.github.com'
+
       - name: Version bumps and release
         run: npx lerna version --conventional-commits --create-release github --yes
         env:
@@ -67,7 +72,6 @@ jobs:
           args: -p onTagOrDraft
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
 
   release-windows:
     name: Windows release
