@@ -1,6 +1,6 @@
 {
   "name": "@scoreman/server",
-  "version": "0.0.5",
+  "version": "0.0.3",
   "description": "Server side for Scoreman",
   "main": "index.js",
   "scripts": {
@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
   "dependencies": {
-    "@scoreman/client": "^0.0.5",
-    "@scoreman/overlays": "^0.0.5",
+    "@scoreman/client": "^0.0.3",
+    "@scoreman/overlays": "^0.0.3",
     "axios": "^0.19.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
