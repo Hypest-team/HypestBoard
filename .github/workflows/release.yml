@@ -26,12 +26,12 @@ jobs:
         run: yarn workspace @scoreman/client build
 
       - name: Version bumps and release
-        run: npx lerna version --conventional-commits --create-release github
+        run: npx lerna version --conventional-commits --create-release github --yes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish on npm
-        run: npx lerna publish from-package
+        run: npx lerna publish from-package --yes
 
       - name: Upload build
         uses: actions/upload-artifact@v1
