@@ -33,13 +33,11 @@ export default {
     methods: {
         onLoad(data) {
             this.$emit('load', data);
-            console.log('Loaded event', data);
         },
 
         onSelect(data) {
             this.$emit('select', data);
-            console.log('Select event', data);
-        },
+        }
     }
 };
 </script>
