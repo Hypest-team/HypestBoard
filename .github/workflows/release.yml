@@ -92,7 +92,7 @@ jobs:
         run: yarn workspace @scoreman/client build
 
       - name: Build and release AppImage
-        uses: samuelmeuli/action-electron-builder@v1
+        uses: samuelmeuli/action-electron-builder@master
         with:
           skip_build: true
           package_root: ./packages/standalone
@@ -136,7 +136,7 @@ jobs:
         run: yarn workspace @scoreman/client build
 
       - name: Build and release executable
-        uses: samuelmeuli/action-electron-builder@v1
+        uses: samuelmeuli/action-electron-builder@master
         with:
           skip_build: true
           package_root: ./packages/standalone
