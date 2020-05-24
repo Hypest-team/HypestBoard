@@ -1,0 +1,39 @@
+name: NPM version bump
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "package.json"
+      - "CHANGELOG.md"
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        package: 
+        - package.json
+        - packages/server/package.json
+        - packages/client/package.json
+        - packages/overlays/package.json
+        - packages/standalone/package.json
+    
+      fail-fast: false
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN_ACTION }}
+
+      - name: Bump version and push tag
+        uses: TriPSs/conventional-changelog-action@v2.3.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN_ACTION }}
+          git-message: "chore(release): {version}"
+          preset: "angular"
+          tag-prefix: ""
+          output-file: "CHANGELOG.md"
+          release-count: 0
+          package-json: ${{ matrix.package }}
