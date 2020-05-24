@@ -57,11 +57,17 @@ jobs:
       - name: Publish on npm
         run: npx lerna publish from-package --yes
 
-      - name: Upload build
+      - name: Archive build
         uses: actions/upload-artifact@v1
         with:
           name: scoreman-build
-          path: ./**
+          path: packages
+
+      - name: Archive node-modules
+        uses: actions/upload-artifact@v1
+        with:
+          name: scoreman-build
+          path: node_modules
 
   release-linux:
     name: Linux release
