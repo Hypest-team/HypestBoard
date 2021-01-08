@@ -31,30 +31,30 @@
     global-agent "^2.0.2"
     global-tunnel-ng "^2.7.1"
 
-"@scoreman/client@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@scoreman/client/-/client-0.0.9.tgz#c44751be82875a647143fd997dc860469296636e"
-  integrity sha512-osBFMj1jMdm/uh/zUsGRlvvAAu6mExy//dS4CbRqwdaqJJq6WzLnN1gqOYzM5mVH7JQbInuYSNDK/QrRPcACOw==
+"@scoreman/client@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@scoreman/client/-/client-0.0.10.tgz#967ce1fea81bb50e4e2bf4f6c0e680ddf0c22217"
+  integrity sha512-rGTTLyMCwr3Su6lsNE6mcSNzShYtt8hfRWvTg6vbgAPv5o144HFylN3PG9fYBmlF/WVM3WHBj/pqrDplCb3cOw==
   dependencies:
     core-js "^3.6.4"
     vue "^2.6.11"
 
-"@scoreman/overlays@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@scoreman/overlays/-/overlays-0.0.9.tgz#b2e058da689b8172ee8fc6896722b7876da4a65e"
-  integrity sha512-CLxVpaiwDQBQuU4UX8s/2l8ZRgEUgd3kJCNscGpQPjukz+UFCIzVDeW3lXhG3ti2ZVYIE8duPaExa3ojpg2qXA==
+"@scoreman/overlays@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@scoreman/overlays/-/overlays-0.0.10.tgz#f6486abc4dd150168a5b0578e042469bca27a548"
+  integrity sha512-wLAdh5S0c8+uZrVXhglLhvtTG1rP+5meQklizFnRIhdrDmwpchByyhhVQmY1hIXc+KE1/rnLMoPPlFJvj6bp2Q==
   dependencies:
     bootstrap "^4.5.0"
     font-awesome "^4.7.0"
     lodash "^4.17.15"
 
-"@scoreman/server@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@scoreman/server/-/server-0.0.9.tgz#a505dff93c4040dfa0076cda0b15d6870459f4de"
-  integrity sha512-ZY95k5SacboNIuWnIA9wsxT7QsnqNNGsk5IcRhao00dpNa/XxSmNyU7kHWFwYtHT5wbYbpKgHDAKTvJV6OyyOw==
+"@scoreman/server@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@scoreman/server/-/server-0.0.10.tgz#18cbfb0fa14ccf5e53b7a403810c7d4e0ff056ea"
+  integrity sha512-dbQ0hpLSHEUucQYLRDzYpui+HqEK6QCxiDIgJyZWxmQDN9kCm0gByDi/hFR/4NczGC1mwWzgf8shFcIqsZSSeg==
   dependencies:
-    "@scoreman/client" "^0.0.9"
-    "@scoreman/overlays" "^0.0.9"
+    "@scoreman/client" "^0.0.10"
+    "@scoreman/overlays" "^0.0.10"
     axios "^0.19.2"
     body-parser "^1.18.3"
     express "^4.16.3"
@@ -670,10 +670,10 @@ electron-publish@22.7.0:
     lazy-val "^1.0.4"
     mime "^2.4.5"
 
-electron@8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-8.3.0.tgz#c2b565a4c10d6d287d20164bcd5a478468b940a9"
-  integrity sha512-XRjiIJICZCgUr2vKSUI2PTkfP0gPFqCtqJUaTJSfCTuE3nTrxBKOUNeRMuCzEqspKkpFQU3SB3MdbMSHmZARlQ==
+electron@8.5.2:
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-8.5.2.tgz#7b0246c6676a39df0e5e384b11cfe854fe5917f0"
+  integrity sha512-VU+zZnmCzxoZ5UfBg2UGVm+nyxlNlQOQkotMLfk7FCtnkIOhX+sosl618OCxUWjOvPc+Mpg5MEkEmxPU5ziW4Q==
   dependencies:
     "@electron/get" "^1.0.1"
     "@types/node" "^12.0.12"
