@@ -111,7 +111,7 @@ function onSelect(event) {
 
 function getCharacterIcon() {
     var vm = this;
-    return `/static/characters/${vm.gameId}/${vm.selCharacter.id}.png`;
+    return `static/characters/${vm.gameId}/${vm.selCharacter.id}.png`;
 }
 
 function updateColor(color) {
