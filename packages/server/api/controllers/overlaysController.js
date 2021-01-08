@@ -128,24 +128,7 @@ function getStaticRoutes(basePath, baseUrl) {
     });
 }
 
-/**
- * Gives some enhanced information regarding where and how
- * the server is hosted, named base path
- * @param {} manifestEntry 
- */
-function enhanceOverlayPackManifest(manifestEntry, baseUrl) {
-    return (req, res, next) => {
-        console.log('enhance!');
-        res.json({
-            baseUrl,
-            ...manifestEntry
-        });
-        res.end();
-    }
-}
-
 module.exports = {
     getManifest,
-    getStaticRoutes,
-    enhanceOverlayPackManifest
+    getStaticRoutes
 };
