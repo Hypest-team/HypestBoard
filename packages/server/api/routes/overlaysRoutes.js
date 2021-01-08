@@ -1,4 +1,4 @@
-const { getManifest, getStaticRoutes, enhanceOverlayPackManifest } = require('../controllers/overlaysController');
+const { getManifest, getStaticRoutes } = require('../controllers/overlaysController');
 const express = require('express');
 const serveIndex = require('serve-index');
 

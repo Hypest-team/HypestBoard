@@ -1,8 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-const defaultOverlaysPath = require.resolve('@scoreman/overlays');
-
 const EXT_OVERLAY_PATHNAME = 'overlays';
 const NPM_OVERLAY_PREFIX = 'scoreman-overlay';
 
@@ -86,8 +84,7 @@ function resolveOverlayPkgBaseName(overlayPath) {
 function createOverlayManifest(basePath, baseUrl) {
     const overlayPaths = [
         ...getNpmOverlayPaths(),
-        ...getExtOverlayPaths(basePath),
-        path.dirname(defaultOverlaysPath)
+        ...getExtOverlayPaths(basePath)
     ];
 
     return overlayPaths.filter((overlayPath) =>

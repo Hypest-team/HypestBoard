@@ -22,16 +22,14 @@
   "homepage": "https://github.com/N0NamedGuy/scoreman#readme",
   "dependencies": {
     "@scoreman/client": "^0.0.13",
-    "@scoreman/overlays": "^0.0.13",
     "axios": "^0.21.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-jsonschema": "^1.1.6",
+    "lodash": "^4.17.20",
     "node-fetch": "^2.1.2",
+    "scoreman-overlay-melee-dark": "^0.0.1",
     "serve-index": "^1.9.1",
     "yargs": "^16.2.0"
-  },
-  "devDependencies": {
-    "lodash": "^4.17.10"
   }
 }

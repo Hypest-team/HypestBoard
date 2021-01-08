@@ -1803,6 +1803,15 @@
     "@octokit/openapi-types" "^2.2.0"
     "@types/node" ">= 8"
 
+"@scoreman/overlays@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@scoreman/overlays/-/overlays-0.0.13.tgz#9a8c3c879097fa21baabf5a5ea29cd165fe7b7d4"
+  integrity sha512-IjaiPicAKNyoq/s2AU2VEFuOZJ4r/O/r3yP7PjCiAgp7msDY5NonRQ5GFKKg+Z8Z8RVHGCeajLS13ZYzYFoixw==
+  dependencies:
+    bootstrap "^4.5.0"
+    font-awesome "^4.7.0"
+    lodash "^4.17.15"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -9796,6 +9805,11 @@ schema-utils@^2.0.0, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6
     "@types/json-schema" "^7.0.5"
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
+
+scoreman-overlay-melee-dark@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/scoreman-overlay-melee-dark/-/scoreman-overlay-melee-dark-0.0.1.tgz#80d9edd7b6b74be42b995afe5c2d6fbd940f6c78"
+  integrity sha512-vLpev8NQt8//h2icfMrqSnVOcTArNoQK+JmPsm6D1ldw1ATxIvPabwmlEH5StulD8YJ+9C1dtnPp37DoUECDsw==
 
 select-hose@^2.0.0:
   version "2.0.0"
