@@ -19,7 +19,8 @@ function createWindow() {
 
     startServer({
         altPort: SERVER_PORT,
-        appBasePath: process.env.PORTABLE_EXECUTABLE_DIR || process.cwd()
+        appBasePath: process.env.PORTABLE_EXECUTABLE_DIR || process.cwd(),
+        baseUrl: ''
     });
     win.loadURL(`http://localhost:${SERVER_PORT}`);
 

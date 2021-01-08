@@ -3,7 +3,6 @@ const express = require('express');
 const serveIndex = require('serve-index');
 
 const routes = express.Router();
-const pathMod = require('path');
 
 module.exports = (appBasePath, baseUrl) => {
     routes.route(['/', '/manifest.json'])
