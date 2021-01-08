@@ -1,6 +1,6 @@
 {
   "name": "@scoreman/overlays",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Overlays for use with Scoreman",
   "main": "manifest.json",
   "repository": {
