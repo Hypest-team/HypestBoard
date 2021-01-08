@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.11 (2021-01-08)
+
+**Note:** Version bump only for package @scoreman/standalone
+
+
+
+
+
 ## 0.0.10 (2020-11-13)
 
 **Note:** Version bump only for package @scoreman/standalone
