@@ -83,7 +83,7 @@ function resolveOverlayPkgBaseName(overlayPath) {
     return name;
 }
 
-function createOverlayManifest(basePath) {
+function createOverlayManifest(basePath, baseUrl) {
     const overlayPaths = [
         ...getNpmOverlayPaths(),
         ...getExtOverlayPaths(basePath),
@@ -94,28 +94,28 @@ function createOverlayManifest(basePath) {
         fs.existsSync(path.resolve(overlayPath, 'manifest.json'))
     )
         .map((overlayPath) => ({
-            manifest: fs.readFileSync(path.resolve(overlayPath, 'manifest.json')),
+            manifestText: fs.readFileSync(path.resolve(overlayPath, 'manifest.json')),
             overlayPath
         }))
-        .map(({ manifest, overlayPath }) => {
-            const json = JSON.parse(manifest);
+        .map(({ manifestText, overlayPath }) => {
+            const manifest = JSON.parse(manifestText);
 
-            json.base = resolveOverlayPkgBaseName(overlayPath);
-            json.pkgPath = overlayPath;
+            manifest.base = resolveOverlayPkgBaseName(overlayPath);
+            manifest.pkgPath = overlayPath;
 
-            json.overlays = (json.overlays || []).map((entry) => {
+            manifest.overlays = (manifest.overlays || []).map((entry) => {
                 return {
                     ...entry,
-                    url: `/${json.base}/${entry.url}`
+                    url: `${baseUrl.trim() || ''}/overlays/${manifest.base}/${entry.url}`
                 }
             });
 
-            return json;
+            return manifest;
         });
 }
 
-function getManifest(basePath) {
-    const manifest = createOverlayManifest(basePath);
+function getManifest(basePath, baseUrl) {
+    const manifest = createOverlayManifest(basePath, baseUrl);
 
     return (req, res) => {
         const filteredManifest = manifest.map(({ pkgPath, ...rest }) => rest);
@@ -123,15 +123,32 @@ function getManifest(basePath) {
     };
 }
 
-function getStaticRoutes(basePath) {
-    const manifest = createOverlayManifest(basePath);
+function getStaticRoutes(basePath, baseUrl) {
+    const manifest = createOverlayManifest(basePath, baseUrl);
 
     return manifest.map(({ base, pkgPath }) => {
         return { path: base, servePath: pkgPath };
     });
 }
 
+/**
+ * Gives some enhanced information regarding where and how
+ * the server is hosted, named base path
+ * @param {} manifestEntry 
+ */
+function enhanceOverlayPackManifest(manifestEntry, baseUrl) {
+    return (req, res, next) => {
+        console.log('enhance!');
+        res.json({
+            baseUrl,
+            ...manifestEntry
+        });
+        res.end();
+    }
+}
+
 module.exports = {
     getManifest,
-    getStaticRoutes
+    getStaticRoutes,
+    enhanceOverlayPackManifest
 };

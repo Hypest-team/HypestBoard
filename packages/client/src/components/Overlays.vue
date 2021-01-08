@@ -62,7 +62,7 @@ function onMounted() {
 }
 
 function getOverlayUrl(overlay) {
-    return `${window.location.protocol}//${window.location.host}/overlays${overlay.url}`;
+    return overlay.url;
 }
 
 function copyUrl(index) {

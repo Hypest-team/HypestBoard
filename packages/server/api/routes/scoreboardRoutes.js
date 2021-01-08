@@ -1,11 +1,13 @@
-module.exports = function (app) {
-    var scoreboardCtrl = require('../controllers/scoreboardController');
-    var scoreboardSchema = require('../../data/schema/scoreboard.json');
+const routes = require('express').Router();
 
-    var validate = require('express-jsonschema').validate;
+const scoreboardCtrl = require('../controllers/scoreboardController');
+const scoreboardSchema = require('../../data/schema/scoreboard.json');
 
-    app.route('/api/scoreboard')
-        .get(scoreboardCtrl.getScoreboard)
-        .post(validate({body: scoreboardSchema}),
-                scoreboardCtrl.updateScoreboard);
-}
+const validate = require('express-jsonschema').validate;
+
+routes.route('/')
+    .get(scoreboardCtrl.getScoreboard)
+    .post(validate({body: scoreboardSchema}),
+            scoreboardCtrl.updateScoreboard);
+
+module.exports = routes;

@@ -1,9 +1,10 @@
-module.exports = function (app) {
-    const challongeCtrl = require('../controllers/challongeController')
+const routes = require('express').Router()
+const challongeCtrl = require('../controllers/challongeController')
 
-    app.route('/api/challonge/tournaments/:tournamentId')
-        .get(challongeCtrl.getTournament);
+routes.route('/tournaments/:tournamentId')
+    .get(challongeCtrl.getTournament);
 
-    app.route('/api/challonge/matches/:tournamentId')
-        .get(challongeCtrl.getMatches);
-}
+routes.route('/matches/:tournamentId')
+    .get(challongeCtrl.getMatches);
+
+module.exports = routes;

@@ -1,9 +1,10 @@
-module.exports = function (app) {
-    var smashGgCtrl = require('../controllers/smashGgController')
+const routes = require('express').Router(); 
+const smashGgCtrl = require('../controllers/smashGgController')
 
-    app.route('/api/smashgg/tournament/:tournamentSlug')
-        .get(smashGgCtrl.getTournament);
+routes.route('/tournament/:tournamentSlug')
+    .get(smashGgCtrl.getTournament);
 
-    app.route('/api/smashgg/station_queue/:tournamentId')
-        .get(smashGgCtrl.getStationQueue);
-}
+routes.route('/station_queue/:tournamentId')
+    .get(smashGgCtrl.getStationQueue);
+
+module.exports = routes;
