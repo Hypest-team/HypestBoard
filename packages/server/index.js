@@ -62,8 +62,14 @@ module.exports = {
 
 // Check if being launched as server
 if (require.main === module) {
+    const yargs = require('yargs/yargs');
+    const { hideBin } = require('yargs/helpers');
+    const argv = yargs(hideBin(process.argv)).argv;
+
+    const baseUrl = argv.baseUrl || '/'; 
+
     start({
         appBasePath: __dirname,
-        baseUrl: '/scoreman'
+        baseUrl
     });
 }
