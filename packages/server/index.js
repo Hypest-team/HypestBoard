@@ -10,9 +10,6 @@ let server;
 function start({ altPort, appBasePath, baseUrl }) {
     const app = express();
 
-    console.log('using base path:', appBasePath);
-    console.log('using base url:', baseUrl);
-
     app.use(bodyParser.json());
 
     const myRoutes = routes(appBasePath, baseUrl);
@@ -34,13 +31,6 @@ function start({ altPort, appBasePath, baseUrl }) {
             next(err);
         }
     });
-
-    app.use((req, res, next) => {
-        var filename = path.basename(req.url);
-        var extension = path.extname(filename);
-        console.log("The file " + req.url + " was requested.");
-        next();
-    })
 
     const port = altPort || process.env.PORT || 3000;
     server = app.listen(port);
