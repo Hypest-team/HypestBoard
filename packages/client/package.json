@@ -1,6 +1,6 @@
 {
     "name": "@scoreman/client",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
