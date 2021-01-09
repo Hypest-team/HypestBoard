@@ -57,11 +57,11 @@ jobs:
       - name: Publish on npm
         run: npx lerna publish from-package --yes
 
-      - name: Archive scoreman build
+      - name: Archive scoreman builds
         uses: actions/upload-artifact@v2
         with:
           name: scoreman-build
-          path: ${{ github.workspace }}
+          path: packages/
 
   release:
     strategy:
