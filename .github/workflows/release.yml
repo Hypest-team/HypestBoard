@@ -96,7 +96,6 @@ jobs:
         with:
           skip_build: true
           package_root: ./packages/standalone
-          args: -p onTagOrDraft
           github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -140,7 +139,6 @@ jobs:
         with:
           skip_build: true
           package_root: ./packages/standalone
-          args: -p onTagOrDraft
           github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
