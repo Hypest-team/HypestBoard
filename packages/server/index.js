@@ -14,7 +14,7 @@ function start({ altPort, appBasePath, baseUrl }) {
 
     const myRoutes = routes(appBasePath, baseUrl);
 
-    app.use(baseUrl || '/', myRoutes);
+    app.use(baseUrl || '', myRoutes);
 
     app.use(function (err, req, res, next) {
         let responseData;
@@ -56,7 +56,7 @@ if (require.main === module) {
     const { hideBin } = require('yargs/helpers');
     const argv = yargs(hideBin(process.argv)).argv;
 
-    const baseUrl = argv.baseUrl || '/'; 
+    const baseUrl = argv.baseUrl || ''; 
 
     start({
         appBasePath: __dirname,
