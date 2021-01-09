@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.3 (2021-01-09)
+
+
+### Bug Fixes
+
+* :heavy_plus_sign: update default overlay version, making it work with any baseUrl ([f239373](https://github.com/N0NamedGuy/scoreman/commit/f2393737fc6d15160e7b89da773f73d8c11498e3))
+
+
+
+
+
 ## 0.1.2 (2021-01-09)
 
 **Note:** Version bump only for package @scoreman/standalone
