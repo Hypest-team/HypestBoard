@@ -57,32 +57,33 @@ jobs:
       - name: Publish on npm
         run: npx lerna publish from-package --yes
 
-  release-linux:
-    name: Linux release
-
-    runs-on: ubuntu-latest
-    needs:
-      - build
-
-    steps:
-      - name: Build and release AppImage
-        uses: samuelmeuli/action-electron-builder@master
+      - name: Archive scoreman build
+        uses: actions/upload-artifact@v2
         with:
-          skip_build: true
-          package_root: ./packages/standalone
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: scoreman-build
+          path: ${{ github.workspace }}
 
-  release-windows:
-    name: Windows release
+  release:
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'windows-latest']
 
-    runs-on: windows-latest
+    name: Binaries Release
+
+    runs-on: ${{ matrix.os }}
     needs:
       - build
 
     steps:
-      - name: Build and release executable
+      - name: Download scoreman build
+        uses: actions/download-artifact@v2
+        with:
+          name: scoreman-build
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Build and release AppImage
         uses: samuelmeuli/action-electron-builder@master
         with:
           skip_build: true
