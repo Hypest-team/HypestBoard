@@ -10,12 +10,6 @@ Stream overlay software for Super Smash Brothers for use with OBS/Xsplit and the
 ### Downloading
 Download the latest "stable" release [here](https://github.com/N0NamedGuy/scoreman/releases/latest). You can find older released versions on https://github.com/N0NamedGuy/scoreman/releases/.
 
-If you love living in the bleeding edge, you may check the builds done at every push done to the repository. Keep in mind these might be broken, so buyer beware:
-
-* Go to the Actions page https://github.com/N0NamedGuy/scoreman/actions
-* Select one of the commits
-* Get the binaries from the artifact list
-
 ### Running
 
 To use, just launch the executable, and play around!
