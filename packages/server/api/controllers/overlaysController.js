@@ -4,6 +4,8 @@ const fs = require('fs');
 const EXT_OVERLAY_PATHNAME = 'overlays';
 const NPM_OVERLAY_PREFIX = 'scoreman-overlay';
 
+let manifestCache = null;
+
 function getNpmOverlayPaths() {
     return require.resolve.paths('')
         .reduce((acc, npmDir) => {
@@ -82,33 +84,56 @@ function resolveOverlayPkgBaseName(overlayPath) {
 }
 
 function createOverlayManifest(basePath, baseUrl) {
-    const overlayPaths = [
-        ...getNpmOverlayPaths(),
-        ...getExtOverlayPaths(basePath)
-    ];
+    if (!manifestCache) {
+        const overlayPaths = [
+            ...getNpmOverlayPaths(),
+            ...getExtOverlayPaths(basePath)
+        ];
 
-    return overlayPaths.filter((overlayPath) =>
-        fs.existsSync(path.resolve(overlayPath, 'manifest.json'))
-    )
-        .map((overlayPath) => ({
-            manifestText: fs.readFileSync(path.resolve(overlayPath, 'manifest.json')),
-            overlayPath
-        }))
-        .map(({ manifestText, overlayPath }) => {
-            const manifest = JSON.parse(manifestText);
+        const baseNamesCount = {};
 
-            manifest.base = resolveOverlayPkgBaseName(overlayPath);
-            manifest.pkgPath = overlayPath;
+        manifestCache = overlayPaths
+            .filter((overlayPath) =>
+                fs.existsSync(path.resolve(overlayPath, 'manifest.json'))
+            )
+            .map((overlayPath) => ({
+                manifestText: fs.readFileSync(path.resolve(overlayPath, 'manifest.json')),
+                overlayPath
+            }))
+            .map(({ manifestText, overlayPath }, i, manifestArr) => {
 
-            manifest.overlays = (manifest.overlays || []).map((entry) => {
-                return {
-                    ...entry,
-                    url: `${baseUrl.trim() || ''}/overlays/${manifest.base}/${entry.url}`
+                const manifest = JSON.parse(manifestText);
+
+                const base = resolveOverlayPkgBaseName(overlayPath);
+                if (!baseNamesCount[base]) {
+                    baseNamesCount[base] = 0;
                 }
-            });
+                baseNamesCount[base]++;
+                const nameCount = baseNamesCount[base];
 
-            return manifest;
-        });
+                manifest.base = `${base}${nameCount > 1 ? `-${nameCount}` : ''}`;
+                manifest.pkgPath = overlayPath;
+
+                // do dedeups
+                const dups = manifestArr.find((m) => m.base = manifest.base);
+                if (dups.length > 0) {
+                    manifest.base = `${manifest.base}-${dups.length}`;
+                }
+
+                manifest.overlays = (manifest.overlays || []).map((entry) => {
+                    return {
+                        ...entry,
+                        url: `${baseUrl.trim() || ''}/overlays/${manifest.base}/${entry.url}`
+                    }
+                });
+
+                return manifest;
+
+            });
+    }
+
+
+    return manifestCache;
 }
 
 function getManifest(basePath, baseUrl) {
