@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2021-01-09)
+
+
+### Features
+
+* **gh-workflow:** simplified CI release ([d2b7c83](https://github.com/N0NamedGuy/scoreman/commit/d2b7c83a2ea3f3b4fd2afd1dc5e0b312b1649a32))
+
+
+
+
+
 ## 0.0.24 (2021-01-09)
 
 **Note:** Version bump only for package @scoreman/standalone
