@@ -57,6 +57,13 @@ jobs:
       - name: Publish on npm
         run: npx lerna publish from-package --yes
 
+      - name: Save latest build for electron
+        uses: actions/upload-artifact@v2
+        with:
+          name: scoreman-build
+          path: /
+
+
   release-linux:
     name: Linux release
 
@@ -65,32 +72,6 @@ jobs:
       - build
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache yarn modules
-        uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap
-
-      - name: Build admin UI
-        run: yarn workspace @scoreman/client build
-
       - name: Build and release AppImage
         uses: samuelmeuli/action-electron-builder@master
         with:
@@ -108,32 +89,6 @@ jobs:
       - build
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache yarn modules
-        uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap
-
-      - name: Build admin UI
-        run: yarn workspace @scoreman/client build
-
       - name: Build and release executable
         uses: samuelmeuli/action-electron-builder@master
         with:
