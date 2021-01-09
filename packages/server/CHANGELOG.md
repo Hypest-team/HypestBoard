@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.1 (2021-01-09)
+
+
+### Bug Fixes
+
+* **gh-workflow:** revert workflow to a state where it works (albeit not optimised) ([ac279de](https://github.com/N0NamedGuy/scoreman/commit/ac279dead9cbfe46bef33cc1fe62e17375e0bab3))
+
+
+
+
+
 # 0.1.0 (2021-01-09)
 
 
