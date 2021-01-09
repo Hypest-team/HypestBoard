@@ -104,5 +104,6 @@ jobs:
           skip_build: true
           package_root: ./packages/standalone
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          args: -p always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
