@@ -46,62 +46,19 @@ jobs:
           git config --global user.name '@n0namedguy'
           git config --global user.email 'n0namedguy@users.noreply.github.com'
 
-      - name: Version bumps and release
+      - name: Version bumps
         run: npx lerna version --conventional-commits --yes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set npm token
-        run: npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
-
       - name: Publish on npm
-        run: npx lerna publish from-package --yes
-
-      - name: Archive scoreman builds
-        uses: actions/upload-artifact@v2
-        with:
-          name: scoreman-build
-          path: |
-            ${{ github.workspace }}
-            !node_modules
-
-  release:
-    strategy:
-      matrix:
-        os: ['ubuntu-latest', 'windows-latest']
-
-    name: Binaries Release
-
-    runs-on: ${{ matrix.os }}
-    needs:
-      - build
-
-    steps:
-      - name: Download scoreman build
-        uses: actions/download-artifact@v2
-        with:
-          name: scoreman-build
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache yarn modules
-        uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Display structure of downloaded files
-        run: ls -R
-
-      - name: Build and release Electron binary
         run: |
-          yarn install
-          npx electron-builder build --publish always
+          npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+          npx lerna publish from-package --yes
+
+      - name: Build and release Electron binaries
+        run: npx electron-builder -lw --publish always
         working-directory: ./packages/standalone
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+
