@@ -47,7 +47,7 @@ jobs:
           git config --global user.email 'n0namedguy@users.noreply.github.com'
 
       - name: Version bumps and release
-        run: npx lerna version --conventional-commits --create-release github --yes
+        run: npx lerna version --conventional-commits --yes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
