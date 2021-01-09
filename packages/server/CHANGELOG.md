@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.14 (2021-01-09)
+
+
+### Bug Fixes
+
+* :bug: add dedup for same name overlay pack ([a035df7](https://github.com/N0NamedGuy/scoreman/commit/a035df70551b15117e127b2ab8acc8ca2857e5ff))
+
+
+
+
+
 ## 0.0.13 (2021-01-08)
 
 **Note:** Version bump only for package @scoreman/server
