@@ -3,15 +3,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./api/routes/index');
 const process = require('process');
-const path = require('path');
 
 let server;
 
-function start({ altPort, appBasePath, hostname, baseUrl }) {
+function start({ altPort, appBasePath, hostname, baseUrl, useCors }) {
     const app = express();
     const port = altPort || process.env.PORT || 3000;
 
     const myRoutes = routes(appBasePath, hostname, port, baseUrl);
+
+    if (useCors) {
+        console.log('CORS is enabled');
+        app.use(require('cors')());
+    }
 
     app.use(bodyParser.json());
 
@@ -59,6 +63,7 @@ if (require.main === module) {
     let baseUrl = argv.baseUrl || ''; 
     const altPort = argv.port || 3000;
     const hostname = argv.hostname || 'localhost';
+    const useCors = !!argv.cors || false;
 
     if (baseUrl && !baseUrl.startsWith('/')) {
         baseUrl = `/${baseUrl}`;
@@ -68,6 +73,7 @@ if (require.main === module) {
         appBasePath: __dirname,
         hostname,
         baseUrl,
-        altPort
+        altPort,
+        useCors
     });
 }
