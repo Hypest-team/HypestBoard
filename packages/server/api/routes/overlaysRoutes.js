@@ -1,4 +1,4 @@
-const { getManifest, getStaticRoutes, getServerConfig, getServerConfigWithoutCheck } = require('../controllers/overlaysController');
+const { getManifest, getStaticRoutes } = require('../controllers/overlaysController');
 const express = require('express');
 const serveIndex = require('serve-index');
 
@@ -13,6 +13,7 @@ module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
     getStaticRoutes(appBasePath, homepage).forEach((manifestEntry) => {
         const { path, servePath } = manifestEntry;
 
+        // DEPRECATED: this call should be remove on the major version change
         routes.route(`/${path}/config.json`)
             .get((req, res, next) => {
                 res.json({
@@ -25,14 +26,6 @@ module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
             });
 
         routes.route(`/${path}/*`)
-
-            .get(getServerConfig({
-                baseUrl,
-                homepage,
-                hostname: appHostname,
-                port: appPort
-            }))
-
             .get((req, res, next) => {
                 // Remove the overlay base path, so serveIndex and serveStatic
                 // can work properly

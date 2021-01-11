@@ -1,6 +1,14 @@
+const { getServerConfig } = require('../controllers/serverConfigController');
+
 const routes = require('express').Router();
 
 module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
+    routes.use('*!serverconfig', require('./serverConfigRoutes')({
+        hostname: appHostname,
+        port: appPort,
+        baseUrl: baseUrl
+    }));
+
     routes.use('/api/scoreboard/', require('./scoreboardRoutes'));
     routes.use('/api/smashgg/', require('./smashGgRoutes'));
     routes.use('/api/challonge', require('./challongeRoutes'));
