@@ -168,7 +168,6 @@ function getServerConfig({
         };
 
         if (req.path.endsWith('!serverconfig')) {
-            console.log('used !serverconfig')
             res.json(serverData);
             res.end();
         }
@@ -191,10 +190,6 @@ function getServerConfigWithoutCheck({
             hostname,
             port
         };
-
-        console.log('url', req.path);
-
-        console.log('called without check')
 
         res.json(serverData);
         res.end();
