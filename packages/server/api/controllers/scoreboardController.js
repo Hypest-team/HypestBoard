@@ -11,7 +11,7 @@ const baseScoreboard = {
 
 let scoreboard = null;
 
-const scoreboardFileName = './scoreboard.json';
+const scoreboardFileName = './scoreboard-data.json';
 
 async function loadScoreboard() {
     if (!scoreboard) {

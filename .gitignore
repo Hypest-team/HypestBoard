@@ -62,5 +62,5 @@ typings/
 /.vs
 
 packages/*-old
-packages/server/scoreboard.json
-packages/standalone/scoreboard.json
+packages/server/scoreboard-data.json
+packages/standalone/scoreboard-data.json
