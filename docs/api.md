@@ -58,7 +58,7 @@ See /docs/overlays.md for more information.
 
 These calls should be used within the context of an overlay pack so it can set itself up
 
-### `GET /overlays/<overlay-pack-name>/**/!serverconfig`
+### `GET ./!serverconfig`
 ### `GET /overlays/<overlay-pack-name>/config.json` (deprecated)
 
 Returns the current server configuration.
