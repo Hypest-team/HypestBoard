@@ -4,8 +4,8 @@ const serveIndex = require('serve-index');
 
 const routes = express.Router();
 
-module.exports = (appBasePath, appHostname, appPort, baseUrl='') => {
-    const homepage =  `//${appHostname}:${appPort}/${baseUrl}`;
+module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
+    const homepage =  `//${appHostname}:${appPort}${baseUrl || ''}`;
 
     routes.route(['/', '/manifest.json'])
         .get(getManifest(appBasePath, homepage));

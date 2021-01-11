@@ -56,9 +56,13 @@ if (require.main === module) {
     const { hideBin } = require('yargs/helpers');
     const argv = yargs(hideBin(process.argv)).argv;
 
-    const baseUrl = argv.baseUrl || ''; 
+    let baseUrl = argv.baseUrl || ''; 
     const altPort = argv.port || 3000;
     const hostname = argv.hostname || 'localhost';
+
+    if (baseUrl && !baseUrl.startsWith('/')) {
+        baseUrl = `/${baseUrl}`;
+    }
 
     start({
         appBasePath: __dirname,
