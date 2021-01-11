@@ -7,12 +7,13 @@ const path = require('path');
 
 let server;
 
-function start({ altPort, appBasePath, baseUrl }) {
+function start({ altPort, appBasePath, hostname, baseUrl }) {
     const app = express();
+    const port = altPort || process.env.PORT || 3000;
+
+    const myRoutes = routes(appBasePath, hostname, port, baseUrl);
 
     app.use(bodyParser.json());
-
-    const myRoutes = routes(appBasePath, baseUrl);
 
     app.use(baseUrl || '', myRoutes);
 
@@ -32,11 +33,10 @@ function start({ altPort, appBasePath, baseUrl }) {
         }
     });
 
-    const port = altPort || process.env.PORT || 3000;
     server = app.listen(port);
 
     console.log('Listening on port', port);
-    console.log(`Navigate to http://localhost:${port}${baseUrl || ''} for the admin UI`);
+    console.log(`Navigate to http://${hostname}:${port}${baseUrl || ''} for the admin UI`);
 
     return { app, server };
 }
@@ -57,11 +57,12 @@ if (require.main === module) {
     const argv = yargs(hideBin(process.argv)).argv;
 
     const baseUrl = argv.baseUrl || ''; 
-
     const altPort = argv.port || 3000;
+    const hostname = argv.hostname || 'localhost';
 
     start({
         appBasePath: __dirname,
+        hostname,
         baseUrl,
         altPort
     });

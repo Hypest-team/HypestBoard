@@ -4,11 +4,13 @@ const serveIndex = require('serve-index');
 
 const routes = express.Router();
 
-module.exports = (appBasePath, baseUrl) => {
-    routes.route(['/', '/manifest.json'])
-        .get(getManifest(appBasePath, baseUrl));
+module.exports = (appBasePath, appHostname, appPort, baseUrl='') => {
+    const homepage =  `//${appHostname}:${appPort}/${baseUrl}`;
 
-    getStaticRoutes(appBasePath, baseUrl).forEach((manifestEntry) => {
+    routes.route(['/', '/manifest.json'])
+        .get(getManifest(appBasePath, homepage));
+
+    getStaticRoutes(appBasePath, homepage).forEach((manifestEntry) => {
         const { path, servePath } = manifestEntry;
 
         // Quick hack so overlays can know where they stand
@@ -16,6 +18,9 @@ module.exports = (appBasePath, baseUrl) => {
             .get((req, res, next) => {
                 res.json({
                     baseUrl,
+                    homepage,
+                    hostname: appHostname,
+                    port: appPort
                 })
                 next();
             });
