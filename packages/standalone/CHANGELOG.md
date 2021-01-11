@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2021-01-11)
+
+
+### Features
+
+* :sparkles: store scoreboard on a file as a precaution ([39891b9](https://github.com/N0NamedGuy/scoreman/commit/39891b967cae478effc63496a1af951916ee7a9f))
+
+
+
+
+
 ## 0.2.3 (2021-01-11)
 
 **Note:** Version bump only for package @scoreman/standalone
