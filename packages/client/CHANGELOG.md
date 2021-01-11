@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2021-01-11)
+
+
+### Features
+
+* :sparkles: add --port option to listen to a different port ([654fd22](https://github.com/N0NamedGuy/scoreman/commit/654fd225f947d8469137f2df39142412ae772c25))
+
+
+
+
+
 ## 0.1.3 (2021-01-09)
 
 
