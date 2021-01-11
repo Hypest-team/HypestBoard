@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1 (2021-01-11)
+
+
+### Bug Fixes
+
+* :ambulance: fix duplicate var, previous build doesnt work ([3ba783b](https://github.com/N0NamedGuy/scoreman/commit/3ba783bdd626b30ea8cd2fabd77bd1ff4f154553))
+
+
+
+
+
 # 0.2.0 (2021-01-11)
 
 
