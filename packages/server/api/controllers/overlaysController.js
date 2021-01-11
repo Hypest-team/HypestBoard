@@ -153,7 +153,58 @@ function getStaticRoutes(basePath, homepage) {
     });
 }
 
+function getServerConfig({
+    homepage,
+    hostname,
+    port,
+    baseUrl,
+}) {
+    return (req, res, next) => {
+        const serverData = {
+            baseUrl,
+            homepage,
+            hostname,
+            port
+        };
+
+        if (req.path.endsWith('!serverconfig')) {
+            console.log('used !serverconfig')
+            res.json(serverData);
+            res.end();
+        }
+
+        next();
+    }
+}
+
+// This is an hack that will be deprecated
+function getServerConfigWithoutCheck({
+    homepage,
+    hostname,
+    port,
+    baseUrl,
+}) {
+    return (req, res, next) => {
+        const serverData = {
+            baseUrl,
+            homepage,
+            hostname,
+            port
+        };
+
+        console.log('url', req.path);
+
+        console.log('called without check')
+
+        res.json(serverData);
+        res.end();
+        next();
+    }
+}
+
 module.exports = {
     getManifest,
-    getStaticRoutes
+    getStaticRoutes,
+    getServerConfig,
+    getServerConfigWithoutCheck
 };
