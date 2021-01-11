@@ -63,3 +63,4 @@ typings/
 
 packages/*-old
 packages/server/scoreboard.json
+packages/standalone/scoreboard.json
