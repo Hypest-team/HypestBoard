@@ -7,7 +7,7 @@ const path = require('path');
 
 let server;
 
-function start({ altPort, appBasePath, baseUrl }) {
+function start({ altPort, appBasePath, port, baseUrl }) {
     const app = express();
 
     app.use(bodyParser.json());
@@ -58,8 +58,11 @@ if (require.main === module) {
 
     const baseUrl = argv.baseUrl || ''; 
 
+    const altPort = argv.port || 3000;
+
     start({
         appBasePath: __dirname,
-        baseUrl
+        baseUrl,
+        altPort
     });
 }
