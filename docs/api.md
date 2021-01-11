@@ -2,38 +2,84 @@
 
 When running scoreman (either in "server" or "standalone" mode), it will, by default, run a web server on port 3000 of your ```localhost```.
 
-Simply, everything will available on http://localhost:3000/.
+Simply, everything will available on ```http://localhost:3000/```.
 
 These are the ReST endpoints that are available for overlays
 and any other applications tha want to interface with **scoreman**.
 
+## Considerations when running on reverse proxy
+
+Before requesting any kind of API request to **scoreman**, the overlay __should__
+do the following from anywhere, whithin its subpath:
+
+```
+GET !serverconfig
+```
+
+This will return an answer like this:
+```json
+{
+  "baseUrl": "/scoreman",
+  "homepage": "//urano:8080/scoreman",
+  "hostname": "urano",
+  "port": 8080
+}
+```
+
+If scoreman happens to be installed on a sub-path like `/scoreman`,
+whose domain is `example.com` (making the base path `http(s)://example.com/scoreman`)
+behind a **nginx** reverse proxy, the `GET !serverconfig` call would yield something like:
+```json
+{
+  "baseUrl": "/scoreman",
+  "homepage": "//example.com:80/scoreman",
+  "hostname": "urano",
+  "port": 80
+}
+```
+
+> :warn: Overlays that are served directly by **scoreman** should keep this is mind, if they
+wish to work in most scenarios!
+
 ## Calling the API from an overlay
 
 It is recommended that when an overlay makes an API call to **scoreman**'s server,
-they do so by requesting from root. For example, instead of doing
+they do so by requesting from a root, acquired as documented on step above.
 
-```
-GET http://localhost:3000/api/scoreboard
-```
+From **scoreman** 0.1.x and newer, root requests are discouraged, because doing so
+causes issues when running behing a reverse proxy.
 
-It should be
-```
-GET /api/scoreboard
-```
-
-This is because the overlay will be served under the same domain as **scoreman**'s server.
-
-Additionally, each available overlay pack will be served under ```/overlays/<overlay-pack-name>/```
+Each available overlay pack will be served under ```<scoreman-subpath>/overlays/<overlay-pack-name>/```
 with every file inside being served.
 
 See /docs/overlays.md for more information.
 
+## Overlay API
+
+These calls should be used within the context of an overlay pack so it can set itself up
+
+### `GET /overlays/<overlay-pack-name>/**/!serverconfig`
+### `GET /overlays/<overlay-pack-name>/config.json` (deprecated)
+
+Returns the current server configuration.
+
+**Sample response**
+```json
+{
+  "baseUrl": "/scoreman",
+  "homepage": "//example.com:80/scoreman",
+  "hostname": "urano",
+  "port": 80
+}
+```
+
+
 ## Scoreboard API
 
-All the responses and requests bodies have to follow the json schema specified in
+>All the responses and requests bodies have to follow the json schema specified in
 ```/packages/server/data/schema/scoreboard.json```
 
-### GET /api/scoreboard
+### `GET /api/scoreboard`
 
 Returns all the stored scoreboard information that keeps players, scores, and other
 interesting metadata to be used by overlays.
@@ -100,7 +146,7 @@ interesting metadata to be used by overlays.
 }
 ```
 
-### POST /api/scoreboard
+### `POST /api/scoreboard`
 
 Sets all the stored scoreboard information that keeps players, scores, and other
 interesting metadata to be used by overlays.
@@ -168,7 +214,7 @@ interesting metadata to be used by overlays.
 }
 ```
 
-## GET /api/config/flags.json
+## `GET /api/config/flags.json`
 
 Returns a country code indexed list of countries.
 
@@ -181,7 +227,7 @@ Returns a country code indexed list of countries.
 }
 ```
 
-## GET /api/config/games.json
+## `GET /api/config/games.json`
 
 Returns a list of every game configuration available.
 
@@ -194,7 +240,7 @@ Returns a list of every game configuration available.
 }]
 ```
 
-## GET /api/characters/:gameId.json
+## `GET /api/characters/:gameId.json`
 
 Returns the list of all available characters for a given game.
 
@@ -249,7 +295,8 @@ Returns the list of all available characters for a given game.
   },
 ]
 ```
-
+> :warning: **The following APIs are unstable** and prone to change!
+> They might even not work... Proceed with caution
 
 ## Smash.gg API
 
@@ -260,7 +307,7 @@ or managed by an alternate administrative UI.
 Read https://help.smash.gg/en/articles/1465676-rest-api-access-legacy-old to know more
 about smashgg's API responses.
 
-### GET /api/smashgg/tournament/:tournamentslug
+### `GET /api/smashgg/tournament/:tournamentslug`
 
 Returns all the relevant metadata from a tournament.
 
@@ -269,7 +316,7 @@ Returns all the relevant metadata from a tournament.
 ```tournamentslug```: the slug that identifies the tournament name. This slug can be obtained
 from the smashgg's tournament URL: ```https://smash.gg/tournament/<tournamentslug>```
 
-### GET /api/smashgg/station_queue/:tournamentslug
+### `GET /api/smashgg/station_queue/:tournamentslug`
 
 Returns an enhanced verison of smashgg's station queue API call, with the builting entrant/player
 information, instead of having to do multiple REST calls.
@@ -286,7 +333,7 @@ that can be displayed on an overlay or managed by an alternate administrative UI
 
 Read https://api.challonge.com/v1 to know more about Challonge's API responses.
 
-### GET api/challonge/tournaments/:tournamentId?apikey=:apikey
+### `GET /api/challonge/tournaments/:tournamentId?apikey=:apikey`
 
 Returns all the relevant metadata from a tournament.
 
@@ -296,7 +343,7 @@ Returns all the relevant metadata from a tournament.
 ```tournamentId```: the id that identifies the tournament. This id can be obtained
 from the challonge's tournament URL: ```https://smash.gg/<tournamentId>```
 
-### GET api/challonge/matches/:tournamentId?apikey=:apikey
+### GET `/api/challonge/matches/:tournamentId?apikey=:apikey`
 
 Returns all the matches from a given tournament.
 
