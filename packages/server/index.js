@@ -7,7 +7,7 @@ const path = require('path');
 
 let server;
 
-function start({ altPort, appBasePath, port, baseUrl }) {
+function start({ altPort, appBasePath, baseUrl }) {
     const app = express();
 
     app.use(bodyParser.json());
