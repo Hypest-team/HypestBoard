@@ -1,5 +1,6 @@
+const fs = require('fs').promises;
 
-var scoreboard = {
+const baseScoreboard = {
 	entrants: [],
     commentators: [],
 	round: '',
@@ -8,11 +9,47 @@ var scoreboard = {
 	streamer: ''
 }
 
-exports.getScoreboard = function (req, res) {
+let scoreboard = null;
+
+const scoreboardFileName = './scoreboard.json';
+
+async function loadScoreboard() {
+    if (!scoreboard) {
+        return fs.readFile(scoreboardFileName, 'utf8')
+            .then((file) => {
+                scoreboard = JSON.parse(file);
+                return scoreboard;
+            })
+            .catch(() => {
+                scoreboard = {...baseScoreboard};
+                return scoreboard;
+            })
+    } else {
+        return scoreboard;
+    }
+}
+
+async function saveScoreboard(newScoreboard) {
+    return fs.writeFile(scoreboardFileName, JSON.stringify(newScoreboard), 'utf8')
+        .then(() => {
+            return newScoreboard;
+        })
+        .finally(() => {
+            scoreboard = newScoreboard;
+        });
+}
+
+async function getScoreboard(req, res) {
+    const scoreboard = await loadScoreboard();
+    res.json(scoreboard);
+}
+
+async function updateScoreboard(req, res) {
+    const scoreboard = await saveScoreboard(req.body);
 	res.json(scoreboard);
 }
 
-exports.updateScoreboard = function (req, res) {
-    scoreboard = req.body;
-	res.send(scoreboard);
+module.exports = {
+    getScoreboard,
+    updateScoreboard
 }
