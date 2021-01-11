@@ -1,6 +1,6 @@
 {
     "name": "@scoreman/standalone",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Self-contained app for scoreman",
     "main": "index.js",
     "scripts": {
@@ -37,8 +37,8 @@
         "electron-builder": "^22.6.0"
     },
     "dependencies": {
-        "@scoreman/client": "^0.3.0",
+        "@scoreman/client": "^0.3.1",
         "@scoreman/overlays": "^0.0.13",
-        "@scoreman/server": "^0.3.0"
+        "@scoreman/server": "^0.3.1"
     }
 }
