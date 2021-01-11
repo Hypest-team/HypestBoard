@@ -120,8 +120,6 @@ function createOverlayManifest(basePath, homepage) {
                     manifest.base = `${manifest.base}-${dups.length}`;
                 }
 
-                console.log({homepage});
-
                 manifest.overlays = (manifest.overlays || []).map((entry) => {
                     return {
                         ...entry,
