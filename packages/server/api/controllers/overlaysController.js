@@ -83,7 +83,7 @@ function resolveOverlayPkgBaseName(overlayPath) {
     return name;
 }
 
-function createOverlayManifest(basePath, homepage) {
+function createOverlayManifest(basePath, baseUrl) {
     if (!manifestCache) {
         const overlayPaths = [
             ...getNpmOverlayPaths(),
@@ -123,7 +123,7 @@ function createOverlayManifest(basePath, homepage) {
                 manifest.overlays = (manifest.overlays || []).map((entry) => {
                     return {
                         ...entry,
-                        url: `${homepage}/overlays/${manifest.base}/${entry.url}`
+                        url: `${baseUrl}/overlays/${manifest.base}/${entry.url}`
                     }
                 });
 
@@ -136,8 +136,8 @@ function createOverlayManifest(basePath, homepage) {
     return manifestCache;
 }
 
-function getManifest(basePath, homepage) {
-    const manifest = createOverlayManifest(basePath, homepage);
+function getManifest(basePath, baseUrl) {
+    const manifest = createOverlayManifest(basePath, baseUrl);
 
     return (req, res) => {
         const filteredManifest = manifest.map(({ pkgPath, ...rest }) => rest);
@@ -145,8 +145,8 @@ function getManifest(basePath, homepage) {
     };
 }
 
-function getStaticRoutes(basePath, homepage) {
-    const manifest = createOverlayManifest(basePath, homepage);
+function getStaticRoutes(basePath, baseUrl) {
+    const manifest = createOverlayManifest(basePath, baseUrl);
 
     return manifest.map(({ base, pkgPath }) => {
         return { path: base, servePath: pkgPath };

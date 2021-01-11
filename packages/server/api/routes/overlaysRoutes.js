@@ -8,9 +8,9 @@ module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
     const homepage = `//${appHostname}:${appPort}${baseUrl || ''}`;
 
     routes.route(['/', '/manifest.json'])
-        .get(getManifest(appBasePath, homepage));
+        .get(getManifest(appBasePath, baseUrl));
 
-    getStaticRoutes(appBasePath, homepage).forEach((manifestEntry) => {
+    getStaticRoutes(appBasePath, baseUrl).forEach((manifestEntry) => {
         const { path, servePath } = manifestEntry;
 
         // DEPRECATED: this call should be remove on the major version change
