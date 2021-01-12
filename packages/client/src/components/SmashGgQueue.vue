@@ -6,6 +6,19 @@
             <summary>Tournament data</summary>
 
             <form novalidate @submit.prevent="loadTournament()">
+
+                <div class="form-group">
+                    <label>API key</label>
+                    <input class="form-control" type="password"
+                        name="smashgg-api-key"
+                        v-model="apiKey"/>
+
+                    <small class="form-text text-muted">
+                        A smash.gg API key can be created at:<br/>
+                        <a target="_blank" href="https://smash.gg/admin/profile/developer">
+                        https://smash.gg/admin/profile/developer</a>
+                    </small>
+                </div>
                 <div class="form-group">
                     <label>Tournament slug</label>
                     <input class="form-control" type="text"
@@ -71,6 +84,7 @@ export default {
     data () {
         return {
             tournamentSlug: '', 
+            apiKey: localStorage.smashGgApiKey,
             tournament: null,
             stationQueue: null
         }
@@ -83,20 +97,16 @@ export default {
 function loadTournament() {
     var vm = this;
 
-    return smashGgService.getTournament(vm.tournamentSlug)
+    localStorage.smashGgApiKey = vm.apiKey;
+
+    return smashGgService.getTournament(vm.tournamentSlug, vm.apiKey)
         .then(function (tournament) {
-            vm.tournament = tournament;
-            vm.$emit('load', vm.tournament);
+            // TODO continue here
+            //vm.tournament = tournament;
+            //vm.$emit('load', vm.tournament);
+            console.log('got tournament', tournament);
             return tournament;
-        })
-        .then(loadStationQueue)
-        .then(stationQueue => {
-            vm.stationQueue = stationQueue;
-            return stationQueue;
         });
 }
 
-function loadStationQueue(tournament) {
-    return smashGgService.getStationQueue(tournament.entities.tournament.id);
-}
 </script>
