@@ -2,6 +2,66 @@ var fetch = require('node-fetch');
 var _ = require('lodash');
 var serverUrl = 'https://api.smash.gg/';
 
+const graphQlUrl = 'https://api.smash.gg/gql/alpha';
+
+function graphQlCall(call, smashGgKey) {
+    return fetch(graphQlUrl, {
+        method: 'POST',
+        body: JSON.stringify(call),
+        withCredentials: true,
+        credentials: 'include',
+        headers: {
+            Authorization: `Bearer ${smashGgKey}`,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((res) => {
+            return res.json()
+        });
+}
+
+exports.getSmashGgData = async function(req, res) {
+    const tourneySlug = req.params.tournamentSlug;
+    const apiKey = req.body.apiKey;
+    const result = await graphQlCall({
+        query:
+        `query TournamentData($tourneySlug: String!) {
+  tournament(slug: $tourneySlug) {
+    id,
+    name,
+    streamQueue {
+      stream {
+        streamSource,
+        streamName
+      }
+      sets {
+        fullRoundText,
+        identifier,
+        slots {
+          entrant {
+            participants {
+              id,
+              gamerTag,
+              prefix,
+              contactInfo {
+                country
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`,
+        variables: {
+            tourneySlug: tourneySlug
+        }
+    }, apiKey)
+
+    res.json(result);
+};
+
+
 function getFullUrl(call) {
     return serverUrl + call;
 }
@@ -40,7 +100,7 @@ function mapEntrantsForSets(entrants, sets) {
         var entrantIdKeys = Object.keys(set).filter(function (key) {
             return /entrant\dId$/.test(key);
         });
-       
+
         set.entrants = [];
 
         entrantIdKeys.forEach(function (entrantIdKey) {
