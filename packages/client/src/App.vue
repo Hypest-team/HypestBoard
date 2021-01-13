@@ -29,10 +29,9 @@
 import Scoreboard from './components/Scoreboard';
 import StreamQueue from './components/StreamQueue';
 import ApiService from './services/ApiService';
-import SmashGgService from './services/SmashGgService';
+import _ from 'lodash';
 
 let apiService = ApiService();
-let smashGgService = SmashGgService();
 
 export default {
     name: 'App',
@@ -73,43 +72,16 @@ function updateScoreboard() {
 }
 
 function updateTournamentData(data) {
-    var vm = this;
+    const vm = this;
 
-    vm.scoreboard.tournamentName = data.entities.tournament.name;
+    vm.scoreboard.tournamentName = data.tournamentName;
+    vm.scoreboard.streamer = data.streamer;
+    vm.scoreboard.round = data.round;
 }
 
 function autofillEntrants(set) {
-    var vm = this;
-
-    if (set.isSmashGg) {
-        vm.scoreboard.round = set.fullRoundText;
-        vm.scoreboard.streamer = set.stream.streamName;
-
-        Promise.all(
-            set.entrants.map(smashGgService.convertGgEntrant))
-            .then(function (entrants) {
-                vm.scoreboard.entrants = entrants;
-                return entrants;
-            });
-    } else if (set.isChallonge) {
-        vm.scoreboard.round = set.round_label;
-
-        vm.scoreboard.entrants = [{
-            name: set.player1.name,
-            score: 0,
-            players: [{
-                name: set.player1.name
-            }]
-        }, {
-            name: set.player2.name,
-            score: 0,
-            players: [{
-                name: set.player2.name
-            }]
-        }];
-
-    }
-
+    const vm = this;
+    vm.scoreboard.entrants = _.cloneDeep(set.entrants);
 }
 
 </script>

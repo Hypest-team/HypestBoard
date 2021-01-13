@@ -1,54 +1,55 @@
 <template>
     <div>
-        <details open="true">
-            <summary>Tournament data</summary>
+        <form novalidate @submit.prevent="loadTournament()">
+            <details v-bind:open="expanded">
+                <summary>Tournament data</summary>
 
-            <form novalidate @submit.prevent="loadTournament()">
 
-                <div class="form-group">
-                    <label>API key</label>
-                    <input class="form-control" type="password"
-                        name="smashgg-api-key"
-                        v-model="apiKey"/>
+                    <div class="form-group">
+                        <label>API key</label>
+                        <input class="form-control" type="password"
+                            name="smashgg-api-key"
+                            v-model="apiKey"/>
 
-                    <small class="form-text text-muted">
-                        A smash.gg API key can be created at:<br/>
-                        <a target="_blank" href="https://smash.gg/admin/profile/developer">
-                        https://smash.gg/admin/profile/developer</a><br/>
-                        <em>Ensure that you are logged in beforehand on smash.gg</em>
-                    </small>
-                </div>
-                <div class="form-group">
-                    <label>Tournament slug</label>
-                    <input class="form-control" type="text"
-                        v-model="tournamentSlug"/>
+                        <small class="form-text text-muted">
+                            A smash.gg API key can be created at:<br/>
+                            <a target="_blank" href="https://smash.gg/admin/profile/developer">
+                            https://smash.gg/admin/profile/developer</a><br/>
+                            <em>Ensure that you are logged in beforehand on smash.gg</em>
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>Tournament slug</label>
+                        <input class="form-control" type="text"
+                            v-model="tournamentSlug"/>
 
-                    <small class="form-text text-muted">
-                        The tournament slug can be extracted from the URL:<br/> https://smash.gg/tournament/<wbr/><strong>tournament-slug</strong>
-                    </small>
-                </div>
-                <div class="actions">
-                    <button type="submit" class="btn btn-primary">
-                        Get queues
-                    </button>
-                </div>
-            </form>
-        </details>
+                        <small class="form-text text-muted">
+                            The tournament slug can be extracted from the URL:<br/> https://smash.gg/tournament/<wbr/><strong>tournament-slug</strong>
+                        </small>
+                    </div>
+            </details>
+
+            <div class="actions">
+                <button type="submit" class="btn btn-primary">
+                    Get queues
+                </button>
+            </div>
+        </form>
 
         <hr />
 
         <div v-if="tournament">
-            <h3 v-if="tournament.data">
-                {{ tournament.data.entrant.tournament.name }}
-            </h3>
+            <strong v-if="tournament.tournamentName">
+                {{ tournament.tournamentName }}
+            </strong>
 
-            <div v-if="stationQueue">
+            <div v-if="tournament.sets">
                 <div class="jumbotron text-center"
-                     v-if="stationQueue.queues.length === 0">
+                     v-if="tournament.sets === 0">
                     <h4>No games in the queue</h4>
                 </div>
 
-                <div v-for="(set, index) in stationQueue.data.entities.sets"
+                <div v-for="(set, index) in tournament.sets"
                     :key="index">
                     <h5>{{ set.midRoundText }}</h5>
                     <button class="btn btn-sm btn-success"
@@ -85,7 +86,7 @@ export default {
             tournamentSlug: '', 
             apiKey: localStorage.smashGgApiKey,
             tournament: null,
-            stationQueue: null
+            expanded: true
         }
     },
     methods: {
@@ -98,13 +99,10 @@ function loadTournament() {
 
     localStorage.smashGgApiKey = vm.apiKey;
 
-    return smashGgService.getTournament(vm.tournamentSlug, vm.apiKey)
-        .then(function (tournament) {
-            // TODO continue here
-            //vm.tournament = tournament;
-            //vm.$emit('load', vm.tournament);
-            console.log('got tournament', tournament);
-            return tournament;
+    return smashGgService.getTournamentQueue(vm.tournamentSlug, vm.apiKey)
+        .then((response) => {
+            vm.tournament = response;
+            vm.expanded = false;
         });
 }
 

@@ -8,25 +8,25 @@
                 @select="onSelect"/>
         </details>
 
-        <details>
+        <!-- <details>
             <summary>Challonge</summary>
 
             <ChallongeQueue
                 @load="onLoad"
                 @select="onSelect"/>
-        </details>
+        </details> -->
     </div>
 </template>
 
 <script>
 import SmashGgQueue from './SmashGgQueue';
-import ChallongeQueue from './ChallongeQueue';
+//import ChallongeQueue from './ChallongeQueue';
 
 export default {
     name: "StreamQueue",
     components: {
         SmashGgQueue,
-        ChallongeQueue
+        //ChallongeQueue
     },
     methods: {
         onLoad(data) {
