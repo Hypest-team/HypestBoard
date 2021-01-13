@@ -1,7 +1,5 @@
-var fetch = require('node-fetch');
-var _ = require('lodash');
-var serverUrl = 'https://api.smash.gg/';
-
+const fetch = require('node-fetch');
+const { findCountryByName } = require('../stores/countryStores');
 const graphQlUrl = 'https://api.smash.gg/gql/alpha';
 
 function graphQlCall(call, smashGgKey) {
@@ -20,12 +18,10 @@ function graphQlCall(call, smashGgKey) {
         });
 }
 
-exports.getSmashGgData = async function(req, res) {
-    const tourneySlug = req.params.tournamentSlug;
-    const apiKey = req.body.apiKey;
+async function fetchTournamentData(tournamentSlug, apiKey) {
     const result = await graphQlCall({
         query:
-        `query TournamentData($tourneySlug: String!) {
+`query TournamentData($tourneySlug: String!) {
   tournament(slug: $tourneySlug) {
     id,
     name,
@@ -39,12 +35,15 @@ exports.getSmashGgData = async function(req, res) {
         identifier,
         slots {
           entrant {
+            name,
             participants {
               id,
               gamerTag,
               prefix,
-              contactInfo {
-                country
+              user {
+                location {
+                  country
+                }
               }
             }
           }
@@ -54,124 +53,110 @@ exports.getSmashGgData = async function(req, res) {
   }
 }`,
         variables: {
-            tourneySlug: tourneySlug
+            tourneySlug: tournamentSlug
         }
     }, apiKey)
 
-    res.json(result);
+    return result;
+
 };
 
-
-function getFullUrl(call) {
-    return serverUrl + call;
+async function getTournamentData(req, res, next) {
+    try {
+        const { tournamentSlug, } = req.params;
+        const { apiKey} = req.body;
+        const result = await fetchTournamentData(tournamentSlug, apiKey);
+        res.json(result);
+    } catch (e) {
+        console.log('Error on smashgg tournament request', e);
+        res.status(406).send('Not Acceptable');
+    }
 }
 
-function processResponse(response) {
-    if (response.ok) {
-        return response.json();
+async function getTournamentQueue(req, res, next) {
+    const { tournamentSlug } = req.params;
+    const { apiKey} = req.body;
+
+    try {
+
+        const ggTournamentResponse = await fetchTournamentData(tournamentSlug, apiKey);
+        const ggTournamentData = ggTournamentResponse.data;
+        const ggTournament = ggTournamentData.tournament;
+
+        // FIXME: support multiple stream queues
+        const ggStreamQueue = ggTournament.streamQueue[0];
+
+        const response = {
+            tournamentName: ggTournament.name || '',
+            streamer: ggStreamQueue.stream.streamName || '',
+            sets: ggStreamQueue.sets.map(convertGgSet)
+        }
+
+        res.json(response);
+    } catch (e) {
+        console.log('Error on smashgg tournament request', e);
+        res.status(406).send('Not Acceptable');
+    }
+}
+
+function convertGgSet(ggSet) {
+    return {
+        id: ggSet.id,
+        round: ggSet.fullRoundText || '',
+        entrants: ggSet.slots.map(convertGgSlotToEntrant)
+    }
+}
+
+function convertGgSlotToEntrant(ggSlot) {
+    const ggEntrant = ggSlot.entrant;
+
+    return {
+        name: ggEntrant.name || '',
+        score: 0,
+        players: ggEntrant.participants.map(convertGgParticipantToPlayer)
+    };
+}
+
+function convertGgParticipantToPlayer(ggParticipant) {
+    const result = {
+        name: ggParticipant.gamerTag || '',
+        sponsor: ggParticipant.prefix || '',
+        character: {
+            id: '',
+            name: '-Empty-',
+            hex: '#fff'
+        }
+    }
+
+    if (ggParticipant.user) {
+        result.country = convertGgLocationToCountry(ggParticipant.user.location);
     } else {
-        console.error('Smash.gg server is down', response);
+        result.country = {
+            name: '',
+            code: '' 
+        }
     }
+
+    return result;
 }
 
-function getRequest(path, res) {
-    var url = getFullUrl(path);
+function convertGgLocationToCountry(ggCountry) {
+    const id = findCountryByName(ggCountry.country);
 
-    console.log('Fetching', url);
-
-    return fetch(url)
-        .then(processResponse)
-        .catch(function (e) {
-            console.log('SmashGG API error', e);
-        });
-}
-
-// Always returns an array, because SMASHGG API IS STUPID!
-function getAsArray(obj) {
-    if (!obj || Array.isArray(obj)) {
-        return obj;
+    if (!!id || id !== '') {
+        return {
+            name: ggCountry.country,
+            id: findCountryByName(ggCountry.country) || ''
+        }
     } else {
-        return [obj];
+        return {
+            name: '',
+            id: ''
+        }
     }
 }
 
-function mapEntrantsForSets(entrants, sets) {
-    return sets.map(function (set) {
-        var entrantIdKeys = Object.keys(set).filter(function (key) {
-            return /entrant\dId$/.test(key);
-        });
-
-        set.entrants = [];
-
-        entrantIdKeys.forEach(function (entrantIdKey) {
-            var entrantKey = entrantIdKey.replace('Id', '');
-            var entrant = entrants.find(function (e) {
-
-                return e.id === set[entrantIdKey];
-            });
-
-            set.entrants.push(entrant);
-        });
-
-        return set;
-    });
-}
-
-function mapPlayersForEntrants(players, entrants) {
-    return entrants.map(function (entrant) {
-        var playerIds = entrant.playerIds;
-        var entrantPlayers = _.map(playerIds, function (playerId) {
-            return players.find(function (player) {
-                return player.id === playerId;
-            });
-        });
-
-        entrant.players = entrantPlayers;
-        return entrant;
-    });
-}
-
-function mapStreamsForSets(streams, sets) {
-    return sets.map(function (set) {
-        set.stream = streams.find(function (stream) {
-            return stream.id === set.streamId;
-        });
-        return set;
-    });
-}
-
-function enhanceStationQueue(stationQ) {
-    if (!(stationQ.data)) {
-        return stationQ;
-    }
-
-    var sets = getAsArray(stationQ.data.entities.sets);
-    var entrants = getAsArray(stationQ.data.entities.entrants);
-    var players = getAsArray(stationQ.data.entities.player);
-    var streams = getAsArray(stationQ.data.entities.stream);
-
-    // Fill in player data
-    stationQ.data.entities.players = mapPlayersForEntrants(players, entrants);
-    stationQ.data.entities.sets = mapEntrantsForSets(entrants, sets);
-    stationQ.data.entities.sets = mapStreamsForSets(streams, sets);
-
-    return stationQ;
-}
-
-exports.getTournament = function (req, res) {
-    return getRequest('tournament/' + req.params.tournamentSlug, res)
-        .then(function (data) {
-            res.json(data);
-        });
-};
-
-exports.getStationQueue = function (req, res) {
-    return getRequest('station_queue/' + req.params.tournamentId, res)
-        .then(function (data) {
-            var enhanced = enhanceStationQueue(data);
-            res.json(enhanced);
-        })
-        .catch(function (e) {
-            console.error(e);
-        });
+module.exports = {
+    getTournamentData,
+    getTournamentQueue
 };

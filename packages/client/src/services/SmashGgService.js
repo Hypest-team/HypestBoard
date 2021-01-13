@@ -2,7 +2,8 @@
 
 export default function SmashGgService() {
     return {
-        getTournament
+        getTournament,
+        getTournamentQueue
     }
 }
 
@@ -18,6 +19,13 @@ function processResponse(result) {
 
 function getTournament(tournamentSlug, apiKey) {
     return axios.post(getPath(`${tournamentSlug}`), {
+        apiKey
+    })
+        .then(processResponse);
+}
+
+function getTournamentQueue(tournamentSlug, apiKey) {
+    return axios.post(getPath(`${tournamentSlug}/queue`), {
         apiKey
     })
         .then(processResponse);
