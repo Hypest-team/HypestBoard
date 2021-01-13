@@ -76,12 +76,13 @@ function updateTournamentData(data) {
 
     vm.scoreboard.tournamentName = data.tournamentName;
     vm.scoreboard.streamer = data.streamer;
-    vm.scoreboard.round = data.round;
 }
 
 function autofillEntrants(set) {
     const vm = this;
+
     vm.scoreboard.entrants = _.cloneDeep(set.entrants);
+    vm.scoreboard.round = set.round;
 }
 
 </script>

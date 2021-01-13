@@ -53,7 +53,7 @@
                     :key="index">
                     <h5>{{ set.midRoundText }}</h5>
                     <button class="btn btn-sm btn-success"
-                        @click="$emit('select', {isSmashGg: true, ...set})">
+                        @click="selectSet(set)">
                         <i class="fa fa-check"></i>
                     </button>
                     <span v-for="(entrant, index) in set.entrants"
@@ -90,7 +90,8 @@ export default {
         }
     },
     methods: {
-        loadTournament
+        loadTournament,
+        selectSet
     }
 }
 
@@ -103,7 +104,14 @@ function loadTournament() {
         .then((response) => {
             vm.tournament = response;
             vm.expanded = false;
+            vm.$emit('load', {isSmashGg: true, ...response});
         });
 }
+
+function selectSet(set) {
+    const vm = this;
+    vm.$emit('select', {isSmashGg: true, ...set})
+}
+
 
 </script>
