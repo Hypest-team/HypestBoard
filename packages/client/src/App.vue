@@ -4,6 +4,10 @@
         <h1>Scoreman admin page</h1>
         <div class="row">
             <div class="col-md-2">
+                <button class="btn btn-lg btn-primary"
+                    v-on:click="updateTournamentData($event)">
+                    Update Scoreboard
+                </button>
                 <StreamQueue
                     v-on:select="autofillEntrants($event)"
                     v-on:load="updateTournamentData($event)"/>
