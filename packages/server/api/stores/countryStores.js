@@ -15,7 +15,7 @@ function getCountries() {
 }
 
 function findCountryByName(name) {
-    return _.filter(countriesArr, (country) =>
+    return _.find(countriesArr, (country) =>
     country.name.toLowerCase() === name.toLowerCase());
 }
 

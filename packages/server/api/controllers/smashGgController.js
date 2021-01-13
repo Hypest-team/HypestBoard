@@ -110,11 +110,19 @@ function convertGgSet(ggSet) {
 function convertGgSlotToEntrant(ggSlot) {
     const ggEntrant = ggSlot.entrant;
 
-    return {
-        name: ggEntrant.name || '',
-        score: 0,
-        players: ggEntrant.participants.map(convertGgParticipantToPlayer)
-    };
+    if (ggEntrant) {
+        return {
+            name: ggEntrant.name || '',
+            score: 0,
+            players: ggEntrant.participants.map(convertGgParticipantToPlayer)
+        };
+    } else {
+        return {
+            name: '<TBD>',
+            score: 0,
+            players: []
+        };
+    }
 }
 
 function convertGgParticipantToPlayer(ggParticipant) {
@@ -146,12 +154,12 @@ function convertGgLocationToCountry(ggCountry) {
     if (!!id || id !== '') {
         return {
             name: ggCountry.country,
-            id: findCountryByName(ggCountry.country) || ''
+            code: findCountryByName(ggCountry.country) || ''
         }
     } else {
         return {
             name: '',
-            id: ''
+            code: ''
         }
     }
 }
