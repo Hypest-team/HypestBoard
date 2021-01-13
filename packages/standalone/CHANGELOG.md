@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.4 (2021-01-13)
+
+
+### Bug Fixes
+
+* :lipstick: fix the callback for the big update scoreboard button ([95402a4](https://github.com/N0NamedGuy/scoreman/commit/95402a4202183b92f7e8b7f2189232e197a06b0f))
+
+
+
+
+
 ## 0.3.3 (2021-01-11)
 
 
