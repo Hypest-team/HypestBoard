@@ -1,10 +1,6 @@
 <template>
     <div>
-        <h2>Challonge Tournament</h2>
-
         <details open="true">
-            <summary>Tournament data</summary>
-
             <form novalidate @submit.prevent="loadTournament()">
                 <div class="form-group">
                     <label>API key</label>

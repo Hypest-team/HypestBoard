@@ -1,7 +1,5 @@
 <template>
     <div>
-        <h2>Smash.gg Tournament</h2>
-
         <details open="true">
             <summary>Tournament data</summary>
 
