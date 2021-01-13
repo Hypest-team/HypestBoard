@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-2">
                 <button class="btn btn-lg btn-primary"
-                    v-on:click="updateTournamentData($event)">
+                    v-on:click="updateScoreboard()">
                     Update Scoreboard
                 </button>
                 <StreamQueue
