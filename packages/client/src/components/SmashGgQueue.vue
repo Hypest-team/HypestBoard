@@ -16,7 +16,8 @@
                     <small class="form-text text-muted">
                         A smash.gg API key can be created at:<br/>
                         <a target="_blank" href="https://smash.gg/admin/profile/developer">
-                        https://smash.gg/admin/profile/developer</a>
+                        https://smash.gg/admin/profile/developer</a><br/>
+                        <em>Ensure that you are logged in beforehand on smash.gg</em>
                     </small>
                 </div>
                 <div class="form-group">
