@@ -9814,10 +9814,10 @@ schema-utils@^2.0.0, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
-scoreman-overlay-melee-dark@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/scoreman-overlay-melee-dark/-/scoreman-overlay-melee-dark-1.0.0.tgz#d972b201f9af67e6d517a0f401bf0a988e80b27c"
-  integrity sha512-M7VxCH4gnsXUjMfHzt+qP37kaDpKco8e664wzJjvuKGXaga66e10Z7an1EOKpRjHdm2ehAH4URuABNxNS0lpUQ==
+scoreman-overlay-melee-dark@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/scoreman-overlay-melee-dark/-/scoreman-overlay-melee-dark-1.1.0.tgz#2f2e2e86224d1d59a35120a8bc1e10a1b5b5fe0e"
+  integrity sha512-uOkr1Wq5xsVX81e87aDbfrgMFFRriE8zkv7phIsui6NvmoGxITFTtWOeKtce8YAK6qY2/NAFqitgGNoUTq6UJw==
 
 select-hose@^2.0.0:
   version "2.0.0"
