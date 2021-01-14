@@ -51,7 +51,7 @@
 
                 <div v-for="(set, index) in tournament.sets"
                     :key="index">
-                    <h5>{{ set.midRoundText }}</h5>
+                    <small><strong>{{ set.round }}</strong></small><br/>
                     <button class="btn btn-sm btn-success"
                         @click="selectSet(set)">
                         <i class="fa fa-check"></i>
