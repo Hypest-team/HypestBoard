@@ -4,7 +4,7 @@ const _ = require('lodash');
 const countriesArr = getCountriesArr();
 
 function getCountriesArr() {
-    _.map(countries, (name, id) => ({
+    return _.map(countries, (name, id) => ({
         name: name,
         code: id
     }))

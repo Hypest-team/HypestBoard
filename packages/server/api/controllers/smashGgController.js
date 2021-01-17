@@ -134,34 +134,25 @@ function convertGgParticipantToPlayer(ggParticipant) {
             name: '-Empty-',
             hex: '#fff'
         }
-    }
+    };
+
+    const emptyCountry = {
+        name: '',
+        code: ''
+    };
 
     if (ggParticipant.user) {
-        result.country = convertGgLocationToCountry(ggParticipant.user.location);
+        result.country = convertGgLocationToCountry(ggParticipant.user.location) ||
+            emptyCountry;
     } else {
-        result.country = {
-            name: '',
-            code: '' 
-        }
+        result.country = emptyCountry;
     }
 
     return result;
 }
 
 function convertGgLocationToCountry(ggCountry) {
-    const id = findCountryByName(ggCountry.country);
-
-    if (!!id || id !== '') {
-        return {
-            name: ggCountry.country,
-            code: findCountryByName(ggCountry.country) || ''
-        }
-    } else {
-        return {
-            name: '',
-            code: ''
-        }
-    }
+    return findCountryByName(ggCountry.country);
 }
 
 module.exports = {
