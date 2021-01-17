@@ -21,7 +21,7 @@ function graphQlCall(call, smashGgKey) {
 async function fetchTournamentData(tournamentSlug, apiKey) {
     const result = await graphQlCall({
         query:
-`query TournamentData($tourneySlug: String!) {
+            `query TournamentData($tourneySlug: String!) {
   tournament(slug: $tourneySlug) {
     id,
     name,
@@ -64,7 +64,7 @@ async function fetchTournamentData(tournamentSlug, apiKey) {
 async function getTournamentData(req, res, next) {
     try {
         const { tournamentSlug, } = req.params;
-        const { apiKey} = req.body;
+        const { apiKey } = req.body;
         const result = await fetchTournamentData(tournamentSlug, apiKey);
         res.json(result);
     } catch (e) {
@@ -75,7 +75,7 @@ async function getTournamentData(req, res, next) {
 
 async function getTournamentQueue(req, res, next) {
     const { tournamentSlug } = req.params;
-    const { apiKey} = req.body;
+    const { apiKey } = req.body;
 
     try {
 
