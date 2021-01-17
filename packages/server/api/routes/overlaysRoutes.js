@@ -13,18 +13,6 @@ module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
     getStaticRoutes(appBasePath, baseUrl).forEach((manifestEntry) => {
         const { path, servePath } = manifestEntry;
 
-        // DEPRECATED: this call should be remove on the major version change
-        routes.route(`/${path}/config.json`)
-            .get((req, res, next) => {
-                res.json({
-                    baseUrl,
-                    homepage,
-                    hostname: appHostname,
-                    port: appPort
-                })
-                next();
-            });
-
         routes.route(`/${path}/*`)
             .get((req, res, next) => {
                 // Remove the overlay base path, so serveIndex and serveStatic
