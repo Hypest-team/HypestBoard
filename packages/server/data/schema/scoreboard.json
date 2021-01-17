@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "http://hypestteam.com/scoreboard/schemas/scoreboard.json",
-    "title": "HypestBoard scoreboard object",
+    "id": "http://dserrano.duckdns.org/scoreboard/config/schemas/scoreboard.json",
+    "title": "Scoreman scoreboard object",
 
     "type": "object",
 
@@ -27,7 +27,7 @@
                 }
             },
             "required": ["name", "id"],
-            "additionalProperties": ["color"]
+            "additionalProperties": false
         },
 
         "country": {
@@ -122,7 +122,7 @@
         "streamer": { "type": "string" },
 
         "twitch": { "type": "string" },
-        "twitter": { "type": "twitter" },
+        "twitter": { "type": "string" },
         "facebook": { "type": "string" },
         "youtube": { "type": "string" },
         "reddit": { "type": "string" }
