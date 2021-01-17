@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.7 (2021-01-17)
+
+
+### Bug Fixes
+
+* **client:** :recycle: simplify country select component code ([9ad8b25](https://github.com/N0NamedGuy/scoreman/commit/9ad8b25e0ad7d1579bb6b13c9daebc2be6753cd5)), closes [#41](https://github.com/N0NamedGuy/scoreman/issues/41)
+
+
+
+
+
 ## 0.3.6 (2021-01-14)
 
 **Note:** Version bump only for package @scoreman/scoreman
