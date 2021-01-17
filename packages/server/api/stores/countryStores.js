@@ -6,7 +6,7 @@ const countriesArr = getCountriesArr();
 function getCountriesArr() {
     return _.map(countries, (name, id) => ({
         name: name,
-        code: id
+        code: id.toLowerCase()
     }))
 }
 
