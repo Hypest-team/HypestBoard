@@ -1,5 +1,7 @@
 {
     "conventionalCommits.scopes": [
-        "gh-workflow"
+        "server",
+        "client",
+        "ci"
     ]
 }
