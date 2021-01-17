@@ -131,8 +131,7 @@ function convertGgParticipantToPlayer(ggParticipant) {
         sponsor: ggParticipant.prefix || '',
         character: {
             id: '',
-            name: '-Empty-',
-            hex: '#fff'
+            name: '-Empty-'
         }
     };
 
