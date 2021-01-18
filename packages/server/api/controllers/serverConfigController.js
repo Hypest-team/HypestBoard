@@ -12,12 +12,8 @@ function getServerConfig({
             port
         };
 
-        //if (req.path.endsWith('!serverconfig')) {
-            res.json(serverData);
-            res.end();
-        //}
-
-        next();
+        res.json(serverData);
+        res.end();
     }
 }
 

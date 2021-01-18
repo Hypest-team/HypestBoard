@@ -1,28 +1,30 @@
-const { getManifest, getStaticRoutes } = require('../controllers/overlaysController');
+const {
+    getManifest,
+    getStaticRoutes,
+    fixUpOverlayUrl,
+    fixUpAppsWithRouting,
+    fallback404
+} = require('../controllers/overlaysController');
 const express = require('express');
 const serveIndex = require('serve-index');
+const fs = require('fs');
+path = require('path');
 
 const routes = express.Router();
 
-module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
-    const homepage = `//${appHostname}:${appPort}${baseUrl || ''}`;
-
+module.exports = (appBasePath, baseUrl) => {
     routes.route(['/', '/manifest.json'])
         .get(getManifest(appBasePath, baseUrl));
 
     getStaticRoutes(appBasePath, baseUrl).forEach((manifestEntry) => {
-        const { path, servePath } = manifestEntry;
+        const { path: overlayPath, servePath, notFoundUrl, appType } = manifestEntry;
 
-        routes.route(`/${path}/*`)
-            .get((req, res, next) => {
-                // Remove the overlay base path, so serveIndex and serveStatic
-                // can work properly
-                const regExp = new RegExp(`^\/${path}\/`);
-                req.url = req.url.replace(regExp, '');
-                next();
-            })
-            .get(serveIndex(servePath))
-            .get(express.static(servePath));
+        routes.route(`/${overlayPath}/**`)
+            .get(fixUpOverlayUrl(overlayPath))
+            .get(fixUpAppsWithRouting(appType))
+            .get(express.static(servePath))
+            .get(fallback404(servePath, notFoundUrl, appType))
+            .get(serveIndex(servePath));
     });
 
     return routes;

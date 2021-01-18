@@ -15,7 +15,7 @@ module.exports = (appBasePath, appHostname, appPort, baseUrl) => {
     routes.use('/api/characters', require('./charactersRoutes'));
     routes.use('/api/config', require('./configRoutes'));
 
-    routes.use('/overlays/', require('./overlaysRoutes')(appBasePath, appHostname, appPort, baseUrl));
+    routes.use('/overlays/', require('./overlaysRoutes')(appBasePath, baseUrl));
     
     routes.use('/', require('./staticRoutes'));
 
