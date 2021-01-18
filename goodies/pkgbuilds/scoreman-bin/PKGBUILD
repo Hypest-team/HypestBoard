@@ -1,0 +1,22 @@
+# Maintainer: David Serrano <david.ma.serrano+scoremanpkgbuild@gmail.com>
+pkgname=scoreman-bin
+_binname=scoreman
+pkgver=0.3.8
+pkgrel=1
+pkgdesc="Scoreboard overlay manager (AppImage)"
+arch=('x86_64')
+url="https://github.com/ScoremanOrg/scoreman/tree/master/packages/standalone"
+license=('MIT')
+depends=('zlib')
+options=('!strip')
+source_x86_64=("${pkgname}-${pkgver}.AppImage::https://github.com/ScoremanOrg/scoreman/releases/download/v0.3.8/Scoreman-0.3.8.AppImage")
+noextract=("${pkgname}-${pkgver}.AppImage")
+md5sums_x86_64=('cf4d6fb994ffcdd133d5dff081b9ab67')
+
+package() {
+  install -Dm755 "${srcdir}/${pkgname}-${pkgver}.AppImage" "${pkgdir}/opt/${pkgname}/${pkgname}.AppImage"
+
+  # Symlink executable
+  mkdir -p "${pkgdir}/usr/bin"
+  ln -s "/opt/${pkgname}/${pkgname}.AppImage" "${pkgdir}/usr/bin/${_binname}"
+}

@@ -1,0 +1,40 @@
+# Maintainer: David Serrano <david.ma.serrano+scoremanpkgbuild@gmail.com>
+pkgname=scoreman-server
+_pkgorg=@scoreman
+_pkgnpm=server
+_pkgnpmname="${_pkgorg}/${_pkgnpm}"
+pkgver=0.3.10
+pkgrel=1
+pkgdesc="Scoreboard overlay manager (server)"
+arch=('any')
+url="https://www.npmjs.com/package/${_pkgnpmname}"
+license=('MIT')
+depends=('nodejs')
+makedepends=('npm' 'jq')
+source=("https://registry.npmjs.org/${_pkgnpmname}/-/${_pkgnpm}-${pkgver}.tgz")
+noextract=("${_pkgnpm}-${pkgver}.tgz")
+md5sums=('dde7b6f24307e8f3f7b44d519d888158')
+
+package() {
+  npm install -g --user root --prefix "${pkgdir}/usr" "${srcdir}/${_pkgnpm}-${pkgver}.tgz" --cache "${srcdir/}/npm-cache"
+
+  find "${pkgdir}/usr" -type d -exec chmod 755 {} +
+
+  # Remove references to $pkgdir
+	find "$pkgdir" -type f -name package.json -print0 | xargs -0 sed -i "/_where/d"
+
+  # Remove references to $srcdir
+	local tmppackage="$(mktemp)"
+	local pkgjson="${pkgdir}/usr/lib/node_modules/${_pkgnpmname}/package.json"
+	jq '.|=with_entries(select(.key|test("_.+")|not))' "${pkgjson}" > "${tmppackage}"
+	mv "${tmppackage}" "${pkgjson}"
+	chmod 644 "${pkgjson}"
+  
+  # Install license since the package doesn't include it
+	#install -Dm 644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
+
+  # npm gives ownership of ALL FILES to build user
+  # https://bugs.archlinux.org/task/63396
+  chown -R root:root "${pkgdir}"
+}
