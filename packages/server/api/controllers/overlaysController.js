@@ -206,16 +206,21 @@ function fixUpAppsWithRouting(appType) {
     }
 }
 
-function fallback404(servePath, notFoundUrl, appType) {
+function fallback404(servePath, notFoundUrl) {
     return (req, res, next) => {
 
-        const path404 = `${servePath}/${notFoundUrl}`;
+        if (notFoundUrl) {
+            const path404 = `${servePath}/${notFoundUrl}`;
 
-        const indexFile = fs.readFileSync(path404, 'utf-8');
+            const indexFile = fs.readFileSync(path404, 'utf-8');
 
-        res.status(200);
-        res.send(indexFile);
-        res.end();
+            res.status(200);
+            res.send(indexFile);
+            res.end();
+        }
+
+        next();
+
     }
 }
 
