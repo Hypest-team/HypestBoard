@@ -20,7 +20,7 @@ Now what is left to be done is to fill in the data.
 If you have NodeJS and npm on your system, just run on command line
 
 ```
-npx -p @scoreman/server scoreman
+npx -p @scoreman/server scoreman-server
 ```
 
 # OBS Setup
