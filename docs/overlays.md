@@ -78,6 +78,12 @@ It should follow this structure:
 ```json
 {
     "name": "Hello world!", // This is a "human-friendly" name, that will be displayed on the Admin UI
+    "baseUrl": "/build", // Optional. If you want the base url to be different, use this
+    "notFoundUrl": "404.html", // Optional. Sets the URL to the page, in case there is a 404.
+                            // very useful for single page application styles
+    "appType": "", // Optional (and advanced!). Sets the application type your overlay webapp is.
+                    // Applies some nice tricks and hacks specific to a certain framework
+                    // The only supported value is "react". More can come
     "overlays": [{
         "name": "In-game", // Same criteria as the overlay pack name
         "url": "ingame/index.html" // The path name is relative to the root of your overlay pack
