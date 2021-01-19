@@ -115,7 +115,8 @@ export default {
 function getEmptyCommentator() {
     return {
         name: '',
-        handle: ''
+        handle: '',
+        enabled: true
     };
 }
 

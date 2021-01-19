@@ -10,6 +10,15 @@
             <strong>Commentator {{ index + 1 }}</strong>
         </div>
         <div class="card-body">
+            <div class="form-group form-check">
+                <input type="checkbox"
+                    class="form-check-input"
+                    id="commentator-enabled"
+                    v-model="commentator.enabled">
+                <label class="form-check-label" for="commentator-enabled">
+                    Enabled
+                </label>
+            </div>
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" v-model="commentator.name" class="form-control" />
