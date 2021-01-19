@@ -80,7 +80,6 @@ import TournamentDetails from './TournamentDetails';
 import Social from './Social';
 import Commentators from './Commentators';
 import Overlays from './Overlays';
-import _ from 'lodash';
 
 export default {
     name: 'Scoreboard',
@@ -88,10 +87,7 @@ export default {
         prop: 'scoreboard'
     },
     props: {
-        scoreboard: {
-            type: Object,
-            default: null
-        },
+        scoreboard: null,
         games: null
     },
     components: {
@@ -101,52 +97,7 @@ export default {
         Social,
         Commentators,
         Overlays
-    },
-    methods: {
-        addEntrant,
-        deleteEntrant,
-        swapEntrants,
-
-        addCommentator,
-        deleteCommentator
     }
 }
 
-function getEmptyCommentator() {
-    return {
-        name: '',
-        handle: '',
-        enabled: true
-    };
-}
-
-function addEntrant() {
-    var vm = this;
-    vm.scoreboard.entrants.push(vm.getEmptyEntrant());
-}
-
-function deleteEntrant(index) {
-    var vm = this;
-    vm.scoreboard.entrants.splice(index, 1);
-}
-
-function swapEntrants() {
-    var vm = this;
-    if (vm.scoreboard.entrants.length === 2) {
-        var e1 = _.clone(vm.scoreboard.entrants[0]);
-        var e2 = _.clone(vm.scoreboard.entrants[1]);
-
-        vm.scoreboard.entrants = [e2, e1];
-    }
-}
-
-function addCommentator() {
-    var vm = this;
-    vm.scoreboard.commentators.push(getEmptyCommentator());
-}
-
-function deleteCommentator(index) {
-    var vm = this;
-    vm.scoreboard.commentators.splice(index, 1);
-}
 </script>

@@ -2,7 +2,7 @@
     <div>
         <div class="actions">
             <button type="button" class="btn btn-success"
-                v-on:click="$emit('add')">
+                v-on:click="addCommentator()">
                 <i class="fa fa-plus"></i>
                 Add commentator</button>
         </div>
@@ -15,7 +15,7 @@
             <h4>
                 No commentators added.<br/>
                 Click
-                <a href @click.prevent="$emit('add')">here</a>
+                <a href @click.prevent="addCommentator()">here</a>
                 to add a commentator.</h4>
         </div>
 
@@ -28,7 +28,7 @@
                 <Commentator
                     v-bind:commentator="commentator"
                     v-bind:index="index"
-                    v-on:delete="$emit('delete', $event)"/>
+                    v-on:delete="deleteCommentator($event)"/>
             </div>
         </div>
     </div>
@@ -42,6 +42,30 @@ export default {
     props: ['commentators'],
     components: {
         Commentator
+    },
+    methods: {
+        getEmptyCommentator,
+        addCommentator,
+        deleteCommentator
+
     }
+}
+
+function getEmptyCommentator() {
+    return {
+        name: '',
+        handle: '',
+        enabled: true
+    };
+}
+
+function addCommentator() {
+    var vm = this;
+    vm.commentators.push(getEmptyCommentator());
+}
+
+function deleteCommentator(index) {
+    var vm = this;
+    vm.commentators.splice(index, 1);
 }
 </script>

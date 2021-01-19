@@ -1,12 +1,12 @@
 <template>
     <div>
         <div>
-            <button type="button" class="btn btn-success" @click="$emit('add')">
+            <button type="button" class="btn btn-success" @click="addEntrant()">
                 <i class="fa fa-plus"></i>
                 Add entrant
             </button>
 
-            <button type="button" class="btn btn-secondary" @click="$emit('swap')" v-if="entrants && entrants.length == 2">
+            <button type="button" class="btn btn-secondary" @click="swapEntrants()" v-if="entrants && entrants.length == 2">
                 <i class="fa fa-swap"></i>
                 Swap entrants 
             </button>
@@ -15,7 +15,7 @@
         <br/>
 
         <div class="jumbotron text-center" v-if="!entrants || entrants.length === 0">
-            <h4>No entrants added.<br/>Click <a href @click.prevent="$emit('add')">here</a> to add an entrant.</h4>
+            <h4>No entrants added.<br/>Click <a href @click.prevent="addEntrant()">here</a> to add an entrant.</h4>
         </div>
         
         <div class="row" v-if="entrants">
@@ -24,7 +24,7 @@
                     v-bind:entrant="entrant"
                     v-bind:index="index"
                     v-bind:game-config="gameConfig"
-                    v-on:delete="$emit('delete', $event)"/>
+                    v-on:delete="deleteEntrant()"/>
             </div>
         </div>
     </div>
@@ -38,6 +38,39 @@ export default {
     props: ['entrants', 'gameConfig'],
     components: {
         Entrant
+    },
+    methods: {
+        getEmptyEntrant,
+        addEntrant,
+        deleteEntrant,
+        swapEntrants
+    }
+}
+
+function addEntrant() {
+    const vm = this;
+    vm.entrants.push(vm.getEmptyEntrant());
+}
+
+function getEmptyEntrant() {
+    return {
+        name: '',
+        score: 0,
+        players: []
+    }
+}
+
+function deleteEntrant(index) {
+    var vm = this;
+    vm.entrants.splice(index, 1);
+}
+
+function swapEntrants() {
+    var vm = this;
+
+    if (vm.entrants.length === 2) {
+        const entrantsToSwap = [vm.entrants[0], vm.entrants[1]];
+        this.entrants.splice(0, 2, entrantsToSwap[1], entrantsToSwap[0]);
     }
 }
 
