@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2021-01-19)
+
+
+### Features
+
+* **client:** :sparkles: add auto update to smashgg queue ([b3a3a08](https://github.com/N0NamedGuy/scoreman/commit/b3a3a089b4da777949d8094d82cf620ac6ab90d4)), closes [#43](https://github.com/N0NamedGuy/scoreman/issues/43)
+
+
+
+
+
 ## 0.3.11 (2021-01-18)
 
 **Note:** Version bump only for package @scoreman/client
