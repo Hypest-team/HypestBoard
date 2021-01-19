@@ -2,7 +2,7 @@
 <div id="app">
     <div class="container-fluid">
         <h1>Scoreman admin page</h1>
-        <div class="row">
+        <div class="row" v-if="loaded">
             <div class="col-md-2">
                 <button class="btn btn-lg btn-primary"
                     v-on:click="updateScoreboard()">
@@ -13,12 +13,17 @@
                     v-on:load="updateTournamentData($event)"/>
             </div>
             <div class="col-md-10">
-                <div v-if="!scoreboard" class="text-center">
+                <Scoreboard v-if="scoreboard" v-model="scoreboard"
+                    v-bind:games="games"
+                    v-on:update="updateScoreboard()"/> 
+            </div>
+        </div>
+        <div class="row" v-if="!loaded">
+            <div class="col-md-12">
+                <div class="text-center">
                     <i class="fa fa-spin fa-refresh fa-4x"></i><br/>
                     Loading scoreboard, please wait
                 </div>
-                <Scoreboard v-if="scoreboard" v-model="scoreboard"
-                    v-on:update="updateScoreboard()"/> 
             </div>
         </div>
     </div>
@@ -41,7 +46,9 @@ export default {
     },
     data () {
         return {
-            scoreboard: null 
+            loaded: false,
+            scoreboard: null,
+            games: []
         }
     },
     mounted: onMounted,
@@ -54,11 +61,23 @@ export default {
 
 function onMounted() {
     var vm = this;
-    apiService.getScoreboard()
-        .then(scoreboard => {
-            vm.scoreboard = scoreboard;
-            return scoreboard;
-        });
+
+    Promise.all([
+        apiService.getScoreboard()
+            .then(scoreboard => {
+                vm.scoreboard = scoreboard;
+                return scoreboard;
+            }),
+    
+        apiService.getGames()
+            .then(games => {
+                vm.games = games;
+                return games;
+            })
+    ])
+    .finally(() => {
+        vm.loaded = true;
+    });
 
 }
 

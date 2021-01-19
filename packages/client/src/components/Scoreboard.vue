@@ -4,7 +4,7 @@
 
             <label>Game configuration</label>
 
-            <GameSelect v-model="scoreboard.game" />
+            <GameSelect v-model="scoreboard.game" v-bind:games="games" />
 
             <hr />
 
@@ -14,12 +14,11 @@
                 <br/>
 
                 <Entrants 
-                    v-bind:game-id="scoreboard.game.id"
+                    v-bind:game-config="scoreboard.game"
                     v-bind:entrants="scoreboard.entrants"
                     v-on:add="addEntrant()"
                     v-on:delete="deleteEntrant($event)"
-                    v-on:swap="swapEntrants()"
-                    v-on:reset="resetEntrants()"/>
+                    v-on:swap="swapEntrants()" />
             </details>
 
             <hr />
@@ -92,7 +91,8 @@ export default {
         scoreboard: {
             type: Object,
             default: null
-        }
+        },
+        games: null
     },
     components: {
         GameSelect,
@@ -106,36 +106,10 @@ export default {
         addEntrant,
         deleteEntrant,
         swapEntrants,
-        resetEntrants,
 
         addCommentator,
         deleteCommentator
     }
-}
-
-function getEmptyPlayer() {
-    return {
-        name: '',
-        character: {
-            id: '',
-            name: '',
-            color: null
-        },
-        country: {
-            name: '',
-            code: ''
-        },
-        sponsor: ''
-    };
-}
-
-function getEmptyEntrant(entrant) {
-    return {
-        name: '',
-        score: 0,
-        players: (entrant && entrant.players) ?
-            entrant.players.map(getEmptyPlayer) : []
-    };
 }
 
 function getEmptyCommentator() {
@@ -147,7 +121,7 @@ function getEmptyCommentator() {
 
 function addEntrant() {
     var vm = this;
-    vm.scoreboard.entrants.push(getEmptyEntrant());
+    vm.scoreboard.entrants.push(vm.getEmptyEntrant());
 }
 
 function deleteEntrant(index) {
@@ -163,11 +137,6 @@ function swapEntrants() {
 
         vm.scoreboard.entrants = [e2, e1];
     }
-}
-
-function resetEntrants() {
-    var vm = this;
-    vm.scoreboard.entrants = vm.scoreboard.entrants.map(getEmptyEntrant);
 }
 
 function addCommentator() {

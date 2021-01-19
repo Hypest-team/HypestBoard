@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="games">
         <select class="form-control"
             @input="onSelect($event)"
             v-model="selGame">
@@ -13,24 +13,22 @@
 </template>
 
 <script>
-import ApiService from '../services/ApiService';
-
-let apiService = ApiService();
 
 export default {
     name: 'GameSelect',
     data () {
         return {
-            games: null,
             selGame: null
         }
     },
     props: {
+        games: null,
         value: null
     },
     mounted: onMounted,
     watch: {
-        value: watchValue
+        value: watchValue,
+        games: watchGames
     },
     methods: {
         onSelect
@@ -42,10 +40,14 @@ function watchValue(newValue) {
     vm.selGame = newValue;
 }
 
+function watchGames(newGames) {
+    console.log(newGames, this.games)
+}
+
+
 function onMounted() {
     var vm = this;
     vm.selGame = vm.value;
-    loadGames(vm);
 }
 
 function onSelect(event) {
@@ -54,11 +56,4 @@ function onSelect(event) {
     vm.$emit('input', vm.selGame);
 }
 
-function loadGames(vm) {
-    apiService.getGames()
-        .then(games => {
-            vm.games = games;
-            return games;
-        });
-}
 </script>

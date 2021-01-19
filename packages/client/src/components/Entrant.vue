@@ -47,7 +47,7 @@
 
                         <Players
                             v-bind:players="entrant.players"
-                            v-bind:game-id="gameId"
+                            v-bind:game-config="gameConfig"
                             v-on:add="addPlayer()"
                             v-on:delete="deletePlayer($event)"
                             v-on:swap="swapPlayers()"/>
@@ -65,11 +65,12 @@ import _ from 'lodash';
 
 export default {
     name: 'Entrant',
-    props: ['entrant', 'index', 'gameId'],
+    props: ['entrant', 'index', 'gameConfig'],
     methods: {
         addPlayer,
         deletePlayer,
-        swapPlayers
+        swapPlayers,
+        getEmptyPlayer
     },
     components: {
         Players
@@ -77,23 +78,29 @@ export default {
 }
 
 function getEmptyPlayer() {
+    const vm = this;
+    const playerConfig = vm.gameConfig.players;
+    const statusTypes = playerConfig && playerConfig.statusTypes;
+
     return {
         name: '',
         character: {
             id: '',
-            name: ''
+            name: '',
+            color: null
         },
         country: {
             name: '',
             code: ''
         },
-        sponsor: ''
+        sponsor: '',
+        status: statusTypes && statusTypes[0]
     };
 }
 
 function addPlayer() {
     var vm = this;
-    vm.entrant.players.push(getEmptyPlayer());
+    vm.entrant.players.push(vm.getEmptyPlayer());
 }
 
 function deletePlayer(index) {

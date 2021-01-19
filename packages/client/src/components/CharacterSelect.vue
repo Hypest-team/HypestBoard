@@ -44,13 +44,13 @@ export default {
         }
     },
     props: {
-        gameId: null,
+        gameConfig: null,
         value: null
     },
     mounted: onMounted,
     watch: {
         value: watchValue,
-        gameId: watchGameId
+        gameConfig: watchGameConfig
     },
     methods: {
         onSelect,
@@ -67,39 +67,46 @@ function watchValue(newValue) {
     updateViewModel(vm, newValue);
 }
 
-function watchGameId(newValue) {
+function watchGameConfig(newValue) {
     var vm = this;
+    updateViewModel(vm, null);
     loadCharacters(newValue, vm);
 }
 
 function updateViewModel(vm, value) {
     let characters = vm.characters;
 
-    if (characters) {
+    if (characters && value) {
         let fullCharacter = characters.find(character => {
             return character.id === value.id;
         });
 
-        let colors = fullCharacter.colors;
-        vm.colors = colors;
+        if (fullCharacter) {
+            let colors = fullCharacter.colors;
+            vm.colors = colors;
+        }
 
     } else {
         vm.colors = null;
     }
 
     vm.selCharacter = _.clone(value);
-    if (!vm.selCharacter.color && vm.colors && vm.colors.length > 0) {
-        vm.selCharacter.color = vm.colors[0];
-    }
-    delete vm.selCharacter.colors;
+    if (vm.selCharacter) {
+        if (!vm.selCharacter.color && vm.colors && vm.colors.length > 0) {
+            vm.selCharacter.color = vm.colors[0];
+        }
+        delete vm.selCharacter.colors;
 
-    vm.characterId = vm.selCharacter.id;
+        vm.characterId = vm.selCharacter.id;
+    } else {
+        vm.characterId = null;
+    }
 }
 
 function onMounted() {
     var vm = this;
     updateViewModel(vm, vm.value);
-    loadCharacters(vm.gameId, vm);
+    loadCharacters(vm.gameConfig, vm);
 }
 
 function onSelect(event) {
@@ -111,7 +118,7 @@ function onSelect(event) {
 
 function getCharacterIcon() {
     var vm = this;
-    return `static/characters/${vm.gameId}/${vm.selCharacter.id}.png`;
+    return `static/characters/${vm.gameConfig.id}/${vm.selCharacter.id}.png`;
 }
 
 function updateColor(color) {
@@ -120,8 +127,8 @@ function updateColor(color) {
     vm.$emit('input', vm.selCharacter);
 }
 
-function loadCharacters(gameId, vm) {
-    apiService.getCharacters(gameId)
+function loadCharacters(gameConfig, vm) {
+    apiService.getCharacters(gameConfig.id)
         .then(characters => {
             vm.characters = characters;
             updateViewModel(vm, vm.selCharacter);

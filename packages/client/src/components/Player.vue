@@ -16,8 +16,15 @@
             </div>
 
             <div class="form-group">
+                <label>Status</label>
+                <PlayerStatusSelect
+                    v-bind:game-config="gameConfig"
+                    v-model="player.status" class="form-control" />
+            </div>
+
+            <div class="form-group">
                 <label>Character</label>
-                <CharacterSelect v-bind:game-id="gameId"
+                <CharacterSelect v-bind:game-config="gameConfig"
                     v-model="player.character"/>
             </div>
 
@@ -37,13 +44,15 @@
 <script>
 import CharacterSelect from './CharacterSelect';
 import CountrySelect from './CountrySelect';
+import PlayerStatusSelect from './PlayerStatusSelect';
 
 export default {
     name: 'Player',
-    props: ['player', 'index', 'gameId'],
+    props: ['player', 'index', 'gameConfig'],
     components: {
         CharacterSelect,
-        CountrySelect
+        CountrySelect,
+        PlayerStatusSelect
     }
 }
 </script>

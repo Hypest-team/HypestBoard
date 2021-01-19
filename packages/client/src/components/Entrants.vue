@@ -23,15 +23,9 @@
                 <Entrant 
                     v-bind:entrant="entrant"
                     v-bind:index="index"
-                    v-bind:game-id="gameId"
+                    v-bind:game-config="gameConfig"
                     v-on:delete="$emit('delete', $event)"/>
             </div>
-        </div>
-
-        <br/>
-
-        <div class="actions">
-            <button class="btn btn-secondary" @click="$emit('reset')">Reset form</button>
         </div>
     </div>
 </template>
@@ -41,7 +35,7 @@ import Entrant from './Entrant';
 
 export default {
     name: 'Entrants',
-    props: ['entrants', 'gameId'],
+    props: ['entrants', 'gameConfig'],
     components: {
         Entrant
     }

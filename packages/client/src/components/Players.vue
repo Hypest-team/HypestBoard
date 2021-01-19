@@ -24,7 +24,7 @@
                 <Player 
                     v-bind:player="player"
                     v-bind:index="index"
-                    v-bind:game-id="gameId"
+                    v-bind:game-config="gameConfig"
                     v-on:delete="$emit('delete', $event)"/>
             </div>
         </div>
@@ -36,7 +36,7 @@ import Player from './Player';
 
 export default {
     name: 'Players',
-    props: ['players', 'gameId'],
+    props: ['players', 'gameConfig'],
     components: {
         Player
     }
