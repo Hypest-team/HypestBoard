@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2021-01-19)
+
+
+### Features
+
+* **server:** :sparkles: add basic auth for posting scores ([1f57981](https://github.com/N0NamedGuy/scoreman/commit/1f57981705f6498643555d21c6d9a0594428d025)), closes [#37](https://github.com/N0NamedGuy/scoreman/issues/37)
+
+
+
+
+
 # 0.4.0 (2021-01-19)
 
 
