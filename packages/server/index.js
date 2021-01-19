@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./api/routes/index');
 const process = require('process');
+const passport = require('passport');
 
 let server;
 
@@ -18,9 +19,8 @@ function start({ altPort, appBasePath, hostname, baseUrl, useCors }) {
     }
 
     app.use(bodyParser.json());
-
+    app.use(passport.initialize());
     app.use(baseUrl || '', myRoutes);
-
     app.use(function (err, req, res, next) {
         let responseData;
 

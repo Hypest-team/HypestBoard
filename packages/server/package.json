@@ -29,6 +29,8 @@
     "express-jsonschema": "^1.1.6",
     "lodash": "^4.17.20",
     "node-fetch": "^2.1.2",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
     "scoreman-overlay-melee-dark": "^1.2.0",
     "serve-index": "^1.9.1",
     "yargs": "^16.2.0"

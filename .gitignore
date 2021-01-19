@@ -64,3 +64,4 @@ typings/
 packages/*-old
 packages/server/scoreboard-data.json
 packages/standalone/scoreboard-data.json
+packages/server/data/users.json
