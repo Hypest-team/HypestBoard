@@ -72,7 +72,19 @@
                 },
                 "country": {
                     "$ref": "#/definitions/country"
+                },
+                "status": {
+                    "$ref": "#/definitions/playerStatus"
                 }
+            },
+            "additionalProperties": false
+        },
+
+        "playerStatus": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" }
             },
             "additionalProperties": false
         },

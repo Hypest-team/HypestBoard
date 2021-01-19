@@ -21,6 +21,18 @@
             "players": 5,
             "score": 20
         }
+    },
+    "players": {
+        "statusTypes": [{
+            "id": "playing",
+            "name": "Playing"
+        }, {
+            "id": "waiting",
+            "name": "Waiting to play"
+        }, {
+            "id": "eliminated",
+            "name": "Eliminated"
+        }]
     }
   },
 
