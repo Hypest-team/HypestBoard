@@ -33,6 +33,18 @@
                 <button type="submit" class="btn btn-primary">
                     Get queues
                 </button>
+                <div class="form-group form-check">
+                    <input type="checkbox"
+                        class="form-check-input"
+                        id="gg-autorefresh"
+                        v-model="autoUpdate"
+                        v-on:change.prevent="onAutoUpdateChange()">
+                    <label class="form-check-label" for="gg-autorefresh">Refresh automatically</label>
+                </div>
+                <small v-if="updateDate">
+                    Last updated:
+                    <strong>{{ updateDate | date }}</strong>
+                </small>
             </div>
         </form>
 
@@ -74,44 +86,85 @@
 </template>
 
 <script>
-
-import SmashGgService from '../services/SmashGgService';
+import SmashGgService from "../services/SmashGgService";
 
 let smashGgService = SmashGgService();
 
 export default {
-    name: 'SmashGgQueue',
-    data () {
+    name: "SmashGgQueue",
+    data() {
         return {
-            tournamentSlug: '', 
+            tournamentSlug: "",
             apiKey: localStorage.smashGgApiKey,
             tournament: null,
-            expanded: true
-        }
+            expanded: true,
+            autoUpdate: true,
+            autoUpdateTimer: null,
+            updateDate: null
+        };
     },
     methods: {
         loadTournament,
-        selectSet
-    }
-}
+        loadQueues,
+        selectSet,
+        onAutoUpdateChange
+    },
+};
+
+const AUTO_UPDATE_MS = 10000;
 
 function loadTournament() {
     var vm = this;
 
-    localStorage.smashGgApiKey = vm.apiKey;
+    return vm.loadQueues()
+        .then((response) => {
+            vm.expanded = false;
+            vm.onAutoUpdateChange(true);
+            vm.$emit("load", { isSmashGg: true, ...response });
+        });
+}
 
-    return smashGgService.getTournamentQueue(vm.tournamentSlug, vm.apiKey)
+async function loadQueues() {
+    var vm = this;
+
+    return smashGgService
+        .getTournamentQueue(vm.tournamentSlug, vm.apiKey)
         .then((response) => {
             vm.tournament = response;
-            vm.expanded = false;
-            vm.$emit('load', {isSmashGg: true, ...response});
+            vm.updateDate = new Date();
         });
 }
 
 function selectSet(set) {
     const vm = this;
-    vm.$emit('select', {isSmashGg: true, ...set})
+    vm.$emit("select", { isSmashGg: true, ...set });
 }
 
+async function onAutoUpdateChange(skipFirstLoad) {
+    const vm = this;
+
+    if (!vm.tournament) {
+        return;
+    }
+
+    window.clearTimeout(vm.autoUpdateTimer);
+
+    if (vm.autoUpdate) {
+        const doUpdate = async () => {
+            if (skipFirstLoad) {
+                skipFirstLoad = false;
+            } else {
+                try {
+                    await vm.loadQueues();
+                } catch (e) {
+                    console.log('Failure in loading queue');
+                }
+            }
+            vm.autoUpdateTimer = window.setTimeout(() => doUpdate(), AUTO_UPDATE_MS);
+        };
+
+        doUpdate();
+    }
+}
 
 </script>

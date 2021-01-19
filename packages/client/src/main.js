@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import axios from 'axios';
+import { DateFilter } from './filters/DateFilter';
 
 axios.defaults.baseURL = location.pathname;
 
@@ -11,6 +12,8 @@ import 'font-awesome/css/font-awesome.css';
 import 'flag-icon-css/css/flag-icon.css';
 
 Vue.config.productionTip = false
+
+DateFilter(Vue);
 
 /* eslint-disable no-new */
 new Vue({
