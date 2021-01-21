@@ -165,11 +165,7 @@ function convertGgParticipantToPlayer(ggParticipant) {
 }
 
 function convertGgLocationToCountry(ggCountry) {
-    if (ggCountry) {
-        return findCountryByName(ggCountry.country);
-    } else {
-        return null;
-    }
+    return ggCountry ? findCountryByName(ggCountry.country) : null
 }
 
 module.exports = {
