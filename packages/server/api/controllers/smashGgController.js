@@ -88,12 +88,12 @@ async function getTournamentQueue(req, res, next) {
         const ggStreamQueue = ggStreamQueues ? ggTournament.streamQueue[0] : null;
 
         if (ggStreamQueue) {
-        const response = {
-            tournamentName: ggTournament.name || '',
-            streamer: ggStreamQueue.stream.streamName || '',
-            sets: ggStreamQueue.sets.map(convertGgSet)
-        }
-
+            const response = {
+                tournamentName: ggTournament.name || '',
+                streamer: ggStreamQueue.stream.streamName || '',
+                sets: ggStreamQueue.sets.map(convertGgSet)
+            }
+    
             res.json(response)
                 .end();
 
@@ -165,7 +165,11 @@ function convertGgParticipantToPlayer(ggParticipant) {
 }
 
 function convertGgLocationToCountry(ggCountry) {
-    return findCountryByName(ggCountry.country);
+    if (ggCountry) {
+        return findCountryByName(ggCountry.country);
+    } else {
+        return null;
+    }
 }
 
 module.exports = {
