@@ -84,17 +84,31 @@ async function getTournamentQueue(req, res, next) {
         const ggTournament = ggTournamentData.tournament;
 
         // FIXME: support multiple stream queues
-        const ggStreamQueue = ggTournament.streamQueue[0];
+        const ggStreamQueues = ggTournament.streamQueue;
+        const ggStreamQueue = ggStreamQueues ? ggTournament.streamQueue[0] : null;
 
+        if (ggStreamQueue) {
         const response = {
             tournamentName: ggTournament.name || '',
             streamer: ggStreamQueue.stream.streamName || '',
             sets: ggStreamQueue.sets.map(convertGgSet)
         }
 
-        res.json(response);
+            res.json(response)
+                .end();
+
+        } else {
+            const message = `No smashgg streams were added. Slug ${tournamentSlug}`;
+            res.status(404)
+                .json({
+                    message
+                })
+                .end();
+            console.error(message);
+        }
+
     } catch (e) {
-        console.log('Error on smashgg tournament request', e);
+        console.log(`Error on smashgg tournament request. Slug: ${tournamentSlug}`, e);
         res.status(406).send('Not Acceptable');
     }
 }
