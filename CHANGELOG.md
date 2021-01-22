@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.3 (2021-01-22)
+
+
+### Bug Fixes
+
+* **client:** :ambulance: fix data flow that lead to inconsistent states ([3894f83](https://github.com/N0NamedGuy/scoreman/commit/3894f834fddad84e407c7f8a36bf2846b3b4637e)), closes [#55](https://github.com/N0NamedGuy/scoreman/issues/55)
+
+
+
+
+
 ## 0.5.2 (2021-01-20)
 
 **Note:** Version bump only for package @scoreman/scoreman
