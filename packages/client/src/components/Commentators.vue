@@ -2,13 +2,13 @@
     <div>
         <div class="actions">
             <button type="button" class="btn btn-success"
-                v-on:click="addCommentator()">
+                @click="addCommentator()">
                 <i class="fa fa-plus"></i>
-                Add commentator</button>
+                Add commentator
+            </button>
         </div>
 
         <br/>
-
 
         <div class="jumbotron text-center"
             v-if="!commentators || commentators.length === 0">
@@ -26,9 +26,9 @@
                 :key="index"
                 class="col-4">
                 <Commentator
-                    v-bind:commentator="commentator"
+                    v-model="commentators[index]"
                     v-bind:index="index"
-                    v-on:delete="deleteCommentator($event)"/>
+                    @delete="deleteCommentator($event)"/>
             </div>
         </div>
     </div>
@@ -40,6 +40,9 @@ import Commentator from './Commentator';
 export default {
     name: 'Commentators',
     props: ['commentators'],
+    model: {
+        prop: 'commentators'
+    },
     components: {
         Commentator
     },
@@ -47,7 +50,6 @@ export default {
         getEmptyCommentator,
         addCommentator,
         deleteCommentator
-
     }
 }
 

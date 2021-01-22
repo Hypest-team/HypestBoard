@@ -1,19 +1,19 @@
 <template>
-    <div>
+    <div v-if="colors">
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text">
-                    <span v-if="!selColor || !selColor.hex">?</span>
-                    <span v-if="selColor" class="color"
-                        :style="getColorStyle(selColor)"></span>
+                    <span v-if="!color || !color.hex">?</span>
+                    <span v-if="color" class="color"
+                        :style="getColorStyle(color)"></span>
                 </div>
             </div>
             <select class="form-control"
-                @input="onSelect($event)"
-                v-model="selColor">
+                @change="onSelect($event)"
+                v-model="selColorId">
                 <option v-for="(color, index) in colors"
-                    v-bind:value="color"
-                    v-bind:key="index">
+                    :value="color.id"
+                    :key="index">
                     {{ color.name }}
                 </option>
             </select>
@@ -24,50 +24,27 @@
 <script>
 export default {
     name: 'ColorSelect',
-    data () {
-        return {
-            selColor: null
-        }
-    },
-    props: {
-        colors: {
-            type: Array,
-            default () {
-                return [];
-            }
-        },
-        value: null
-    },
+    data: () => ({
+        selColorId: ''
+    }),
     watch: {
-        value: watchValue,
-        colors: watchColors
+        color: watchColor
     },
-    mounted: onMounted,
+    model: {
+        prop: 'color'
+    },
+    props: ['colors', 'color'],
     methods: {
         onSelect,
         getColorStyle
-    }
-}
-
-function watchValue(newValue) {
-    var vm = this;
-    vm.selColor = newValue;
-}
-
-function watchColors() {
-    var vm = this;
-    vm.selColor = vm.value;
-}
-
-function onMounted() {
-    var vm = this;
-    vm.selColor = vm.value;
+    },
+    mounted: onMount
 }
 
 function onSelect(event) {
-    var vm = this;
-    vm.selColor = vm.colors[event.target.selectedIndex];
-    vm.$emit('input', vm.selColor);
+    const vm = this;
+    const selColor = vm.colors[event.target.selectedIndex];
+    vm.$emit('input', selColor);
 }
 
 function getColorStyle(color) {
@@ -76,6 +53,16 @@ function getColorStyle(color) {
     } else {
         return '';
     }
+}
+
+function watchColor(color) {
+    const vm = this;
+    vm.selColorId = color.id;
+}
+
+function onMount() {
+    const vm = this;
+    vm.selColorId = vm.color ? vm.color.id : null;
 }
 
 </script>

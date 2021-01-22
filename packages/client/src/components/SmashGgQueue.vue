@@ -157,7 +157,8 @@ async function onAutoUpdateChange(skipFirstLoad) {
                 try {
                     await vm.loadQueues();
                 } catch (e) {
-                    console.log('Failure in loading queue');
+                    // TODO: show something nicer!
+                    console.error('Failure in loading queue');
                 }
             }
             vm.autoUpdateTimer = window.setTimeout(() => doUpdate(), AUTO_UPDATE_MS);

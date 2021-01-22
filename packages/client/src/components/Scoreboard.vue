@@ -49,9 +49,7 @@
                 <br/>
 
                 <Commentators 
-                    v-bind:commentators="scoreboard.commentators"
-                    v-on:add="addCommentator()"
-                    v-on:delete="deleteCommentator($event)" />
+                    v-model="scoreboard.commentators" />
             </details>
 
             <hr />

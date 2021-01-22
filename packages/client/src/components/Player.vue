@@ -76,17 +76,20 @@ function playerHasStatus() {
     return gameHasStatusTypes(vm.gameConfig);
 }
 
-function watchGameConfig(newGameConfig) {
+function watchGameConfig(newGameConfig, oldGameConfig) {
     const vm = this;
-    if (!gameHasStatusTypes(newGameConfig)) {
-        Vue.delete(vm.player, 'status');
-    } else {
-        Vue.set(vm.player, 'status', newGameConfig.players.statusTypes[0]);
-    }
 
-    Vue.set(vm.player, 'character', {
-        name: '',
-        id: ''
-    })
+    if (newGameConfig.id !== oldGameConfig.id) {
+        if (!gameHasStatusTypes(newGameConfig)) {
+            Vue.delete(vm.player, 'status');
+        } else {
+            Vue.set(vm.player, 'status', newGameConfig.players.statusTypes[0]);
+        }
+
+        Vue.set(vm.player, 'character', {
+            name: '',
+            id: ''
+        });
+    }
 }
 </script>

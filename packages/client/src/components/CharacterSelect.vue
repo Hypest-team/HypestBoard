@@ -1,27 +1,31 @@
 <template>
     <div>
-        <div class="input-group">
+        <div v-if="loading">
+            Loading character
+            <i class="fa fa-spin fa-spinner" />
+        </div>
+        <div class="input-group" v-if="!loading && character">
             <div class="input-group-prepend">
                 <div class="input-group-text">
                     <img v-bind:src="getCharacterIcon()" height="24"
-                        v-if="selCharacter && selCharacter.id" />
-                    <span v-if="!selCharacter || !selCharacter.id">?</span>
+                        v-if="character && character.id" />
+                    <span v-if="!character || !character.id">?</span>
                 </div>
             </div>
             <select class="form-control"
-                    @input="onSelect($event)"
-                    v-model="characterId">
+                v-model="characterId"
+                @change="onSelect($event)">
                 <option v-for="(character, index) in characters"
-                    v-bind:value="character.id"
-                    v-bind:key="index">
+                    :value="character.id"
+                    :key="index">
                     {{ character.name }}
                 </option>
             </select>
         </div>
 
-        <ColorSelect v-if="selCharacter && colors"
+        <ColorSelect v-if="character && colors"
             :colors="colors"
-            v-model="selCharacter.color"
+            v-model="character.color"
             @input="updateColor($event)" />
     </div>
 </template>
@@ -37,102 +41,121 @@ export default {
     name: 'CharacterSelect',
     data () {
         return {
+            characterIcon: null,
             characters: null,
-            characterId: null,
-            selCharacter: null,
-            colors: []
+            characterId: 'falcon',
+            colors: [],
+            loading: true
         }
     },
-    props: {
-        gameConfig: null,
-        value: null
+    model: {
+        prop: 'character'
     },
+    props: ['gameConfig', 'character'],
     mounted: onMounted,
     watch: {
-        value: watchValue,
-        gameConfig: watchGameConfig
+        gameConfig: watchGameConfig,
+        character: watchCharacter
     },
     methods: {
         onSelect,
         getCharacterIcon,
-        updateColor
+        getColors,
+        updateColor,
+        updateCharacter,
+        loadCharacters
     },
     components: {
         ColorSelect
     }
 }
 
-function watchValue(newValue) {
-    var vm = this;
-    updateViewModel(vm, newValue);
+async function watchGameConfig(newConfig, oldConfig) {
+    const vm = this;
+    if (newConfig.id !== oldConfig.id) {
+        vm.characters = await vm.loadCharacters();
+        if (vm.characters) {
+            const firstChar = _.clone(vm.characters[0]);
+            vm.updateCharacter(firstChar);
+            vm.$emit('input', firstChar);
+        } else {
+            vm.$emit('input', null);
+        }
+    }
 }
 
-function watchGameConfig(newValue) {
-    var vm = this;
-    updateViewModel(vm, null);
-    loadCharacters(newValue, vm);
+function watchCharacter(newChar) {
+    const vm = this;
+    vm.updateCharacter(newChar);
 }
 
-function updateViewModel(vm, value) {
-    let characters = vm.characters;
+function updateCharacter() {
+    const vm = this;
 
-    if (characters && value) {
-        let fullCharacter = characters.find(character => {
-            return character.id === value.id;
+    if (vm.character) {
+        vm.colors = vm.getColors(vm.character);
+
+        if (!vm.character.color &&
+            vm.colors && vm.colors.length > 0) {
+            vm.character.color = Object.assign({}, vm.colors[0]);
+        } else if (!vm.colors) {
+            vm.character.color = null;
+        }
+
+        vm.characterId = vm.character.id;
+    } else {
+        vm.characterId = '';
+    }
+}
+
+function getColors(char) {
+    const vm = this;
+
+    if (char) {
+        const fullCharacter = vm.characters.find(character => {
+            return character.id === char.id;
         });
 
         if (fullCharacter) {
-            let colors = fullCharacter.colors;
-            vm.colors = colors;
+            return fullCharacter.colors;
         }
-
-    } else {
-        vm.colors = null;
     }
 
-    vm.selCharacter = _.clone(value);
-    if (vm.selCharacter) {
-        if (!vm.selCharacter.color && vm.colors && vm.colors.length > 0) {
-            vm.selCharacter.color = vm.colors[0];
-        }
-        delete vm.selCharacter.colors;
-
-        vm.characterId = vm.selCharacter.id;
-    } else {
-        vm.characterId = null;
-    }
+    return null;
 }
 
-function onMounted() {
-    var vm = this;
-    updateViewModel(vm, vm.value);
-    loadCharacters(vm.gameConfig, vm);
+async function onMounted() {
+    const vm = this;
+    vm.characters = await vm.loadCharacters();
+    vm.updateCharacter();
 }
 
-function onSelect(event) {
-    var vm = this;
-    var selCharacter = vm.characters[event.target.selectedIndex];
-    updateViewModel(vm, selCharacter);
-    vm.$emit('input', vm.selCharacter);
+function onSelect($event) {
+    const vm = this;
+    const charId = $event.target.value;
+    const selected = _.clone(vm.characters.find((char) => char.id === charId));
+    
+    delete selected.colors;
+
+    vm.$emit('input', selected);
 }
 
 function getCharacterIcon() {
-    var vm = this;
-    return `static/characters/${vm.gameConfig.id}/${vm.selCharacter.id}.png`;
+    const vm = this;
+    return `static/characters/${vm.gameConfig.id}/${vm.character.id}.png`;
 }
 
 function updateColor(color) {
-    var vm = this;
-    vm.selCharacter.color = color;
-    vm.$emit('input', vm.selCharacter);
+    const vm = this;
+    vm.character.color = color;
+    vm.$emit('input', vm.character);
 }
 
-function loadCharacters(gameConfig, vm) {
-    apiService.getCharacters(gameConfig.id)
-        .then(characters => {
-            vm.characters = characters;
-            updateViewModel(vm, vm.selCharacter);
-            return characters;
-        });
+async function loadCharacters() {
+    const vm = this;
+    vm.loading = true;
+    const chars = await apiService.getCharacters(vm.gameConfig.id);
+    vm.loading = false;
+    return chars;
 }
 </script>

@@ -3,7 +3,7 @@
         <div class="card-header">
             <button type="button"
                 class="btn btn-danger btn-sm pull-right"
-                v-on:click="$emit('delete', index)"
+                @click="$emit('delete', index)"
                 title="Remove commentator">
                 <i class="fa fa-times"></i>
             </button>
@@ -13,9 +13,10 @@
             <div class="form-group form-check">
                 <input type="checkbox"
                     class="form-check-input"
-                    id="commentator-enabled"
+                    :id="`commentator-enabled-${index}`"
                     v-model="commentator.enabled">
-                <label class="form-check-label" for="commentator-enabled">
+                <label class="form-check-label"
+                    :for="`commentator-enabled-${index}`">
                     Enabled
                 </label>
             </div>
@@ -34,6 +35,9 @@
 <script>
 export default {
     name: 'Commentator',
-    props: ['commentator', 'index']
+    props: ['commentator', 'index'],
+    model: {
+        prop: 'commentator'
+    }
 }
 </script>

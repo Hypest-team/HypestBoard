@@ -27,8 +27,7 @@ export default {
     },
     mounted: onMounted,
     watch: {
-        value: watchValue,
-        games: watchGames
+        value: watchValue
     },
     methods: {
         onSelect
@@ -40,19 +39,18 @@ function watchValue(newValue) {
     vm.selGame = newValue;
 }
 
-function watchGames(newGames) {
-    console.log(newGames, this.games)
-}
-
-
 function onMounted() {
     var vm = this;
     vm.selGame = vm.value;
+
+    if (!vm.value && vm.games && vm.games.length > 0) {
+        vm.$emit('input', vm.games[0]);
+    }
 }
 
 function onSelect(event) {
     var vm = this;
-    vm.selGame = vm.games[event.target.selectedIndex];
+    vm.selGame = Object.assing({}, vm.games[event.target.selectedIndex]);
     vm.$emit('input', vm.selGame);
 }
 
