@@ -33,18 +33,19 @@ After opening the application:
 * On OBS create a Browser Source, and use that link you have copied to your clipboard.
   - Be sure to set the **width** and the **height** to the size of your OBS canvas (usually 1280x720 or 1920x1080)
   - Carefully adjust the FPS as well, as to save CPU. If the overlay you have chosen doesn't have the need for fluid/smooth animations setting FPS to 30 or below should suffice
-* Add the remainig sources, like window or video captures.
+* Add the remaining sources, like window or video captures.
 
-Keep in mind that once you close the app, all the data there will be lost, and OBS won't be able to display the overlay.
+Keep in mind that if you close the app, OBS won't be able to update the overlay.
 
-Whenever you set scores and other metadata on **scoreman**'s admin page, don't forget to press
-the **Update** button
+> :warn: Whenever you set scores and other metadata on **scoreman**'s admin page, don't forget to press
+> the **Update** button
 
 # Documentation
 
 For more information on how to develop and interface with **scoreman** check out the documentation:
 * [Scoreman API](docs/api.md)
 * [Overlay packs](docs/overlays.md)
+
 
 # Building
 
@@ -80,7 +81,7 @@ Finally, we are good to go to launch the application!
 
 To launch **scoreman** just run
 ```
-npx scoreman
+npx scoreman-server
 ```
 
 ### Standalone mode
