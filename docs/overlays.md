@@ -51,9 +51,9 @@ Everything inside this path is browsable on a browser, and served a static files
 
 The ```overlay-pack-name``` is assigned following these rules:
 
-* if the pack has a package.json (for npm downloaded overlays packs), the package
-* name will be its npm package name
-* if not, it will be named ```ext-<overlay-pack-folder>``
+* if the pack has a package.json (for npm downloaded overlays packs),
+  - the package name will be its npm package name
+  - if not, it will be named ```ext-<overlay-pack-folder>``
 
 
 ## Creating overlays
