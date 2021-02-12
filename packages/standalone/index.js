@@ -1,11 +1,18 @@
 const { app, BrowserWindow } = require('electron');
 
+const { autoUpdater } = require('electron-updater')
+
 const { start: startServer, stop: stopServer } = require('@scoreman/server');
 
 const process = require('process');
 
 const SERVER_PORT = process.env.PORT || 3000;
 
+
+// Auto updates
+autoUpdater.logger = require('electron-log');
+autoUpdater.logger.transports.file.level = 'info';
+autoUpdater.checkForUpdatesAndNotify();
 
 function createWindow() {
     // Create the browser window.
