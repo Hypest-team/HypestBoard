@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/ScoremanOrg/scoreman/compare/v0.5.3...v0.6.0) (2021-02-12)
+
+
+### Features
+
+* :sparkles: auto updates ([6de3e12](https://github.com/ScoremanOrg/scoreman/commit/6de3e12b8844921e301c5074586d383cd85ca36a))
+
+
+
+
+
 ## 0.5.3 (2021-01-22)
 
 
