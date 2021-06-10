@@ -31,10 +31,10 @@
     global-agent "^2.0.2"
     global-tunnel-ng "^2.7.1"
 
-"@scoreman/client@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@scoreman/client/-/client-0.5.3.tgz#009684080cfedf02e98e8999519a00569b3307d6"
-  integrity sha512-rcQ0hej80Gh9KDYiXxv9xb7XHNEu44WR6qafXxuKmMTJYkRvN07pzwHFnzeq9OBecmlb3VWE52LD9cFph6H2jw==
+"@scoreman/client@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@scoreman/client/-/client-0.6.0.tgz#44e1344fe5e90c174dca3f17dd60ce82017fb944"
+  integrity sha512-yuZOCZnzZDeV2pK83+e7KDIwj0BHn1AHHzv1rcAK9OWLxQ5DkztKdUhWR4PUM8eyhxsaPctHGgzgtW/3nUHEMg==
   dependencies:
     core-js "^3.6.4"
     vue "^2.6.11"
@@ -48,12 +48,12 @@
     font-awesome "^4.7.0"
     lodash "^4.17.15"
 
-"@scoreman/server@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@scoreman/server/-/server-0.5.3.tgz#33567052f55183eb3326299d77debcd4abb70f6c"
-  integrity sha512-fE/rhZcpQDucywvt1Z9AKDEXTjfPh7zk2CIIbA3P2IkGNbA6Wg2B8RsUIhm4o++dGRLeJpBgDIqilLOHKJz0uw==
+"@scoreman/server@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@scoreman/server/-/server-0.6.0.tgz#0938dcee9a8c3dc21027faa10e091d2f926dafb9"
+  integrity sha512-QhVbcdAtQSWyqp+lSrsTIvslwen1nOIZcYVhOwfBav0z7frh0troS3MWhiDddR44wkqxfKPVgAThvQO4IbeMMw==
   dependencies:
-    "@scoreman/client" "^0.5.3"
+    "@scoreman/client" "^0.6.0"
     axios "^0.21.1"
     body-parser "^1.18.3"
     cors "^2.8.5"
@@ -1368,9 +1368,9 @@ normalize-package-data@^2.5.0:
     validate-npm-package-license "^3.0.1"
 
 normalize-url@^4.1.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
-  integrity sha512-2s47yzUxdexf1OhyRi4Em83iQk0aPvwTddtFz4hnSSw9dCEsLEGf6SwIO8ss/19S9iBb5sJaOuTvTGDeZI00BQ==
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.1.tgz#0dd90cf1288ee1d1313b87081c9a5932ee48518a"
+  integrity sha512-9UZCFRHQdNrfTpGg8+1INIg93B6zE0aXMVFkw1WFwvO4SlZywU6aLg5Of0Ap/PgcbSw4LNxvMWXMeugwMCX0AA==
 
 npm-conf@^1.1.3:
   version "1.1.3"
