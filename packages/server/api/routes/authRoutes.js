@@ -20,22 +20,23 @@ try {
     authData = null;
 }
 
-passport.use(new BasicStrategy(
-    (username, password, done) => {
-        if (!authData) {
-            return done(null, {});
+if (authData) {
+    passport.use(new BasicStrategy(
+        (username, password, done) => {
+            if (!authData) {
+                return done(null, {});
+            }
+
+            const user = authData[username];
+
+            if (!user || (user.password !== password)) {
+                console.error('Login failure', { username })
+                return done(null, false);
+            }
+
+            return done(null, user);
         }
-
-        const user = authData[username];
-
-        if (!user || (user.password !== password)) {
-            console.error('Login failure', { username })
-            return done(null, false);
-        }
-
-        return done(null, user);
-    }
-));
-
+    ));
+}
 
 module.exports = routes;

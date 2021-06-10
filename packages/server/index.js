@@ -7,11 +7,11 @@ const passport = require('passport');
 
 let server;
 
-function start({ altPort, appBasePath, hostname, baseUrl, useCors }) {
+function start({ altPort, appBasePath, hostname, baseUrl, useCors, skipAuth }) {
     const app = express();
     const port = altPort || process.env.PORT || 3000;
 
-    const myRoutes = routes(appBasePath, hostname, port, baseUrl);
+    const myRoutes = routes(appBasePath, hostname, port, baseUrl, skipAuth);
 
     if (useCors) {
         console.log('CORS is enabled');
@@ -64,6 +64,7 @@ if (require.main === module) {
     const altPort = argv.port || 3000;
     const hostname = argv.hostname || 'localhost';
     const useCors = !!argv.cors || false;
+    const skipAuth = !!argv.skipAuth || false;
 
     if (baseUrl && !baseUrl.startsWith('/')) {
         baseUrl = `/${baseUrl}`;
@@ -74,6 +75,7 @@ if (require.main === module) {
         hostname,
         baseUrl,
         altPort,
-        useCors
+        useCors,
+        skipAuth
     });
 }
