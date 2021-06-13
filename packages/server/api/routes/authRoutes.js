@@ -18,25 +18,24 @@ try {
 } catch (e) {
     authFile = null;
     authData = null;
+    console.warn('Authentication file not found... Looked at ', authFilePath);
 }
 
-if (authData) {
-    passport.use(new BasicStrategy(
-        (username, password, done) => {
-            if (!authData) {
-                return done(null, {});
-            }
-
-            const user = authData[username];
-
-            if (!user || (user.password !== password)) {
-                console.error('Login failure', { username })
-                return done(null, false);
-            }
-
-            return done(null, user);
+passport.use(new BasicStrategy(
+    (username, password, done) => {
+        if (!authData) {
+            return done(null, {});
         }
-    ));
-}
+
+        const user = authData[username];
+
+        if (!user || (user.password !== password)) {
+            console.error('Login failure', { username })
+            return done(null, false);
+        }
+
+        return done(null, user);
+    }
+));
 
 module.exports = routes;
