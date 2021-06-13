@@ -7,12 +7,11 @@ const {
 } = require('../controllers/overlaysController');
 const express = require('express');
 const serveIndex = require('serve-index');
-const fs = require('fs');
 path = require('path');
 
 const routes = express.Router();
 
-module.exports = (appBasePath, baseUrl) => {
+module.exports = ({appBasePath, baseUrl}) => {
     routes.route(['/', '/manifest.json'])
         .get(getManifest(appBasePath, baseUrl));
 
