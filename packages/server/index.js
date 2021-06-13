@@ -11,7 +11,13 @@ function start({ altPort, appBasePath, hostname, baseUrl, useCors, skipAuth }) {
     const app = express();
     const port = altPort || process.env.PORT || 3000;
 
-    const myRoutes = routes(appBasePath, hostname, port, baseUrl, skipAuth);
+    const myRoutes = routes({
+        appBasePath,
+        appHostName: hostname,
+        appPort: port,
+        baseUrl,
+        skipAuth
+    });
 
     if (useCors) {
         console.log('CORS is enabled');
