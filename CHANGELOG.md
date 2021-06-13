@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/N0NamedGuy/scoreman/compare/v0.6.1...v0.6.2) (2021-06-13)
+
+
+### Bug Fixes
+
+* :ambulance: add skipAuth argument ([cdd34a8](https://github.com/N0NamedGuy/scoreman/commit/cdd34a85a927c8f5a442c90c9c7d349ccf136b7f)), closes [#89](https://github.com/N0NamedGuy/scoreman/issues/89)
+* :recycle: add warning when auth file is not found ([4d12ddd](https://github.com/N0NamedGuy/scoreman/commit/4d12ddd40f60614893a25486f611bb93fa708fee))
+* :sparkles: fix returning 401 when POSTing scores ([78f4030](https://github.com/N0NamedGuy/scoreman/commit/78f403086143e7db486f43be11ff14cae336bebf)), closes [#89](https://github.com/N0NamedGuy/scoreman/issues/89)
+
+
+
+# 0.6.0 (2021-02-12)
+
+
+
+
+
 ## [0.6.1](https://github.com/N0NamedGuy/scoreman/compare/v0.6.0...v0.6.1) (2021-06-10)
 
 **Note:** Version bump only for package @scoreman/scoreman
