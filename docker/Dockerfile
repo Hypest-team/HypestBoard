@@ -14,5 +14,5 @@ RUN yarn workspace @scoreman/client build
 
 EXPOSE 3000
 
-CMD yarn workspace @scoreman/server run start --baseUrl=/scoreman --useCors=true
+CMD yarn workspace @scoreman/server run start --baseUrl=$SCOREMAN_BASEURL --port=$SCOREMAN_PORT --hostname=$SCOREMAN_HOSTNAME --useCors=true --skipAuth=$SCOREMAN_SKIPAUTH
 
